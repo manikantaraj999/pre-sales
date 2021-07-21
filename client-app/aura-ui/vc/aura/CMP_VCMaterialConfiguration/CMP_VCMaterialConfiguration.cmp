@@ -1,0 +1,137 @@
+<aura:component controller="CTRL_VCMaterialConfiguration" description="CMP_VCMaterialConfiguration" 
+    access="global" implements="lightning:availableForFlowScreens">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isLightningFlow" type="Boolean" default="true"/>
+    <aura:attribute name="itemNumber" type="String"/>
+    <aura:attribute name="materialId" type="String" access="global" />
+    <aura:attribute name="reconfiguredValues" type="DS_VCCharacteristicValues[]" />
+    <aura:attribute name="isReconfigure" type="Boolean" />
+    <aura:attribute name="model" type="DS_VCMaterialConfiguration" />
+    <aura:attribute name="busy" type="Boolean" default="false" />
+    <aura:attribute name="expandTitle" type="String" default="Collapse All Sections" />
+    <aura:attribute name="expandIcon" type="String" default="utility:arrowup" />
+    <aura:attribute name="allExpanded" type="Boolean" default="true" />
+    <aura:attribute name="characteristicInputs" type="Aura.Component[]" />
+    <aura:attribute name="configValid" type="Boolean" default="false" />
+    <aura:attribute name="allowFinalize" type="Boolean" default="false" />
+    <aura:attribute name="allowCancel" type="Boolean" default="true" />
+    <aura:attribute name="showClear" type="Boolean" default="false" />
+    <aura:attribute name="showSettings" type="Boolean" default="false" />
+    <aura:attribute name="canChangeSettings" type="Boolean" default="false" />
+    <aura:attribute name="vcSettings" type="ENSX_VCSettings" />
+    <aura:attribute name="variants" type="ENSX_VCMaterialVariant[]" />
+    <aura:attribute name="selectedVariant" type="String" />
+    <aura:attribute name="selectedValues" type="Map" />
+    <aura:attribute name="headerJSON" type="String" access="global"/>
+    <aura:attribute name="itemJSON" type="String" access="global"/>
+    <aura:attribute name="simulateAddedItems" type="Boolean" default="false" access="global"/>
+    <aura:attribute name="addedItemsJSON" type="String" access="global"/>
+    <aura:attribute name="quoteId" type="String" access="global"/>
+    <aura:attribute name="configComplete" type="Boolean" default="false" access="global"/>
+    <aura:attribute name="isFinish" type="Boolean" default="false"/>
+    <aura:attribute name="isDisplayRequiredOnly" type="Boolean" default="false" />
+    <!-- This needs to be updated so that the value can be passed in or set where instantiated.-->
+    <aura:attribute name="isReferenceFromSalesOrder" type="Boolean" default="false"/>
+    <aura:attribute name="bypassPricing" type="Boolean" default="true"/>
+    <aura:attribute name="disposeOnClose" type="Boolean" default="false"/>
+    <aura:attribute name="pricingConfig" type="ENSX_VCPricingConfiguration" />
+    <aura:attribute name="textAllowedValuesLabelRegex" type="String" default=""/>
+    <aura:attribute name="numberAllowedValuesLabelRegex" type="String" default=""/>
+    <aura:attribute name="dateAllowedValuesLabelRegex" type="String" default=""/>    <aura:attribute name="characteristicChangeCount" type="Integer" default="0" access="global" />
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="rootGroups" type="List" />
+    <aura:handler name="hideSettings" event="c:EVT_VCHideSettings" action="{!c.hideVCSettings}" />
+    <aura:handler name="updateSettings" event="c:EVT_VCUpdateSettings" action="{!c.updateVCSettings}" />
+    <aura:handler name="change" value="{!v.materialId}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.reconfiguredValues}" action="{!c.setBOMItems}" />
+    <aura:handler name="finalizeConfiguration" event="c:EVT_VCConfigurationFinalize" action="{!c.finalizeConfiguration}" />
+    <aura:handler name="displayNotification" event="c:EVT_VCNotificationRaised" action="{!c.displayNotification}" />
+    <aura:handler name="cancelConfiguration" event="c:EVT_VCConfigurationCancel" action="{!c.cancelConfiguration}" />
+    <aura:handler name="clearConfiguration" event="c:EVT_VCConfigurationClear" action="{!c.clearConfig}" />
+    <aura:handler name="displaySettings" event="c:EVT_VCDisplaySettings" action="{!c.displayVCSettings}" />
+    <aura:handler name="variantSet" event="c:EVT_VCVariantSet" action="{!c.variantSet}" />
+    <aura:handler name="inputChanged" event="c:EVT_VCInputChanged" action="{!c.inputChanged}" />
+    <aura:handler name="configUpdated" event="c:EVT_VCConfigurationUpdated" action="{!c.configUpdated}" />
+    <aura:handler event="aura:waiting" action="{!c.showBusyIndicator}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideBusyIndicator}" />
+	<aura:registerEvent name="displayNotification" type="c:EVT_VCNotificationRaised" />
+    <aura:registerEvent name="configUpdated" type="c:EVT_VCConfigurationUpdated" />
+    <aura:registerEvent name="confirmfinalized" type="c:EVT_VCConfigurationFinalizedConfirmed" />
+    <aura:registerEvent name="confirmCancel" type="c:EVT_VCConfigurationCancelledConfirmed" />
+
+    <lightning:overlayLibrary aura:id="overlayLibConfiguration"/>
+
+    <lightning:card class="cardHeader" aura:id="containerCard"> 
+        <div class="slds-grid slds-wrap slds-grid_pull-padded">
+            <aura:if isTrue="{!v.busy}">
+                <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand"/>
+            </aura:if>
+            <div class="slds-p-horizontal_small slds-size_1-of-1">
+                <c:CMP_Messages messages="{!v.messages}" />
+            </div>
+            <div class="head slds-p-horizontal_small slds-size_1-of-1">
+                <c:CMP_VCHeader aura:id="vcHead" displayVariantSelection="{!v.materialId == 'COMPUTER1'}" 
+                    subtitle="ENOSIX VARIANT CONFIGURATION" variants="{!v.variants}" title="{!(v.isReconfigure? 'Reconfigure: ':'Configure: ') + v.materialId}" />
+            </div>
+            <aura:if isTrue="{!v.showSettings}">
+                <div class="bodyHeight slds-size_1-of-1">
+                    <c:CMP_VCSettings settings="{!v.vcSettings}" />
+                </div>
+                <aura:set attribute="else">
+                    <div class="bodyHeight slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_4-of-8 slds-large-size_7-of-12" >
+                        <div class="slds-m-top_xx-small">
+                            <div class="slds-grid slds-grid_align-spread slds-wrap slds-grid-pull-padded">
+                                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_2-of-6 slds-large-size_3-of-12" style="margin-left:1%;">
+                                    <lightning:button variant="base" label="{!v.expandTitle}" iconName="{!v.expandIcon}" iconPosition="left" onclick="{!c.handleExpandCollapseAll}" />
+                                </div>
+                                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_2-of-6 slds-large-size_4-of-12" style="margin-left:1%;">
+                                    <lightning:input aura:id="toggleAllswitch"
+                                        type="toggle" 
+                                        label="Display Characteristics" 
+                                        name="displayAllSwitch" 
+                                        messageToggleActive="Required Only"
+                                        messageToggleInactive="All"
+                                        checked="{!v.isDisplayRequiredOnly}"
+                                        />
+                                </div>
+                                <aura:if isTrue="{!v.canChangeSettings}">
+                                    <div class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_1-of-6 slds-large-size_1-of-12" style="float:right;">
+                                        <lightning:buttonIcon onclick="{!c.displayVCSettings}" iconName="utility:settings" variant="bare" alternativeText="Settings" iconClass="dark"/>
+                                    </div>
+                                </aura:if>                            
+                            </div>
+                        </div>
+                        <div class="leftGreyBorder rightGreyBorder topGreyBorder bodyContent" style="overflow: hidden">
+                            <aura:iteration items="{!v.rootGroups}" var="charGroup">
+                                <span class="{!and(v.isDisplayRequiredOnly, !charGroup.HasRequiredCharacteristics) ? 'slds-hide' : ''}">
+                                    <c:CMP_CollapsableInput aura:id="collapsableCharacteristic"
+                                        groupName="{!charGroup.name}"
+                                        characteristics="{!charGroup.characteristics}"
+                                        isDisplayRequiredOnly="{!v.isDisplayRequiredOnly}"
+                                        vcSettings="{!v.vcSettings}"
+                                    />
+                                </span>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                    <div class="leftGreyBorder rightGreyBorder bodyHeight slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_4-of-8 slds-large-size_5-of-12">
+                        <div style="margin-top:1%;">
+                            <div class="hierarchyContainer">
+                                <c:CMP_VCMaterialHierarchy model="{!v.model}" isDisplayRequiredOnly = "{!v.isDisplayRequiredOnly}"/>
+                            </div>
+                            <div>
+                                <c:CMP_VCMaterialSummary displayManualButton="{!v.vcSettings.DisplayManualRunVCButton || v.vcSettings.FetchConfigurationFrequency != '1'}"
+                                displayCost="false" displayPrice="false" model="{!v.model}" />
+                            </div>
+                            <div class="{!v.configComplete ? 'slds-show' : 'slds-hide'}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topGreyBorder foot slds-p-horizontal_small slds-size_1-of-1">
+                        <c:CMP_VCFooter allowCancel="{!v.allowCancel}" allowFinalize="{!v.allowFinalize}" showClear="{!v.showClear}" />
+                    </div>
+                </aura:set>
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>

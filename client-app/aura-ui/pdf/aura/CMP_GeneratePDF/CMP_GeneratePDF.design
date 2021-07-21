@@ -1,0 +1,7 @@
+<design:component label="SAP Sales Document PDF">
+    <design:attribute name="docNumber" label="Document Number to display"/>
+    <design:attribute name="displayHeader" label="Display Header"/>
+    <design:attribute name="displayLanguage" label="Display Language"/>
+    <design:attribute name="displayConditionType" label="Display Message Type"/>
+    <design:attribute name="displayConditionTypeDescription" label="Display Message Type Description"/>
+</design:component>

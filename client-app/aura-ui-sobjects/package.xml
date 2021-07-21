@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">   
+  <types>
+    <name>CustomField</name>
+    <members>Opportunity.SAP_SaveSalesDocHeader__c</members>
+    <members>Opportunity.FLD_SalesDocStatus__c</members>
+    <members>OpportunityLineItem.SAP_SaveSalesDocItem__c</members>
+  </types>
+  <version>47.0</version>
+</Package>

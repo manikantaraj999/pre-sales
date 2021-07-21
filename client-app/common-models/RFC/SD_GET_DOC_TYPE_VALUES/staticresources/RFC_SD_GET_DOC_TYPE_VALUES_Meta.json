@@ -1,0 +1,88 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_DOC_TYPE_VALUES.RESULT": {},
+    "RFC_SD_GET_DOC_TYPE_VALUES.ET_OUTPUT": {
+      "DocumentType": {
+        "FriendlyName": "DocumentType",
+        "TechnicalName": "AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI": {
+        "FriendlyName": "BEZEI",
+        "TechnicalName": "BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VBTYP": {
+        "FriendlyName": "VBTYP",
+        "TechnicalName": "VBTYP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VBTYP_TEXT": {
+        "FriendlyName": "VBTYP_TEXT",
+        "TechnicalName": "VBTYP_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "INCPO": {
+        "FriendlyName": "INCPO",
+        "TechnicalName": "INCPO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "X_PONUM_REQUIRED": {
+        "FriendlyName": "X_PONUM_REQUIRED",
+        "TechnicalName": "X_PONUM_REQUIRED",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_OUTPUT": {
+      "Name": "ET_OUTPUT",
+      "ItemType": "RFC_SD_GET_DOC_TYPE_VALUES.ET_OUTPUT",
+      "FieldMap": {
+        "DocumentType": {
+          "FriendlyName": "DocumentType",
+          "TechnicalName": "AUART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI": {
+          "FriendlyName": "BEZEI",
+          "TechnicalName": "BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VBTYP": {
+          "FriendlyName": "VBTYP",
+          "TechnicalName": "VBTYP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VBTYP_TEXT": {
+          "FriendlyName": "VBTYP_TEXT",
+          "TechnicalName": "VBTYP_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "INCPO": {
+          "FriendlyName": "INCPO",
+          "TechnicalName": "INCPO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "X_PONUM_REQUIRED": {
+          "FriendlyName": "X_PONUM_REQUIRED",
+          "TechnicalName": "X_PONUM_REQUIRED",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

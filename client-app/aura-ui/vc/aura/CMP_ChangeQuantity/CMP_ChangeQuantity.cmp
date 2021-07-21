@@ -1,0 +1,20 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens">
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <aura:attribute name="itemJSON" type="String" access="global" />
+
+    <aura:attribute name="orderQuantity" type="Decimal" />
+    <aura:attribute name="itemId" type="String" />
+    <aura:attribute name="isFinish" type="Boolean" default="false" />
+    <lightning:card title="Change Quantity" iconName="custom:custom32">
+        <div class="slds-m-around_large">
+            <p class="slds-m-bottom_large">
+                <lightning:input type="number" label="Quantity" step="0.001" value="{!v.orderQuantity}" />
+            </p>
+            <p>
+                <lightning:button label="{!if(v.isFinish,'Finished','Next')}" onclick="{!c.flowNavigate}" />
+            </p>
+        </div>
+    </lightning:card>
+</aura:component>

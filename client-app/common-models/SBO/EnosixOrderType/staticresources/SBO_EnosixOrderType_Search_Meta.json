@@ -1,0 +1,96 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixOrderType_Search.SEARCHPARAMS": {
+      "SalesDocumentType": {
+        "FriendlyName": "SalesDocumentType",
+        "TechnicalName": "AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SO": {
+        "FriendlyName": "SO",
+        "TechnicalName": "SO",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "QT": {
+        "FriendlyName": "QT",
+        "TechnicalName": "QT",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "ARM": {
+        "FriendlyName": "ARM",
+        "TechnicalName": "ARM",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixOrderType_Search.SEARCHRESULT": {
+      "SalesDocumentType": {
+        "FriendlyName": "SalesDocumentType",
+        "TechnicalName": "AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesDocumentTypeDescription": {
+        "FriendlyName": "SalesDocumentTypeDescription",
+        "TechnicalName": "AUART_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixOrderType_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "SalesDocumentType": {
+          "FriendlyName": "SalesDocumentType",
+          "TechnicalName": "AUART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SO": {
+          "FriendlyName": "SO",
+          "TechnicalName": "SO",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "QT": {
+          "FriendlyName": "QT",
+          "TechnicalName": "QT",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "ARM": {
+          "FriendlyName": "ARM",
+          "TechnicalName": "ARM",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixOrderType_Search.SEARCHRESULT",
+      "FieldMap": {
+        "SalesDocumentType": {
+          "FriendlyName": "SalesDocumentType",
+          "TechnicalName": "AUART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesDocumentTypeDescription": {
+          "FriendlyName": "SalesDocumentTypeDescription",
+          "TechnicalName": "AUART_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

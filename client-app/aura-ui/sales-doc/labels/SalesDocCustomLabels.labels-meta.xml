@@ -1,0 +1,1547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Enosix_SalesDoc_Title_IncompletionLog</fullName>
+        <categories>enosix, SalesDoc, title</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Incompletion Log</shortDescription>
+        <value>Incompletion Log</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Title_SerialSearch</fullName>
+        <categories>enosix, SalesDoc, title</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAP Serial Search</shortDescription>
+        <value>SAP Serial Search</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Title_MaterialSearch</fullName>
+        <categories>enosix, SalesDoc, title</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAP Material Search</shortDescription>
+        <value>SAP Material Search</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Title_EditItem</fullName>
+        <categories>enosix, SalesDoc, title</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Item</shortDescription>
+        <value>Edit Item</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Title_ViewItem</fullName>
+        <categories>enosix, SalesDoc, title</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Item</shortDescription>
+        <value>View Item</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_Header</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header</shortDescription>
+        <value>Header</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_HeaderTexts</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header Texts</shortDescription>
+        <value>Header Texts</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_HeaderConditions</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header Conditions</shortDescription>
+        <value>Header Conditions</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_Partners</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partners</shortDescription>
+        <value>Partners</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_Conditions</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Conditions</shortDescription>
+        <value>Conditions</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_Item</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item</shortDescription>
+        <value>Item</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_Items</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Items</shortDescription>
+        <value>Items</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_BillingPlan</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Plan</shortDescription>
+        <value>Billing Plan</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Tab_Schedule</fullName>
+        <categories>enosix, SalesDoc, tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Schedule</shortDescription>
+        <value>Schedule</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SoldTo</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SoldTo</shortDescription>
+        <value>Sold To:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ShipTo</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ShipTo</shortDescription>
+        <value>Ship To:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Contact</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact</shortDescription>
+        <value>Contact:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SalesOrganization</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Organization</shortDescription>
+        <value>Sales Org:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_DistributionChannel</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Distribution Channel</shortDescription>
+        <value>Distribution Channel:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Division</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Division</shortDescription>
+        <value>Division:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PODate</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PO Date</shortDescription>
+        <value>PO Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_StartDate</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_EndDate</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End Date</shortDescription>
+        <value>End Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_BillingPlan</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Plan</shortDescription>
+        <value>Billing Plan:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ValidFrom</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Valid From</shortDescription>
+        <value>Valid From:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ValidTo</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Valid To</shortDescription>
+        <value>Valid To:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_RequestedDate</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requested Date</shortDescription>
+        <value>Requested Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PO</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Purchase Order</shortDescription>
+        <value>PO:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PriceGroup</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price Group</shortDescription>
+        <value>Price Group:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PriceList</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price List</shortDescription>
+        <value>Price List:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SalesDistrict</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales District</shortDescription>
+        <value>Sales District:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PaymentTerms</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Payment Terms</shortDescription>
+        <value>Payment Terms:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_FreightTerms</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Freight Terms</shortDescription>
+        <value>Freight Terms:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_TermsText</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Terms Text</shortDescription>
+        <value>Terms Text:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ShippingConditions</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Shipping Conditions</shortDescription>
+        <value>Shipping Conditions:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SalesOffice</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Office</shortDescription>
+        <value>Sales Office:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SalesGroup</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Group</shortDescription>
+        <value>Sales Group:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_BusinessArea</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Business Area</shortDescription>
+        <value>Business Area:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Industry</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Industry</shortDescription>
+        <value>Industry:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Language</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Language</shortDescription>
+        <value>Language:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Currency</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Currency</shortDescription>
+        <value>Currency:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_TotalPrice</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total Price</shortDescription>
+        <value>Total Price:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_CreateDate</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Date</shortDescription>
+        <value>Create Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_FormHeader</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Form Header</shortDescription>
+        <value>Form Header:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_HeaderNote1</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header Note 1</shortDescription>
+        <value>Header Note 1:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_HeaderNote2</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header Note 2</shortDescription>
+        <value>Header Note 2:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ExtensionAddress</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Extension WE-Address</shortDescription>
+        <value>Extension WE-Address:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_FormSupplement</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Form Supplement Text</shortDescription>
+        <value>Form Supplement Text:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_DeliveryTime</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delivery Time</shortDescription>
+        <value>Delivery Time:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PaymentTermsText</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Payment Terms Text</shortDescription>
+        <value>Payment Terms Text:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Conditions</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Conditions</shortDescription>
+        <value>Conditions:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ItemNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Number</shortDescription>
+        <value>Item Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_AlternativeItem</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alternative Item</shortDescription>
+        <value>Alternative Item:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Material</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Material</shortDescription>
+        <value>Material:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ItemDescription</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Description</shortDescription>
+        <value>Description:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Quantity</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quantity</shortDescription>
+        <value>Quantity:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Plant</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Plant</shortDescription>
+        <value>Plant:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_RejectionReason</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rejection Reason</shortDescription>
+        <value>Rejection Reason:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SalesText</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Text</shortDescription>
+        <value>Sales Text:</value>
+    </labels>
+     <labels>
+        <fullName>Enosix_SalesDoc_Field_ItemNote</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Note</shortDescription>
+        <value>Item Note:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SearchBy</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search By</shortDescription>
+        <value>Search By:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_CustomerNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Number</shortDescription>
+        <value>Customer Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_SerialNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Serial Number</shortDescription>
+        <value>Serial Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ByDescription</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>By Description</shortDescription>
+        <value>By Description:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ByCategory</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>By Category</shortDescription>
+        <value>By Category:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_MaterialTypes</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Material Types</shortDescription>
+        <value>Material Types:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_NetWeight</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Weight</shortDescription>
+        <value>Net Weight:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_HSCode</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>HS Code</shortDescription>
+        <value>HS Code:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_CountryOfOrigin</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Country Of Origin</shortDescription>
+        <value>Country Of Origin:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PricingType</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricing Type</shortDescription>
+        <value>Pricing Type:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PricingDate</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pricing Date</shortDescription>
+        <value>Pricing Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_BillingBlock</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Block</shortDescription>
+        <value>Billing Block:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_DeliveryBlock</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delivery Block</shortDescription>
+        <value>Delivery Block:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_NetOrderValue</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Order Value</shortDescription>
+        <value>Net Order Value:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_DocumentNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Document Number</shortDescription>
+        <value>Document Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_DocumentType</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Document Type</shortDescription>
+        <value>Document Type:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ItemCategory</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Category</shortDescription>
+        <value>Item Category:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_FromVendorNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>From Vendor Number</shortDescription>
+        <value>From Vendor Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ToVendorNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To Vendor Number</shortDescription>
+        <value>To Vendor Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_FromCustomerNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>From Customer Number:</shortDescription>
+        <value>From Customer Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ToCustomerNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To Customer Number:</shortDescription>
+        <value>To Customer Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_FromPartnerNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>From Partner Number:</shortDescription>
+        <value>From Partner Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_ToPartnerNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To Partner Number:</shortDescription>
+        <value>To Partner Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_FirstName</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Name:</shortDescription>
+        <value>First Name:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_LastName</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Name:</shortDescription>
+        <value>Last Name:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_CustomerName</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Name</shortDescription>
+        <value>Customer Name:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_VendorName</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Vendor Name</shortDescription>
+        <value>Vendor Name:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_VendorName2</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Vendor Name</shortDescription>
+        <value>Vendor Name 2:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PartnerName</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partner Name</shortDescription>
+        <value>Partner Name:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_HouseNumber</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>HouseNumber</shortDescription>
+        <value>HouseNumber:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Street</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Street</shortDescription>
+        <value>Street:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_City</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>City</shortDescription>
+        <value>City:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Region</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Region</shortDescription>
+        <value>Region:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_PostalCode</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Postal Code</shortDescription>
+        <value>Postal Code:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Country</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Country</shortDescription>
+        <value>Country:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_Telephone</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Telephone</shortDescription>
+        <value>Telephone:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_EmailAddress</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Address</shortDescription>
+        <value>Email Address:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_BillingPlanType</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Plan Type</shortDescription>
+        <value>Billing Plan Type:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Field_RuleNextBillingDate</fullName>
+        <categories>enosix, SalesDoc, field</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rule for Next Billing Date</shortDescription>
+        <value>Rule for Next Billing Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_Cancel</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_Search</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_Add</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add</shortDescription>
+        <value>Add</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_Simulate</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Simulate</shortDescription>
+        <value>Simulate</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_SimulateItem</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Simulate Item</shortDescription>
+        <value>Simulate Item</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_Save</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_MaterialsSearch</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Materials Search</shortDescription>
+        <value>Materials Search</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_SerialSearch</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Serial Search</shortDescription>
+        <value>Serial Search</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_AddCondition</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Condition</shortDescription>
+        <value>Add Condition</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_RemoveCondition</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove Condition</shortDescription>
+        <value>Remove Condition</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_SelectShipTo</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Ship To</shortDescription>
+        <value>Select Ship To</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Button_SelectContact</fullName>
+        <categories>enosix, SalesDoc, button</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Contact</shortDescription>
+        <value>Select Contact</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ItemNumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Number</shortDescription>
+        <value>Item Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_AlternativeItem</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alternative Item</shortDescription>
+        <value>Alt Item</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Material</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Material</shortDescription>
+        <value>Material</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ItemDescription</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Quantity</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quantity</shortDescription>
+        <value>Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_SalesUnit</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Unit</shortDescription>
+        <value>Sales Unit</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_BaseUnitOfMeasure</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Base UOM</shortDescription>
+        <value>Base UOM</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_RequestedDate</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requested Date</shortDescription>
+        <value>Requested Date</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_InternalRebate</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Internal Rebate</shortDescription>
+        <value>Internal Rebate (%)</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_SubTotal</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SubTotal</shortDescription>
+        <value>SubTotal</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ExternalRebate</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>External Rebate</shortDescription>
+        <value>External Rebate (%)</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_NetPrice</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Price</shortDescription>
+        <value>Net Price</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_LeadAdjuster</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Lead Adjuster</shortDescription>
+        <value>ELA</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Net1</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net1</shortDescription>
+        <value>Net1</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ProfitMarginHFM</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Profit Margin HFM</shortDescription>
+        <value>Profit Margin HFM</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Edit</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Clone</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clone</shortDescription>
+        <value>Clone</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_View</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Remove</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_SerialSearch</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Serial Search</shortDescription>
+        <value>Serial Search</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Configure</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Configure</shortDescription>
+        <value>Configure</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_SONumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SO Number</shortDescription>
+        <value>SO Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_SOItemNumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SO Item Number</shortDescription>
+        <value>SO Item Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_SoldTo</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sold To</shortDescription>
+        <value>Sold To</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_DeliveryNumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delivery Number</shortDescription>
+        <value>Delivery Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_SerialNumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Serial Number</shortDescription>
+        <value>Serial Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_MaterialType</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Material Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Category</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Category</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_UnitOfMeasure</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unit of Measure</shortDescription>
+        <value>UOM</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ConditionStatus</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Condition Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ConditionType</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Condition Type</shortDescription>
+        <value>Condition Type</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ConditionTypeName</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Condition Type Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Rate</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rate</shortDescription>
+        <value>Rate</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_RateUnit</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rate Unit</shortDescription>
+        <value>Rate Unit</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ConditionPricingUnit</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Condition Pricing Unit</shortDescription>
+        <value>Per</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ConditionValue</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Condition Value</shortDescription>
+        <value>Condition Value</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ConditionUnit</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Condition Unit</shortDescription>
+        <value>Condition Unit</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Currency</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Currency</shortDescription>
+        <value>Currency</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_GrossPrice</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Gross Price</shortDescription>
+        <value>Gross Price</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_PriceNet</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Price</shortDescription>
+        <value>Net Price</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_NetItemPrice</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Item Price</shortDescription>
+        <value>Net Item Price</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_NetOrderValue</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Order Value</shortDescription>
+        <value>Net Order Value</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Plant</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Plant</shortDescription>
+        <value>Plant</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ItemCategory</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Category</shortDescription>
+        <value>Item Category</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_BillingBlockStatus</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Block</shortDescription>
+        <value>Billing Block</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_DeliveryBlockStatus</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delivery Block</shortDescription>
+        <value>Delivery Block</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_DeadlineSettlementDate</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deadline Settlement Date</shortDescription>
+        <value>Deadline Settlement Date</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Usage</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Usage</shortDescription>
+        <value>Usage</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ValueInvoiced</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Value To Be Invoiced (%)</shortDescription>
+        <value>Value To Be Invoiced (%)</value>
+    </labels>    
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ValueBilled</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Value To Be Billed</shortDescription>
+        <value>Value To Be Billed</value>
+    </labels>  
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_BillingBlock</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Block</shortDescription>
+        <value>Billing Block</value>
+    </labels>  
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_Rule</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rule</shortDescription>
+        <value>Rule</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_BillingStatus</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Status</shortDescription>
+        <value>Billing Status</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_DateCategory</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Date Category</shortDescription>
+        <value>Date Category</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ProposedBillingType</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Proposed Billing Type</shortDescription>
+        <value>Proposed Billing Type</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ScheduleLineNumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Line Number</shortDescription>
+        <value>Line Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ScheduleLineDate</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Line Date</shortDescription>
+        <value>Line Date</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_OrderQuantity</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Quantity</shortDescription>
+        <value>Order Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_RoundedQuantity</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rounded Quantity</shortDescription>
+        <value>Rounded Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ConfirmedQuantity</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirmed Quantity</shortDescription>
+        <value>Confirmed Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_DeliveryBlock</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delivery Block</shortDescription>
+        <value>Delivery Block</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_DeliveryBlockDescription</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delivery Block Description</shortDescription>
+        <value>Delivery Block Description</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_DeliveredQuantity</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delivered Quantity</shortDescription>
+        <value>Delivered Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ScheduleLineCategory</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Line Category</shortDescription>
+        <value>Line Category</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_ScheduleLineCategoryDescription</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Line Category Description</shortDescription>
+        <value>Line Category Description</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_PurchaseRequisitionNumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Purchase Requisition Number</shortDescription>
+        <value>Purchase Requisition Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Table_PurchaseRequisitionItemNumber</fullName>
+        <categories>enosix, SalesDoc, table</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Purchase Requisition Item Number</shortDescription>
+        <value>Purchase Requisition Item Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_SearchNoResult</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Serial Search No Result</shortDescription>
+        <value>The search returned no results; please check parameters.</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_NoResultsFound</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Results Found</shortDescription>
+        <value>No Results Found</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_ConfigurationIncomplete</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Configuration Incomplete</shortDescription>
+        <value>Configuration Incomplete</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_InvalidAlternativeItem</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid Alternative Item</shortDescription>
+        <value>Invalid Alternative Item</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_AccountNotFound</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Account Not Found</shortDescription>
+        <value>No Account found</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_CustomerNumberNotFound</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Number Not Found</shortDescription>
+        <value>SAP Customer Number is not found</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_ItemDescriptionLimit</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Description Limit</shortDescription>
+        <value>Item Description has a limit of 40 characters</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_MissingMaterials</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Missing Materials</shortDescription>
+        <value>The product(s) are not active in {0} ({1}): {2}</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_SuccessTitle</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_SimulateMessage</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning message when document needs to be simulated</shortDescription>
+        <value>Changes in the screen have not yet been validated against SAP and may require clicking Simulate to be consistent.</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_SimulateItemMessage</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning message when item information may not be correct</shortDescription>
+        <value>Item information has been validated against SAP as a single line and may require clicking Simulate at the header level to be consistent with the rest of the lines in the document.</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_RecordIdNotFound</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Record Id Not Found</shortDescription>
+        <value>Record Id Not Found</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_ExitScreen</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Exit message before closing screen</shortDescription>
+        <value>You are trying to close without saving. Exit screen?</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Message_VCUnavailable</fullName>
+        <categories>enosix, SalesDoc, message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Component for VC is not available in this org</shortDescription>
+        <value>Component for VC is not available in this org</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_SalesDoc_Option_SelectOne</fullName>
+        <categories>enosix, SalesDoc, option</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select One</shortDescription>
+        <value>Select One</value>
+    </labels>
+</CustomLabels>

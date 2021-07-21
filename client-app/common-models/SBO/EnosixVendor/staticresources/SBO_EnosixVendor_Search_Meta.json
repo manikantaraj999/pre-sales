@@ -1,0 +1,228 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixVendor_Search.VENDOR": {
+      "FromVendor": {
+        "FriendlyName": "FromVendor",
+        "TechnicalName": "LIFNR_FROM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ToVendor": {
+        "FriendlyName": "ToVendor",
+        "TechnicalName": "LIFNR_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name": {
+        "FriendlyName": "Name",
+        "TechnicalName": "NAME1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name2": {
+        "FriendlyName": "Name2",
+        "TechnicalName": "NAME2",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixVendor_Search.SEARCHRESULT": {
+      "Vendor": {
+        "FriendlyName": "Vendor",
+        "TechnicalName": "LIFNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name": {
+        "FriendlyName": "Name",
+        "TechnicalName": "NAME1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name2": {
+        "FriendlyName": "Name2",
+        "TechnicalName": "NAME2",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Street": {
+        "FriendlyName": "Street",
+        "TechnicalName": "STREET",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "City": {
+        "FriendlyName": "City",
+        "TechnicalName": "CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PostalCode": {
+        "FriendlyName": "PostalCode",
+        "TechnicalName": "POST_CODE1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Region": {
+        "FriendlyName": "Region",
+        "TechnicalName": "REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Country": {
+        "FriendlyName": "Country",
+        "TechnicalName": "COUNTRY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "POBox": {
+        "FriendlyName": "POBox",
+        "TechnicalName": "PO_BOX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TelephoneNumber": {
+        "FriendlyName": "TelephoneNumber",
+        "TechnicalName": "TEL_NUMBER",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VendorAccountGroup": {
+        "FriendlyName": "VendorAccountGroup",
+        "TechnicalName": "KTOKK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Language": {
+        "FriendlyName": "Language",
+        "TechnicalName": "SPRAS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "EmailAddress": {
+        "FriendlyName": "EmailAddress",
+        "TechnicalName": "EMAIL_ADDRESS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "VENDOR": {
+      "Name": "VENDOR",
+      "ItemType": "SBO_EnosixVendor_Search.VENDOR",
+      "FieldMap": {
+        "FromVendor": {
+          "FriendlyName": "FromVendor",
+          "TechnicalName": "LIFNR_FROM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ToVendor": {
+          "FriendlyName": "ToVendor",
+          "TechnicalName": "LIFNR_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name": {
+          "FriendlyName": "Name",
+          "TechnicalName": "NAME1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name2": {
+          "FriendlyName": "Name2",
+          "TechnicalName": "NAME2",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixVendor_Search.SEARCHRESULT",
+      "FieldMap": {
+        "Vendor": {
+          "FriendlyName": "Vendor",
+          "TechnicalName": "LIFNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name": {
+          "FriendlyName": "Name",
+          "TechnicalName": "NAME1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name2": {
+          "FriendlyName": "Name2",
+          "TechnicalName": "NAME2",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Street": {
+          "FriendlyName": "Street",
+          "TechnicalName": "STREET",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "City": {
+          "FriendlyName": "City",
+          "TechnicalName": "CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PostalCode": {
+          "FriendlyName": "PostalCode",
+          "TechnicalName": "POST_CODE1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Region": {
+          "FriendlyName": "Region",
+          "TechnicalName": "REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Country": {
+          "FriendlyName": "Country",
+          "TechnicalName": "COUNTRY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "POBox": {
+          "FriendlyName": "POBox",
+          "TechnicalName": "PO_BOX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "TelephoneNumber": {
+          "FriendlyName": "TelephoneNumber",
+          "TechnicalName": "TEL_NUMBER",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VendorAccountGroup": {
+          "FriendlyName": "VendorAccountGroup",
+          "TechnicalName": "KTOKK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Language": {
+          "FriendlyName": "Language",
+          "TechnicalName": "SPRAS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "EmailAddress": {
+          "FriendlyName": "EmailAddress",
+          "TechnicalName": "EMAIL_ADDRESS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

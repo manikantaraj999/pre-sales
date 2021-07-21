@@ -1,0 +1,161 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_PRICING_STAT.RESULT": {
+      "PRICE_GRP": {
+        "FriendlyName": "PRICE_GRP",
+        "TechnicalName": "PRICE_GRP",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "PRICE_LIST": {
+        "FriendlyName": "PRICE_LIST",
+        "TechnicalName": "PRICE_LIST",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "PRICE_PROC": {
+        "FriendlyName": "PRICE_PROC",
+        "TechnicalName": "PRICE_PROC",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "STAT_GRP": {
+        "FriendlyName": "STAT_GRP",
+        "TechnicalName": "STAT_GRP",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_PRICING_STAT.ET_CUST_PRICE_GRP": {
+      "KONDA": {
+        "FriendlyName": "KONDA",
+        "TechnicalName": "KONDA",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VTEXT": {
+        "FriendlyName": "VTEXT",
+        "TechnicalName": "VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_PRICING_STAT.ET_CUST_PRICE_LIST": {
+      "PLTYP": {
+        "FriendlyName": "PLTYP",
+        "TechnicalName": "PLTYP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PTEXT": {
+        "FriendlyName": "PTEXT",
+        "TechnicalName": "PTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_PRICING_STAT.ET_CUST_PRICE_PROC": {
+      "KALKS": {
+        "FriendlyName": "KALKS",
+        "TechnicalName": "KALKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VTEXT": {
+        "FriendlyName": "VTEXT",
+        "TechnicalName": "VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_PRICING_STAT.ET_CUST_STAT_GROUP": {
+      "STGKU": {
+        "FriendlyName": "STGKU",
+        "TechnicalName": "STGKU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI20": {
+        "FriendlyName": "BEZEI20",
+        "TechnicalName": "BEZEI20",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_CUST_PRICE_GRP": {
+      "Name": "ET_CUST_PRICE_GRP",
+      "ItemType": "RFC_SD_GET_PRICING_STAT.ET_CUST_PRICE_GRP",
+      "FieldMap": {
+        "KONDA": {
+          "FriendlyName": "KONDA",
+          "TechnicalName": "KONDA",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VTEXT": {
+          "FriendlyName": "VTEXT",
+          "TechnicalName": "VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_CUST_PRICE_LIST": {
+      "Name": "ET_CUST_PRICE_LIST",
+      "ItemType": "RFC_SD_GET_PRICING_STAT.ET_CUST_PRICE_LIST",
+      "FieldMap": {
+        "PLTYP": {
+          "FriendlyName": "PLTYP",
+          "TechnicalName": "PLTYP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PTEXT": {
+          "FriendlyName": "PTEXT",
+          "TechnicalName": "PTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_CUST_PRICE_PROC": {
+      "Name": "ET_CUST_PRICE_PROC",
+      "ItemType": "RFC_SD_GET_PRICING_STAT.ET_CUST_PRICE_PROC",
+      "FieldMap": {
+        "KALKS": {
+          "FriendlyName": "KALKS",
+          "TechnicalName": "KALKS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VTEXT": {
+          "FriendlyName": "VTEXT",
+          "TechnicalName": "VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_CUST_STAT_GROUP": {
+      "Name": "ET_CUST_STAT_GROUP",
+      "ItemType": "RFC_SD_GET_PRICING_STAT.ET_CUST_STAT_GROUP",
+      "FieldMap": {
+        "STGKU": {
+          "FriendlyName": "STGKU",
+          "TechnicalName": "STGKU",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI20": {
+          "FriendlyName": "BEZEI20",
+          "TechnicalName": "BEZEI20",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

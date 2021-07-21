@@ -1,0 +1,7 @@
+<design:component label="SAP Material Plant Picker">
+    <design:attribute name="headerJSON" label="HeaderJSON" />
+    <design:attribute name="itemJSON" label="ItemJSON" />
+    <design:attribute name="itemId" label="Item Id" />
+    <design:attribute name="isFinish" label="Indicates end of flow" />
+    <design:attribute name="plantNumber" label="Default Plant" />
+</design:component>

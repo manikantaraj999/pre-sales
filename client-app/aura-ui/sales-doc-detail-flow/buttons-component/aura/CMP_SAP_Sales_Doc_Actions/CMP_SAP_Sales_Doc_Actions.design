@@ -1,0 +1,10 @@
+<design:component label="CMP SAP Sales Doc Actions">
+    <design:attribute name="SFRecordId" label="Salesforce Record Id" />
+    <design:attribute name="SAPDocType" label="SAP Sales Document Type" />
+    <design:attribute name="SAPDocNum" label="SAP Document Number" />
+    <design:attribute name="allowBackToLinkedObject" label="Allow back to Linked Object Button (True/False)" />
+    <design:attribute name="allowBackToAccount" label="Allow back to Account Button (True/False)" />
+    <design:attribute name="allowBackToOpportunity" label="Allow back to Opportunity Button (True/False)" />
+    <design:attribute name="allowClone" label="Allow Clone Button (True/False)" />
+    <design:attribute name="allowUpdate" label="Allow Update Button (True/False)" />
+</design:component>

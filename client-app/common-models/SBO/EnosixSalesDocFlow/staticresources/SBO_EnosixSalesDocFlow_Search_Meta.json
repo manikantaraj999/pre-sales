@@ -1,0 +1,228 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixSalesDocFlow_Search.SEARCHPARAMS": {
+      "SalesDocument": {
+        "FriendlyName": "SalesDocument",
+        "TechnicalName": "VBELN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerPONumber": {
+        "FriendlyName": "CustomerPONumber",
+        "TechnicalName": "BSTNK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DocumentCategory": {
+        "FriendlyName": "DocumentCategory",
+        "TechnicalName": "VBTYP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "X_PrecedingDocuments": {
+        "FriendlyName": "X_PrecedingDocuments",
+        "TechnicalName": "X_PRECEDING",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "X_SubsequentDocuments": {
+        "FriendlyName": "X_SubsequentDocuments",
+        "TechnicalName": "X_SUBSEQUENT",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixSalesDocFlow_Search.SEARCHRESULT": {
+      "SalesDocument": {
+        "FriendlyName": "SalesDocument",
+        "TechnicalName": "VBELN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ItemNumber": {
+        "FriendlyName": "ItemNumber",
+        "TechnicalName": "POSNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DocumentCategory": {
+        "FriendlyName": "DocumentCategory",
+        "TechnicalName": "VBTYP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DocumentCategoryText": {
+        "FriendlyName": "DocumentCategoryText",
+        "TechnicalName": "VBTYP_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerNumber": {
+        "FriendlyName": "CustomerNumber",
+        "TechnicalName": "KUNNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreateDate": {
+        "FriendlyName": "CreateDate",
+        "TechnicalName": "ERDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "CreatedBy": {
+        "FriendlyName": "CreatedBy",
+        "TechnicalName": "ERNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DateChanged": {
+        "FriendlyName": "DateChanged",
+        "TechnicalName": "AEDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ChangedBy": {
+        "FriendlyName": "ChangedBy",
+        "TechnicalName": "AENAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "X_PrecedingDocuments": {
+        "FriendlyName": "X_PrecedingDocuments",
+        "TechnicalName": "X_PRECEDING",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "X_SubsequentDocuments": {
+        "FriendlyName": "X_SubsequentDocuments",
+        "TechnicalName": "X_SUBSEQUENT",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "DocumentStatus": {
+        "FriendlyName": "DocumentStatus",
+        "TechnicalName": "STATUS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixSalesDocFlow_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "SalesDocument": {
+          "FriendlyName": "SalesDocument",
+          "TechnicalName": "VBELN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerPONumber": {
+          "FriendlyName": "CustomerPONumber",
+          "TechnicalName": "BSTNK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DocumentCategory": {
+          "FriendlyName": "DocumentCategory",
+          "TechnicalName": "VBTYP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "X_PrecedingDocuments": {
+          "FriendlyName": "X_PrecedingDocuments",
+          "TechnicalName": "X_PRECEDING",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "X_SubsequentDocuments": {
+          "FriendlyName": "X_SubsequentDocuments",
+          "TechnicalName": "X_SUBSEQUENT",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixSalesDocFlow_Search.SEARCHRESULT",
+      "FieldMap": {
+        "SalesDocument": {
+          "FriendlyName": "SalesDocument",
+          "TechnicalName": "VBELN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ItemNumber": {
+          "FriendlyName": "ItemNumber",
+          "TechnicalName": "POSNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DocumentCategory": {
+          "FriendlyName": "DocumentCategory",
+          "TechnicalName": "VBTYP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DocumentCategoryText": {
+          "FriendlyName": "DocumentCategoryText",
+          "TechnicalName": "VBTYP_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerNumber": {
+          "FriendlyName": "CustomerNumber",
+          "TechnicalName": "KUNNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreateDate": {
+          "FriendlyName": "CreateDate",
+          "TechnicalName": "ERDAT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "CreatedBy": {
+          "FriendlyName": "CreatedBy",
+          "TechnicalName": "ERNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DateChanged": {
+          "FriendlyName": "DateChanged",
+          "TechnicalName": "AEDAT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ChangedBy": {
+          "FriendlyName": "ChangedBy",
+          "TechnicalName": "AENAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "X_PrecedingDocuments": {
+          "FriendlyName": "X_PrecedingDocuments",
+          "TechnicalName": "X_PRECEDING",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "X_SubsequentDocuments": {
+          "FriendlyName": "X_SubsequentDocuments",
+          "TechnicalName": "X_SUBSEQUENT",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "DocumentStatus": {
+          "FriendlyName": "DocumentStatus",
+          "TechnicalName": "STATUS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

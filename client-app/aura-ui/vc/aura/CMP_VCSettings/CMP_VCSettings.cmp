@@ -1,0 +1,33 @@
+<aura:component description="CMP_VCSettings">
+    <aura:registerEvent name="hideSettings" type="c:EVT_VCHideSettings" />
+    <aura:registerEvent name="updateSettings" type="c:EVT_VCUpdateSettings" />
+    <aura:attribute name="settings" type="ENSX_VCSettings" />
+    <div class="fullBodied slds-grid slds-wrap slds-grid_pull-padded">
+        <div style="width:100%; height:100vh;" class="bodyHeightSettings bodyContentSettings
+        slds-p-horizontal_large slds-size_2-of-2 slds-medium-size_8-of-8 slds-large-size_12-of-12">
+            <div style="margin-left:1%;">
+                <lightning:card >
+                    <aura:set attribute="title">
+                        Adjust Variant Configuration Settings
+                    </aura:set>
+
+                    <div style="padding:20px" class="slds-card__body">
+                        <!-- <lightning:input type="toggle" label="Show Cost" name="showCostToggle" checked="{!v.settings.DisplayCost}" />
+                        <lightning:input type="toggle" label="Show Price" name="showPriceToggle" checked="{!v.settings.DisplayPrice}" /> -->
+                        <lightning:select value="{!v.settings.FetchConfigurationFrequency}" name="selectRefreshRate" label="How frequently should we validate the Config" >
+                            <aura:iteration items="{!v.settings.FetchConfigurationFrequencyPossibilities}" var="var">
+                                <option text="{!var.ValueDescription}" value="{!var.Value}" />
+                            </aura:iteration>
+                        </lightning:select>
+
+                    </div>
+                    <aura:set attribute="footer">
+                        <lightning:button variant="neutral" label="Cancel" onclick="{! c.handleCancel }" />
+                        <lightning:button variant="brand" label="Save enosiX VC Settings" onclick="{!c.handleSave}" />
+                    </aura:set>
+                </lightning:card>
+            </div>
+
+        </div>
+    </div>
+</aura:component>

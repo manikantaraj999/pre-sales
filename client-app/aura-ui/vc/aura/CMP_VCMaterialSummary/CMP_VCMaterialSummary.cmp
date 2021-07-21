@@ -1,0 +1,34 @@
+<aura:component description="CMP_VCMaterialSummary">
+    <aura:attribute name="model" type="ENSX_VCConfiguration" />
+    <aura:attribute name="displayCost" type="Boolean" default="false" />
+    <aura:attribute name="displayPrice" type="Boolean" default="false"/>
+    <aura:attribute name="displayManualButton" type="Boolean" />
+    <aura:registerEvent name="configUpdated" type="c:EVT_VCConfigurationUpdated" />
+    
+    <div class="slds-float_right slds-m-vertical_small slds-m-horizontal_x-small">
+        <!-- <aura:if isTrue="{!v.displayCost}">
+            <div style="margin-bottom: 5%;" class="slds-text-heading_medium slds-text-align_right">
+                Component Cost:
+                <ui:outputCurrency value="{!v.model.Cost}" />
+            </div>
+        </aura:if> -->
+        <!-- <aura:if isTrue="{!v.displayPrice}">
+            <div style="margin-bottom: 5%;" class="slds-text-heading_medium slds-text-align_right">
+                Component Price:
+                <ui:outputCurrency value="{!v.model.Price}" />
+            </div>
+        </aura:if> -->
+        <aura:if isTrue="{!v.displayManualButton}">
+            <div style="margin-bottom: 5%;" class="slds-text-heading_medium slds-text-align_right">
+                <lightning:button variant="success" label="Run VC Simulation" onclick="{! c.runSimulate}"  />
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{! v.model.ConfigurationIsValid }">
+            <div class="slds-text-title_caps slds-text-align_right slds-float_right slds-text-color_success">Configuration is valid</div>
+            <aura:set attribute="else">
+                <div class="slds-text-title_caps slds-text-align_right slds-float_right slds-text-color_error">Configuration is not valid</div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,63 @@
+<aura:component controller="CTRL_SalesDocCreateUpdate" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:attribute name="partner" type="Map"/>
+    <aura:attribute name="countries" type="List"/>
+    <aura:attribute name="allRegions" type="List"/>
+    <aura:attribute name="regions" type="List"/>
+
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:attribute name="messages" type="List"/>
+
+    <aura:registerEvent name="partnerAddressSaveEvent" type="c:EVT_PartnerAddressSave"/>
+
+    <lightning:overlayLibrary aura:id="overlayLibPartnerAddress"/>
+
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand"/>
+        </aura:if>
+        <div>
+            <c:CMP_Messages messages="{!v.messages}" cssClass="slds-item slds-m-around_small slds-text-body_small"/>
+        </div>
+        <div class="slds-form">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                    <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_PartnerName}" value="{!v.partner.PartnerName}"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                    <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_HouseNumber}" value="{!v.partner.HouseNumber}"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                    <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_Street}" value="{!v.partner.Street}"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                    <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_City}" value="{!v.partner.City}"/>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                    <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_Country}" value="{!v.partner.Country}" onchange="{!c.onCountryChange}">
+                        <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                        <aura:iteration items="{!v.countries}" var="country">
+                            <option value="{!country.LAND1}">{!country.LAND1 + ' - ' + country.LANDX}</option>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                    <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_Region}" aura:id="regionOption" value="{!v.partner.Region}">
+                        <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                        <aura:iteration items="{!v.regions}" var="region">
+                            <option value="{!region.REGIO}">{!region.REGIO + ' - ' + region.BEZEI}</option>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                    <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_PostalCode}" value="{!v.partner.PostalCode}"/>
+                </div>
+            </div>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Cancel}" variant="brand" onclick="{!c.onCancel}"/>
+                <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Save}" variant="brand" onclick="{!c.onSave}"/>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

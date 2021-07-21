@@ -1,0 +1,482 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixXiIntercept_Detail.EnosixXiIntercept": {
+      "MerchantGUID": {
+        "FriendlyName": "MerchantGUID",
+        "TechnicalName": "MERCHANTGUID",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AccessToken": {
+        "FriendlyName": "AccessToken",
+        "TechnicalName": "ACCESSTOKEN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Signature": {
+        "FriendlyName": "Signature",
+        "TechnicalName": "SIGNATURE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "StatusCode": {
+        "FriendlyName": "StatusCode",
+        "TechnicalName": "STATUSCODE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Message": {
+        "FriendlyName": "Message",
+        "TechnicalName": "MESSAGE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "XiInterceptURL": {
+        "FriendlyName": "XiInterceptURL",
+        "TechnicalName": "XIURL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Key": {
+        "FriendlyName": "Key",
+        "TechnicalName": "KEY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreditCardNumber": {
+        "FriendlyName": "CreditCardNumber",
+        "TechnicalName": "CCNUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreditCardHolder": {
+        "FriendlyName": "CreditCardHolder",
+        "TechnicalName": "CCNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValidToMonth": {
+        "FriendlyName": "ValidToMonth",
+        "TechnicalName": "VALTM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValidToYear": {
+        "FriendlyName": "ValidToYear",
+        "TechnicalName": "VALTY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CardVerificationValue": {
+        "FriendlyName": "CardVerificationValue",
+        "TechnicalName": "CCSCD",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "HostUri": {
+        "FriendlyName": "HostUri",
+        "TechnicalName": "HOSTURI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CSSUri": {
+        "FriendlyName": "CSSUri",
+        "TechnicalName": "CSSURI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixXiIntercept_Detail.RESPONSE": {
+      "StatusCode": {
+        "FriendlyName": "StatusCode",
+        "TechnicalName": "STATUSCODE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Message": {
+        "FriendlyName": "Message",
+        "TechnicalName": "MESSAGE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreditCardNumber": {
+        "FriendlyName": "CreditCardNumber",
+        "TechnicalName": "CCNUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PaymetricCardType": {
+        "FriendlyName": "PaymetricCardType",
+        "TechnicalName": "CARD_TYPE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreditCardHolder": {
+        "FriendlyName": "CreditCardHolder",
+        "TechnicalName": "CCNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValidToMonth": {
+        "FriendlyName": "ValidToMonth",
+        "TechnicalName": "VALTM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValidToYear": {
+        "FriendlyName": "ValidToYear",
+        "TechnicalName": "VALTY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CardVerificationValue": {
+        "FriendlyName": "CardVerificationValue",
+        "TechnicalName": "CCSCD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SAPCardType": {
+        "FriendlyName": "SAPCardType",
+        "TechnicalName": "SAP_CARD_TYPE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixXiIntercept_Detail.CMPI_LOOKUP": {
+      "ErrorNo": {
+        "FriendlyName": "ErrorNo",
+        "TechnicalName": "ERRORNO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ErrorDescription": {
+        "FriendlyName": "ErrorDescription",
+        "TechnicalName": "ERRORDESC",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Secure3DECIFlag": {
+        "FriendlyName": "Secure3DECIFlag",
+        "TechnicalName": "ECIFLG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AvailabilityStatus": {
+        "FriendlyName": "AvailabilityStatus",
+        "TechnicalName": "ENROLLED",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CentinelTransactionID": {
+        "FriendlyName": "CentinelTransactionID",
+        "TechnicalName": "TRANSACTIONID",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CentinelOrderID": {
+        "FriendlyName": "CentinelOrderID",
+        "TechnicalName": "ORDERID",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "EncodedPaymentRequest": {
+        "FriendlyName": "EncodedPaymentRequest",
+        "TechnicalName": "PAYLOAD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "RedirectURL": {
+        "FriendlyName": "RedirectURL",
+        "TechnicalName": "ACSURL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixXiIntercept_Detail.CMPI_AUTHENTICATE": {
+      "Secure3DECIFlag": {
+        "FriendlyName": "Secure3DECIFlag",
+        "TechnicalName": "ECIFLG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ParesStatus": {
+        "FriendlyName": "ParesStatus",
+        "TechnicalName": "PARESSTATUS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SignatureVerification": {
+        "FriendlyName": "SignatureVerification",
+        "TechnicalName": "SIGNVERI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CardinallXID": {
+        "FriendlyName": "CardinallXID",
+        "TechnicalName": "XID",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ErrorNo": {
+        "FriendlyName": "ErrorNo",
+        "TechnicalName": "ERRORNO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ErrorDescription": {
+        "FriendlyName": "ErrorDescription",
+        "TechnicalName": "ERRORDESC",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Secure3DCAVV": {
+        "FriendlyName": "Secure3DCAVV",
+        "TechnicalName": "CAVV",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixXiIntercept_Detail.FIELDS": {
+      "Name": {
+        "FriendlyName": "Name",
+        "TechnicalName": "NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Value": {
+        "FriendlyName": "Value",
+        "TechnicalName": "VALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixXiIntercept_Detail.PAYMENT_TYPES": {
+      "PaymentType": {
+        "FriendlyName": "PaymentType",
+        "TechnicalName": "TYPE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Value": {
+        "FriendlyName": "Value",
+        "TechnicalName": "VALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Text": {
+        "FriendlyName": "Text",
+        "TechnicalName": "TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "RESPONSE": {
+      "Name": "RESPONSE",
+      "ItemType": "SBO_EnosixXiIntercept_Detail.RESPONSE",
+      "FieldMap": {
+        "StatusCode": {
+          "FriendlyName": "StatusCode",
+          "TechnicalName": "STATUSCODE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Message": {
+          "FriendlyName": "Message",
+          "TechnicalName": "MESSAGE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreditCardNumber": {
+          "FriendlyName": "CreditCardNumber",
+          "TechnicalName": "CCNUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PaymetricCardType": {
+          "FriendlyName": "PaymetricCardType",
+          "TechnicalName": "CARD_TYPE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreditCardHolder": {
+          "FriendlyName": "CreditCardHolder",
+          "TechnicalName": "CCNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ValidToMonth": {
+          "FriendlyName": "ValidToMonth",
+          "TechnicalName": "VALTM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ValidToYear": {
+          "FriendlyName": "ValidToYear",
+          "TechnicalName": "VALTY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CardVerificationValue": {
+          "FriendlyName": "CardVerificationValue",
+          "TechnicalName": "CCSCD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SAPCardType": {
+          "FriendlyName": "SAPCardType",
+          "TechnicalName": "SAP_CARD_TYPE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "CMPI_LOOKUP": {
+      "Name": "CMPI_LOOKUP",
+      "ItemType": "SBO_EnosixXiIntercept_Detail.CMPI_LOOKUP",
+      "FieldMap": {
+        "ErrorNo": {
+          "FriendlyName": "ErrorNo",
+          "TechnicalName": "ERRORNO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ErrorDescription": {
+          "FriendlyName": "ErrorDescription",
+          "TechnicalName": "ERRORDESC",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Secure3DECIFlag": {
+          "FriendlyName": "Secure3DECIFlag",
+          "TechnicalName": "ECIFLG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "AvailabilityStatus": {
+          "FriendlyName": "AvailabilityStatus",
+          "TechnicalName": "ENROLLED",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CentinelTransactionID": {
+          "FriendlyName": "CentinelTransactionID",
+          "TechnicalName": "TRANSACTIONID",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CentinelOrderID": {
+          "FriendlyName": "CentinelOrderID",
+          "TechnicalName": "ORDERID",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "EncodedPaymentRequest": {
+          "FriendlyName": "EncodedPaymentRequest",
+          "TechnicalName": "PAYLOAD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "RedirectURL": {
+          "FriendlyName": "RedirectURL",
+          "TechnicalName": "ACSURL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "CMPI_AUTHENTICATE": {
+      "Name": "CMPI_AUTHENTICATE",
+      "ItemType": "SBO_EnosixXiIntercept_Detail.CMPI_AUTHENTICATE",
+      "FieldMap": {
+        "Secure3DECIFlag": {
+          "FriendlyName": "Secure3DECIFlag",
+          "TechnicalName": "ECIFLG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ParesStatus": {
+          "FriendlyName": "ParesStatus",
+          "TechnicalName": "PARESSTATUS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SignatureVerification": {
+          "FriendlyName": "SignatureVerification",
+          "TechnicalName": "SIGNVERI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CardinallXID": {
+          "FriendlyName": "CardinallXID",
+          "TechnicalName": "XID",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ErrorNo": {
+          "FriendlyName": "ErrorNo",
+          "TechnicalName": "ERRORNO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ErrorDescription": {
+          "FriendlyName": "ErrorDescription",
+          "TechnicalName": "ERRORDESC",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Secure3DCAVV": {
+          "FriendlyName": "Secure3DCAVV",
+          "TechnicalName": "CAVV",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "FIELDS": {
+      "Name": "FIELDS",
+      "ItemType": "SBO_EnosixXiIntercept_Detail.FIELDS",
+      "FieldMap": {
+        "Name": {
+          "FriendlyName": "Name",
+          "TechnicalName": "NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Value": {
+          "FriendlyName": "Value",
+          "TechnicalName": "VALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "PAYMENT_TYPES": {
+      "Name": "PAYMENT_TYPES",
+      "ItemType": "SBO_EnosixXiIntercept_Detail.PAYMENT_TYPES",
+      "FieldMap": {
+        "PaymentType": {
+          "FriendlyName": "PaymentType",
+          "TechnicalName": "TYPE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Value": {
+          "FriendlyName": "Value",
+          "TechnicalName": "VALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Text": {
+          "FriendlyName": "Text",
+          "TechnicalName": "TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

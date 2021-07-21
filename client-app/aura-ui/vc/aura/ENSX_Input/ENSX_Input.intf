@@ -1,0 +1,4 @@
+<aura:interface access="global" description="ENSX_Input">
+    <aura:attribute name="inputId" type="string"/>
+    <aura:registerEvent name="inputChanged" type="c:EVT_VCInputChanged"  />
+</aura:interface>

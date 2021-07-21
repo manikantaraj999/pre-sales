@@ -1,0 +1,37 @@
+<apex:component controller="CTRL_OpportunityInfo">
+    <apex:attribute name="opportunityId" type="string" required="required" assignTo="{!sfOpportunityId}" description="" />
+    <apex:attribute name="isUpdateMode" type="boolean" description="" />
+    <apex:attribute name="sapType" type="string" description="" />
+    <apex:attribute name="isClassic" type="boolean" description="Classic"/>
+
+    <apex:pageBlock title="Opportunity: {!sfOpportunity.Name}">
+        <apex:pageBlockSection columns="2" collapsible="false">
+            <apex:outputText value="{!sfOpportunity.Name}" label="Opportunity Name:"/>
+            <apex:outputText value="{!sfOpportunity.Description}" label="Description"/>
+            <apex:outputText value="{!sfOpportunity.StageName}" label="Stage"/>
+            <apex:outputText value="{!sfOpportunity.Amount}" label="Amount:"/>
+            <apex:outputText value="{!sfOpportunity.Type}" label="Type:"/>
+            <apex:outputText value="{!sfOpportunity.NextStep}" label="Next Step:"/>
+            <apex:outputText value="{!sfOpportunity.LeadSource}" label="Lead Source:"/>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection columns="1" rendered="{! null != QuoteNumber && !isUpdateMode && sapType='quote'}" >
+            <apex:actionFunction name="gotoQuoteDetail" action="{!redirectToQuoteDetail}" reRender="page" status="status" />
+            <apex:pageMessage severity="INFO" summary="A quotation already exists for this opportunity:" strength="2" />
+            <apex:commandLink onclick="gotoQuoteDetail();return false;"
+                value="Click here to view quotation # {!QuoteNumber}" />
+        </apex:PageBlockSection>
+        <apex:pageBlockSection columns="1" rendered="{! null != OrderNumber && !isUpdateMode && sapType='order'}" >
+            <apex:actionFunction name="gotoOrderDetail" action="{!redirectToOrderDetail}" reRender="page" status="status" />
+            <apex:pageMessage severity="INFO" summary="An order already exists for this opportunity:" strength="2" />
+            <apex:commandLink onclick="gotoOrderDetail();return false;"
+                value="Click here to view order # {!OrderNumber}" />
+        </apex:PageBlockSection>
+
+        <apex:pageBlockButtons location="top">
+            <apex:commandButton onclick="window.location.href='/{!sfOpportunity.Id}';return false;" value="Back to Opportunity" rendered="{! isClassic}"/>
+            <apex:commandButton onclick="sforce.one.navigateToSObject('{!sfOpportunity.Id}');return false;" value="Back to Opportunity" rendered="{! !isClassic}"/>
+        </apex:pageBlockButtons>
+
+    </apex:pageBlock>
+</apex:component>

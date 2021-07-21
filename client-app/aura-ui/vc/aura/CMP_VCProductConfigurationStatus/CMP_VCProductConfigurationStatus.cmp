@@ -1,0 +1,28 @@
+<aura:component >
+    <aura:attribute name="productConfiguration" type="ENSX_VCProductConfiguration" />
+
+    <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.SAPMaterialLinked}" activityTitle="{!'SAP Material Linked ('+ v.productConfiguration.SAPMaterial + ')'}"
+    />
+    <!-- product feature -->
+    <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.ProductFeatureCreated}" activityTitle="BOM Product Feature Created"
+    />
+    <!-- product options -->
+    <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.AllProductOptionsCreated}" activityTitle="{!'Product Options Created ( SAP Characteristics:'+ v.productConfiguration.SAPCharacteristicCount + ' ConfiguredProduct Options: ' + v.productConfiguration.ConfiguredProductOptionsCount +')'}"
+    />
+    <!-- Price Editable -->
+    <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.PriceEditable}" activityTitle="Product Price Editable Field Selected"
+    />
+    <!-- Cost Editable -->
+    <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.CostEditable}" activityTitle="Product Cost Editable Field Selected"
+    />
+    <!-- External Configuration -->
+    <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.ExternalConfigurationRequired}" activityTitle="External Configuration Set"
+    />
+   <!-- External Configuration Type-->
+   <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.ExternalConfigurationTypeRequired}" activityTitle="External Configuration Type Set to Required"
+   /> 
+   <!-- External Configuration Event-->
+   <c:CMP_ActivityComplete activityComplete="{!v.productConfiguration.ExternalConfigurationEventAlways}" activityTitle="External Configuration Event Set to 'Always'"
+   />
+
+</aura:component>

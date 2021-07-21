@@ -1,0 +1,60 @@
+<aura:component access="global">
+
+    <aura:attribute name="billingPlans" type="List"/>
+    <aura:attribute name="billingPlan" type="Map"/>
+    <aura:attribute name="billingPlanDates" type="List"/>
+    <aura:attribute name="isReadOnly" type="Boolean" default="false"/>
+
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative">
+        <div class="slds-grid slds-wrap slds-gutters slds-m-bottom_x-small">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_BillingPlanType}" value="{!v.billingPlan.BillingPlanType}" readonly="true"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                <lightning:input type="date" label="{!$Label.c.Enosix_SalesDoc_Field_StartDate}" value="{!v.billingPlan.BillingPlanStartDate}" readonly="{!v.isReadOnly}"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                <lightning:input type="date" label="{!$Label.c.Enosix_SalesDoc_Field_EndDate}" value="{!v.billingPlan.BillingPlanEndDate}" readonly="{!v.isReadOnly}"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_RuleNextBillingDate}" value="{!v.billingPlan.RuleForNextBillingDateOrigin}" disabled="{!v.isReadOnly}">
+                    <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                    <aura:iteration items="{!v.billingPlans}" var="bp">
+                        <option value="{!bp.PERIO}">{!bp.PERIO + ' - ' + bp.BEZEICH}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </div>                        
+        </div>
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer table-fixed-layout">
+            <thead>
+                <tr class="table-head slds-grid--vertical-stretch">
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_DeadlineSettlementDate}</th>
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_Usage}</th>
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_ValueInvoiced}</th>
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_ValueBilled}</th>
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_BillingBlock}</th>
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_Rule}</th>
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_BillingStatus}</th>         
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_DateCategory}</th>
+                    <th scope="col">{!$Label.c.Enosix_SalesDoc_Table_ProposedBillingType}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.billingPlanDates}" var="billingPlanDate">
+                    <tr>                                    
+                        <td><lightning:formattedDateTime value="{!billingPlanDate.DeadlineSettlementDate}"/></td>
+                        <td><lightning:formattedText value="{!billingPlanDate.Usage}"/></td>
+                        <td><lightning:formattedNumber style="decimal" minimumFractionDigits="2" value="{!billingPlanDate.PercentageOfValueToBeInvoiced}"/></td>
+                        <td><lightning:formattedNumber style="decimal" minimumFractionDigits="2" value="{!billingPlanDate.ValueToBeBilled}"/></td>
+                        <td><lightning:formattedText value="{!billingPlanDate.BillingBlockForBillingPlan}"/></td>
+                        <td><lightning:formattedText value="{!billingPlanDate.RuleInBillingPlan}"/></td>
+                        <td><lightning:formattedText value="{!billingPlanDate.BillingStatusForBillingPlan}"/></td>
+                        <td><lightning:formattedText value="{!billingPlanDate.DateCategory}"/></td>
+                        <td><lightning:formattedText value="{!billingPlanDate.ProposedBillingType}"/></td>
+                    </tr>                                    
+                </aura:iteration>
+            </tbody>
+        </table>
+    </lightning:card>
+
+</aura:component>

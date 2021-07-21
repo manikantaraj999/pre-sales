@@ -1,0 +1,6 @@
+{
+  "Logging": false,
+  "SAPPageSize": 1000,
+  "SFBatchSize": 100,
+  "AccountGroups": []
+}

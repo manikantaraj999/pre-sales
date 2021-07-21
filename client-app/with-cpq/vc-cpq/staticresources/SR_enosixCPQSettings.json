@@ -1,0 +1,95 @@
+{
+  "SalesOrgList": [],
+  "DistributionChannelList": [],
+  "DivisionList": [],
+  "DefaultSalesDocType": "",
+  "DefaultSalesOrg": "",
+  "DefaultDistributionChannel": "",
+  "DefaultDivision": "",
+  "DefaultCustomerNumber": "",
+  "DefaultItemPlant": "",
+  "ConditionType": "",
+  "ListPriceConditionType": "",
+  "UnitCostConditionType": "",
+  "SecondaryUnitCostConditionType": "",
+  "Pricing": {
+    "Request": {
+      "Quote": {
+        "RecordMapping": [
+          {"sObjectField":"FLD_Document_Type__c","sboCollection":"sales","sboTarget":"SalesDocumentType"},
+          {"sObjectField":"FLD_Sales_Organization__c","sboCollection":"sales","sboTarget":"SalesOrganization"},
+          {"sObjectField":"FLD_Distribution_Channel__c","sboCollection":"sales","sboTarget":"DistributionChannel"},
+          {"sObjectField":"FLD_Division__c","sboCollection":"sales","sboTarget":"Division"},
+          {"sObjectField":"FLD_Sold_To_Number__c","sboCollection":"header","sboTarget":"SoldToParty"},
+          {"sObjectField":"CurrencyIsoCode","sboCollection":"sales","sboTarget":"SalesDocumentCurrency"},
+          {"sObjectField":"CurrencyIsoCode","sboCollection":"header","sboTarget":"SalesDocumentCurrency"},
+          {"sObjectField":"FLD_Sold_To_Number__c","sboCollection":"partners","sboTarget":"CustomerNumber","partnerType":"SoldToParty"},
+          {"sObjectField":"FLD_Ship_To_Number__c","sboCollection":"partners","sboTarget":"CustomerNumber","partnerType":"ShipToParty"}        ]
+      },
+      "QuoteLine": {
+        "RecordMapping": [
+        ]
+      }
+    },
+    "Response": {
+      "Quote": {
+        "RecordMapping": [
+        ]
+      },
+      "QuoteLine": {
+        "RecordMapping": [
+          {"sObjectField":"SBQQ__OriginalPrice__c","sboCollection":"condition","sboTarget":"PR00","transform":"conditionRate"},
+          {"sObjectField":"SBQQ__ListPrice__c","sboCollection":"item","sboTarget":"NetItemPrice"},
+          {"sObjectField":"FLD_SAP_Item_Number__c","sboCollection":"item","sboTarget":"ItemNumber"}
+        ]
+      }
+    }
+  },
+  "UTIL_CPQ_Setup": {
+    "customScriptName": "enosix_sap_simulation",
+    "staticresourceCodeName": "enosix_sap_simulation",
+    "staticresourceTranspiledCodeName": "enosix_sap_simulation_transpiled",
+    "quoteFields": [
+      "FLD_Sales_Organization__c",
+      "FLD_Distribution_Channel__c",
+      "FLD_Division__c",
+      "FLD_Document_Type__c",
+      "FLD_Sold_To_Number__c",
+      "FLD_Ship_To_Number__c",
+      "CurrencyIsoCode",
+      "FLD_SAP_Simulation_Error__c",
+      "FLD_enosixPricingSimulationEnabled__c"
+    ],
+    "quoteLineFields": [
+      "SAP_Configuration__c",
+      "FLD_enosixPricingSimulationEnabled__c"
+    ],
+    "config": {
+      "DEBUG": false,
+      "quoteSimulationEnabledField": "FLD_enosixPricingSimulationEnabled__c",
+      "quoteLineSimulationEnabledField": "FLD_enosixPricingSimulationEnabled__c",
+      "resequenceQuoteLines": true,
+      "enosixSapSimulationApexService": "/ensxCPQQuoteCalculationService",
+      "requestQuoteRecordFields": [
+        "FLD_Sales_Organization__c",
+        "FLD_Distribution_Channel__c",
+        "FLD_Division__c",
+        "FLD_Document_Type__c",
+        "FLD_Sold_To_Number__c",
+        "FLD_Ship_To_Number__c",
+        "CurrencyIsoCode"
+      ],
+      "requestQuoteFieldMapping": {
+        "salesOrg": "FLD_Sales_Organization__c",
+        "salesDistChannel": "FLD_Distribution_Channel__c",
+        "salesDivision": "FLD_Division__c",
+        "salesDocType": "FLD_Document_Type__c",
+        "soldToParty": "FLD_Sold_To_Number__c",
+        "shipToParty": "FLD_Ship_To_Number__c"
+      },
+      "requestQuoteLineRecordFields": [
+      ],
+      "requestQuoteLineFieldMapping": {}
+    }
+  }
+}

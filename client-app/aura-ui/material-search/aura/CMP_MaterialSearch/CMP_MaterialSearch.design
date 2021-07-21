@@ -1,0 +1,10 @@
+<design:component label="SAP Material Search">
+    <design:attribute name="isMultiSelectEnabled" label="Is Multi-Select Enabled?" />
+    <design:attribute name="isQuantityEnabled" label="Is Quantity Enabled?" />
+    <design:attribute name="isScheduleDateEnabled" label="Is Schedule Date Enabled?" />
+    <design:attribute name="isAutoSearchEnabled" label="Is AutoSearch Enabled" />
+    <design:attribute name="isMaterialTypesDisplayed" label="Is Material Types Displayed" />
+    <design:attribute name="salesOrganization" label="Sales Organization" />
+    <design:attribute name="distributionChannel" label="Distribution Channel" /> 
+    <design:attribute name="isSeparateFlowComponent" label="Is this component directly added to a flow?" />   
+</design:component>

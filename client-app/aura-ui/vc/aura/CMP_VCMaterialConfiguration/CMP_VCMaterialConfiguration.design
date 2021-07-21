@@ -1,0 +1,21 @@
+<design:component label="VC Material Configuration">
+    <design:attribute name="headerJSON" label="Header Info"
+    description="JSON from CPQ for header information" />
+
+    <design:attribute name="itemJSON" label="Item Info"
+    description="JSON from CPQ for item information" />
+
+    <design:attribute name="addedItemsJSON" label="Added Items Info"
+    description="List of product Ids for items added during vc" />
+
+    <design:attribute name="materialId" label="Item Id"
+    description="Item Id" />
+
+    <design:attribute name="quoteId" label="CPQ QuoteId" />
+
+    <design:attribute name="isFinish" label="Is Flow Finish" 
+    description="Indicates Flow Finish"/>
+
+    <design:attribute name="characteristicChangeCount" label="default VC Refresh Count" />
+
+</design:component>

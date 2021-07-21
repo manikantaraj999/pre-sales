@@ -1,0 +1,24 @@
+
+[
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "files": [
+            "Account.json"
+        ]
+    },
+    {
+        "sobject": "Pricebook2",
+        "resolveRefs": true,
+        "files": [
+            "Pricebook2.json"
+        ]
+    },
+    {
+        "sobject": "Product2",
+        "resolveRefs": true,
+        "files": [
+            "Product2.json"
+        ]
+    }
+]

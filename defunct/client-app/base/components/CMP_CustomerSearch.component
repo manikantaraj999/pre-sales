@@ -1,0 +1,119 @@
+<apex:component controller="CTRL_CMPCustomerSearch">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <apex:stylesheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+
+    <apex:attribute name="rerenderSearch" description="" type="String"/>
+    <apex:attribute name="rerenderSelect" description="" type="String"/>
+    <apex:attribute name="receiver" description="" type="CB_CMPCustomerSearchReceiver" assignTo="{!searchReceiver}"/>
+    <apex:attribute name="jsCallback" description="" type="String"/>
+    <apex:attribute name="autoSearch" description="" default="false" type="Boolean" assignTo="{!isAutoSearchEnabled}"/>
+    <apex:attribute name="customerNumFrom" description="Customer Number From" type="String" assignTo="{!customerNumberFrom}"/>
+    <apex:attribute name="partFunc" description="Partner Function" type="String" assignTo="{!partnerFunction}"/>
+    <apex:attribute name="acctGroup" description="Account Group" type="String" assignTo="{!accountGroup}"/>
+    <apex:attribute name="title" description="Component Title" type="String" assignTo="{!componentTitle}"/>
+    <apex:attribute name="actionSearchName" description="The Js method name for searching" type="String" assignTo="{!searchNameAction}"/>
+    <apex:attribute name="actionSelectedName" description="The Js method name for selected customer" type="String" assignTo="{!selectedNameAction}"/>
+    <apex:attribute name="contactSearch" description="Is contact search or not" default="false" type="Boolean" assignTo="{!isContactSearch}"/>
+    <apex:attribute name="mainShipTo" description="Is main shipTo search or not" default="false" type="Boolean" assignTo="{!isMainShipTo}"/>
+    <apex:attribute name="personnelSearch" description="Is personnel search or not" default="false" type="Boolean" assignTo="{!isPersonnelSearch}"/>
+
+    <apex:pageBlock title="{!componentTitle}" id="customerSearchBlock">
+
+        <!-- Action Functions -->
+        <apex:outputPanel html-Hidden="true">
+            <apex:actionFunction name="{!searchNameAction}" action="{!actionSearch}"
+                rerender="{!rerenderSearch}" status="status"/>
+            <apex:actionFunction name="{!selectedNameAction}" action="{!actionSelectedCustomerToReceiver}"
+                rerender="{!rerenderSelect}" status="status" oncomplete="{!jsCallback}">
+                <apex:param name="selectedIndex" value=""/>
+            </apex:actionFunction>
+        </apex:outputPanel>
+
+        <apex:pageBlockSection columns="2" rendered="{!!isContactSearch && !isPersonnelSearch}">
+            <!-- <apex:outputText id="accountGroupVal" styleClass="accountGroupClass" label="Account Group:" value="{!accountGroup}"/> -->
+            <!-- <apex:pageBlockSectionItem/> -->
+            <!-- <apex:inputText label="Name:" value="{!partnerName}"/> -->
+            <!-- <apex:inputText label="Name 2:" value="{!name2}"/>             -->
+            <apex:inputText label="Customer Name:" value="{!customerName}"/>            
+            <apex:pageBlockSectionItem/>
+            <!-- <apex:inputText label="Search Term 1:" value="{!searchTerm1}"/> -->
+            <!-- <apex:inputText label="Search Term 2:" value="{!searchTerm2}"/> -->
+            <!-- <apex:inputText label="Street:" value="{!street}"/> -->
+            <!-- <apex:inputText label="House Number:" value="{!houseNumber}"/> -->
+            <apex:inputText label="Postal Code:" value="{!postalCode}"/>
+            <apex:inputText label="City:" value="{!city}"/>
+            <apex:selectList label="Country:" value="{!country}" size="1" rendered="{!isCountryAllowed}">
+                <apex:actionSupport event="onchange" action="{!actionSearch}" rerender="{!rerenderSearch}" status="status"/>
+                <apex:selectOptions value="{!countryOptions}"/>
+            </apex:selectList>
+            <apex:selectList label="Region:" value="{!region}" size="1" rendered="{!isStateAllowed}">
+                <apex:selectOptions value="{!regionOptions}"/>
+            </apex:selectList>
+            <apex:inputText label="Phone Number:" value="{!telephoneNO}"/>
+            <apex:inputText label="Email:" value="{!eMailAddress}"/>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection columns="2" rendered="{!isContactSearch || isPersonnelSearch}">
+            <apex:inputText label="First Name:" value="{!firstName}"/>
+            <apex:inputText label="Last Name:" value="{!lastName}"/>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection>
+            <apex:commandButton onclick="{!searchNameAction}(); return false;" value="Search"/>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection/>
+
+        <!-- Table Output -->
+        <apex:outputPanel id="resultsPanel" rendered="{!null != searchResults}">
+            <table class="list" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr class="headerRow">
+                        <th></th>
+                        <th>Customer Number</th>
+                        <th>Name</th>
+                        <th>Name2</th>
+                        <th>Address</th>
+                        <th>Country</th>
+                    </tr>
+                    <apex:repeat value="{!searchResults}" var="result">
+                        <tr>
+                            <td>
+                                <apex:commandButton onclick="{!selectedNameAction}({!result.index}); return false;" value="Select"/>
+                            </td>
+                            <td>{!result.customerNumber}</td>
+                            <td>{!result.name}</td>
+                            <td>{!result.name2}</td>
+                            <td>{!result.address}</td>
+                            <td>{!result.country}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="6" class="header">
+                            <apex:outputPanel id="paginationdiv">
+                                <apex:outputPanel id="innerpaginationdiv" rendered="{!hasRecords}">
+                                    <c:CMP_Pager pagerId="{!id}"
+                                        options="{!pagingOptionsWrapper}"
+                                        searchController="{!searchController}"
+                                        rerender="resultsPanel" />
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </apex:outputPanel>
+    </apex:pageBlock>
+    
+    <script type="text/javascript">
+
+        // function selectedCustomerCallback() {
+        //     if (!!'{!jsCallback}') window['{!jsCallback}']();
+        // }
+    </script>
+
+</apex:component>

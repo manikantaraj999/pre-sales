@@ -1,0 +1,777 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixVC_Detail.EnosixVC": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConfigInstance": {
+        "FriendlyName": "ConfigInstance",
+        "TechnicalName": "INSTANCE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ObjectKey": {
+        "FriendlyName": "ObjectKey",
+        "TechnicalName": "OBJKEY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConfigDate": {
+        "FriendlyName": "ConfigDate",
+        "TechnicalName": "CFG_DATE",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "CalculatePrice": {
+        "FriendlyName": "CalculatePrice",
+        "TechnicalName": "CALCULATE_PRICE",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "ConfigurationIsValid": {
+        "FriendlyName": "ConfigurationIsValid",
+        "TechnicalName": "CONFIG_VALID",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "SalesDocumentType": {
+        "FriendlyName": "SalesDocumentType",
+        "TechnicalName": "AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Division": {
+        "FriendlyName": "Division",
+        "TechnicalName": "SPART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToParty": {
+        "FriendlyName": "SoldToParty",
+        "TechnicalName": "KUNAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToParty": {
+        "FriendlyName": "ShipToParty",
+        "TechnicalName": "KUNWE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Plant": {
+        "FriendlyName": "Plant",
+        "TechnicalName": "WERKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NetItemPrice": {
+        "FriendlyName": "NetItemPrice",
+        "TechnicalName": "NETPR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "CostInDocCurrency": {
+        "FriendlyName": "CostInDocCurrency",
+        "TechnicalName": "WAVWR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SalesDocumentCurrency": {
+        "FriendlyName": "SalesDocumentCurrency",
+        "TechnicalName": "WAERK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "OrderQuantity": {
+        "FriendlyName": "OrderQuantity",
+        "TechnicalName": "KWMENG",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SalesUnit": {
+        "FriendlyName": "SalesUnit",
+        "TechnicalName": "VRKME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConfigurationInternal": {
+        "FriendlyName": "ConfigurationInternal",
+        "TechnicalName": "CFG_HANDLE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NextLevelMaterial": {
+        "FriendlyName": "NextLevelMaterial",
+        "TechnicalName": "MATNR_LEVEL2",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixVC_Detail.CHARACTERISTICS": {
+      "CharacteristicID": {
+        "FriendlyName": "CharacteristicID",
+        "TechnicalName": "ATINN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicName": {
+        "FriendlyName": "CharacteristicName",
+        "TechnicalName": "ATNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicDescription": {
+        "FriendlyName": "CharacteristicDescription",
+        "TechnicalName": "ATBEZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Required": {
+        "FriendlyName": "Required",
+        "TechnicalName": "FLREQ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Inherited": {
+        "FriendlyName": "Inherited",
+        "TechnicalName": "FLINH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValuesAssigned": {
+        "FriendlyName": "ValuesAssigned",
+        "TechnicalName": "FLASS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DataType": {
+        "FriendlyName": "DataType",
+        "TechnicalName": "ATFOR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SingleValue": {
+        "FriendlyName": "SingleValue",
+        "TechnicalName": "ATEIN",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "ValueRequired": {
+        "FriendlyName": "ValueRequired",
+        "TechnicalName": "ATERF",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IntervalsAllowed": {
+        "FriendlyName": "IntervalsAllowed",
+        "TechnicalName": "ATINT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AdditionalValues": {
+        "FriendlyName": "AdditionalValues",
+        "TechnicalName": "ATSON",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NotToBeDisplayed": {
+        "FriendlyName": "NotToBeDisplayed",
+        "TechnicalName": "ATVIE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NoEntryAllowed": {
+        "FriendlyName": "NoEntryAllowed",
+        "TechnicalName": "ATINP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NumericCharacter": {
+        "FriendlyName": "NumericCharacter",
+        "TechnicalName": "ANZST",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NumericCharacter1": {
+        "FriendlyName": "NumericCharacter1",
+        "TechnicalName": "ANZDZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValueWithPlusOrMinus": {
+        "FriendlyName": "ValueWithPlusOrMinus",
+        "TechnicalName": "ATVOR",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "NumericCharacter2": {
+        "FriendlyName": "NumericCharacter2",
+        "TechnicalName": "ATDIM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ExponentDisplayFormat": {
+        "FriendlyName": "ExponentDisplayFormat",
+        "TechnicalName": "ATDEX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValueWithTemplate": {
+        "FriendlyName": "ValueWithTemplate",
+        "TechnicalName": "ATSCH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DisplayTemplate": {
+        "FriendlyName": "DisplayTemplate",
+        "TechnicalName": "ATVSC",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CaseSensitive": {
+        "FriendlyName": "CaseSensitive",
+        "TechnicalName": "ATKLE",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "UnitOfMeasure": {
+        "FriendlyName": "UnitOfMeasure",
+        "TechnicalName": "MSEHI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ExternalUnitOfMeasure": {
+        "FriendlyName": "ExternalUnitOfMeasure",
+        "TechnicalName": "MSEH6",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DisplayAllowedValues": {
+        "FriendlyName": "DisplayAllowedValues",
+        "TechnicalName": "ATWRD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "UnformattedEntryControl": {
+        "FriendlyName": "UnformattedEntryControl",
+        "TechnicalName": "ATFOD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "GroupName": {
+        "FriendlyName": "GroupName",
+        "TechnicalName": "GRNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "GroupText": {
+        "FriendlyName": "GroupText",
+        "TechnicalName": "GRTXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SequenceNumber": {
+        "FriendlyName": "SequenceNumber",
+        "TechnicalName": "SEQNO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FrequentlyUsed": {
+        "FriendlyName": "FrequentlyUsed",
+        "TechnicalName": "FREQ_USED",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "Process": {
+        "FriendlyName": "Process",
+        "TechnicalName": "PROCESS",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixVC_Detail.ALLOWEDVALUES": {
+      "CharacteristicID": {
+        "FriendlyName": "CharacteristicID",
+        "TechnicalName": "ATINN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicName": {
+        "FriendlyName": "CharacteristicName",
+        "TechnicalName": "ATNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicValue": {
+        "FriendlyName": "CharacteristicValue",
+        "TechnicalName": "ATWRT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicValueDescription": {
+        "FriendlyName": "CharacteristicValueDescription",
+        "TechnicalName": "ATWTB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueFrom": {
+        "FriendlyName": "FloatingPointValueFrom",
+        "TechnicalName": "ATFLV",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueFromUOM": {
+        "FriendlyName": "FloatingPointValueFromUOM",
+        "TechnicalName": "ATAWE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueTo": {
+        "FriendlyName": "FloatingPointValueTo",
+        "TechnicalName": "ATFLB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueToUOM": {
+        "FriendlyName": "FloatingPointValueToUOM",
+        "TechnicalName": "ATAW1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValueDependencyCode": {
+        "FriendlyName": "ValueDependencyCode",
+        "TechnicalName": "ATCOD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ToleranceFrom": {
+        "FriendlyName": "ToleranceFrom",
+        "TechnicalName": "ATTLV",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ToleranceTo": {
+        "FriendlyName": "ToleranceTo",
+        "TechnicalName": "ATTLB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ToeranceAsPercentage": {
+        "FriendlyName": "ToeranceAsPercentage",
+        "TechnicalName": "ATPRZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IncrementWithInterval": {
+        "FriendlyName": "IncrementWithInterval",
+        "TechnicalName": "ATINC",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixVC_Detail.SELECTEDVALUES": {
+      "CharacteristicID": {
+        "FriendlyName": "CharacteristicID",
+        "TechnicalName": "ATINN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicName": {
+        "FriendlyName": "CharacteristicName",
+        "TechnicalName": "ATNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicValue": {
+        "FriendlyName": "CharacteristicValue",
+        "TechnicalName": "ATWRT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CharacteristicValueDescription": {
+        "FriendlyName": "CharacteristicValueDescription",
+        "TechnicalName": "ATWTB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueFrom": {
+        "FriendlyName": "FloatingPointValueFrom",
+        "TechnicalName": "ATFLV",
+        "FieldType": "Float",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueFromUOM": {
+        "FriendlyName": "FloatingPointValueFromUOM",
+        "TechnicalName": "ATAWE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueTo": {
+        "FriendlyName": "FloatingPointValueTo",
+        "TechnicalName": "ATFLB",
+        "FieldType": "Float",
+        "FieldWidth": 1
+      },
+      "FloatingPointValueToUOM": {
+        "FriendlyName": "FloatingPointValueToUOM",
+        "TechnicalName": "ATAW1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "UserModified": {
+        "FriendlyName": "UserModified",
+        "TechnicalName": "USERMOD",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "CHARACTERISTICS": {
+      "Name": "CHARACTERISTICS",
+      "ItemType": "SBO_EnosixVC_Detail.CHARACTERISTICS",
+      "FieldMap": {
+        "CharacteristicID": {
+          "FriendlyName": "CharacteristicID",
+          "TechnicalName": "ATINN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicName": {
+          "FriendlyName": "CharacteristicName",
+          "TechnicalName": "ATNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicDescription": {
+          "FriendlyName": "CharacteristicDescription",
+          "TechnicalName": "ATBEZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Required": {
+          "FriendlyName": "Required",
+          "TechnicalName": "FLREQ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Inherited": {
+          "FriendlyName": "Inherited",
+          "TechnicalName": "FLINH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ValuesAssigned": {
+          "FriendlyName": "ValuesAssigned",
+          "TechnicalName": "FLASS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DataType": {
+          "FriendlyName": "DataType",
+          "TechnicalName": "ATFOR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SingleValue": {
+          "FriendlyName": "SingleValue",
+          "TechnicalName": "ATEIN",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "ValueRequired": {
+          "FriendlyName": "ValueRequired",
+          "TechnicalName": "ATERF",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "IntervalsAllowed": {
+          "FriendlyName": "IntervalsAllowed",
+          "TechnicalName": "ATINT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "AdditionalValues": {
+          "FriendlyName": "AdditionalValues",
+          "TechnicalName": "ATSON",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NotToBeDisplayed": {
+          "FriendlyName": "NotToBeDisplayed",
+          "TechnicalName": "ATVIE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NoEntryAllowed": {
+          "FriendlyName": "NoEntryAllowed",
+          "TechnicalName": "ATINP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NumericCharacter": {
+          "FriendlyName": "NumericCharacter",
+          "TechnicalName": "ANZST",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NumericCharacter1": {
+          "FriendlyName": "NumericCharacter1",
+          "TechnicalName": "ANZDZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ValueWithPlusOrMinus": {
+          "FriendlyName": "ValueWithPlusOrMinus",
+          "TechnicalName": "ATVOR",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "NumericCharacter2": {
+          "FriendlyName": "NumericCharacter2",
+          "TechnicalName": "ATDIM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ExponentDisplayFormat": {
+          "FriendlyName": "ExponentDisplayFormat",
+          "TechnicalName": "ATDEX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ValueWithTemplate": {
+          "FriendlyName": "ValueWithTemplate",
+          "TechnicalName": "ATSCH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DisplayTemplate": {
+          "FriendlyName": "DisplayTemplate",
+          "TechnicalName": "ATVSC",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CaseSensitive": {
+          "FriendlyName": "CaseSensitive",
+          "TechnicalName": "ATKLE",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "UnitOfMeasure": {
+          "FriendlyName": "UnitOfMeasure",
+          "TechnicalName": "MSEHI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ExternalUnitOfMeasure": {
+          "FriendlyName": "ExternalUnitOfMeasure",
+          "TechnicalName": "MSEH6",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DisplayAllowedValues": {
+          "FriendlyName": "DisplayAllowedValues",
+          "TechnicalName": "ATWRD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "UnformattedEntryControl": {
+          "FriendlyName": "UnformattedEntryControl",
+          "TechnicalName": "ATFOD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "GroupName": {
+          "FriendlyName": "GroupName",
+          "TechnicalName": "GRNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "GroupText": {
+          "FriendlyName": "GroupText",
+          "TechnicalName": "GRTXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SequenceNumber": {
+          "FriendlyName": "SequenceNumber",
+          "TechnicalName": "SEQNO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FrequentlyUsed": {
+          "FriendlyName": "FrequentlyUsed",
+          "TechnicalName": "FREQ_USED",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "Process": {
+          "FriendlyName": "Process",
+          "TechnicalName": "PROCESS",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ALLOWEDVALUES": {
+      "Name": "ALLOWEDVALUES",
+      "ItemType": "SBO_EnosixVC_Detail.ALLOWEDVALUES",
+      "FieldMap": {
+        "CharacteristicID": {
+          "FriendlyName": "CharacteristicID",
+          "TechnicalName": "ATINN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicName": {
+          "FriendlyName": "CharacteristicName",
+          "TechnicalName": "ATNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicValue": {
+          "FriendlyName": "CharacteristicValue",
+          "TechnicalName": "ATWRT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicValueDescription": {
+          "FriendlyName": "CharacteristicValueDescription",
+          "TechnicalName": "ATWTB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueFrom": {
+          "FriendlyName": "FloatingPointValueFrom",
+          "TechnicalName": "ATFLV",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueFromUOM": {
+          "FriendlyName": "FloatingPointValueFromUOM",
+          "TechnicalName": "ATAWE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueTo": {
+          "FriendlyName": "FloatingPointValueTo",
+          "TechnicalName": "ATFLB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueToUOM": {
+          "FriendlyName": "FloatingPointValueToUOM",
+          "TechnicalName": "ATAW1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ValueDependencyCode": {
+          "FriendlyName": "ValueDependencyCode",
+          "TechnicalName": "ATCOD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ToleranceFrom": {
+          "FriendlyName": "ToleranceFrom",
+          "TechnicalName": "ATTLV",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ToleranceTo": {
+          "FriendlyName": "ToleranceTo",
+          "TechnicalName": "ATTLB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ToeranceAsPercentage": {
+          "FriendlyName": "ToeranceAsPercentage",
+          "TechnicalName": "ATPRZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "IncrementWithInterval": {
+          "FriendlyName": "IncrementWithInterval",
+          "TechnicalName": "ATINC",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "SELECTEDVALUES": {
+      "Name": "SELECTEDVALUES",
+      "ItemType": "SBO_EnosixVC_Detail.SELECTEDVALUES",
+      "FieldMap": {
+        "CharacteristicID": {
+          "FriendlyName": "CharacteristicID",
+          "TechnicalName": "ATINN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicName": {
+          "FriendlyName": "CharacteristicName",
+          "TechnicalName": "ATNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicValue": {
+          "FriendlyName": "CharacteristicValue",
+          "TechnicalName": "ATWRT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CharacteristicValueDescription": {
+          "FriendlyName": "CharacteristicValueDescription",
+          "TechnicalName": "ATWTB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueFrom": {
+          "FriendlyName": "FloatingPointValueFrom",
+          "TechnicalName": "ATFLV",
+          "FieldType": "Float",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueFromUOM": {
+          "FriendlyName": "FloatingPointValueFromUOM",
+          "TechnicalName": "ATAWE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueTo": {
+          "FriendlyName": "FloatingPointValueTo",
+          "TechnicalName": "ATFLB",
+          "FieldType": "Float",
+          "FieldWidth": 1
+        },
+        "FloatingPointValueToUOM": {
+          "FriendlyName": "FloatingPointValueToUOM",
+          "TechnicalName": "ATAW1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "UserModified": {
+          "FriendlyName": "UserModified",
+          "TechnicalName": "USERMOD",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

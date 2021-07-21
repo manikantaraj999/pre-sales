@@ -1,0 +1,217 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens">
+    <ltng:require scripts="{!$Resource.ensxapp__SR_Enosix + '/js/lightning_utils.js'}" afterScriptsLoaded="{!c.onInit}" />
+    <aura:handler event="aura:locationChange" action="{!c.onLocationChange}" />
+
+    <aura:attribute name="contractDetail" type="Map"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sapDocumentId" type="String" access="global"/>
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="columns" type="List"/>
+    <c:CMP_ContractDetail aura:id="dataSource"/>
+
+    <aura:attribute name="displayHeader" type="Boolean" default="true"/>
+    <aura:attribute name="headerTitle" type="String" default="Partners"/>
+
+    <aura:attribute name="displayPartnerFunction" type="Boolean" default="true"/>
+    <aura:attribute name="displayCustomerNumber" type="Boolean" default="true"/>
+    <aura:attribute name="displayVendor" type="Boolean" default="true"/>
+    <aura:attribute name="displayPersonnelNumber" type="Boolean" default="true"/>
+    <aura:attribute name="displayContactPersonNumber" type="Boolean" default="true"/>
+    <aura:attribute name="displayPartnerName" type="Boolean" default="true"/>
+    <aura:attribute name="displayStreet" type="Boolean" default="true"/>
+    <aura:attribute name="displayCity" type="Boolean" default="true"/>
+    <aura:attribute name="displayPostalCode" type="Boolean" default="true"/>
+    <aura:attribute name="displayRegion" type="Boolean" default="true"/>  
+    <aura:attribute name="displayCountry" type="Boolean" default="true"/>      
+    
+    <aura:html tag="style">
+        @media all and (min-width: 600px) {
+            .slds-modal__container{
+                min-width: 90vw!important;
+            }
+        }
+    </aura:html>
+
+    <aura:if isTrue="{!v.displaySpinner}">
+        <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+        <aura:set attribute="else">
+            <lightning:card class="slds-card slds-m-around__xsmall  slds-is-relative"
+                title="{! !v.displayHeader? '': v.headerTitle}"
+                iconName="{! !v.displayHeader? '':'custom:custom18'}">
+                <div class="slds-card__body slds-card__body_inner">
+                    <c:CMP_Messages messages="{!v.messages}" />
+
+                    <ui:scrollerWrapper >
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <aura:if isTrue="{!v.displayPartnerFunction}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_PartnerFunction}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayCustomerNumber}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_CustomerNumber}
+                                            </div>
+                                        </th>
+                                    </aura:if> 
+                                    <aura:if isTrue="{!v.displayVendor}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_Vendor}
+                                            </div>
+                                        </th>
+                                    </aura:if> 
+                                    <aura:if isTrue="{!v.displayPersonnelNumber}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_PersonnelNumber}
+                                            </div>
+                                        </th>
+                                    </aura:if>   
+                                    <aura:if isTrue="{!v.displayContactPersonNumber}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_ContactPersonNumber}
+                                            </div>
+                                        </th>
+                                    </aura:if>   
+                                    <aura:if isTrue="{!v.displayPartnerName}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_PartnerName}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayStreet}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_Street}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayCity}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_City}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayRegion}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_Region}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayPostalCode}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_PostalCode}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayCountry}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Partner_Country}
+                                            </div>
+                                        </th>
+                                    </aura:if>                     
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.contractDetail.PARTNERS.asList}" var="p">
+                                    <tr>
+                                        <aura:if isTrue="{!v.displayPartnerFunction}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_PartnerFunction}">
+                                                <div class="slds-truncate">
+                                                    {!p.PartnerFunction} - {!p.PartnerFunctionName}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayCustomerNumber}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_CustomerNumber}">
+                                                <div class="slds-truncate">
+                                                    {!p.CustomerNumber}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayVendor}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_Vendor}">
+                                                <div class="slds-truncate">
+                                                    {!p.Vendor}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayPersonnelNumber}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_PersonnelNumber}">
+                                                <div class="slds-truncate">
+                                                    {!p.PersonnelNumber}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayContactPersonNumber}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_ContactPersonNumber}">
+                                                <div class="slds-truncate">
+                                                    {!p.ContactPersonNumber}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayPartnerName}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_PartnerName}">
+                                                <div class="slds-truncate">
+                                                    {!p.PartnerName}&nbsp;{!p.PartnerName2}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayStreet}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_Street}">
+                                                <div class="slds-truncate">
+                                                    {!p.HouseNumber}&nbsp;{!p.Street}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayCity}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_City}">
+                                                <div class="slds-truncate">
+                                                    {!p.City}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayRegion}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_Region}">
+                                                <div class="slds-truncate">
+                                                    {!p.Region}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayPostalCode}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_PostalCode}">
+                                                <div class="slds-truncate">
+                                                    {!p.PostalCode}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayCountry}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Partner_Country}">
+                                                <div class="slds-truncate">
+                                                    {!p.Country}
+                                                </div>
+                                            </td>
+                                        </aura:if>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                    </ui:scrollerWrapper>
+                </div>
+            </lightning:card>
+        </aura:set>
+    </aura:if>
+</aura:component>

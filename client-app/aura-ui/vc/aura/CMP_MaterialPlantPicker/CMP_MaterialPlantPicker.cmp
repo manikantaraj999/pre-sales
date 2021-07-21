@@ -1,0 +1,59 @@
+<aura:component controller="CTRL_MaterialPlantPicker" access="global" implements="lightning:availableForFlowScreens">
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:attribute name="busy" type="boolean" default="true" />
+
+    <aura:attribute name="headerJSON" type="String" access="global" />
+    <aura:attribute name="itemJSON" type="String" access="global" />
+
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="messages" type="List" />
+
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="material" type="Map" />
+    <aura:attribute name="plantOptions" type="List" />
+    <aura:attribute name="plantNumber" type="String" access="global" />
+    <aura:attribute name="plantName" type="String" />
+    <aura:attribute name="itemId" type="String" />
+    <aura:attribute name="isPlantSelected" type="Boolean" default="false" />
+    <aura:attribute name="isFinish" type="Boolean" default="false" />
+    <aura:attribute name="resetSalesArea" type="Boolean" default="false" />
+    <c:CMP_Messages messages="{!v.messages}" />
+    <aura:if isTrue="{!v.busy}">
+        <lightning:spinner aura:id="displayCharSpinner" class="slds-spinner_brand" />
+    </aura:if>
+    <lightning:card title="Select SAP Plant" iconName="custom:custom32">
+        
+        <aura:if isTrue="{! !v.isPlantSelected}">
+            <aura:if isTrue="{!v.plantOptions.length > 0 }">
+                <lightning:datatable 
+                    data="{! v.plantOptions}" 
+                    columns="{! v.columns}" 
+                    keyField="value" 
+                    onrowselection="{! c.handleRowSelection}"
+                />
+            </aura:if>
+
+            <aura:if isTrue="{!v.resetSalesArea}">
+                <p>
+                    The sales area you've selected doesn't have any plants assigned to it; please click "Back" to change your selection
+                </p>
+                <p>
+                    <lightning:button label="Back" onclick="{!c.navigatePrevious}" />
+                </p>
+            </aura:if>
+        </aura:if>
+        
+        <aura:if isTrue="{! v.isPlantSelected}">
+            <div class="slds-m-around_large">
+                <p class="slds-m-bottom_large">
+                    Confirm: You've selected {! v.plantName == null ? v.plantNumber : v.plantName }. Is this the plant you wish to select?
+                </p>
+                <p>
+                    <lightning:button label="No - Select Another Plant" onclick="{!c.plantReset}" />
+                    <lightning:button label="{! 'Yes - ' +  if(v.isFinish,'Finished','Next')}" onclick="{!c.flowNavigate}" />
+                </p>
+            </div>
+        </aura:if>        
+    </lightning:card>
+</aura:component>

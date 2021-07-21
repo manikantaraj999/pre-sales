@@ -1,0 +1,83 @@
+<aura:component implements="lightning:availableForFlowScreens">
+    <aura:attribute name="displayHeader" type="Boolean" default="true"/>
+    <aura:attribute name="headerTitle" type="String" default="Item Conditions"/>
+
+    <aura:attribute name="displayItemCondition" type="boolean" default="true"/>
+    <aura:attribute name="displayItemConditionDescription" type="boolean" default="true"/>
+    <aura:attribute name="displayItemConditionValue" type="boolean" default="true"/>
+    <aura:attribute name="displayItemRate" type="boolean" default="true"/>
+    <aura:attribute name="data" type="String"/>
+    <aura:attribute name="ItemConditions" type="List" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <lightning:card class="slds-card slds-m-around__xsmall  slds-is-relative"
+        title="{! !v.displayHeader? '': v.headerTitle}"
+        iconName="{! !v.displayHeader? '':'custom:custom18'}">
+        <ui:scrollerWrapper >
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <aura:if isTrue="{!v.displayItemCondition}">
+                            <th scope="col">
+                            <div class="slds-truncate">{!$Label.c.Enosix_Contract_Conditions_Condition}</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayItemConditionDescription}">
+                            <th scope="col">
+                            <div class="slds-truncate">{!$Label.c.Enosix_Contract_Conditions_ConditionDescription}</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayItemRate}">
+                            <th scope="col">
+                            <div class="slds-truncate">{!$Label.c.Enosix_Contract_Conditions_Rate}</div>
+                        </th>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayItemConditionValue}">
+                            <th scope="col">
+                                <div class="slds-truncate">{!$Label.c.Enosix_Contract_Conditions_ConditionValue}</div>
+                            </th>
+                        </aura:if>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.ItemConditions}" var="condition">
+                        <tr>
+                            <aura:if isTrue="{!v.displayItemCondition}">
+                                <td data-label="{!$Label.c.Enosix_Contract_Conditions_Condition}">
+                                    <div class="slds-truncate">{!condition.ConditionType}</div>
+                                </td>
+                            </aura:if>
+                            <aura:if isTrue="{!v.displayItemConditionDescription}">
+                                <td data-label="{!$Label.c.Enosix_Contract_Conditions_ConditionDescription}">
+                                    <div class="slds-truncate">{!condition.ConditionTypeName}</div>
+                                </td>
+                            </aura:if>
+
+                            <aura:if isTrue="{!v.displayItemRate}">
+                                <td data-label="{!$Label.c.Enosix_Contract_Conditions_Rate}">
+                                    <div class="slds-truncate">
+                                        <ensxapp:CMP_sapFormattedCurrency number="{!condition.Rate}" currency="{!condition.RateUnit}" />
+                                        <span>
+                                            <aura:if isTrue="{! notequals(condition.ConditionPricingUnit, 0) }">
+                                                    &nbsp;/&nbsp;{!condition.ConditionPricingUnit}&nbsp;{!condition.Conditionunit}
+                                            </aura:if>
+                                        </span>
+                                    </div>
+                                </td>
+                            </aura:if>
+                            <aura:if isTrue="{!v.displayItemConditionValue}">
+                                <td data-label="{!$Label.c.Enosix_Contract_Conditions_ConditionValue}">
+                                    <div class="slds-truncate">
+                                        <ensxapp:CMP_sapFormattedCurrency number="{!condition.ConditionValue}"
+                                            currency="{!condition.CurrencyKeyOfCreditControlArea}" />
+                                    </div>
+                                </td>
+                            </aura:if>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </ui:scrollerWrapper>
+    </lightning:card>
+</aura:component>

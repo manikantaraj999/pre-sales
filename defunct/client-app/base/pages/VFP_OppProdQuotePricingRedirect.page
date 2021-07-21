@@ -1,0 +1,2 @@
+<apex:page id="VFP_OppProdQuotePricingRedirect" standardController="OpportunityLineItem" action="{!RedirectToCustomOpportunityPage}" extensions="CTRL_OpportunityQuotePricingRedirect" >
+</apex:page>

@@ -1,0 +1,2 @@
+<aura:event type="APPLICATION" description="EVT_VCConfigurationClear">
+</aura:event>

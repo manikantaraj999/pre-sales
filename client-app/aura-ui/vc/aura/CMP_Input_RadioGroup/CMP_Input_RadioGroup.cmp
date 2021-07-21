@@ -1,0 +1,18 @@
+<aura:component description="CMP_Input_RadioGroup" implements="c:ENSX_Input">
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.onInit}" /> -->
+    <aura:attribute name="inputId" type="string" required="true" />
+    <aura:attribute name="val" type="String" required="true" />
+    <aura:attribute name="inputLabel" type="String" required="true" />
+
+    <aura:attribute name="multiple" type="Boolean" />
+    <aura:attribute name="required" type="Boolean" />
+    <!-- <aura:attribute name="showControl" type="Boolean" default="false" /> -->
+    <aura:attribute name="possibleValues" type="ENSX_VCCharacteristicValues[]" required="true" />
+    <aura:attribute name="radioValues" type="List" />
+    <aura:registerEvent name="inputChanged" type="c:EVT_VCInputChanged" />
+
+    <aura:iteration items="{!v.possibleValues}" var="var">
+        <ui:inputRadio aura:id="{!var.Value}" name="{!var.Value}" label="{!var.ValueDescription}" change="{!c.valueChanged}" value="{!v.val == var.Value}"
+        />
+    </aura:iteration>
+</aura:component>

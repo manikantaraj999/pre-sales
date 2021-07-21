@@ -1,0 +1,106 @@
+<apex:component controller="CTRL_Pager">
+    <!-- Parent Attributes Functions -->
+    <apex:attribute name="pagerId" default="" type="string"
+        description="Unique string to allow more than one copy per page"/>
+    <apex:attribute name="options" type="UTIL_PagingOptionsWrapper" assignTo="{!pagingOptionsWrapper}"
+        required="true" description=""/>
+    <apex:attribute name="searchController" type="I_SearchController" assignTo="{!parentController}"
+        required="true" description="" />
+    <apex:attribute name="rerender" type="string" description=""/>
+
+    <!-- Local Functions -->
+    <apex:actionFunction action="{!actionUpdatePageSize}" name="actionUpdatePageSize{!pagerId}"
+            rerender="{!rerender}" status="status">
+        <apex:param name="pageSize" value=""/>
+    </apex:actionFunction>
+    <apex:actionFunction action="{!actionGoToPage}" name="actionGoToPage{!pagerId}"
+            rerender="{!rerender}" status="status">
+        <apex:param name="pageNumber" value=""/>
+    </apex:actionFunction>
+
+    <!-- Table Paging UI -->
+    <style>
+    .pagingTable, .pagingTable th, .pagingTable td { border: none !important; }
+    </style>
+    <table class="pagingTable" cellpadding="0" cellspacing="0" style="width: 100%;">
+        <tr>
+            <td>
+                <!-- PageSize Drop Down List -->
+                <apex:selectList value="{!pagingOptions.pageSize}" size="1"
+                    onchange="actionUpdatePageSize{!pagerId}(this.value);return false;">
+                    <apex:selectOptions value="{!pageSizeOptions}" ></apex:selectOptions>
+                </apex:selectList>
+            </td>
+            <!-- Prev Fwrd Controls -->
+            <td class="paginator" style="text-align: center;justify-content:center">
+                <!-- <span class="prevNextLinks"> -->
+                    <!-- prev show -->
+                    <apex:outputPanel rendered="{!!disableprev}">
+                        <span class="prevNext">
+                            <a href="#" onclick="actionGoToPage{!pagerId}(1);return false;">
+                                <img src="/s.gif" title="First Page" alt="First Page" class="first"/>
+                                First
+                            </a>
+                        </span>
+                        <span class="prevNext">
+                            <a href="#" onclick="actionGoToPage{!pagerId}({!pagingOptions.pageNumber - 1});return false;">
+                                <img src="/s.gif" title="Previous" alt="Previous" class="prev"/>
+                                Previous
+                            </a>
+                        </span>
+                    </apex:outputPanel>
+
+                    <!-- prev disable -->
+                    <apex:outputPanel rendered="{!disableprev}">
+                        <span class="prevNext">
+                            <img src="/s.gif" class="firstoff" alt="First Page"/>
+                            First
+                        </span>
+                        <span class="prevNext">
+                            <img src="/s.gif" class="prevoff" alt="Previous"/>
+                            Previous
+                        </span>
+                    </apex:outputPanel>
+
+                    <!-- Middle Navigation Text Info -->
+                    <span style="margin-left:5px;margin-right:5px;">
+                        <apex:outputText value="{!pagingOptions.pageNumber}"/>&nbsp;of&nbsp;
+                        <apex:outputText value="{!totalPages}"/> pages
+                    </span>
+
+                    <!-- next show -->
+                    <apex:outputPanel rendered="{!disablenext}">
+                        <span class="prevNext">
+                            Next
+                            <img src="/s.gif" class="nextoff" alt="Next"/>
+                        </span>
+                        <span class="prevNext">
+                            Last
+                            <img src="/s.gif" class="lastoff" alt="Last Page"/>
+                        </span>
+                    </apex:outputPanel>
+
+                    <!-- next disable -->
+                    <apex:outputPanel rendered="{!!disablenext}">
+                        <span class="prevNext">
+                            <a href="#" onclick="actionGoToPage{!pagerId}({!pagingOptions.pageNumber + 1});return false;">
+                                Next
+                                <img src="/s.gif" class="next" alt="Next"/>
+                            </a>
+                        </span>
+                        <span class="prevNext">
+                            <a href="#" onclick="actionGoToPage{!pagerId}({!totalPages});return false;">
+                                Last
+                                <img src="/s.gif" class="last" alt="Last Page"/>
+                            </a>
+                        </span>
+                    </apex:outputPanel>
+                <!-- </span> -->
+            </td>
+            <td style="text-align: right">
+                Records:&nbsp;
+                <apex:outputText value="{!pagingOptions.totalRecords}"/>
+            </td>
+        </tr>
+    </table>
+</apex:component>

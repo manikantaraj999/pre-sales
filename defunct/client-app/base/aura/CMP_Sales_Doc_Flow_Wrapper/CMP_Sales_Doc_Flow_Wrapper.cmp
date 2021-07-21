@@ -1,0 +1,15 @@
+<aura:component implements="lightning:isUrlAddressable" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.init}"/> 
+
+    <aura:attribute name="sapDocumentId" type="String" access="global"/>
+    <aura:attribute name="recordId" type="String" access="global"/>
+    <aura:attribute name="docFlowType" type="String" access="global"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <lightning:navigation aura:id="navService"/>
+
+    <div class="flowWrapper">
+        <lightning:flow aura:id="salesDocDetailFlow"/>
+    </div>
+</aura:component>

@@ -1,0 +1,156 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_COUNTRIES.RESULT": {},
+    "RFC_SD_GET_COUNTRIES.ET_OUTPUT": {
+      "MANDT": {
+        "FriendlyName": "MANDT",
+        "TechnicalName": "MANDT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SPRAS": {
+        "FriendlyName": "SPRAS",
+        "TechnicalName": "SPRAS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "LAND1": {
+        "FriendlyName": "LAND1",
+        "TechnicalName": "LAND1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "LANDX": {
+        "FriendlyName": "LANDX",
+        "TechnicalName": "LANDX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NATIO": {
+        "FriendlyName": "NATIO",
+        "TechnicalName": "NATIO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "LANDX50": {
+        "FriendlyName": "LANDX50",
+        "TechnicalName": "LANDX50",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NATIO50": {
+        "FriendlyName": "NATIO50",
+        "TechnicalName": "NATIO50",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PRQ_SPREGT": {
+        "FriendlyName": "PRQ_SPREGT",
+        "TechnicalName": "PRQ_SPREGT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_COUNTRIES.ET_REGIONS": {
+      "LAND1": {
+        "FriendlyName": "LAND1",
+        "TechnicalName": "LAND1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "REGIO": {
+        "FriendlyName": "REGIO",
+        "TechnicalName": "REGIO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI": {
+        "FriendlyName": "BEZEI",
+        "TechnicalName": "BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_OUTPUT": {
+      "Name": "ET_OUTPUT",
+      "ItemType": "RFC_SD_GET_COUNTRIES.ET_OUTPUT",
+      "FieldMap": {
+        "MANDT": {
+          "FriendlyName": "MANDT",
+          "TechnicalName": "MANDT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SPRAS": {
+          "FriendlyName": "SPRAS",
+          "TechnicalName": "SPRAS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "LAND1": {
+          "FriendlyName": "LAND1",
+          "TechnicalName": "LAND1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "LANDX": {
+          "FriendlyName": "LANDX",
+          "TechnicalName": "LANDX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NATIO": {
+          "FriendlyName": "NATIO",
+          "TechnicalName": "NATIO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "LANDX50": {
+          "FriendlyName": "LANDX50",
+          "TechnicalName": "LANDX50",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NATIO50": {
+          "FriendlyName": "NATIO50",
+          "TechnicalName": "NATIO50",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PRQ_SPREGT": {
+          "FriendlyName": "PRQ_SPREGT",
+          "TechnicalName": "PRQ_SPREGT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_REGIONS": {
+      "Name": "ET_REGIONS",
+      "ItemType": "RFC_SD_GET_COUNTRIES.ET_REGIONS",
+      "FieldMap": {
+        "LAND1": {
+          "FriendlyName": "LAND1",
+          "TechnicalName": "LAND1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "REGIO": {
+          "FriendlyName": "REGIO",
+          "TechnicalName": "REGIO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI": {
+          "FriendlyName": "BEZEI",
+          "TechnicalName": "BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

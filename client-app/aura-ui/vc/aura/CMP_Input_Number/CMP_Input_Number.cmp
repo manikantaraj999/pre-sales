@@ -1,0 +1,17 @@
+<aura:component description="CMP_Input_Number" implements="c:ENSX_Input">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:attribute name="inputId" type="string" required="true" />
+    <aura:attribute name="val" type="String" required="true" />
+    <aura:attribute name="inputLabel" type="String" required="true" />
+    <aura:attribute name="required" type="Boolean" />
+    <aura:attribute name="possibleValues" type="List" required="true"/>
+    <aura:attribute name="children" type="Aura.Component[]" />
+    <aura:registerEvent name="inputChanged" type="c:EVT_VCInputChanged" />
+
+    <aura:iteration items="{!v.possibleValues}" var="var">
+        <div class="selectedLabel">
+            <span>{!var.CharacteristicValueDescription}</span>
+        </div>
+    </aura:iteration>
+    <lightning:input type="number" required="{!v.required}" onblur="{!c.valueChanged}" label="{!v.inputLabel}" value="{!v.val}" />
+</aura:component>

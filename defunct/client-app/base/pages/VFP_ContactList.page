@@ -1,0 +1,81 @@
+<apex:page showHeader="true" controller="CTRL_ContactList" title="Customer Contacts" tabStyle="Account" lightningStylesheets="true" sidebar="true" id="page">
+    <apex:slds rendered="{!!isClassic}"/>
+<!--
+LINKS:
+Account | 'SAP Customer' | LNK_Account_CustomerDetail | /apex/VFP_CustomerDetail?c__SF_AcctId={!Account.Id}
+Case    | 'SAP Customer' | LNK_Case_Customer          | /apex/VFP_CustomerDetail?c__SF_CaseId={!Case.Id}
+-->
+    <apex:pageBlock rendered="{! !hasAccount }">
+        <apex:outputText value="Error: Missing an Account."/>
+        <apex:pageBlockButtons location="bottom">
+            <apex:form >
+                <c:CMP_NavButtons isClassic="{!isClassic}"/>
+            </apex:form>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    <apex:form id="mainform">
+        <c:CMP_Status />
+
+        <apex:outputPanel rendered="{! isClassic}">
+            <apex:pageBlock title="Account" rendered="{! null != account}" >
+                <apex:pageBlockSection columns="2" collapsible="false">
+                    <apex:outputText label="Name:" value="{!account.Name}" />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton onclick="window.location.href='/{!account.Id}';return false;" value="Return to Account"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <p class="slds-text-title_caps slds-line-height_reset">Account:</p>
+                                <p class="slds-page-header__title"><apex:outputText label="Name:" value="{!account.Name}" /></p>
+                            </div>
+                            <apex:commandButton onclick="sforce.one.navigateToSObject('{!account.Id}');return false;" value="Return to Account"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <apex:pageMessages id="messagediv" rendered="{! hasAccount}"/>
+
+        <apex:pageBlock id="contacts" title="Customer Contacts" rendered="{! null != customerID && hasAccount}">
+
+            <apex:pageblockTable value="{!contacts}" var="contact">
+                <apex:column headerValue="Contact Number" width="10%" value="{!contact.ContactPersonNumber}"/>
+                <apex:column headerValue="Name" value="{!contact.Name}"/>
+                <apex:column headerValue="Address">
+                    <apex:outputText value="{0} {1} {2}, {3} {4}">
+                        <apex:param value="{!contact.HouseNumber}"/>
+                        <apex:param value="{!contact.Street}"/>
+                        <apex:param value="{!contact.City}"/>
+                        <apex:param value="{!contact.Region}"/>
+                        <apex:param value="{!contact.PostalCode}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Phone Number" value="{!contact.TelephoneNumber}"/>
+                <apex:column headerValue="Email" value="{!contact.EMailAddress}"/>
+            </apex:pageblockTable>
+
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!actionAddNewContact}" value="Add New Contact"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+    </apex:form>
+    <c:CMP_Footer/>
+</apex:page>

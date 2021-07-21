@@ -1,0 +1,22 @@
+.THIS {
+
+}
+.THIS .bodyHeightSettings{
+    min-height:50vh;
+    max-height:60vh;
+    background-color:#ffffff;
+}
+.THIS .bodyContentSettings
+{
+    margin-left: 1%;
+}
+.THIS.fullBodied{
+    width: 98vw!important;
+    height:100vh!important;
+}
+.THIS .foot{
+    min-height:10vh;
+    height:10%!important;
+    width:100%;
+    background: #f7f9fb;
+}

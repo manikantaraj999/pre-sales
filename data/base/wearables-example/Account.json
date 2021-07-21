@@ -1,0 +1,116 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "cpq_vc_demo_800_AccountRef0"
+            },
+            "Name": "Great Implementations Inc. (cpq_vc_demo_800)",
+            "AccountNumber": "CMS0000032"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef1"
+            },
+            "Name": "Micro Centre [prd_ecc6_800]",
+            "AccountNumber": "90000"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef2"
+            },
+            "Name": "Hibbett Sports(2) [prd_ecc6_800]",
+            "AccountNumber": "90021"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef3"
+            },
+            "Name": "REI-SOHO Flagship [prd_ecc6_800]",
+            "AccountNumber": "90022"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef4"
+            },
+            "Name": "Hibbett Sports [prd_ecc6_800]",
+            "AccountNumber": "90020"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef5"
+            },
+            "Name": "REI-Atlanta [prd_ecc6_800]",
+            "AccountNumber": "90023"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "dev_ecc6_800_AccountRef1"
+            },
+            "Name": "MicroCentre [dev_ecc6_800]",
+            "AccountNumber": "500066"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "dev_ecc6_800_AccountRef2"
+            },
+            "Name": "Hibbett Sports(2) [dev_ecc6_800]",
+            "AccountNumber": "500068"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "dev_ecc6_800_AccountRef3"
+            },
+            "Name": "REI-SOHO Flagship [dev_ecc6_800]",
+            "AccountNumber": "500069"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "dev_ecc6_800_AccountRef4"
+            },
+            "Name": "Hibbett Sports [dev_ecc6_800]",
+            "AccountNumber": "500067"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "dev_ecc6_800_AccountRef5"
+            },
+            "Name": "REI-Atlanta [dev_ecc6_800]",
+            "AccountNumber": "500070"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef6"
+            },
+            "Name": "Customer 22000 [dev_ecc6_800]",
+            "AccountNumber": "22000"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef7"
+            },
+            "Name": "Customer 30000 [dev_ecc6_800]",
+            "AccountNumber": "30000"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "prd_ecc6_800_AccountRef8"
+            },
+            "Name": "Customer 500178 [dev_ecc6_800]",
+            "AccountNumber": "500178"
+        }
+    ]
+}

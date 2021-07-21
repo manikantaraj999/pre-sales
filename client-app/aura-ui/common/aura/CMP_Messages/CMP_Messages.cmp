@@ -1,0 +1,24 @@
+<aura:component >
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="cssClass" type="String" />
+
+    <div id="msgDiv" class="{!v.cssClass}">
+        <aura:iteration items="{!v.messages}" var="message">
+            <aura:if isTrue="{!'SUCCESS' == message.messageType}">
+                <ui:message closable="true">{!message.message}</ui:message>
+            </aura:if>
+            <aura:if isTrue="{!'INFO' == message.messageType}">
+                <ui:message title="{!$Label.c.LBL_Messages_Info}"
+                    severity="info" closable="true">{!message.message}</ui:message>
+            </aura:if>
+            <aura:if isTrue="{!'WARNING' == message.messageType}">
+                <ui:message title="{!$Label.c.LBL_Messages_Warning}"
+                    severity="warning" closable="false">{!message.message}</ui:message>
+            </aura:if>
+            <aura:if isTrue="{!'ERROR' == message.messageType}">
+                <ui:message title="{!$Label.c.LBL_Messages_Error}"
+                    severity="error" closable="false">{!message.message}</ui:message>
+            </aura:if>
+        </aura:iteration>
+    </div>
+</aura:component>

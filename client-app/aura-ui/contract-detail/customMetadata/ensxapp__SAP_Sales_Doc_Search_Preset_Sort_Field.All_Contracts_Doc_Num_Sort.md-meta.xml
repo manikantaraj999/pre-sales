@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>All Contracts - Doc Num Sort</label>
+    <protected>false</protected>
+    <values>
+        <field>ensxapp__Precedence__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Sales_Doc_Search_Preset__c</field>
+        <value xsi:type="xsd:string">All_Contracts</value>
+    </values>
+    <values>
+        <field>ensxapp__Sort_Direction__c</field>
+        <value xsi:type="xsd:string">Descending</value>
+    </values>
+    <values>
+        <field>ensxapp__Sort_Field__c</field>
+        <value xsi:type="xsd:string">VBELN</value>
+    </values>
+</CustomMetadata>

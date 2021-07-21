@@ -1,0 +1,17 @@
+({
+    collapse:function(component,event,helper)
+    {
+        component.set('v.isExpanded',false)
+        helper.setExpandIconBasedOnExpanded(component)
+    },
+    expand:function(component,event,helper)
+    {
+        component.set('v.isExpanded',true)
+        helper.setExpandIconBasedOnExpanded(component)
+    },
+    handleSwitchExpansionState:function(component,event,helper)
+    {
+        component.set('v.isExpanded',!component.get('v.isExpanded'))
+        helper.setExpandIconBasedOnExpanded(component)
+    }
+})

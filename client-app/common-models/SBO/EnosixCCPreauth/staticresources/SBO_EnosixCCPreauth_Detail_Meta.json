@@ -1,0 +1,143 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixCCPreauth_Detail.EnosixCCPreauth": {
+      "CreditCardNumber": {
+        "FriendlyName": "CreditCardNumber",
+        "TechnicalName": "CCNUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CardVerificationValue": {
+        "FriendlyName": "CardVerificationValue",
+        "TechnicalName": "CVVAL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AmountToBeAuthorized": {
+        "FriendlyName": "AmountToBeAuthorized",
+        "TechnicalName": "AUTWV",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "FieldCurrency": {
+        "FriendlyName": "FieldCurrency",
+        "TechnicalName": "CCWAE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CardType": {
+        "FriendlyName": "CardType",
+        "TechnicalName": "CCINS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CadholderName": {
+        "FriendlyName": "CadholderName",
+        "TechnicalName": "CCNAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValidToDate": {
+        "FriendlyName": "ValidToDate",
+        "TechnicalName": "DATBI",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixCCPreauth_Detail.RESPONSE": {
+      "AuthorizationResponse": {
+        "FriendlyName": "AuthorizationResponse",
+        "TechnicalName": "REACT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AuthorizedAmount": {
+        "FriendlyName": "AuthorizedAmount",
+        "TechnicalName": "AUTWR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "AuthorizationNumber": {
+        "FriendlyName": "AuthorizationNumber",
+        "TechnicalName": "AUNUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AuthorizationReferenceCode": {
+        "FriendlyName": "AuthorizationReferenceCode",
+        "TechnicalName": "AUTRA",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ResultCode": {
+        "FriendlyName": "ResultCode",
+        "TechnicalName": "RCRSP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ResultCodeText": {
+        "FriendlyName": "ResultCodeText",
+        "TechnicalName": "RTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CVVResultCode": {
+        "FriendlyName": "CVVResultCode",
+        "TechnicalName": "RCCVV",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "RESPONSE": {
+      "Name": "RESPONSE",
+      "ItemType": "SBO_EnosixCCPreauth_Detail.RESPONSE",
+      "FieldMap": {
+        "AuthorizationResponse": {
+          "FriendlyName": "AuthorizationResponse",
+          "TechnicalName": "REACT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "AuthorizedAmount": {
+          "FriendlyName": "AuthorizedAmount",
+          "TechnicalName": "AUTWR",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "AuthorizationNumber": {
+          "FriendlyName": "AuthorizationNumber",
+          "TechnicalName": "AUNUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "AuthorizationReferenceCode": {
+          "FriendlyName": "AuthorizationReferenceCode",
+          "TechnicalName": "AUTRA",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ResultCode": {
+          "FriendlyName": "ResultCode",
+          "TechnicalName": "RCRSP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ResultCodeText": {
+          "FriendlyName": "ResultCodeText",
+          "TechnicalName": "RTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CVVResultCode": {
+          "FriendlyName": "CVVResultCode",
+          "TechnicalName": "RCCVV",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {}
+}

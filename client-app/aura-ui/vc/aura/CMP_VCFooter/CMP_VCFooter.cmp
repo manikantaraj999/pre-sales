@@ -1,0 +1,29 @@
+<aura:component description="CMP_VCFooter">
+    <aura:attribute name="allowFinalize" type="Boolean" default="false" />
+    <aura:attribute name="allowCancel" type="Boolean" default="true" />
+    <aura:attribute name="showClear" type="Boolean" default="true" />
+    <aura:attribute name="clearButtonLabel" type="String" default="Reset Configuration" />
+    <aura:attribute name="cancelButtonLabel" type="String" default="Cancel" />
+    <aura:attribute name="finalButtonLabel" type="String" default="Finalize Configuration" />
+    <aura:registerEvent name="displayNotification" type="c:EVT_VCNotificationRaised"/>
+    <aura:registerEvent name="finalizeConfiguration" type="c:EVT_VCConfigurationFinalize"/>
+    <aura:registerEvent name="cancelConfiguration" type="c:EVT_VCConfigurationCancel"/>
+    <aura:registerEvent name="clearConfiguration" type="c:EVT_VCConfigurationClear"/>
+
+    <div class="vcFooter">
+        <footer class="slds-card__footer">
+            <div class="slds-grid slds-wrap slds-p-horizontal_small">
+                <div class=" slds-size_2-of-2 slds-medium-size_2-of-6 slds-large-size_7-of-12 slds-text-align_left">
+                    <c:CMP_EnosixLogo/>
+                </div>
+                <div class=" slds-size_2-of-2 slds-medium-size_4-of-6 slds-large-size_5-of-12">
+                    <aura:renderIf isTrue="{!v.showClear}">
+                        <lightning:button variant="destructive" label="{!v.clearButtonLabel}" onclick="{! c.handleClear }" />
+                    </aura:renderIf>
+                    <lightning:button variant="neutral" label="{!v.cancelButtonLabel}" disabled="{!!v.allowCancel}" onclick="{! c.handleCancel }" />
+                    <lightning:button variant="brand" label="{!v.finalButtonLabel}" disabled="{!!v.allowFinalize}" onclick="{! c.handleFinalize}" />
+                </div>
+            </div>
+        </footer>
+    </div>
+</aura:component>

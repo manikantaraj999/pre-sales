@@ -1,0 +1,47 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_DOC_CATEG_VALUES.RESULT": {
+      "IV_DOMAIN_NAME": {
+        "FriendlyName": "IV_DOMAIN_NAME",
+        "TechnicalName": "IV_DOMAIN_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_DOC_CATEG_VALUES.ET_VALUES": {
+      "VBTYP": {
+        "FriendlyName": "VBTYP",
+        "TechnicalName": "VBTYP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VBTYP_TEXT": {
+        "FriendlyName": "VBTYP_TEXT",
+        "TechnicalName": "VBTYP_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_VALUES": {
+      "Name": "ET_VALUES",
+      "ItemType": "RFC_SD_GET_DOC_CATEG_VALUES.ET_VALUES",
+      "FieldMap": {
+        "VBTYP": {
+          "FriendlyName": "VBTYP",
+          "TechnicalName": "VBTYP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VBTYP_TEXT": {
+          "FriendlyName": "VBTYP_TEXT",
+          "TechnicalName": "VBTYP_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

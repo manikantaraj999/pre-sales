@@ -1,0 +1,468 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixRO_Search.SEARCHPARAMS": {
+      "FromSalesDocumentNumber": {
+        "FriendlyName": "FromSalesDocumentNumber",
+        "TechnicalName": "VBELN_FR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ToSalesDocumentNumber": {
+        "FriendlyName": "ToSalesDocumentNumber",
+        "TechnicalName": "VBELN_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToParty": {
+        "FriendlyName": "SoldToParty",
+        "TechnicalName": "KUNAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToParty": {
+        "FriendlyName": "ShipToParty",
+        "TechnicalName": "KUNWE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerPONumber": {
+        "FriendlyName": "CustomerPONumber",
+        "TechnicalName": "BSTNK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesDocumentType": {
+        "FriendlyName": "SalesDocumentType",
+        "TechnicalName": "AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FromCreateDate": {
+        "FriendlyName": "FromCreateDate",
+        "TechnicalName": "ERDAT_FR",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToCreateDate": {
+        "FriendlyName": "ToCreateDate",
+        "TechnicalName": "ERDAT_TO",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "OpenOnly": {
+        "FriendlyName": "OpenOnly",
+        "TechnicalName": "X_OPENONLY",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "CompletedOnly": {
+        "FriendlyName": "CompletedOnly",
+        "TechnicalName": "X_COMPLETEDONLY",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "Username": {
+        "FriendlyName": "Username",
+        "TechnicalName": "USERNAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesDocumentVersionNumber": {
+        "FriendlyName": "SalesDocumentVersionNumber",
+        "TechnicalName": "VSNMR_V",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "YourReference": {
+        "FriendlyName": "YourReference",
+        "TechnicalName": "IHREZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToPurchaseOrderNumber": {
+        "FriendlyName": "ShipToPurchaseOrderNumber",
+        "TechnicalName": "BSTKD_E",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToName": {
+        "FriendlyName": "ShipToName",
+        "TechnicalName": "SHIP_TO_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToName": {
+        "FriendlyName": "SoldToName",
+        "TechnicalName": "SOLD_TO_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixRO_Search.SEARCHRESULT": {
+      "SalesDocument": {
+        "FriendlyName": "SalesDocument",
+        "TechnicalName": "VBELN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerPONumber": {
+        "FriendlyName": "CustomerPONumber",
+        "TechnicalName": "BSTNK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreateDate": {
+        "FriendlyName": "CreateDate",
+        "TechnicalName": "ERDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "SalesDocumentType": {
+        "FriendlyName": "SalesDocumentType",
+        "TechnicalName": "AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesDocumentTypeDescription": {
+        "FriendlyName": "SalesDocumentTypeDescription",
+        "TechnicalName": "AUART_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToParty": {
+        "FriendlyName": "SoldToParty",
+        "TechnicalName": "KUNAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToName": {
+        "FriendlyName": "SoldToName",
+        "TechnicalName": "KUNAG_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToCity": {
+        "FriendlyName": "SoldToCity",
+        "TechnicalName": "KUNAG_CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToRegion": {
+        "FriendlyName": "SoldToRegion",
+        "TechnicalName": "KUNAG_REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToParty": {
+        "FriendlyName": "ShipToParty",
+        "TechnicalName": "KUNWE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToName": {
+        "FriendlyName": "ShipToName",
+        "TechnicalName": "KUNWE_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToCity": {
+        "FriendlyName": "ShipToCity",
+        "TechnicalName": "KUNWE_CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToRegion": {
+        "FriendlyName": "ShipToRegion",
+        "TechnicalName": "KUNWE_REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NetTotalValue": {
+        "FriendlyName": "NetTotalValue",
+        "TechnicalName": "NETWR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "NetTotalTax": {
+        "FriendlyName": "NetTotalTax",
+        "TechnicalName": "MWSBP",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SalesDocumentCurrency": {
+        "FriendlyName": "SalesDocumentCurrency",
+        "TechnicalName": "WAERK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "OrderStatus": {
+        "FriendlyName": "OrderStatus",
+        "TechnicalName": "ORDERSTATUS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesDocumentVersionNumber": {
+        "FriendlyName": "SalesDocumentVersionNumber",
+        "TechnicalName": "VSNMR_V",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "YourReference": {
+        "FriendlyName": "YourReference",
+        "TechnicalName": "IHREZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToPurchaseOrderNumber": {
+        "FriendlyName": "ShipToPurchaseOrderNumber",
+        "TechnicalName": "BSTKD_E",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixRO_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "FromSalesDocumentNumber": {
+          "FriendlyName": "FromSalesDocumentNumber",
+          "TechnicalName": "VBELN_FR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ToSalesDocumentNumber": {
+          "FriendlyName": "ToSalesDocumentNumber",
+          "TechnicalName": "VBELN_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToParty": {
+          "FriendlyName": "SoldToParty",
+          "TechnicalName": "KUNAG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToParty": {
+          "FriendlyName": "ShipToParty",
+          "TechnicalName": "KUNWE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerPONumber": {
+          "FriendlyName": "CustomerPONumber",
+          "TechnicalName": "BSTNK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesDocumentType": {
+          "FriendlyName": "SalesDocumentType",
+          "TechnicalName": "AUART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FromCreateDate": {
+          "FriendlyName": "FromCreateDate",
+          "TechnicalName": "ERDAT_FR",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToCreateDate": {
+          "FriendlyName": "ToCreateDate",
+          "TechnicalName": "ERDAT_TO",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "OpenOnly": {
+          "FriendlyName": "OpenOnly",
+          "TechnicalName": "X_OPENONLY",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "CompletedOnly": {
+          "FriendlyName": "CompletedOnly",
+          "TechnicalName": "X_COMPLETEDONLY",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "Username": {
+          "FriendlyName": "Username",
+          "TechnicalName": "USERNAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesDocumentVersionNumber": {
+          "FriendlyName": "SalesDocumentVersionNumber",
+          "TechnicalName": "VSNMR_V",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "YourReference": {
+          "FriendlyName": "YourReference",
+          "TechnicalName": "IHREZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToPurchaseOrderNumber": {
+          "FriendlyName": "ShipToPurchaseOrderNumber",
+          "TechnicalName": "BSTKD_E",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToName": {
+          "FriendlyName": "ShipToName",
+          "TechnicalName": "SHIP_TO_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToName": {
+          "FriendlyName": "SoldToName",
+          "TechnicalName": "SOLD_TO_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixRO_Search.SEARCHRESULT",
+      "FieldMap": {
+        "SalesDocument": {
+          "FriendlyName": "SalesDocument",
+          "TechnicalName": "VBELN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerPONumber": {
+          "FriendlyName": "CustomerPONumber",
+          "TechnicalName": "BSTNK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreateDate": {
+          "FriendlyName": "CreateDate",
+          "TechnicalName": "ERDAT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "SalesDocumentType": {
+          "FriendlyName": "SalesDocumentType",
+          "TechnicalName": "AUART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesDocumentTypeDescription": {
+          "FriendlyName": "SalesDocumentTypeDescription",
+          "TechnicalName": "AUART_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToParty": {
+          "FriendlyName": "SoldToParty",
+          "TechnicalName": "KUNAG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToName": {
+          "FriendlyName": "SoldToName",
+          "TechnicalName": "KUNAG_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToCity": {
+          "FriendlyName": "SoldToCity",
+          "TechnicalName": "KUNAG_CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToRegion": {
+          "FriendlyName": "SoldToRegion",
+          "TechnicalName": "KUNAG_REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToParty": {
+          "FriendlyName": "ShipToParty",
+          "TechnicalName": "KUNWE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToName": {
+          "FriendlyName": "ShipToName",
+          "TechnicalName": "KUNWE_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToCity": {
+          "FriendlyName": "ShipToCity",
+          "TechnicalName": "KUNWE_CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToRegion": {
+          "FriendlyName": "ShipToRegion",
+          "TechnicalName": "KUNWE_REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NetTotalValue": {
+          "FriendlyName": "NetTotalValue",
+          "TechnicalName": "NETWR",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "NetTotalTax": {
+          "FriendlyName": "NetTotalTax",
+          "TechnicalName": "MWSBP",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "SalesDocumentCurrency": {
+          "FriendlyName": "SalesDocumentCurrency",
+          "TechnicalName": "WAERK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "OrderStatus": {
+          "FriendlyName": "OrderStatus",
+          "TechnicalName": "ORDERSTATUS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesDocumentVersionNumber": {
+          "FriendlyName": "SalesDocumentVersionNumber",
+          "TechnicalName": "VSNMR_V",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "YourReference": {
+          "FriendlyName": "YourReference",
+          "TechnicalName": "IHREZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToPurchaseOrderNumber": {
+          "FriendlyName": "ShipToPurchaseOrderNumber",
+          "TechnicalName": "BSTKD_E",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

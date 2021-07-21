@@ -1,0 +1,192 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixStockList_Search.SEARCHPARAMS": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Plant": {
+        "FriendlyName": "Plant",
+        "TechnicalName": "WERKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FromDate": {
+        "FriendlyName": "FromDate",
+        "TechnicalName": "FROM_DT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToDate": {
+        "FriendlyName": "ToDate",
+        "TechnicalName": "TO_DT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixStockList_Search.SEARCHRESULT": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Plant": {
+        "FriendlyName": "Plant",
+        "TechnicalName": "WERKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ReceiptRequirementDate": {
+        "FriendlyName": "ReceiptRequirementDate",
+        "TechnicalName": "DAT00",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "MRPElement": {
+        "FriendlyName": "MRPElement",
+        "TechnicalName": "DELB0",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MRPElementData": {
+        "FriendlyName": "MRPElementData",
+        "TechnicalName": "EXTRA",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ReschedulingDate": {
+        "FriendlyName": "ReschedulingDate",
+        "TechnicalName": "UMDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "QtyReceivedReserved": {
+        "FriendlyName": "QtyReceivedReserved",
+        "TechnicalName": "MNG01",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "AvailableQty": {
+        "FriendlyName": "AvailableQty",
+        "TechnicalName": "MNG02",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "AvailableQtyAfterAssignment": {
+        "FriendlyName": "AvailableQtyAfterAssignment",
+        "TechnicalName": "RESV_QTY",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "StorageLocation": {
+        "FriendlyName": "StorageLocation",
+        "TechnicalName": "LGORT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixStockList_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Plant": {
+          "FriendlyName": "Plant",
+          "TechnicalName": "WERKS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FromDate": {
+          "FriendlyName": "FromDate",
+          "TechnicalName": "FROM_DT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToDate": {
+          "FriendlyName": "ToDate",
+          "TechnicalName": "TO_DT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixStockList_Search.SEARCHRESULT",
+      "FieldMap": {
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Plant": {
+          "FriendlyName": "Plant",
+          "TechnicalName": "WERKS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ReceiptRequirementDate": {
+          "FriendlyName": "ReceiptRequirementDate",
+          "TechnicalName": "DAT00",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "MRPElement": {
+          "FriendlyName": "MRPElement",
+          "TechnicalName": "DELB0",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MRPElementData": {
+          "FriendlyName": "MRPElementData",
+          "TechnicalName": "EXTRA",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ReschedulingDate": {
+          "FriendlyName": "ReschedulingDate",
+          "TechnicalName": "UMDAT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "QtyReceivedReserved": {
+          "FriendlyName": "QtyReceivedReserved",
+          "TechnicalName": "MNG01",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "AvailableQty": {
+          "FriendlyName": "AvailableQty",
+          "TechnicalName": "MNG02",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "AvailableQtyAfterAssignment": {
+          "FriendlyName": "AvailableQtyAfterAssignment",
+          "TechnicalName": "RESV_QTY",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "StorageLocation": {
+          "FriendlyName": "StorageLocation",
+          "TechnicalName": "LGORT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

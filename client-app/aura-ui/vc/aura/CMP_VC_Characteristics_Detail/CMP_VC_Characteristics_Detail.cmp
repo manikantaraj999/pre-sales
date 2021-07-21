@@ -1,0 +1,79 @@
+<aura:component controller="CTRL_VC_Characteristics_Detail" access="global" implements="force:hasRecordId">
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}" />
+
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="displaySpinner" type="boolean" default="true" />
+
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="itemId" type="String" />
+    <aura:attribute name="documentId" type="String" />
+    <aura:attribute name="vcCharacteristicsList" type="List" />
+
+    <aura:attribute name="data" type="Object" access="global" />
+
+    <aura:attribute name="displayCharacteristicName" type="boolean" access="global" />
+    <aura:attribute name="displayCharacteristicDescription" type="boolean" access="global" />
+    <aura:attribute name="displayCharacteristicValue" type="boolean" access="global"  />
+    <aura:attribute name="displayCharacteristicValueDescription" type="boolean" access="global" />
+
+    <c:CMP_Messages messages="{!v.messages}" />
+
+    <aura:if isTrue="{!v.displaySpinner}">
+        <lightning:spinner aura:id="displayCharSpinner" class="slds-spinner_brand" />
+    </aura:if>
+                    <ui:scrollerWrapper>
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                            <thead>
+                                <tr class="slds-text-title_caps">  
+                                    <aura:if isTrue="{!v.displayCharacteristicName}">
+                                        <th scope="col">
+                                        <div class="slds-truncate">Characteristic Name</div>
+                                    </th>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.displayCharacteristicDescription}">
+                                        <th scope="col">
+                                        <div class="slds-truncate">Characteristic Description</div>
+                                    </th>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.displayCharacteristicValue}">
+                                        <th scope="col">
+                                        <div class="slds-truncate">Characteristic Value</div>
+                                    </th>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.displayCharacteristicValueDescription}">
+                                        <th scope="col">
+                                        <div class="slds-truncate">Characteristic Value Description</div>
+                                    </th>
+                                    </aura:if>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.vcCharacteristicsList}" var="vc" >
+                                    <tr>
+                                        <aura:if isTrue="{!v.displayCharacteristicName}">
+                                            <td>
+                                                <div class="slds-truncate">{!vc.CharacteristicName}</div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayCharacteristicDescription}">
+                                            <td>
+                                                <div class="slds-truncate">{!vc.CharacteristicDescription}</div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayCharacteristicValue}">
+                                            <td>
+                                                <div class="slds-truncate">{!vc.CharacteristicValue}</div>
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.displayCharacteristicValueDescription}">
+                                            <td>
+                                                <div class="slds-truncate">{!vc.CharacteristicValueDescription}</div>
+                                            </td>
+                                        </aura:if>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                    </ui:scrollerWrapper>
+
+</aura:component>

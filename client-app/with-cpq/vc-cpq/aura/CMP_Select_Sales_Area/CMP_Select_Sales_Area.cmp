@@ -1,0 +1,74 @@
+<aura:component controller="CTRL_CPQ_Sales_Org" access="global" implements="lightning:availableForFlowScreens">
+    <!-- Pass Through Component Attributes -->
+    <aura:attribute name="autoPickSingle" type="boolean" default="true" access="global" />
+    <aura:attribute name="quoteId" type="String" access="global" />
+    <aura:attribute name="isFinish" type="boolean" default="false" access="global" />
+
+    <!-- Internal Component Attributes -->
+    <aura:attribute name="allowButtons" type="Boolean" default="true" />
+    <aura:attribute name="Customer" type="Map" />
+    <aura:attribute name="salesAreaList" type="Map" />
+    <aura:attribute name="salesOrg" type="String" access="global" />
+    <aura:attribute name="salesDistChannel" type="String" access="global" />
+    <aura:attribute name="salesDivision" type="String" access="global" />
+    <aura:attribute name="isSelected" type="Boolean" default="false" />
+    <aura:attribute name="unMappedItems" type="Map" />
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="displayHeader" type="Boolean" default="true" />
+    <aura:attribute name="displaySpinner" type="Boolean" default="true" />
+    <aura:attribute name="soldToNumber" type="String" access="global" />
+    <aura:attribute name="columns" type="List" />
+
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}" />
+
+    <lightning:card title="{!if(v.displayHeader, $Label.c.LBL_CPQ_Quote_SelectSalesAreas_Title, '')}" iconName="{!if( v.displayHeader, 'custom:custom78', '' )}">
+        <aura:set attribute="footer">
+            <aura:if isTrue="{!v.displaySpinner}">
+                <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+            </aura:if>
+        </aura:set>
+        <c:CMP_Messages messages="{!v.messages}" cssClass="slds-item slds-m-around_large"/>
+
+        <aura:if isTrue="{! !v.isSelected }">
+            <aura:if isTrue='{!v.salesAreaList != null}'>
+                <lightning:datatable 
+                    data="{! v.salesAreaList}" 
+                    columns="{! v.columns}" 
+                    keyField="keyField"
+                    onrowselection="{! c.handleRowSelection}"
+                />
+            </aura:if>
+        </aura:if>
+
+        <aura:if isTrue="{!v.isSelected}">
+            <div id="confirmShield">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                <tr>
+                    <td>{#$Label.c.LBL_CustomerSalesAreas_SalesOrg}:</td>
+                    <td>{!v.salesOrg}</td>
+                </tr>
+                <tr>
+                    <td>{#$Label.c.LBL_CustomerSalesAreas_DistributionChannel}:</td>
+                    <td>{!v.salesDistChannel}</td>
+                </tr>
+                <tr>
+                    <td>{#$Label.c.LBL_CustomerSalesAreas_Division}:</td>
+                    <td>{!v.salesDivision}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                </table>
+            </div>
+            <aura:if isTrue="{!v.allowButtons}">
+                <div class="slds-m-around_large">
+                    <p class="slds-m-bottom_large">Confirm: Is this the sales area you wish to use?</p>
+                    <p>
+                        <lightning:button label="{#$Label.c.LBL_CPQ_Quote_SelectSalesAreas_NoBtn}" onclick="{!c.clearSalesAreaValues}" />&nbsp;
+                        <lightning:button label="{! 'Yes - ' + if(v.isFinish,'Finished','Next')}" onclick="{!c.flowNavigate}" />
+                    </p>
+                </div>
+            </aura:if>
+        </aura:if>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,113 @@
+<aura:component controller="CTRL_CustomerSearchLtng" access="global" implements="force:appHostable,force:lightningQuickAction,lightning:availableForFlowScreens">    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:attribute name="customerNumber" type="String"/>
+    <aura:attribute name="partnerFunction" type="String"/>
+    <aura:attribute name="partnerFunctionName" type="String"/>
+    <aura:attribute name="searchType" type="String"/>
+    <aura:attribute name="searchParams" type="Map" default="{}"/>
+    <aura:attribute name="autoSearch" type="Boolean" default="false"/>
+
+    <aura:attribute name="keyField" type="String" default="Id"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="displayResults" type="Map"/>
+    <aura:attribute name="messages" type="List"/>    
+    <aura:attribute name="displaySpinner" type="Boolean" default="false"/>
+    <aura:attribute name="pagingOptions" type="Map"/>
+    <aura:attribute name="selectedRows" type="List" default="[]"/>
+
+    <aura:handler name="pagerChangedEvent" event="c:EVT_PagerChanged" action="{!c.onPagerChanged}"/>
+    <aura:registerEvent name="selectedCustomerEvent" type="c:EVT_SelectCustomer"/>
+
+    <lightning:overlayLibrary aura:id="overlayLibPartner"/>
+
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative wideBox">
+        <div class="slds-form">
+            <aura:if isTrue="{!v.displaySpinner}">
+                <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand"/>
+            </aura:if>
+            <div class="slds-grid slds-wrap slds-gutters slds-m-bottom_x-small">
+                <aura:if isTrue="{! if(or(v.searchType == 'Contact', v.searchType == 'Personnel'), true, false)}">
+                    <!-- Contact Search -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_FromPartnerNumber}" value="{!v.searchParams.fromPartnerNumber}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_ToPartnerNumber}" value="{!v.searchParams.toPartnerNumber}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_FirstName}" value="{!v.searchParams.firstName}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_LastName}" value="{!v.searchParams.lastName}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_CustomerNumber}" value="{!v.searchParams.customerNumber}"/>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{! if(v.searchType == 'Vendor', true, false)}">
+                    <!-- Vendor Search -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_FromVendorNumber}" value="{!v.searchParams.customerNumberFrom}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_ToVendorNumber}" value="{!v.searchParams.customerNumberTo}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_VendorName}" value="{!v.searchParams.name}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_VendorName2}" value="{!v.searchParams.name2}"/>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{! if(v.searchType == 'Partner', true, false)}">
+                    <!-- Customer Search -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_FromCustomerNumber}" value="{!v.searchParams.customerNumberFrom}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_ToCustomerNumber}" value="{!v.searchParams.customerNumberTo}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_CustomerName}" value="{!v.searchParams.name}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_City}" value="{!v.searchParams.city}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_Region}" value="{!v.searchParams.region}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_PostalCode}" value="{!v.searchParams.postalCode}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_Country}" value="{!v.searchParams.country}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_Telephone}" value="{!v.searchParams.telephone}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_EmailAddress}" value="{!v.searchParams.email}"/>
+                    </div>
+                </aura:if>
+            </div>
+
+            <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Search}" variant="brand" onclick="{!c.onClickSearch}"/>
+            <c:CMP_Messages messages="{!v.messages}"/>
+            <div style="max-height:350px; overflow-y: auto;" class="slds-m-top_small">
+                <lightning:datatable
+                    data="{! v.displayResults}" 
+                    columns="{! v.columns}" 
+                    keyField="{!v.keyField}"
+                    onrowselection="{! c.onRowSelection}"
+                    selectedRows="{!v.selectedRows}"/>
+            </div>
+            <aura:if isTrue="{!v.displayResults.length}">
+                <c:CMP_Pager options="{!v.pagingOptions}" />
+            </aura:if>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Cancel}" variant="brand" onclick="{!c.onClickCancel}"/>
+            </div>   
+        </div>
+    </lightning:card>
+</aura:component>

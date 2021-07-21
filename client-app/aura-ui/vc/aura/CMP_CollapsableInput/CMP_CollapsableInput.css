@@ -1,0 +1,38 @@
+.THIS .body{
+    width:92%;
+    margin:5px 4% 0px 4%;
+}
+.THIS.container{
+    margin-bottom:10px;
+}
+
+@-webkit-keyframes activated {
+    0% {
+        background-color: #f69635;
+        opacity: 1;
+    }
+    22% {
+        background-color: #f69630;
+    }
+    77% {
+        background-color: #f69600;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.THIS .active {
+    -webkit-animation-name: activated;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: activated;
+    -moz-animation-duration: 500ms;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: linear;
+}
+
+.THIS .lightningInputSelect label, .THIS .lightningInputText label {
+    display:none;
+}

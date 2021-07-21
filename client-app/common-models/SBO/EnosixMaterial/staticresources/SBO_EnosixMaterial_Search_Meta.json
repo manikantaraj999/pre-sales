@@ -1,0 +1,448 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixMaterial_Search.SEARCHPARAMS": {
+      "MaterialNumberFrom": {
+        "FriendlyName": "MaterialNumberFrom",
+        "TechnicalName": "MATNR_FR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialNumberTo": {
+        "FriendlyName": "MaterialNumberTo",
+        "TechnicalName": "MATNR_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialDescription": {
+        "FriendlyName": "MaterialDescription",
+        "TechnicalName": "MAKTX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialGroup": {
+        "FriendlyName": "MaterialGroup",
+        "TechnicalName": "MATKL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ProductHierarchy": {
+        "FriendlyName": "ProductHierarchy",
+        "TechnicalName": "PRODH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CrossPlantMaterialStatus": {
+        "FriendlyName": "CrossPlantMaterialStatus",
+        "TechnicalName": "MSTAE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FromCreateDate": {
+        "FriendlyName": "FromCreateDate",
+        "TechnicalName": "ERSDA_FR",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToCreateDate": {
+        "FriendlyName": "ToCreateDate",
+        "TechnicalName": "ERSDA_TO",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "FromChangeDate": {
+        "FriendlyName": "FromChangeDate",
+        "TechnicalName": "LAEDA_FR",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToChangeDate": {
+        "FriendlyName": "ToChangeDate",
+        "TechnicalName": "LAEDA_TO",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixMaterial_Search.MATERIAL_TYPE": {
+      "MaterialType": {
+        "FriendlyName": "MaterialType",
+        "TechnicalName": "MTART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixMaterial_Search.PRODUCT_ATTRIB": {
+      "ProductAttribute": {
+        "FriendlyName": "ProductAttribute",
+        "TechnicalName": "PRODUCT_ATTRIB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixMaterial_Search.SEARCHRESULT": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialDescription": {
+        "FriendlyName": "MaterialDescription",
+        "TechnicalName": "MAKTX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialType": {
+        "FriendlyName": "MaterialType",
+        "TechnicalName": "MTART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialTypeDescription": {
+        "FriendlyName": "MaterialTypeDescription",
+        "TechnicalName": "MTART_MTBEZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialGroup": {
+        "FriendlyName": "MaterialGroup",
+        "TechnicalName": "MATKL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ProductHierarchy": {
+        "FriendlyName": "ProductHierarchy",
+        "TechnicalName": "PRODH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ProductHierarchyDescription": {
+        "FriendlyName": "ProductHierarchyDescription",
+        "TechnicalName": "PRODH_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CrossPlantMaterialStatus": {
+        "FriendlyName": "CrossPlantMaterialStatus",
+        "TechnicalName": "MSTAE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialStatusDescription": {
+        "FriendlyName": "MaterialStatusDescription",
+        "TechnicalName": "MTSTB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreationDate": {
+        "FriendlyName": "CreationDate",
+        "TechnicalName": "ERSDA",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ChangeDate": {
+        "FriendlyName": "ChangeDate",
+        "TechnicalName": "LAEDA",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "AlternateUnitOfMeasure": {
+        "FriendlyName": "AlternateUnitOfMeasure",
+        "TechnicalName": "MEINH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NumeratorForConversion": {
+        "FriendlyName": "NumeratorForConversion",
+        "TechnicalName": "UMREZ",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "DenominatorForConversion": {
+        "FriendlyName": "DenominatorForConversion",
+        "TechnicalName": "UMREN",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "Quotient": {
+        "FriendlyName": "Quotient",
+        "TechnicalName": "QUOTIENT",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "BaseUnitOfMeasure": {
+        "FriendlyName": "BaseUnitOfMeasure",
+        "TechnicalName": "MEINS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BaseUoMDescription": {
+        "FriendlyName": "BaseUoMDescription",
+        "TechnicalName": "MEINS_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConfigurableMaterial": {
+        "FriendlyName": "ConfigurableMaterial",
+        "TechnicalName": "KZKFG",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixMaterial_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "MaterialNumberFrom": {
+          "FriendlyName": "MaterialNumberFrom",
+          "TechnicalName": "MATNR_FR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialNumberTo": {
+          "FriendlyName": "MaterialNumberTo",
+          "TechnicalName": "MATNR_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialDescription": {
+          "FriendlyName": "MaterialDescription",
+          "TechnicalName": "MAKTX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialGroup": {
+          "FriendlyName": "MaterialGroup",
+          "TechnicalName": "MATKL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ProductHierarchy": {
+          "FriendlyName": "ProductHierarchy",
+          "TechnicalName": "PRODH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CrossPlantMaterialStatus": {
+          "FriendlyName": "CrossPlantMaterialStatus",
+          "TechnicalName": "MSTAE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FromCreateDate": {
+          "FriendlyName": "FromCreateDate",
+          "TechnicalName": "ERSDA_FR",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToCreateDate": {
+          "FriendlyName": "ToCreateDate",
+          "TechnicalName": "ERSDA_TO",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "FromChangeDate": {
+          "FriendlyName": "FromChangeDate",
+          "TechnicalName": "LAEDA_FR",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToChangeDate": {
+          "FriendlyName": "ToChangeDate",
+          "TechnicalName": "LAEDA_TO",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "MATERIAL_TYPE": {
+      "Name": "MATERIAL_TYPE",
+      "ItemType": "SBO_EnosixMaterial_Search.MATERIAL_TYPE",
+      "FieldMap": {
+        "MaterialType": {
+          "FriendlyName": "MaterialType",
+          "TechnicalName": "MTART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "PRODUCT_ATTRIB": {
+      "Name": "PRODUCT_ATTRIB",
+      "ItemType": "SBO_EnosixMaterial_Search.PRODUCT_ATTRIB",
+      "FieldMap": {
+        "ProductAttribute": {
+          "FriendlyName": "ProductAttribute",
+          "TechnicalName": "PRODUCT_ATTRIB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixMaterial_Search.SEARCHRESULT",
+      "FieldMap": {
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialDescription": {
+          "FriendlyName": "MaterialDescription",
+          "TechnicalName": "MAKTX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialType": {
+          "FriendlyName": "MaterialType",
+          "TechnicalName": "MTART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialTypeDescription": {
+          "FriendlyName": "MaterialTypeDescription",
+          "TechnicalName": "MTART_MTBEZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialGroup": {
+          "FriendlyName": "MaterialGroup",
+          "TechnicalName": "MATKL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ProductHierarchy": {
+          "FriendlyName": "ProductHierarchy",
+          "TechnicalName": "PRODH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ProductHierarchyDescription": {
+          "FriendlyName": "ProductHierarchyDescription",
+          "TechnicalName": "PRODH_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CrossPlantMaterialStatus": {
+          "FriendlyName": "CrossPlantMaterialStatus",
+          "TechnicalName": "MSTAE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialStatusDescription": {
+          "FriendlyName": "MaterialStatusDescription",
+          "TechnicalName": "MTSTB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreationDate": {
+          "FriendlyName": "CreationDate",
+          "TechnicalName": "ERSDA",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ChangeDate": {
+          "FriendlyName": "ChangeDate",
+          "TechnicalName": "LAEDA",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "AlternateUnitOfMeasure": {
+          "FriendlyName": "AlternateUnitOfMeasure",
+          "TechnicalName": "MEINH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NumeratorForConversion": {
+          "FriendlyName": "NumeratorForConversion",
+          "TechnicalName": "UMREZ",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "DenominatorForConversion": {
+          "FriendlyName": "DenominatorForConversion",
+          "TechnicalName": "UMREN",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "Quotient": {
+          "FriendlyName": "Quotient",
+          "TechnicalName": "QUOTIENT",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "BaseUnitOfMeasure": {
+          "FriendlyName": "BaseUnitOfMeasure",
+          "TechnicalName": "MEINS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BaseUoMDescription": {
+          "FriendlyName": "BaseUoMDescription",
+          "TechnicalName": "MEINS_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ConfigurableMaterial": {
+          "FriendlyName": "ConfigurableMaterial",
+          "TechnicalName": "KZKFG",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

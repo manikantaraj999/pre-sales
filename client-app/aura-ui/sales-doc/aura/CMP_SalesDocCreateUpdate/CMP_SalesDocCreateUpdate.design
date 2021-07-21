@@ -1,0 +1,10 @@
+<design:component label="Sales Doc Create">
+    <design:attribute name="recordId" label="Record Id" />
+    <design:attribute name="sapDocNumber" label="SAP Doc Number"/>
+    <design:attribute name="appSettingsName" label="App Settings Name"/>
+    <design:attribute name="appSettingsNamespace" label="App Settings Namespace"/>
+    <design:attribute name="appSettingsKey" label="App Settings Key"/>
+    <design:attribute name="appSettingsTypeName" label="App Settings Type Name"/>
+    <design:attribute name="isClone" label="Is Clone?"/>
+    <design:attribute name="isUpdate" label="Is Update?"/>
+</design:component>

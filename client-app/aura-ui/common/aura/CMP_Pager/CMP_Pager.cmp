@@ -1,0 +1,86 @@
+<aura:component>
+    <aura:attribute name="options" type="Map" />
+    <aura:handler name="change" value="{!v.options}" action="{!c.onOptionsChange}" />
+    <aura:registerEvent name="pagerChangedEvent" type="c:EVT_PagerChanged" />
+    <aura:attribute name="pageSize" type="Integer" default="10" />
+    <aura:attribute name="totalPages" type="Integer" default="0" />
+    <aura:attribute name="isPreviousEnabled" type="Boolean" default="false" />
+    <aura:attribute name="isNextEnabled" type="Boolean" default="false" />
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="12" smallDeviceSize="4" mediumDeviceSize="2" largeDeviceSize="2" padding="around-small">
+            <lightning:select aura:id="pageSize" class="noLabel" value="{!v.pageSize}" onchange="{!c.onPageSizeChange}">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+            </lightning:select>
+        </lightning:layoutItem>
+        <aura:if isTrue="{!v.totalPages != 0}">
+            <lightning:layoutItem class="paginator" size="12" smallDeviceSize="4" mediumDeviceSize="2" largeDeviceSize="2"
+                padding="around-small">
+                <!-- Previous is active -->
+                <aura:if isTrue="{!v.isPreviousEnabled}">
+                    <span class="prevNext">
+                        <a href="javascript:;" onclick="{!c.gotoFirstPage}" 
+                        title="First Page">
+                            <img src="/s.gif" alt="{!$Label.ensxapp.Pager_FirstPage}" class="first" />
+                        </a>
+                    </span>
+                    <span class="prevNext">
+                        <a href="javascript:;" onclick="{!c.gotoPreviousPage}" title="{!$Label.ensxapp.Pager_Previous}"><img
+                                src="/s.gif" alt="{!$Label.ensxapp.Pager_Previous}" class="prev" />{!$Label.ensxapp.Pager_Previous}</a>
+                    </span>
+                </aura:if>
+
+                <!-- Previous is disabled -->
+                <aura:if isTrue="{!!v.isPreviousEnabled}">
+                    <span class="prevNext">
+                        <img src="/s.gif" class="firstoff" alt="{!$Label.ensxapp.Pager_FirstPage}" />
+                    </span>
+                    <span class="prevNext">
+                        <img src="/s.gif" class="prevoff" alt="{!$Label.ensxapp.Pager_Previous}" />{!$Label.ensxapp.Pager_Previous}
+                    </span>
+                </aura:if>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" smallDeviceSize="4" mediumDeviceSize="3" largeDeviceSize="3" padding="around-small">
+                <!-- Center display text -->
+                <span class="info">{!v.options.pageNumber}&nbsp;{!$Label.ensxapp.Pager_Total_Of}&nbsp;{!v.totalPages}&nbsp;{!$Label.ensxapp.pager_total_pages}</span>
+            </lightning:layoutItem>
+            <!-- Next is active -->
+            <lightning:layoutItem class="paginator" size="12" smallDeviceSize="4" mediumDeviceSize="2" largeDeviceSize="2" padding="around-small">
+
+                <aura:if isTrue="{!v.isNextEnabled}">
+                    <span class="prevNext">
+                        <a href="javascript:;" onclick="{!c.gotoNextPage}" 
+                        title="{!$Label.ensxapp.Pager_Next}" alt="{!$Label.ensxapp.Pager_Next}">
+                        {!$Label.ensxapp.Pager_Next}
+                            <img src="/s.gif" alt="next" class="next" />
+                        </a>
+                    </span>
+                    <span class="prevNext">
+                        <a href="javascript:;" onclick="{!c.gotoLastPage}" 
+                        title="{!$Label.ensxapp.Pager_LastPage}">
+                            <img src="/s.gif" alt="{!$Label.ensxapp.Pager_LastPage}" class="last" />
+                        </a>
+                    </span>
+                </aura:if>
+
+                <!-- Next is disabled -->
+                <aura:if isTrue="{!!v.isNextEnabled}">
+                    <span class="prevNext">
+                        {!$Label.ensxapp.Pager_Next}<img src="/s.gif" class="nextoff" alt="{!$Label.ensxapp.Pager_Next}" />
+                    </span>
+                    <span class="prevNext">
+                        <img src="/s.gif" class="lastoff" alt="{!$Label.ensxapp.Pager_LastPage}" />
+                    </span>
+                </aura:if>
+            </lightning:layoutItem>
+        </aura:if>
+        <lightning:layoutItem size="12" smallDeviceSize="4" mediumDeviceSize="2" largeDeviceSize="3" padding="around-small">
+            {!$Label.ensxapp.Pager_Total_Records}&nbsp;{!v.options.totalRecords}
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="activityComplete" type="Boolean" default="false" />
+    <aura:attribute name="activityTitle" type="String" />
+
+    <div class="slds-grid slds-wrap slds-grid_pull-padded">
+
+        <div class="slds-p-horizontal_small slds-size_8-of-12 slds-medium-size_8-of-12 slds-large-size_7-of-12">
+            <div class="slds-text-heading_small slds-text-align_right">
+                {!v.activityTitle}
+            </div>
+        </div>
+        <div class="slds-p-horizontal_small slds-size_4-of-12 slds-medium-size_4-of-12 slds-large-size_5-of-12">
+            <lightning:icon class="ensxIcon" iconName="{!v.activityComplete?'action:approval':'action:close'}" size="x-small" />
+        </div>
+    </div>
+</aura:component>

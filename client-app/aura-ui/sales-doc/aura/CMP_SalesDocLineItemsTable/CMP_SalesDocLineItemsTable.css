@@ -1,0 +1,61 @@
+.THIS .configureIcon svg {
+    fill: red;
+}
+
+.THIS .incompletionIcon {
+    padding: 2px;
+    cursor: pointer;
+}
+.THIS .incompletionIcon:hover + .incompletionLogBody {
+    display:block;
+}
+.THIS .incompletionIcon svg {
+    fill: rgb(0, 112, 210);
+}
+
+.THIS .incompletionLogBody {
+    position: absolute;
+    background: rgb(0, 112, 210);
+    color: white;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+    z-index:999;
+    left:80px;
+    margin-top:-40px;
+    display:none;
+}
+.THIS .incompletionLogBody ul {
+    margin-left: 1.5rem;
+    list-style:initial;
+}
+
+.THIS .display-flex{
+    display: flex;
+}
+
+.THIS .slds-table > thead > tr > th{
+    white-space: normal;
+}
+
+.THIS .slds-table tbody td .slds-wrap label {
+    display:none;
+}
+
+.THIS input::-webkit-outer-spin-button {
+    display:none;
+}
+
+.THIS input::-webkit-inner-spin-button {
+    display:none;
+}
+
+.THIS input[type=checkbox]:checked.blue-checkbox{
+    border-color: rgb(21, 137, 238);
+    box-shadow: 0 0 3px #0070d2;
+    background-color: rgb(21, 137, 238);
+    background-size: cover;
+}
+
+.THIS .button-edit{
+    opacity: 0.8;
+}

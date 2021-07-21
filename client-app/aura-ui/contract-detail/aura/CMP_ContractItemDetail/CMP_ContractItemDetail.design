@@ -1,0 +1,20 @@
+<design:component label="SAP Contract Item Detail">
+    <design:attribute name="displayHeader" label="Display Header"
+        description="Indicator as to whether or not title and icon at top of component is to be displayed" />
+    <design:attribute name="headerTitle" label="Header Title"
+        description="The Title displayed when Display Header is enabled" />
+        
+    <design:attribute name="displayItemNumber" label="Display Item Number"/>
+    <design:attribute name="displayMaterial" label="Display Material"/>
+    <design:attribute name="displayMaterialDescription" label="Display MaterialDescription"/>
+    <design:attribute name="displayQuantity" label="Display Quantity"/>
+    <design:attribute name="displayPricePer" label="Display PricePer"/>
+    <design:attribute name="displayTotal" label="Display Total"/>
+    <design:attribute name="displayTax" label="Display Tax"/>
+    <design:attribute name="displayPlant" label="Display Plant"/>
+    <design:attribute name="displayCategory" label="Display Category"/>
+    <design:attribute name="displayBillingBlock" label="Display Billing Block"/>
+    <design:attribute name="displayDeliveryBlock" label="Display Delivery Block"/>
+    <design:attribute name="displayRoute" label="Display Route"/>
+    <design:attribute name="data" label="Model of Selected Item"/>
+</design:component>

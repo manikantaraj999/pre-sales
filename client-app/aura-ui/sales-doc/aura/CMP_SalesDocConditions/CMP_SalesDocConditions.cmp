@@ -1,0 +1,80 @@
+<aura:component access="global" >
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}" />
+
+    <aura:attribute name="allConditions" type="List"/>
+    <aura:attribute name="conditionsList" type="List"/>    
+    <aura:attribute name="SBOConditions" type="List"/> 
+    <aura:attribute name="addedConditions" type="List"/>    
+    <aura:attribute name="conditionColumns" type="List"/>
+    <aura:attribute name="selectedCondition" type="String"/>
+    <aura:attribute name="isReadOnly" type="Boolean" default="false"/>
+
+    <aura:registerEvent name="conditionValueChange" type="c:EVT_ConditionValueChange"/>
+
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative">
+
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer table-fixed-layout">
+            <thead>
+                <tr class="table-head slds-grid--vertical-stretch">
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ConditionType}</div></th>
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ConditionTypeName}</div></th>
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_Rate}</div></th>
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_RateUnit}</div></th>
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ConditionPricingUnit}</div></th>
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ConditionUnit}</div></th>
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ConditionValue}</div></th>
+                    <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_Currency}</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.SBOConditions}" var="sboCondition" indexVar="conditionIndex">
+                    <tr>
+                        <td><lightning:formattedText value="{!sboCondition.ConditionType}"/></td>
+                        <td><lightning:formattedText value="{!sboCondition.ConditionTypeName}"/></td>
+                        <td><lightning:formattedNumber value="{!sboCondition.Rate}" style="decimal" minimumFractionDigits="2"/></td>
+                        <td><lightning:formattedText value="{!sboCondition.RateUnit}"/></td>
+                        <td><lightning:formattedNumber value="{!sboCondition.ConditionPricingUnit}"/></td>
+                        <td><lightning:formattedText value="{!sboCondition.ConditionUnit}"/></td>
+                        <td><lightning:formattedNumber value="{!sboCondition.ConditionValue}" style="decimal" minimumFractionDigits="2"/></td>
+                        <td><lightning:formattedText value="{!sboCondition.CurrencyKey}"/></td>
+                    </tr>                    
+                </aura:iteration>
+            </tbody>
+        </table>
+
+        <!-- Section for adding and removing condition -->
+        <div class="slds-m-top_small">
+            <div class="slds-grid slds-wrap slds-gutters slds-grid_vertical-align-end">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-6 slds-large-size_3-of-12">
+                    <span class="inline-block slds-p-right_x-small" style="width:85%">
+                        <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_Conditions}" value="{!v.selectedCondition}" disabled="{!v.isReadOnly}">
+                            <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                            <aura:iteration items="{!v.conditionsList}" var="condition">
+                                <option value="{!condition.ConditionType}">{!condition.ConditionType + ' - ' + condition.KSCHL_TEXT}</option>
+                            </aura:iteration>
+                        </lightning:select> 
+                    </span>
+                    <span class="inline-block">
+                        <lightning:buttonIcon class="small-button-icon" iconName="utility:add" disabled="{!v.isReadOnly}"
+                            alternativeText="{!$Label.c.Enosix_SalesDoc_Button_AddCondition}" onclick="{!c.addCondition}"/>
+                    </span>                    
+                </div>     
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <aura:iteration items="{!v.addedConditions}" var="cond">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-6 slds-large-size_3-of-12">
+                        <span class="inline-block slds-p-right_x-small" style="width:85%">
+                            <lightning:input type="number" label="{!cond.ConditionType + ' - ' + cond.ConditionTypeName}" 
+                                value="{!cond.Rate}" step="any" onchange="{!c.onValueChange}" disabled="{!v.isReadOnly}"/>
+                        </span>
+                        <span class="inline-block">
+                            <lightning:buttonIcon class="small-button-icon" iconName="utility:dash" name="{!cond.ConditionType}" disabled="{!v.isReadOnly}"
+                                alternativeText="{!$Label.c.Enosix_SalesDoc_Button_RemoveCondition}" onclick="{!c.removeCondition}"/>
+                        </span>
+                    </div>
+                </aura:iteration>
+            </div> 
+        </div>
+
+    </lightning:card>
+</aura:component>

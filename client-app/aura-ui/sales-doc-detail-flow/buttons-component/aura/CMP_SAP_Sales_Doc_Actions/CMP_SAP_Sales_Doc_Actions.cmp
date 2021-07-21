@@ -1,0 +1,43 @@
+<aura:component access="global" controller="CTRL_SAP_Sales_Doc_Actions" implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens">
+    <aura:attribute name="SFRecordId" type="String" access="global"/>
+    <aura:attribute name="SAPDocNum" type="String" access="global"/>
+    <aura:attribute name="SAPDocType" type="String" access="global"/>
+    <aura:attribute name="allowBackToLinkedObject" type="boolean" access="global"/>
+    <aura:attribute name="allowBackToAccount" type="boolean" access="global"/>
+    <aura:attribute name="allowBackToOpportunity" type="boolean" access="global"/>
+    <aura:attribute name="allowClone" type="boolean" access="global"/>
+    <aura:attribute name="allowUpdate" type="boolean" access="global"/>
+
+    <aura:attribute name="displaySpinner" type="boolean" default="false" />
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="buttonList" type="Map" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:navigation aura:id="navigationService"/>
+    <lightning:overlayLibrary aura:id="overlayLib" />
+
+    <aura:html tag="style">
+        .slds-modal__header {
+            padding: 1px;
+            border-bottom-color: transparent;
+        }
+        .slds-modal__header .slds-card__header {
+            display:none;
+        }
+    </aura:html>
+
+    <lightning:card>
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+        </aura:if>
+    
+        <c:CMP_Messages messages="{!v.messages}" cssClass="slds-item slds-m-around_medium" />
+    
+        <div class="slds-align_absolute-center">
+            <aura:iteration items="{!v.buttonList}" var="button">
+                <lightning:button name="{!button.Value}" label="{!button.Label}" onclick="{!c.handleClickForButton}"/> 
+            </aura:iteration>        
+        </div>
+	</lightning:card>
+</aura:component>

@@ -1,0 +1,5 @@
+<design:component label="SAP Select Sales Org">
+    <design:attribute name="autoPickSingle" label="Auto Pick Single Sales Org" />
+    <design:attribute name="quoteId" label="CPQ QuoteId" />
+    <design:attribute name="isFinish" label="Is Finish Of Flow" />
+</design:component>

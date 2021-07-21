@@ -1,0 +1,13 @@
+<design:component label="SAP Contract Contract Detail">
+    <design:attribute name="displayHeader" label="Display Header"
+        description="Indicator as to whether or not title and icon at top of component is to be displayed" />
+    <design:attribute name="headerTitle" label="Header Title"
+        description="The Title displayed when Display Header is enabled" />
+
+    <design:attribute name="sapDocumentId" label="SAP Document Id" /> 
+    <design:attribute name="recordId" label="Salesforce Record Id" />
+
+    <design:attribute name="displayItemNumber" label="Display Item Number"/> 
+    <design:attribute name="displayStartDate" label="Display Start Date"/>
+    <design:attribute name="displayEndDate" label="Display End Date"/>
+</design:component>

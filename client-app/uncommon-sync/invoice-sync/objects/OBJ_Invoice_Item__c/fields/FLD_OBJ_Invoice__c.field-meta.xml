@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLD_OBJ_Invoice__c</fullName>
+    <description>OBJ Invoice</description>
+    <externalId>false</externalId>
+    <inlineHelpText>OBJ Invoice</inlineHelpText>
+    <label>FLD OBJ Invoice</label>
+    <referenceTo>OBJ_Invoice__c</referenceTo>
+    <relationshipLabel>OBJ Invoice Item (OBJ Invoice)</relationshipLabel>
+    <relationshipName>OBJ_Invoice_Item_OBJ_Invoice</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

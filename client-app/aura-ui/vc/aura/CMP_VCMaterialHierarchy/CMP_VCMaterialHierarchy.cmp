@@ -1,0 +1,29 @@
+<aura:component description="CMP_VCMaterialHierarchy">
+    <aura:attribute name="model" type="DS_VCMaterialConfiguration" />
+    <aura:attribute name="isDisplayRequiredOnly" type="Boolean" default="false" />
+    <table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_col-bordered slds-table_striped slds-no-row-hover">
+        <thead>
+        <tr class="slds-text-title_caps">
+            <th scope="col" class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+                <div class="slds-truncate" title="CHARACTERISTIC">CHARACTERISTIC
+                </div>
+            </th>
+            <th scope="col" class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+                <div class="slds-truncate" title="VALUE">VALUE
+                </div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.model.characteristics}" var="characteristic">
+                <aura:if isTrue="{! characteristic.DisplayInSummaryView &amp;&amp; !(v.isDisplayRequiredOnly &amp;&amp; !characteristic.Required) }">
+                    <tr class="slds-hint-parent">
+                        <c:CMP_VCMaterialHierarchyCell model="{!v.model}"
+                            characteristicName="{!characteristic.CharacteristicName}"
+                            characteristicDescription="{!characteristic.CharacteristicDescription}"/>
+                    </tr>
+                </aura:if>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

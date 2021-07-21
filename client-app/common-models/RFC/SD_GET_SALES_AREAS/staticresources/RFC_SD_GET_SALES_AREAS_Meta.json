@@ -1,0 +1,88 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_SALES_AREAS.RESULT": {},
+    "RFC_SD_GET_SALES_AREAS.SALESAREAS": {
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganizationName": {
+        "FriendlyName": "SalesOrganizationName",
+        "TechnicalName": "VKORG_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannelName": {
+        "FriendlyName": "DistributionChannelName",
+        "TechnicalName": "VTWEG_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Division": {
+        "FriendlyName": "Division",
+        "TechnicalName": "SPART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DivisionName": {
+        "FriendlyName": "DivisionName",
+        "TechnicalName": "SPART_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "SALESAREAS": {
+      "Name": "SALESAREAS",
+      "ItemType": "RFC_SD_GET_SALES_AREAS.ET_SALES_AREA",
+      "FieldMap": {
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganizationName": {
+          "FriendlyName": "SalesOrganizationName",
+          "TechnicalName": "VKORG_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannelName": {
+          "FriendlyName": "DistributionChannelName",
+          "TechnicalName": "VTWEG_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Division": {
+          "FriendlyName": "Division",
+          "TechnicalName": "SPART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DivisionName": {
+          "FriendlyName": "DivisionName",
+          "TechnicalName": "SPART_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

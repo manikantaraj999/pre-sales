@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLD_OBJ_Quote__c</fullName>
+    <description>OBJ Quote</description>
+    <externalId>false</externalId>
+    <inlineHelpText>OBJ Quote</inlineHelpText>
+    <label>FLD OBJ Quote</label>
+    <referenceTo>OBJ_Quote__c</referenceTo>
+    <relationshipLabel>OBJ Quote Item (OBJ Quote)</relationshipLabel>
+    <relationshipName>OBJ_Quote_Item_OBJ_Quote</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

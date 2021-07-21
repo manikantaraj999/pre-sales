@@ -1,0 +1,94 @@
+<apex:page showHeader="true" controller="CTRL_CustomerLink" title="Link Account to SAP Customer" tabStyle="Account" lightningStylesheets="true" sidebar="true" >
+    <apex:slds rendered="{!!isClassic}"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <c:CMP_Status />
+
+    <apex:form id="mainform">
+        <apex:pageMessages id="messagediv" />
+
+        <apex:outputPanel rendered="{! isClassic}">
+            <apex:pageBlock title="Account" rendered="{! null != account}" >
+                <apex:pageBlockSection columns="2" collapsible="false">
+                    <apex:outputText label="Name:" value="{!account.Name}" />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton onclick="window.location.href='/{!account.Id}';return false;" value="Return to Account"/>
+                    <apex:commandButton action="{!GoToCreateCustomer}" value="Create Customer"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <p class="slds-text-title_caps slds-line-height_reset">Account:</p>
+                                <p class="slds-page-header__title"><apex:outputText label="Name:" value="{!account.Name}" /></p>
+                            </div>
+                            <apex:commandButton onclick="sforce.one.navigateToSObject('{!account.Id}');return false;" value="Return to Account"/>
+                            <apex:commandButton action="{!GoToCreateCustomer}" value="Create Customer"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <apex:pageBlock id="searchdiv" title="Search for SAP Customers">
+            <apex:actionFunction name="findMatchingCustomers" action="{!actionCustomerSearch}" status="status" rerender="mainform" />
+            <apex:pageBlockSection columns="1" collapsible="false">
+                <apex:inputText value="{!customerName}" label="Customer Name:" />
+                <apex:inputText value="{!postalCode}" label="Postal Code:" />
+                <apex:inputText value="{!phoneNumber}" label="Phone Number:" />
+                <apex:inputText value="{!email}" label="Email:" />
+                <apex:commandButton onclick="findMatchingCustomers(); return false" value="Search For Matching Customers"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="SAP Customers Matching This Account">
+
+            <apex:pageBlockTable value="{!matching_customers}" var="customer">
+                <apex:column headerValue="Link">
+                    <apex:commandButton value="Link Account" action="{!actionLinkAccount}" reRender="mainform" status="status">
+                        <apex:param name="linkedCustomerNumber" value="{!customer.CustomerNumber}" />
+                    </apex:commandButton>
+                </apex:column>
+                <apex:column headerValue="Customer Number" value="{!customer.CustomerNumber}" />
+                <apex:column headerValue="Name" value="{!customer.Name}" />
+                <apex:column headerValue="Street" value="{!customer.Street}" />
+                <apex:column headerValue="City" value="{!customer.City}" />
+                <apex:column headerValue="Region/Desc" value="{!customer.Region}" />
+                <apex:column headerValue="Postal Code" value="{!customer.PostalCode}" />
+                <apex:column headerValue="Telephone Number" value="{!customer.TelephoneNumber}" />
+                <apex:column headerValue="Email" value="{!customer.EmailAddress}" />
+                <apex:facet name="footer">
+                    <c:CMP_Pager options="{!pagingOptionsWrapper}" rendered="{!showPaginationBar}" searchController="{!searchController}" rerender="resultdiv"/>
+                </apex:facet>
+            </apex:pageBlockTable>
+
+        </apex:pageBlock>
+
+    </apex:form>
+
+    <c:CMP_Footer />
+
+    <script>
+
+    // Enter key initiates search while in search fields
+    $(document).on('keypress', '[id$="searchdiv"] input', function(event) {
+        if (event.which === 13) {
+            findMatchingCustomers();
+            return false;
+        }
+    });
+    </script>
+</apex:page>

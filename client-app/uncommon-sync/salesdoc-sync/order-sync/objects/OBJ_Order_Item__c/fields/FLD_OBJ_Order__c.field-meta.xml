@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLD_OBJ_Order__c</fullName>
+    <description>OBJ Order</description>
+    <externalId>false</externalId>
+    <inlineHelpText>OBJ Order</inlineHelpText>
+    <label>FLD OBJ Order</label>
+    <referenceTo>OBJ_Order__c</referenceTo>
+    <relationshipLabel>OBJ Order Item (OBJ Order)</relationshipLabel>
+    <relationshipName>OBJ_Order_Item_OBJ_Order</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

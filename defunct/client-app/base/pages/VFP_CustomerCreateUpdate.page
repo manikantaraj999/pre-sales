@@ -1,0 +1,182 @@
+<apex:page showHeader="true" controller="CTRL_CustomerCreateUpdate" title="Customer Create"
+	 tabStyle="Account" sidebar="true" action="{!initMode}" lightningStylesheets="true" docType="html-5.0">
+	<apex:slds rendered="{!!isClassic}"/>
+	<style>
+        .centerButton
+        {
+            text-align:center!important;
+        }
+        .required-mark{
+            color: red;
+            vertical-align: top;
+            display:inline;
+        }
+    </style>
+
+	<apex:form id="mainform">
+		<c:CMP_Status />
+
+	    <apex:actionFunction name="gotoCase" action="{!gotoCase}" rerender="formdiv" status="status" />
+	    <apex:actionFunction name="gotoAccounts" action="{!gotoAccounts}" rerender="formdiv" status="status" />
+
+		<apex:pageBlock title="No Account Found" rendered="{! null == account}">
+            <apex:pageBlockSection columns="1" collapsible="false">
+                <apex:commandLink value="Click here to go back to the list of accounts." onclick="gotoAccounts(); return false;"/>
+                <apex:commandLink value="Click here to go back to case." onclick="gotoCase(); return false;" rendered="{! null != caseid}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+		<apex:outputPanel rendered="{! isClassic}">
+            <apex:pageBlock title="Account" rendered="{! null != account}" >
+                <apex:pageBlockSection columns="2" collapsible="false">
+                    <apex:outputText label="Name:" value="{!RefrenceAccount.Name}" />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton onclick="window.location.href='/{!account.Id}';return false;" value="Return to Account"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <p class="slds-text-title_caps slds-line-height_reset">Account:</p>
+                                <p class="slds-page-header__title"><apex:outputText label="Name:" value="{!RefrenceAccount.Name}" /></p>
+                            </div>
+                            <apex:commandButton onclick="sforce.one.navigateToSObject('{!account.Id}');return false;" value="Return to Account"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+	    <c:CMP_CaseInfo caseId="{!caseid}" rendered="{! null != caseid && null != account }" isClassic="{!isClassic}" />
+
+		<apex:pageBlock title="Customer" rendered="{! null != parentCustomer}" >
+			<apex:pageBlockSection columns="2" collapsible="false">
+				<apex:outputText label="Customer #:" value="{!parentCustomer.CustomerNumber}" />
+				<apex:outputText label="Name:" value="{!parentCustomer.Name}" />
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton action="{!actionReturnToCustomer}" value="Return to Customer"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+
+		<div style="text-align:right">
+            <span class="required-mark">*</span> = Required Field
+        </div>
+
+        <apex:pageMessages id="messagediv1" />
+
+		<apex:pageBlock title="SAP Customer:" id="pbdiv">
+
+	        <apex:pageBlockSection columns="2" collapsible="false" id="pbsdiv">
+				<apex:pageBlockSectionItem>
+                    <span>Name:</span>
+                    <apex:outputPanel>
+	            		<apex:inputText value="{!NewCustomer.Name}" label="Name:"/>
+						<span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+	            <apex:inputText value="{!NewCustomer.Name2}" label="Name2:"/>
+
+	            <apex:pageBlockSectionItem/>
+	            <apex:pageBlockSectionItem/>
+
+	            <apex:inputText value="{!NewCustomer.TelephoneNumber}" label="Telephone Number:"/>
+	            <apex:inputText value="{!NewCustomer.TelephoneNumberExtension}" label="Extension:"/>
+	            <apex:inputText value="{!NewCustomer.FaxNumber}" label="Fax Number:"/>
+	            <apex:inputText value="{!NewCustomer.FaxNumberExtension}" label="Fax Extension:"/>
+	            <apex:inputText value="{!NewCustomer.EMailAddress}" label="Email Address:"/>
+
+                <apex:pageBlockSectionItem/>
+	            <apex:inputText value="{!NewCustomer.HouseNumber}" label="House Number:" />
+                <apex:pageBlockSectionItem/>
+
+				<apex:pageBlockSectionItem>
+                    <span>Street:</span>
+                    <apex:outputPanel>
+	            		<apex:inputText value="{!NewCustomer.Street}" label="Street:" />
+						<span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem>
+                    <span>City:</span>
+                    <apex:outputPanel>
+	                    <apex:inputText value="{!NewCustomer.City}" label="City:"/>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem>
+                    <span>Region:</span>
+                    <apex:outputPanel>
+			            <apex:selectList size="1" label="Region:"  value="{!NewCustomer.Region}">
+			                 <apex:selectOptions value="{!RegionOptions}"/>
+			            </apex:selectList>
+						<span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem>
+                    <span>PostalCode:</span>
+                    <apex:outputPanel>
+			            <apex:inputText value="{!NewCustomer.PostalCode}" label="PostalCode:">
+			            	<apex:actionSupport event="onchange" action="{!updateDetail}" rerender="mainform" status="update"/>
+			            </apex:inputText>
+						<span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem>
+                    <span>Country:</span>
+                    <apex:outputPanel>
+						<apex:selectList size="1" label="Country:" value="{!NewCustomer.Country}">
+			                 <apex:actionSupport event="onchange" action="{!updateDetail}" rerender="mainform" status="update"/>
+				             <apex:selectOptions value="{!CountryOptions}"/>
+			            </apex:selectList>
+						<span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem>
+                    <span>Customer Account Group:</span>
+                    <apex:outputPanel>
+	            		<apex:inputText value="{!NewCustomer.CustomerAccountGroup}" label="Customer Account Group:"/>
+						<span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+	        </apex:pageBlockSection>
+
+	        <apex:repeat value="{!CompanyCodes}" var="companyCode">
+		    	<c:CMP_CompanyCode DataSource="{!companyCode}" />
+		    </apex:repeat>
+
+	        <apex:repeat value="{!DS_SalesAreas}" var="salesArea">
+		    	<c:CMP_SalesAreas DataSource="{!salesArea}" CreateMode="{!isCreate}" EditMode="{!isUpdate}" PartnerMode="{!isAddPartner}" rerender="mainform" />
+		    </apex:repeat>
+
+            <apex:pageMessages id="messagediv2" />
+
+	        <apex:pageBlockButtons >
+	         	<apex:commandButton styleClass="centerButton" action="{!createSAPCustomer}" value="Create SAP Customer" reRender="mainform" status="save" rendered="{!isCreate && !isAddPartner}"/>
+				<apex:commandButton styleClass="centerButton" action="{!actionAddSAPPartner}" value="Add SAP Partner" reRender="mainform" status="save" rendered="{!isAddPartner}"/>
+				<apex:commandButton styleClass="centerButton" action="{!actionUpdateSapCustomer}" value="Update SAP Customer" reRender="mainform" status="status" rendered="{!isUpdate}"/>
+				<apex:commandButton styleClass="centerButton" action="{!redirectToOrderPage}" value="Return to Order" reRender="mainform" status="save" rendered="{!isFromOrder}"/>
+				<apex:commandButton styleClass="centerButton" action="{!redirectToQuotePage}" value="Return to Quote" reRender="mainform" status="save" rendered="{!isFromQuote}"/>
+				<apex:commandButton styleClass="centerButton" action="{!redirectToOppPage}" value="Return to Opportunity Pricing" reRender="mainform" status="save" rendered="{!isFromOpp}"/>
+	        </apex:pageBlockButtons>
+	    </apex:pageBlock>
+	</apex:form>
+	<c:CMP_Footer />
+</apex:page>

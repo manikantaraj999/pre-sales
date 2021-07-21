@@ -1,0 +1,7 @@
+<aura:component controller="CTRL_ContractDetail">
+    <aura:method name="getContractDetail" action="{!c.getDetail}" 
+        description="Fetches SBO Contract Detail"> 
+        <aura:attribute name="docNum" type="string" />
+        <aura:attribute name="callback" type="Function" />
+    </aura:method>
+</aura:component>

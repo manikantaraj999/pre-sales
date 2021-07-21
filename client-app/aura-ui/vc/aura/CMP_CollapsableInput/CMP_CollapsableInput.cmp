@@ -1,0 +1,64 @@
+<aura:component description="CMP_CollapsableInput">
+    <aura:attribute type="String" name="groupName"/>
+    <aura:attribute name="isDisplayRequiredOnly" type="Boolean" default="false" />
+    <aura:attribute type="List" name="characteristics"/>
+    <aura:attribute name="isExpanded" type="Boolean" default="true" />
+    <aura:attribute name="expandIcon" type="String" default="utility:chevrondown" />
+    <aura:method name="collapse" action="{!c.collapse}" />
+    <aura:method name="expand" action="{!c.expand}" />
+    <aura:attribute name="vcSettings" type="ENSX_VCSettings" />
+
+    <div class="container">
+        <lightning:button variant="base" label="{!v.groupName}" iconName="{!v.expandIcon}" iconPosition="left" class="slds-m-left_small"
+            onclick="{! c.handleSwitchExpansionState }" />
+        <aura:if isTrue="{!v.isExpanded}">
+            <aura:iteration items="{!v.characteristics}" var="characteristic">
+            <aura:if isTrue="{! and(v.isDisplayRequiredOnly, !characteristic.Required) || characteristic.NotToBeDisplayed == 'X' || !characteristic.DisplayInEditorView}">
+            <aura:set attribute="else">
+            <div class="{! characteristic.WillProcess ? 'body willProcess' : 'body' }">
+                <label>
+                    {!characteristic.CharacteristicDescription}
+                    <aura:if isTrue="{!characteristic.Required == 'X'}">
+                        <span class="slds-text-color_error">&nbsp;* (Required)</span>
+                    </aura:if>
+                    <span class="hiddenText">|{!characteristic.CharacteristicName}</span>
+                </label>
+                <aura:if isTrue="{!characteristic.inputType == 'InputPicklist'}">
+                    <c:CMP_Input_Picklist required="{!characteristic.Required == 'X'}"
+                        disabled="{!characteristic.NoEntryAllowed == 'X'}"
+                        inputId="{!characteristic.CharacteristicName}"
+                        possibleValues="{!characteristic.allowed}"
+                        additionalValues="{!characteristic.AdditionalValues == 'X'}"
+                        maxLength="{!characteristic.NumericCharacter}"
+                        inputLabel="{!characteristic.CharacteristicDescription}"
+                        val="{!characteristic.selected[0].CharacteristicValue}" />
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!characteristic.inputType == 'InputMultiple'}">
+                            <c:CMP_Input_MultiSelect required="{!characteristic.Required == 'X'}"
+                                disabled="{!characteristic.NoEntryAllowed == 'X'}"
+                                inputId="{!characteristic.CharacteristicName}"
+                                characteristicID="{!characteristic.CharacteristicID}"
+                                possibleValues="{!characteristic.allowed}"
+                                inputLabel="{!characteristic.CharacteristicDescription}"
+                                selected="{!characteristic.selected}"
+                                vcSettings="{!v.vcSettings}" />
+                            <aura:set attribute="else">
+                                <c:CMP_Input_Text required="{!characteristic.Required == 'X'}"
+                                    disabled="{!characteristic.NoEntryAllowed == 'X'}"
+                                    inputId="{!characteristic.CharacteristicName}"
+                                    possibleValues="{!characteristic.allowed}"
+                                    inputLabel="{!characteristic.CharacteristicDescription}"
+                                    val="{!characteristic.selected[0].CharacteristicValue}"
+                                    valueDescription="{!characteristic.selected[0].CharacteristicValueDescription}"
+                                    maxLength="{!characteristic.NumericCharacter}" />
+                            </aura:set>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+            </div>
+            </aura:set>
+            </aura:if>
+            </aura:iteration>
+        </aura:if>
+    </div>
+</aura:component>

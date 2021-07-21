@@ -1,0 +1,14 @@
+<aura:component>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="quoteId" type="String" access="global" />
+    <aura:attribute name="itemId" default='' type="String" access="global" />
+    <aura:attribute name="itemJSON" type="String" default='' access="global" />
+    <aura:attribute name="headerJSON" type="String" default='' access="global" />
+    <aura:attribute name="cpqMsg" type="String" access="global" />
+    <aura:attribute name="addedItemsJSON" type="String" default='' access="global" />
+    <aura:attribute name="enterPlant" type="Boolean" default="true" access="global" />
+    <aura:attribute name="enterQuantity" type="Boolean" default="true" access="global" />
+    <aura:registerEvent name="flowFinished" type="c:EVT_CPQ_Flow_Finished" />
+
+    <lightning:flow aura:id="cpqFlow" onstatuschange="{!c.handleStatusChange}" />
+</aura:component>

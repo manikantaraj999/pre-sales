@@ -1,0 +1,397 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixInvoice_Detail.EnosixInvoice": {
+      "BillingDocument": {
+        "FriendlyName": "BillingDocument",
+        "TechnicalName": "VBELN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingType": {
+        "FriendlyName": "BillingType",
+        "TechnicalName": "FKART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingTypeDescription": {
+        "FriendlyName": "BillingTypeDescription",
+        "TechnicalName": "FKART_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CompanyCode": {
+        "FriendlyName": "CompanyCode",
+        "TechnicalName": "BUKRS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CompanyCodeName": {
+        "FriendlyName": "CompanyCodeName",
+        "TechnicalName": "BUKRS_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrgDescription": {
+        "FriendlyName": "SalesOrgDescription",
+        "TechnicalName": "VKORG_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingDate": {
+        "FriendlyName": "BillingDate",
+        "TechnicalName": "FKDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ShipDate": {
+        "FriendlyName": "ShipDate",
+        "TechnicalName": "WADAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "SalesOrderNumber": {
+        "FriendlyName": "SalesOrderNumber",
+        "TechnicalName": "AUBEL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Payer": {
+        "FriendlyName": "Payer",
+        "TechnicalName": "KUNRG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PayerName": {
+        "FriendlyName": "PayerName",
+        "TechnicalName": "KUNRG_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToParty": {
+        "FriendlyName": "SoldToParty",
+        "TechnicalName": "KUNAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToName": {
+        "FriendlyName": "SoldToName",
+        "TechnicalName": "KUNAG_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToParty": {
+        "FriendlyName": "ShipToParty",
+        "TechnicalName": "KUNWE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToName": {
+        "FriendlyName": "ShipToName",
+        "TechnicalName": "KUNWE_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TrackingNumber": {
+        "FriendlyName": "TrackingNumber",
+        "TechnicalName": "BOLNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PaymentMethod": {
+        "FriendlyName": "PaymentMethod",
+        "TechnicalName": "ZLSCH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PaymentMethodDescription": {
+        "FriendlyName": "PaymentMethodDescription",
+        "TechnicalName": "ZLSCH_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TermsofPaymentKey": {
+        "FriendlyName": "TermsofPaymentKey",
+        "TechnicalName": "ZTERM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TermsOfPaymentKeyDesc": {
+        "FriendlyName": "TermsOfPaymentKeyDesc",
+        "TechnicalName": "ZTERM_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NetOrderValue": {
+        "FriendlyName": "NetOrderValue",
+        "TechnicalName": "NETWR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "TaxAmount": {
+        "FriendlyName": "TaxAmount",
+        "TechnicalName": "MWSBK",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SalesDocumentCurrency": {
+        "FriendlyName": "SalesDocumentCurrency",
+        "TechnicalName": "WAERK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreatedBy": {
+        "FriendlyName": "CreatedBy",
+        "TechnicalName": "ERNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreateDate": {
+        "FriendlyName": "CreateDate",
+        "TechnicalName": "ERDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "BillingStatus": {
+        "FriendlyName": "BillingStatus",
+        "TechnicalName": "FKSTK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingStatusDescription": {
+        "FriendlyName": "BillingStatusDescription",
+        "TechnicalName": "FKSTK_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixInvoice_Detail.ITEMS": {
+      "ItemNumber": {
+        "FriendlyName": "ItemNumber",
+        "TechnicalName": "POSNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ItemDescription": {
+        "FriendlyName": "ItemDescription",
+        "TechnicalName": "ARKTX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingQuantity": {
+        "FriendlyName": "BillingQuantity",
+        "TechnicalName": "FKIMG",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SalesUnit": {
+        "FriendlyName": "SalesUnit",
+        "TechnicalName": "VRKME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Plant": {
+        "FriendlyName": "Plant",
+        "TechnicalName": "WERKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PlantDescription": {
+        "FriendlyName": "PlantDescription",
+        "TechnicalName": "WERKS_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NetItemValue": {
+        "FriendlyName": "NetItemValue",
+        "TechnicalName": "NETWR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "TaxAmount": {
+        "FriendlyName": "TaxAmount",
+        "TechnicalName": "MWSBP",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SalesDocumentCurrency": {
+        "FriendlyName": "SalesDocumentCurrency",
+        "TechnicalName": "WAERK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixInvoice_Detail.CONDITIONS": {
+      "ConditionItemNumber": {
+        "FriendlyName": "ConditionItemNumber",
+        "TechnicalName": "KPOSN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConditionType": {
+        "FriendlyName": "ConditionType",
+        "TechnicalName": "KSCHL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConditionPricingDate": {
+        "FriendlyName": "ConditionPricingDate",
+        "TechnicalName": "KDATU",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ConditionBaseValue": {
+        "FriendlyName": "ConditionBaseValue",
+        "TechnicalName": "KAWRT",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "Rate": {
+        "FriendlyName": "Rate",
+        "TechnicalName": "KBETR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "CurrencyKey": {
+        "FriendlyName": "CurrencyKey",
+        "TechnicalName": "WAERS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConditionExchangeRate": {
+        "FriendlyName": "ConditionExchangeRate",
+        "TechnicalName": "KKURS",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ITEMS": {
+      "Name": "ITEMS",
+      "ItemType": "SBO_EnosixInvoice_Detail.ITEMS",
+      "FieldMap": {
+        "ItemNumber": {
+          "FriendlyName": "ItemNumber",
+          "TechnicalName": "POSNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ItemDescription": {
+          "FriendlyName": "ItemDescription",
+          "TechnicalName": "ARKTX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BillingQuantity": {
+          "FriendlyName": "BillingQuantity",
+          "TechnicalName": "FKIMG",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "SalesUnit": {
+          "FriendlyName": "SalesUnit",
+          "TechnicalName": "VRKME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Plant": {
+          "FriendlyName": "Plant",
+          "TechnicalName": "WERKS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PlantDescription": {
+          "FriendlyName": "PlantDescription",
+          "TechnicalName": "WERKS_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NetItemValue": {
+          "FriendlyName": "NetItemValue",
+          "TechnicalName": "NETWR",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "TaxAmount": {
+          "FriendlyName": "TaxAmount",
+          "TechnicalName": "MWSBP",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "SalesDocumentCurrency": {
+          "FriendlyName": "SalesDocumentCurrency",
+          "TechnicalName": "WAERK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "CONDITIONS": {
+      "Name": "CONDITIONS",
+      "ItemType": "SBO_EnosixInvoice_Detail.CONDITIONS",
+      "FieldMap": {
+        "ConditionItemNumber": {
+          "FriendlyName": "ConditionItemNumber",
+          "TechnicalName": "KPOSN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ConditionType": {
+          "FriendlyName": "ConditionType",
+          "TechnicalName": "KSCHL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ConditionPricingDate": {
+          "FriendlyName": "ConditionPricingDate",
+          "TechnicalName": "KDATU",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ConditionBaseValue": {
+          "FriendlyName": "ConditionBaseValue",
+          "TechnicalName": "KAWRT",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "Rate": {
+          "FriendlyName": "Rate",
+          "TechnicalName": "KBETR",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "CurrencyKey": {
+          "FriendlyName": "CurrencyKey",
+          "TechnicalName": "WAERS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ConditionExchangeRate": {
+          "FriendlyName": "ConditionExchangeRate",
+          "TechnicalName": "KKURS",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

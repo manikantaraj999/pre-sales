@@ -1,0 +1,140 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Delivery Inquiry"
+    controller="CTRL_DeliverySearch" id="pagediv" tabStyle="Account" lightningStylesheets="true">
+    <apex:slds rendered="{!!isClassic}"/>
+    <!--
+    LINKS:
+    Account | 'SAP Deliveries' | LNK_Account_DeliveryList | /apex/VFP_DeliverySearch?c__SF_AcctId={!Account.Id}
+    -->
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.tablesorter, 'jquery.tablesorter.min.js')}"/>
+    <link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+    <style type="text/css">
+        body .pbBody table.list tr th {
+            padding: 5px 2px 4px 5px;
+            border-width: 0 0 1px 1px;
+            border-color: #e0e3e5;
+        }
+        .paginator select {
+            background-color: transparent;
+            border: 0px;
+        }
+        /** Override Tablesorter style **/
+        table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+            background-color:inherit;
+            font-size:inherit;
+        }
+    </style>
+
+    <apex:form id="formdiv">
+        <c:CMP_Status />
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#shipment')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <h2 class="slds-card__header-title"><span class="slds-text-heading_small">Deliveries</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+        <apex:pageBlock title="Delivery Inquiry" id="pbdiv" rendered="{!showsearch}">
+            <apex:pageMessages id="messagediv" />
+            <apex:pageBlockSection title="Search"  columns="2" collapsible="false" id="pbsdiv">
+
+                <apex:inputText value="{!searchContext.SEARCHPARAMS.SoldToParty}" label="Sold To:"/>
+                <apex:inputText value="{!searchContext.SEARCHPARAMS.ShipToParty}" label="Ship To:"/>
+
+                <apex:inputText value="{!searchContext.SEARCHPARAMS.Route}" label="Route:"/>
+                <apex:inputText value="{!searchContext.SEARCHPARAMS.DeliveryFrom}" label="Delivery Number:"/>
+
+                <apex:input type="date" value="{!searchContext.SEARCHPARAMS.FromCreateDate}" label="Created From:" html-placeholder="mm/dd/yyyy"/>
+                <apex:input type="date" value="{!searchContext.SEARCHPARAMS.ToCreateDate}" label="Created To:" html-placeholder="mm/dd/yyyy"/>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <c:CMP_NavButtons isClassic="{!isClassic}"/>
+                <apex:commandButton action="{!searchDL}" id="btnsearch" value="Search" rerender="resultdiv,messagediv,paginationdiv" status="status"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="{!IF(showsearch,'','Delivery Inquiry for Customer')}">
+            <apex:actionFunction action="{!gotoDeliveryDetail}" name="gotoDeliveryDetail" reRender="mainform">
+                <apex:param name="deliveryID" value="" />
+            </apex:actionFunction>
+
+            <table class="list tablesorter slds-table slds-table_bordered" id="resulttable" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="header">Delivery</th>
+                        <th class="header">Route</th>
+                        <th class="header">Date</th>
+                        <th class="header">Sold To Name</th>
+                        <th class="header">Ship To Name</th>
+                        <th class="header">Value</th>
+                        <th class="header">Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                <apex:variable var="deliveryCnt" value="{!0}"/>
+                <apex:repeat value="{!dls}" var="delivery">
+                    <tr class="dataRow {!IF(deliveryCnt==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);}"
+                        onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}"
+                        onfocus="if (window.hiOn){hiOn(this);}">
+                        <td class="dataCell">
+                            <apex:commandButton onclick="gotoDeliveryDetail('{!delivery.Delivery}');return false;" value="Delivery Detail"/>
+                        </td>
+                        <td class="dataCell"><apex:outputText value="{!delivery.Delivery}"/></td>
+                        <td class="dataCell"><apex:outputText value="{!delivery.Route}"/></td>
+                        <td class="dataCell"><apex:outputText value="{!delivery.DeliveryDate}"/></td>
+                        <td class="dataCell"><apex:outputText value="{!delivery.SoldToName}"/></td>
+                        <td class="dataCell"><apex:outputText value="{!delivery.ShipToName}"/></td>
+                        <td class="dataCell" style="text-align: right;">
+                            <apex:outputText value="{0}{1,number,###,##0.00}">
+                                <apex:param value="{!delivery.SalesDocumentCurrency}" />
+                                <apex:param value="{!delivery.NetOrderValue}" />
+                            </apex:outputText>
+                        </td>
+                        <td class="dataCell"><apex:outputText value="{!delivery.DeliveryStatus}"/></td>
+
+                    </tr>
+                    <apex:variable var="deliveryCnt" value="{!deliveryCnt+1}"/>
+                </apex:repeat>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th colspan="8" class="header">
+                        <apex:outputPanel id="paginationdiv">
+                            <apex:outputPanel id="innerpaginationdiv" rendered="{!hasrecords}">
+                                <c:CMP_Pager options="{!pagingOptionsWrapper}" searchController="{!searchController}" rerender="resultdiv,paginationdiv"/>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+                $j = jQuery.noConflict();
+                $j(document).ready(function () {
+                    $j("#resulttable").tablesorter();
+                });
+            </script>
+        </apex:pageBlock>
+    </apex:form>
+
+    <c:CMP_Footer />
+</apex:page>

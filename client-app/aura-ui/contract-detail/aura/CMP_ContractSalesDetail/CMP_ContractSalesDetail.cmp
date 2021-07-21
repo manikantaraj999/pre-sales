@@ -1,0 +1,137 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens">
+    <ltng:require scripts="{!$Resource.ensxapp__SR_Enosix + '/js/lightning_utils.js'}" afterScriptsLoaded="{!c.onInit}" />
+    <aura:handler event="aura:locationChange" action="{!c.onLocationChange}" />
+
+    <aura:attribute name="contractDetail" type="Map"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sapDocumentId" type="String" access="global"/>
+    <aura:attribute name="messages" type="List" />
+    <c:CMP_ContractDetail aura:id="dataSource"/>
+
+    <aura:attribute name="displayHeader" type="Boolean" default="true"/>
+    <aura:attribute name="headerTitle" type="String" default="Sales Data"/>
+
+    <aura:attribute name="displaySalesDocumentType" type="Boolean" default="true"/>
+    <aura:attribute name="displaySalesOrganization" type="Boolean" default="true"/>
+    <aura:attribute name="displayDistributionChannel" type="Boolean" default="true"/>
+    <aura:attribute name="displayDivision" type="Boolean" default="true"/>
+    <aura:attribute name="displaySalesGroup" type="Boolean" default="true"/>
+    <aura:attribute name="displaySalesOffice" type="Boolean" default="true"/>
+    <aura:attribute name="displayCreateDate" type="Boolean" default="true"/>
+    <aura:attribute name="displayOrderReason" type="Boolean" default="true"/>
+    <aura:attribute name="displayPriceListType" type="Boolean" default="true"/>
+    <aura:attribute name="displayPriceGroup" type="Boolean" default="true"/>
+    <aura:attribute name="displaySalesDistrict" type="Boolean" default="true"/>
+    <aura:attribute name="displayTermsOfPaymentKey" type="Boolean" default="true"/>
+    <aura:attribute name="displayIncotermsPart1" type="Boolean" default="true"/>
+    <aura:attribute name="displayIncotermsPart2" type="Boolean" default="true"/>
+    
+    <aura:html tag="style">
+        @media all and (min-width: 600px) {
+            .slds-modal__container{
+                min-width: 90vw!important;
+            }
+        }
+    </aura:html>
+
+    <aura:if isTrue="{!v.displaySpinner}">
+        <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+        <aura:set attribute="else">
+            <lightning:card class="slds-card slds-m-around__xsmall  slds-is-relative"
+                title="{! !v.displayHeader? '': v.headerTitle}"
+                iconName="{! !v.displayHeader? '':'custom:custom18'}">
+                <div class="slds-card__body slds-card__body_inner">
+                    <c:CMP_Messages messages="{!v.messages}" />
+                    <div class="slds-grid slds-wrap slds-m-bottom_large">
+                        <aura:if isTrue="{!v.displaySalesDocumentType}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_SalesDocumentType}</span>
+                                <span>{!v.contractDetail.SALES.SalesDocumentType} - {!v.contractDetail.SALES.SalesDocumentTypeDescription}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displaySalesOrganization}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_SalesOrganization}</span>
+                                <span>{!v.contractDetail.SALES.SalesOrganization} - {!v.contractDetail.SALES.SalesOrganizationName}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayDistributionChannel}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_DistributionChannel}</span>
+                                <span>{!v.contractDetail.SALES.DistributionChannel} - {!v.contractDetail.SALES.DistributionChannelName}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayDivision}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_Division}</span>
+                                <span>{!v.contractDetail.SALES.Division} - {!v.contractDetail.SALES.DivisionName}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displaySalesGroup}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_SalesGroup}</span>
+                                <span>{!v.contractDetail.SALES.SalesGroup} - {!v.contractDetail.SALES.SalesGroupName}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displaySalesOffice}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_SalesOffice}</span>
+                                <span>{!v.contractDetail.SALES.SalesOffice} - {!v.contractDetail.SALES.SalesOfficeName}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayCreateDate}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_CreateDate}</span>
+                                <span>{!v.contractDetail.SALES.CreateDate}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayOrderReason}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_OrderReason}</span>
+                                <span>{!v.contractDetail.SALES.OrderReason} - {!v.contractDetail.SALES.OrderReasonDescription}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayPriceListType}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_PriceListType}</span>
+                                <span>{!v.contractDetail.SALES.PriceListType} - {!v.contractDetail.SALES.PriceListTypeText}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayPriceGroup}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_PriceGroup}</span>
+                                <span>{!v.contractDetail.SALES.PriceGroup} - {!v.contractDetail.SALES.PriceGroupDescription}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displaySalesDistrict}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_SalesDistrict}</span>
+                                <span>{!v.contractDetail.SALES.SalesDistrict} - {!v.contractDetail.SALES.SalesDistrictName}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayTermsOfPaymentKey}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_TermsOfPaymentKey}</span>
+                                <span>{!v.contractDetail.SALES.TermsOfPaymentKey} - {!v.contractDetail.SALES.TermsofPaymentKeyDescription}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayIncotermsPart1}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_IncotermsPart1}</span>
+                                <span>{!v.contractDetail.SALES.IncotermsPart1} - {!v.contractDetail.SALES.IncotermsPart1Description}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayIncotermsPart2}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Sales_IncotermsPart2}</span>
+                                <span>{!v.contractDetail.SALES.IncotermsPart2}</span>
+                            </div>
+                        </aura:if>
+                        
+                    </div>
+                </div>
+            </lightning:card>
+        </aura:set>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,146 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #FFFFFF;
+    font-size: 13px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+label,
+.payment-content .merchant_paycontent label {
+    height: 24px;
+    line-height: 24px;
+    padding-right: 5px;
+    width: 120px;
+    text-align: right;
+    display: inline-block;
+}
+.merchant_paycontent.template label {
+     width: 250px;
+}
+.template .title {
+    padding: 5px 0;
+    margin: 0 250px;
+    text-align: left;
+    font-weight: bold;
+    width: 220px;
+}
+input,
+.payment-content .merchant_paycontent input {
+margin-bottom: 2px;
+}
+.merchant_combos,
+.payment-content .merchant_paycontent .merchant_combos {
+    margin-right: 10px;
+}
+
+/******other stuff*****/
+.payment-content {
+    border: solid 2px #F0F0F0;
+    width: 450px;
+    border-radius: 15px;
+    margin: 20px auto;
+}
+.payment-content .merchant_paycontent {
+     background-color: #FFF;
+    width: 97%;
+    margin: auto;
+    padding: 4px 0;
+    border: solid 2px #fff;
+    border-radius: 6px;
+}
+
+.merchant-logo {
+    background: transparent url('http://www.sipl.sg/images/logo.png') no-repeat right top;
+    height: 150px;
+    width: 400px;
+}
+.billing-content {
+    background-color: #F0F0F0;
+    padding-top: 5px;
+}
+.billing-header {
+    background-color: transparent;
+    width: 96%;
+    margin: auto;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 0;
+}
+.payment-button {
+    background-color: transparent;
+    width: 96%;
+    margin: auto;
+    padding: 5px 0;
+    text-align: right;
+}
+
+    .payment-button input {
+        border: none;
+        border-radius: 3px;
+        font-weight: bold;
+        color: #FFF;
+        padding: 2px 10px;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+.payment-button .cancel-button {
+
+    background-color: #BBB;
+    border: solid 1px  #BBB;
+
+}
+    .payment-button .submit-button {
+        background-color: #0099FF;
+        border: solid 1px #0099FF;
+    }
+   .payment-content #xiintmch-ec-section div,
+    .payment-content #xiintmch-cs-section div {
+        border-top: solid 1px #e5e5e5;
+        padding: 3px 2px;
+       margin: 0 10px;
+    }
+   .payment-content div  #xiintmch-cs-cvvh {
+        border-top: none;
+   }
+    /*.payment-content #xiintmch-ec-section div:last-child,
+    .payment-content #xiintmch-cs-section div:last-child {
+         border-top: none;
+        padding: 3px 2px;
+     }*/
+.xi-input-error {
+    border: 1px solid #188E15!important;
+    background-color: #ECFAEC!important;
+}
+.xi-section-title {
+    width: 100% !important;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+.xi-long-text{
+    width: 160px;
+    height: 20px;
+}
+.xi-short-text{
+    width: 65px;
+    height: 20px;
+    margin-right: 10px;
+}
+.xi-medium-text{
+    width: 100px;
+    height: 20px;
+}
+.error {
+    color: #46994D;
+}
+body{
+    background-color: #f8f8f8;
+}
+input, select {
+    background-color: #ECFAEC!important;
+}
+[data-msg-for] {
+    /* margin-left: 255px; */
+    color: rgb(207, 4, 4);
+}

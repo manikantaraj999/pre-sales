@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="EVT_VCUpdateSettings">
+ <aura:attribute name="settings" type="ENSX_VCSettings" required="true"/>
+</aura:event>

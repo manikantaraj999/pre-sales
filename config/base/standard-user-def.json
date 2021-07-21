@@ -1,0 +1,10 @@
+{
+  "alias": "tester1",
+  "localeSidKey": "en_US",
+  "emailEncodingKey": "UTF-8",
+  "languageLocaleKey": "en_US",
+  "profileName": "Standard User",
+  "permsets": [
+    "enosiX_App_Standard_User"
+  ]
+}

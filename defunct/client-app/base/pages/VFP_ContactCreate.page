@@ -1,0 +1,76 @@
+<apex:page controller="CTRL_ContactCreate" docType="html-5.0" title="Create Customer Contacts" showHeader="true" sidebar="true" lightningStylesheets="true" tabStyle="Contact">
+    <apex:slds rendered="{!!isClassic}"/>
+
+	<c:CMP_Status />
+    <apex:form id="mainform">
+
+        <apex:outputPanel rendered="{! isClassic}">
+            <apex:pageBlock title="Account" rendered="{! null != account}" >
+                <apex:pageBlockSection columns="2" collapsible="false">
+                    <apex:outputText label="Name:" value="{!account.Name}" />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton onclick="window.location.href='/{!account.Id}';return false;" value="Return to Account"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <p class="slds-text-title_caps slds-line-height_reset">Account:</p>
+                                <p class="slds-page-header__title"><apex:outputText label="Name:" value="{!account.Name}" /></p>
+                            </div>
+                            <apex:commandButton onclick="sforce.one.navigateToSObject('{!account.Id}');return false;" value="Return to Account"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <apex:pageBlock title="Create SAP Contact Person">
+            <apex:pageMessages></apex:pageMessages>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!createContact}" rendered="{!canCreateContact}" value="Create Contact Person"/>
+                <apex:commandButton action="{!returnToContact}" rendered="{! NOT(ISBLANK(contactId))}" value="Return to Contact"/>
+                <apex:commandButton action="{!returnToContactList}" rendered="{! null != account && hasAccount}" value="Return to Contact List"/>
+            </apex:pageBlockButtons>
+            <apex:outputPanel rendered="{!canCreateContact}">
+
+                <apex:pageBlockSection>
+                    <apex:outputText label="Customer Number:" value="{!customerNumber}"/>
+                </apex:pageBlockSection>
+
+                <apex:pageBlockSection>
+                    <apex:inputText label="First Name:" value="{!newContact.FirstName}"/>
+                    <apex:inputText label="Last Name:" value="{!newContact.LastName}"/>
+                    <apex:inputText label="Street Address:" value="{!newContact.Street}"/>
+                    <apex:inputText label="City:" value="{!newContact.City}"/>
+                    <apex:selectList size="1" label="Region:" value="{!newContact.Region}">
+                        <apex:selectOptions value="{!regionOptions}"/>
+                    </apex:selectList>
+                    <apex:inputText label="Postal Code:" value="{!newContact.PostalCode}"/>
+
+                    <apex:selectList size="1" label="Country:" value="{!newContact.Country}">
+                        <apex:actionSupport event="onchange" rerender="mainform" status="update"/>
+                        <apex:selectOptions value="{!countryOptions}"/>
+                    </apex:selectList>
+                    <apex:inputText label="Phone:" value="{!newContact.TelephoneNumber}"/>
+                    <apex:inputText label="Email:" value="{!newContact.EMailAddress}"/>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer/>
+</apex:page>

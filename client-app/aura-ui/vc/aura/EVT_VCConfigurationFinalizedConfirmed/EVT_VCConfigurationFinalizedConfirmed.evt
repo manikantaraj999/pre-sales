@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="EVT_VCConfigurationFinalizedConfirmed">
+    <aura:attribute type="DS_VCCharacteristicValues[]" name="finalizedConfig" required="true"/>
+    <aura:attribute type="String" name="itemNumber"/>
+    <aura:attribute type="Boolean" name="isComplete"/>
+</aura:event>

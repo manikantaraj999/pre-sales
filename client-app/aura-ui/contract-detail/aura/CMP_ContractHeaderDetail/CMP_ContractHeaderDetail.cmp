@@ -1,0 +1,116 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens">
+    <ltng:require scripts="{!$Resource.ensxapp__SR_Enosix + '/js/lightning_utils.js'}" afterScriptsLoaded="{!c.onInit}" />
+    <aura:handler event="aura:locationChange" action="{!c.onLocationChange}" />
+
+    <aura:attribute name="contractDetail" type="Map"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sapDocumentId" type="String" access="global"/>
+    <aura:attribute name="messages" type="List" />
+    <c:CMP_ContractDetail aura:id="dataSource"/>
+
+    <aura:attribute name="displayHeader" type="Boolean" default="true"/>
+    <aura:attribute name="headerTitle" type="String" default="Header"/>
+
+    <aura:attribute name="displaySalesDocument" type="Boolean" default="true"/>
+    <aura:attribute name="displaySoldToParty" type="Boolean" default="true"/>
+    <aura:attribute name="displayCustomerPurchaseOrderNumber" type="Boolean" default="true"/>
+    <aura:attribute name="displayCustomerPurchaseOrderDate" type="Boolean" default="true"/>
+    <aura:attribute name="displayNetValue" type="Boolean" default="true"/>
+    <aura:attribute name="displayTaxAmount" type="Boolean" default="true"/>
+    <aura:attribute name="displayDocumentCurrency" type="Boolean" default="true"/>
+    <aura:attribute name="displayReferenceDocument" type="Boolean" default="false"/>
+    <aura:attribute name="displayReferenceDocumentCategory" type="Boolean" default="false"/>
+    <aura:attribute name="displayProductProposalSearchTerm" type="Boolean" default="false"/>
+    <aura:attribute name="displayShippingConditions" type="Boolean" default="true"/>
+    <aura:attribute name="displayBusinessArea" type="Boolean" default="true"/>
+    
+    <aura:html tag="style">
+        @media all and (min-width: 600px) {
+            .slds-modal__container{
+                min-width: 90vw!important;
+            }
+        }
+    </aura:html>
+
+    <aura:if isTrue="{!v.displaySpinner}">
+        <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+        <aura:set attribute="else">
+            <lightning:card class="slds-card slds-m-around__xsmall  slds-is-relative"
+                title="{! !v.displayHeader? '': v.headerTitle}"
+                iconName="{! !v.displayHeader? '':'custom:custom18'}">
+                <div class="slds-card__body slds-card__body_inner">
+                    <c:CMP_Messages messages="{!v.messages}" />
+                    <div class="slds-grid slds-wrap slds-m-bottom_large">
+                        <aura:if isTrue="{!v.displaySalesDocument}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_SalesDocument}</span>
+                                <span>{!v.contractDetail.SalesDocument}</span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displaySoldToParty}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_SoldToParty}</span>
+                                <span>{!v.contractDetail.SoldToParty} - {!v.contractDetail.SoldToPartyText}</span>
+                            </div>
+                        </aura:if> 
+                        <aura:if isTrue="{!v.displayCustomerPurchaseOrderNumber}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_CustomerPurchaseOrderNumber}</span>
+                                <span>{!v.contractDetail.CustomerPurchaseOrderNumber}</span>
+                            </div>
+                        </aura:if>   
+                        <aura:if isTrue="{!v.displayCustomerPurchaseOrderDate}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_CustomerPurchaseOrderDate}</span>
+                                <span>{!v.contractDetail.CustomerPurchaseOrderDate}</span>
+                            </div>
+                        </aura:if>   
+                        <aura:if isTrue="{!v.displayNetValue}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_NetValue}</span>
+                                <span>{!v.contractDetail.NetValue}</span>
+                            </div>
+                        </aura:if>       
+                        <aura:if isTrue="{!v.displayTaxAmount}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_TaxAmount}</span>
+                                <span>{!v.contractDetail.TaxAmount}</span>
+                            </div>
+                        </aura:if>   
+                        <aura:if isTrue="{!v.displayDocumentCurrency}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_DocumentCurrency}</span>
+                                <span>{!v.contractDetail.DocumentCurrency}</span>
+                            </div>
+                        </aura:if>   
+                        <aura:if isTrue="{!v.displayReferenceDocument}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_ReferenceDocument}</span>
+                                <span>{!v.contractDetail.ReferenceDocument}</span>
+                            </div>
+                        </aura:if>   
+                        <aura:if isTrue="{!v.displayReferenceDocumentCategory}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_ReferenceDocumentCategory}</span>
+                                <span>{!v.contractDetail.ReferenceDocumentCategory}</span>
+                            </div>
+                        </aura:if>  
+                        <aura:if isTrue="{!v.displayProductProposalSearchTerm}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_ProductProposalSearchTerm}</span>
+                                <span>{!v.contractDetail.ProductProposalSearchTerm}</span>
+                            </div>
+                        </aura:if>  
+                        <aura:if isTrue="{!v.displayShippingConditions}">
+                            <div class="slds-col slds-size_1-of-2">
+                                <span class="slds-m-right_small">{!$Label.c.Enosix_ContractDetail_Header_ShippingConditions}</span>
+                                <span>{!v.contractDetail.ShippingConditions} - {!v.contractDetail.ShippingConditionsDescription}</span>
+                            </div>
+                        </aura:if>  
+                    </div>
+                </div>
+            </lightning:card>
+        </aura:set>
+    </aura:if>
+</aura:component>

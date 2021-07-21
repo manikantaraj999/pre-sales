@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">    
+    <webLinks>
+        <fullName>LNK_Account_SAP_Contact_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Contacts</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_ContactList&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Customer_Detail</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Customer</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_CustomerDetail&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Customer_Payment_Entry</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Customer Payment Methods</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_CustomerPaymentEntry&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Delivery_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Deliveries</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_DeliverySearch&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Invoice_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Invoices</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_InvoiceSearch&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Order_Create</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Create SAP Order</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OrderCreateUpdate&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Order_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Orders</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OrderSearch&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Partner_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Partners</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_PartnerSearch&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Quote_Create</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Create SAP Quote</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_QuoteCreateUpdate&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Quote_Materials</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Quick Price</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OpportunityQuotePricing&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Account_SAP_Quote_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Quotes</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_QuoteSearch&amp;c__SF_AcctId={!Account.Id}</url>
+    </webLinks>
+</CustomObject>

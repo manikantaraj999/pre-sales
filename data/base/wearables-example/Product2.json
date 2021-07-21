@@ -1,0 +1,394 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "dev_ecc6_800_Product2Ref19"
+            },
+            "Name": "Dell Computer (dev_ecc6_800)",
+            "ProductCode": "DELL COMPUTER1",
+            "Description": "Dell Computer (dev_ecc6_800)",            
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "cpq_vc_demo_800_Product2Ref20"
+            },
+            "Name": "Dell Computer (cpq_vc_demo_800)",
+            "ProductCode": "COMPUTER1",
+            "Description": "Dell Computer (cpq_vc_demo_800)",            
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref1"
+            },
+            "Name": "Alta",
+            "ProductCode": "ALTA",
+            "Description": "Alta",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref2"
+            },
+            "Name": "Apple Watch Nike Plus",
+            "ProductCode": "APPLENIKEPLUS",
+            "Description": "Apple Watch Nike Plus",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref3"
+            },
+            "Name": "Apple Watch Series 3",
+            "ProductCode": "APPLESERIES3",
+            "Description": "Apple Watch Series 3",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref4"
+            },
+            "Name": "Apple Watch Edition",
+            "ProductCode": "APPLEWATCHEDITION",
+            "Description": "Apple Watch Edition",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref5"
+            },
+            "Name": "Apple Watch Series 1",
+            "ProductCode": "APPLEWATCHSERIES1",
+            "Description": "Apple Watch Series 1",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref6"
+            },
+            "Name": "Aria 2",
+            "ProductCode": "ARIA 2",
+            "Description": "Aria 2",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref7"
+            },
+            "Name": "Blaze",
+            "ProductCode": "BLAZE",
+            "Description": "Blaze",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref8"
+            },
+            "Name": "Charge 2",
+            "ProductCode": "CHARGE 2",
+            "Description": "Charge 2",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref9"
+            },
+            "Name": "Flex 2",
+            "ProductCode": "FLEX 2",
+            "Description": "Flex 2",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref10"
+            },
+            "Name": "Flyer",
+            "ProductCode": "FLYER",
+            "Description": "Flyer",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref11"
+            },
+            "Name": "Ionic",
+            "ProductCode": "IONIC",
+            "Description": "Ionic",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref12"
+            },
+            "Name": "Product 06",
+            "ProductCode": "PROD06",
+            "Description": "Product 06",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref13"
+            },
+            "Name": "Product 07",
+            "ProductCode": "PROD07",
+            "Description": "Product 07",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref14"
+            },
+            "Name": "Zip",
+            "ProductCode": "ZIP",
+            "Description": "Zip",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref15"
+            },
+            "Name": "Unmapped Product 01",
+            "Description": "Unmapped Product - do not link",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref16"
+            },
+            "Name": "Unmapped Product 2",
+            "Description": "Unmapped Product 2 for Testing - do not link",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref17"
+            },
+            "Name": "Apple Watch Hermes Series3",
+            "ProductCode": "APPLEHERMES",
+            "Description": "Apple Watch Hermes Series3",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref18"
+            },
+            "Name": "Alta HR",
+            "ProductCode": "ALTA HR",
+            "Description": "Alta HR",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref19"
+            },
+            "Name": "Material 2077 (dev_ecc6_800)",
+            "ProductCode": "2077",
+            "Description": "Customer 30000 - Auto Valid config status - Sales Area 3000/10/00 Plant 3000 - Non Valid configuration status: Sales Area 3110/10/00 Plant 3000 - Sales Area 4000/14/00 Plant 4000 - Sales Area 4110/10/00 Plant 4110",
+            "IsActive": true            
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref20"
+            },
+            "Name": "Material 2057 (dev_ecc6_800)",
+            "ProductCode": "2057",
+            "Description": "SAP Customer 500178 - Sales Area 3000/10/00 - Plant 3000 - QTY Dependent",
+            "IsActive": true           
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref21"
+            },
+            "Name": "Material 2070 (dev_ecc6_800)",
+            "ProductCode": "2070",
+            "Description": "SAP Customer 22000 - Sales Area 3000/10/00 - Plant 3000 or 3050 - Add/Remove Characteristics and types",
+            "IsActive": true
+            
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref22"
+            },
+            "Name": "Material 2082 (dev_ecc6_800)",
+            "ProductCode": "2082",
+            "Description": "SAP Customer 22000 - Sales Area 2000/10/00 - Plant 2000 or 2010 - QTY X Price",
+            "IsActive": true            
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref23"
+            },
+            "Name": "Material 2083 (dev_ecc6_800)",
+            "ProductCode": "2083",
+            "Description": "SAP Customer 22000 - Sales Area 3000/10/00 or 2000/10/00 - Plant 3050 or 2010 - QTY X Price",
+            "IsActive": true            
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref24"
+            },
+            "Name": "Material 2084 NON VC (dev_ecc6_800)",
+            "ProductCode": "2084",
+            "Description": "SAP Customer 22000 - Sales Area 3000/10/00 - Plant 1100 - USD Non VC",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref25"
+            },
+            "Name": "Material 2085 NON VC (dev_ecc6_800)",
+            "ProductCode": "2085",
+            "Description": "SAP Customer 22000 - Sales Area 2000/10/00 - Plant 2830 - USD Non VC",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref26"
+            },
+            "Name": "Material 2086 NON VC EUR (dev_ecc6_800)",
+            "ProductCode": "2086",
+            "Description": "SAP Customer 22000 - Sales Area 2200/10/00 - Plant 2200 - EUR Non VC",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref27"
+            },
+            "Name": "Material 2087 NON VC JPY (dev_ecc6_800)",
+            "ProductCode": "2087",
+            "Description": "SAP Customer 22000 - Sales Area 5000/10/00 - Plant 5000 - JPY Non VC",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref28"
+            },
+            "Name": "509936S-WGRN BoM (dev_ecc6_800)",
+            "ProductCode": "509936S-WGRN",
+            "Description": "SAP Customer 500178 - Sales Area 3000/10/00 - Plant 3000 or Sales Area 2000/10/00 - Plant 2830 - BoM Child Qty x2",
+            "IsActive": true            
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref28a"
+            },
+            "Name": "PSI-829152 (dev_ecc6_800)",
+            "ProductCode": "PSI-829152",
+            "Description": "BoM Child of 509936S-WGRN when Connector Anderson Euro 320 is chosen for Connector (1)",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref28b"
+            },
+            "Name": "FRC-1CE-201-506 (dev_ecc6_800)",
+            "ProductCode": "FRC-1CE-201-506",
+            "Description": "BoM Child of 509936S-WGRN when Connector Anderson Euro 320 is chosen for Connector (2)",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref29"
+            },
+            "Name": "506600X-WGRN BoM (dev_ecc6_800)",
+            "ProductCode": "506600X-WGRN",
+            "Description": "SAP Customer 500178 - Sales Area 3000/10/00 - Plant 3000 or Sales Area 2000/10/00 - Plant 2830 - BoM Children Same Material Number",
+            "IsActive": true            
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref29a"
+            },
+            "Name": "A32504-10C9 (dev_ecc6_800)",
+            "ProductCode": "A32504-10C9",
+            "Description": "BoM Child of 506600X-WGRN when Connector Anderson Euro 320 is chosen",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref30"
+            },
+            "Name": "Laser Printer SF VC",
+            "ProductCode": "LASERPRINTER",
+            "Description": "Salesforce CPQ Configurable Product with 4 options; Toner, Paper, High Capacity Tray, Paper Tray",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref31"
+            },
+            "Name": "Printer Toner Cartridge LP Option",
+            "ProductCode": "PRINTERTONER",
+            "Description": "Laser Printer Option",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref32"
+            },
+            "Name": "Printer Paper Letter LP Option",
+            "ProductCode": "PRINTERPAPERLETTER",
+            "Description": "Laser Printer Option",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref33"
+            },
+            "Name": "Printer High Capacity LP Option",
+            "ProductCode": "PRINTERHIGHCAPACITYTRAY",
+            "Description": "Laser Printer Option",
+            "IsActive": true
+        },
+        {
+            "attributes": {
+                "type": "Product2",
+                "referenceId": "Product2Ref34"
+            },
+            "Name": "Printer Paper Tray LP Option",
+            "ProductCode": "PRINTERPAPERTRAY",
+            "Description": "Laser Printer Option",
+            "IsActive": true
+        }
+        
+    ]
+}

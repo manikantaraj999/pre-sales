@@ -1,0 +1,29 @@
+<aura:component access="global" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+    <aura:attribute name="designMode" type="boolean" default="true" access="global" />
+    <aura:attribute name="data" type="Object" />
+
+    <aura:attribute name="headerTitle" type="String" default="VC Characteristics" access="global" />
+    <aura:attribute name="displayCharacteristicName" type="boolean" default="true" access="global" />
+    <aura:attribute name="displayCharacteristicDescription" type="boolean" default="true" access="global" />
+    <aura:attribute name="displayCharacteristicValue" type="boolean" default="true" access="global" />
+    <aura:attribute name="displayCharacteristicValueDescription" type="boolean" default="true" access="global" />
+
+    <ensxapp:CMP_Modal_Tab
+    type="c:CMP_VC_Characteristics_Detail"
+    tabLabel="{!v.headerTitle}"
+    designMode="{!v.designMode}"
+    argNames="['displayCharacteristicName', 'displayCharacteristicDescription',
+        'displayCharacteristicValue', 'displayCharacteristicValueDescription', 'data']"
+    >
+
+    <c:CMP_VC_Characteristics_Detail 
+        displayCharacteristicName = "{! v.displayCharacteristicName}"
+        displayCharacteristicDescription = "{!v.displayCharacteristicDescription}"
+        displayCharacteristicValue = "{!v.displayCharacteristicValue}"
+        displayCharacteristicValueDescription = "{!v.displayCharacteristicValueDescription}"
+        />
+
+    </ensxapp:CMP_Modal_Tab>
+
+</aura:component>

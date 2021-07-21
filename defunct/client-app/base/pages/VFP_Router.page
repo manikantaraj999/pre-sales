@@ -1,0 +1,4 @@
+<apex:page controller="CTRL_Router" id="VFP_Router"
+action="{!actionRoute}">
+<p>If you've reached this page in error, please contact your Salesforce administrator.</p>
+</apex:page>

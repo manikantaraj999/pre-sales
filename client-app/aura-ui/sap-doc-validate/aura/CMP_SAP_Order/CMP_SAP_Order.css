@@ -1,0 +1,45 @@
+.THIS td .slds-button, .THIS th .slds-button
+{
+    background:none!important;
+    border:none;
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+}
+
+.THIS .scrollContainer {
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    max-height : 230px;
+    overflow-y: scroll; 
+}
+
+.THIS .textFields
+{
+    margin-top: 8px;
+    display: block;
+}
+
+.THIS .article-div
+{
+    padding: 15px;
+}
+
+.THIS .button-div
+{
+    margin-top: 15px;
+}
+
+.THIS .slds-table .slds-row-number:after {
+    content: counter(none) !important ;
+    display: none !important ;
+}
+
+.THIS .tableClass {
+    height: 420px;
+}
+
+.THIS .orderNumber {
+    margin-bottom: 10px;
+}

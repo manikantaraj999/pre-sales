@@ -1,0 +1,112 @@
+<aura:component controller="CTRL_MaterialSearchLtng" access="global" implements="force:appHostable,force:lightningQuickAction,lightning:availableForFlowScreens">
+    <aura:registerEvent name="selectMaterialsEvent" type="c:EVT_SelectMaterials"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- <aura:handler name="selectedValueEvent" event="c:EVT_SelectedSearchValue" action="{!c.handleSelectedSearchValue}"/> -->
+    <aura:attribute name="initComplete" type="Boolean" default="false"/>
+
+    <aura:attribute name="title" type="string" default="{!$Label.c.Enosix_SalesDoc_Title_MaterialSearch}"/>
+    <aura:attribute name="isMultiSelectEnabled" type="Boolean" default="true" access="global" />
+    <aura:attribute name="isQuantityEnabled" type="Boolean" default="true" access="global" />
+    <aura:attribute name="isScheduleDateEnabled" type="Boolean" default="true" access="global" />
+    <aura:attribute name="isAutoSearchEnabled" type="Boolean" default="true" access="global" />
+    <aura:attribute name="isMaterialTypesDisplayed" type="Boolean" default="true" access="global" />
+    <aura:attribute name="isProductHierarchyDisplayed" type="Boolean" default="true" access="global" />
+    <aura:attribute name="isSeparateFlowComponent" type="Boolean" default="false" access="global" />
+    <aura:attribute name="language" type="String" access="global"/>
+
+    <aura:attribute name="salesOrganization" type="string" default="" access="global" />
+    <aura:attribute name="distributionChannel" type="string" default="" access="global" />
+
+    <aura:attribute name="defaultMaterial" type="string"/>
+    <aura:attribute name="defaultSearchDescription" type="string"/>
+    <aura:attribute name="defaultMaterialTypes" type="string[]"/>
+    <aura:attribute name="materialTypeSelectOptions" type="List"/>
+    <aura:attribute name="searchParams" type="Map" default="{}"/>
+    <aura:attribute name="searchResults" type="Map"/>
+    <aura:attribute name="displayResults" type="Map"/>
+    <aura:attribute name="selectedItemsList" type="List" default='[]' />
+    <aura:attribute name="selectedItemsJSON" type="String" access="global" />
+    <aura:attribute name="productHierarchies" type="List"/>    
+
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="messages" type="List"/>    
+    <aura:attribute name="displaySpinner" type="Boolean" default="false"/>
+    <aura:attribute name="maxNumberOfRows" type="Integer" default="200"/>
+    <aura:attribute name="enableInfiniteLoading" default="true" type="Boolean"/>
+
+    <aura:attribute name="loadCount" type="Integer"/>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+    <aura:attribute name="draftValuesList" type="List" default="[]" />
+
+    <aura:attribute name="pagingOptions" type="Map"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative wideBox">
+        <div class="slds-form">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_2-of-12">
+                    <div class="slds-m-around_x-small" onkeypress="{!c.onKeyPressMaterialNumber}">
+                        <lightning:input label="{!$Label.c.Enosix_SalesDoc_Field_Material}" value="{!v.searchParams.MaterialNumber}"/>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                    <div class="slds-m-around_x-small" onkeypress="{!c.onKeyPressMaterialDescription}">
+                        <lightning:input label="{!$Label.c.Enosix_SalesDoc_Field_ByDescription}" value="{!v.searchParams.MaterialDescription}"/>
+                    </div>
+                </div>
+                <!-- <aura:if isTrue="{!v.isProductHierarchyDisplayed}">
+                    <div class="slds-col slds-size_2-of-12">
+                        <div class="slds-m-around_x-small">
+                            <aura:if isTrue="{!v.initComplete}">
+                                <c:CMP_SelectSearch allResults="{!v.productHierarchies}" label="{!$Label.c.Enosix_SalesDoc_Field_ByCategory}"/>
+                            </aura:if>                            
+                        </div>
+                    </div>
+                </aura:if> -->
+                <aura:if isTrue="{!v.isMaterialTypesDisplayed}">
+                    <div class="slds-col slds-size_4-of-12">                    
+                        <div class="slds-col slds-size_1-of-3">
+                            <div class="slds-m-around_x-small">
+                                <lightning:checkboxGroup label="{!$Label.c.Enosix_SalesDoc_Field_MaterialTypes}" options="{! v.materialTypeSelectOptions }" 
+                                    value="{!v.searchParams.MaterialTypeValues}"/>   
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+            </div>   
+
+            <div class="slds-m-left_x-small">
+                <lightning:button variant="brand" label="{!$Label.c.Enosix_SalesDoc_Button_Search}" onclick="{!c.onSearch}"/>                                       
+            </div>
+                
+            <div>
+                <aura:if isTrue="{!v.displaySpinner}">
+                    <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand"/>
+                </aura:if>
+                <c:CMP_Messages messages="{!v.messages}"/>
+                <div style="height:350px">            
+                    <lightning:datatable
+                        keyField="material"
+                        columns="{!v.columns}"
+                        data="{!v.displayResults}"
+                        onrowselection="{!c.onSelectRow}"
+                        hideCheckboxColumn="false"
+                        showRowNumberColumn="false"
+                        enableInfiniteLoading="{!v.enableInfiniteLoading}"
+                        onloadmore="{!c.loadMoreData}"
+                        draftValues="{! v.draftValues }"
+                        oncellchange="{! c.onCellChange }"
+                        suppressBottomBar="true"
+                    />
+                </div>
+                <aura:if isTrue="{! v.isMultiSelectEnabled}">
+                    <div class="slds-m-around_x-small">
+                        <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Cancel}" variant="neutral" onclick="{!c.onClickCancel}"/>
+                        <lightning:button variant="brand" label="{!$Label.c.Enosix_SalesDoc_Button_Add}" onclick="{!c.addMaterials}"/>
+                    </div>               
+                </aura:if>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

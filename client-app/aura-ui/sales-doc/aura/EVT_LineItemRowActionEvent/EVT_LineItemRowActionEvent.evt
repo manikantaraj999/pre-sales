@@ -1,0 +1,4 @@
+<aura:event type="component">
+    <aura:attribute name="item" type="Object"/>
+    <aura:attribute name="actionName" type="String"/>
+</aura:event>

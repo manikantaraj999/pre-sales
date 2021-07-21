@@ -1,0 +1,76 @@
+<aura:component controller="CTRL_CPQ_Partners" access="global" implements="lightning:availableForFlowScreens">
+    <!-- Pass Through Component Attributes -->
+    <aura:attribute name="autoPickSingle" type="boolean" default="true" access="global" />
+    <aura:attribute name="quoteId" type="String" access="global" />
+    <aura:attribute name="isFinish" type="boolean" default="false" access="global" />
+    <aura:attribute name="partnerField" type="String" access="global" />
+
+    <!-- Internal Component Attributes -->
+    <aura:attribute name="allowButtons" type="Boolean" default="true" />
+    <aura:attribute name="partnerList" type="Map" />
+    <aura:attribute name="partnerListSelected" type="Map" />
+    <aura:attribute name="isSelected" type="Boolean" default="false" />
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="displayHeader" type="Boolean" default="true" />
+    <aura:attribute name="partnerNumber" type="String" access="global" />
+    <aura:attribute name="lblHeader" type="String" access="global" />
+    <aura:attribute name="lblFlowNavigate" type="String" access="global" />
+    <aura:attribute name="displaySpinner" type="Boolean" default="true" />
+    <aura:attribute name="columns" type="List" />   
+
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}" />
+
+    <lightning:card title="{!if(v.displayHeader, $Label.c.LBL_CPQ_Quote_SelectPartner_Title + ' ' + v.lblHeader, '')}" iconName="{!if(v.displayHeader, 'custom:custom78', '' )}">
+        <aura:set attribute="footer">
+            <aura:if isTrue="{!v.displaySpinner}">
+                <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+            </aura:if>
+        </aura:set>
+        <c:CMP_Messages messages="{!v.messages}" cssClass="slds-item slds-m-around_large"/>
+
+        <aura:if isTrue="{! !v.isSelected }">
+            <aura:if isTrue='{!v.partnerList != null}'>
+                <lightning:datatable 
+                    data="{! v.partnerList}" 
+                    columns="{! v.columns}" 
+                    keyField="PartnerNumber"
+                    onrowselection="{! c.handleRowSelection}"
+                />
+            </aura:if>
+        </aura:if>
+
+        <aura:if isTrue="{!v.isSelected}">
+            <div id="confirmShield">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                <tr>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>{#$Label.c.LBL_PartnerNumber_Number}</td>
+                    <td>{!v.partnerListSelected.PartnerNumber}</td>
+                </tr>
+                <tr>
+                    <td>{#$Label.c.LBL_PartnerNumber_Address}</td>
+                    <td>{!v.partnerListSelected.HouseNumber}&nbsp;{!v.partnerListSelected.Street}&nbsp;{!v.partnerListSelected.City},&nbsp;{!v.partnerListSelected.Region},&nbsp;{!v.partnerListSelected.PostalCode}</td>
+                </tr>
+                <tr>
+                    <td>{#$Label.c.LBL_PartnerNumber_ContactName}</td>
+                    <td>{!v.partnerListSelected.ContactFirstName} {!v.partnerListSelected.ContactLastName}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                </table>
+            </div>
+            <aura:if isTrue="{!v.allowButtons}">
+                <div class="slds-m-around_large">
+                    <p class="slds-m-bottom_large">{#$Label.c.LBL_CPQ_Quote_SelectPartner_Confirm}</p>
+                    <p>
+                        <lightning:button label="{#$Label.c.LBL_CPQ_Quote_SelectPartner_NoBtn}" onclick="{!c.clearPartnerValues}" />&nbsp;
+                        <lightning:button label="{!v.lblFlowNavigate}" onclick="{!c.flowNavigate}" />
+                    </p>
+                </div>
+            </aura:if>
+        </aura:if>
+    </lightning:card>
+</aura:component>

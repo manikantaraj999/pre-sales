@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>LBL_PDF_SalesDoc_Language</fullName>
+        <categories>enosix, sap customer, sales doc language</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>sales doc language</shortDescription>
+        <value>Sales Document Language</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PDF_SalesDoc_ConditionType</fullName>
+        <categories>enosix, sap customer, sales doc condition type</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>sales doc condition type</shortDescription>
+        <value>Sales Document Condition Type</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PDF_SalesDoc_ConditionTypeDesc</fullName>
+        <categories>enosix, sap customer, sales doc condition type description</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>sales doc condition type description</shortDescription>
+        <value>Condition Type Description</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PDF_SalesDoc_Action</fullName>
+        <categories>enosix, sap customer, sales doc action</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>pdf action</shortDescription>
+        <value>Action</value>
+    </labels>
+</CustomLabels>

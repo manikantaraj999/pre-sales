@@ -1,0 +1,111 @@
+{
+  "FieldMaps": {
+    "RFC_MM_GET_PROD_HIERARCHY.RESULT": {
+      "IV_LEVEL_NUMBER": {
+        "FriendlyName": "IV_LEVEL_NUMBER",
+        "TechnicalName": "IV_LEVEL_NUMBER",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_MM_GET_PROD_HIERARCHY.ET_MATERIAL_TYPE": {
+      "MTART": {
+        "FriendlyName": "MTART",
+        "TechnicalName": "MTART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MTBEZ": {
+        "FriendlyName": "MTBEZ",
+        "TechnicalName": "MTBEZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_MM_GET_PROD_HIERARCHY.ET_PRODUCT_ATTRIB": {
+      "PRODUCT_ATTRIB": {
+        "FriendlyName": "PRODUCT_ATTRIB",
+        "TechnicalName": "PRODUCT_ATTRIB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_MM_GET_PROD_HIERARCHY.ET_PROD_HIERARCHY": {
+      "PRODH": {
+        "FriendlyName": "PRODH",
+        "TechnicalName": "PRODH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "STUFE": {
+        "FriendlyName": "STUFE",
+        "TechnicalName": "STUFE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VTEXT": {
+        "FriendlyName": "VTEXT",
+        "TechnicalName": "VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_MATERIAL_TYPE": {
+      "Name": "ET_MATERIAL_TYPE",
+      "ItemType": "RFC_MM_GET_PROD_HIERARCHY.ET_MATERIAL_TYPE",
+      "FieldMap": {
+        "MTART": {
+          "FriendlyName": "MTART",
+          "TechnicalName": "MTART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MTBEZ": {
+          "FriendlyName": "MTBEZ",
+          "TechnicalName": "MTBEZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_PRODUCT_ATTRIB": {
+      "Name": "ET_PRODUCT_ATTRIB",
+      "ItemType": "RFC_MM_GET_PROD_HIERARCHY.ET_PRODUCT_ATTRIB",
+      "FieldMap": {
+        "PRODUCT_ATTRIB": {
+          "FriendlyName": "PRODUCT_ATTRIB",
+          "TechnicalName": "PRODUCT_ATTRIB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_PROD_HIERARCHY": {
+      "Name": "ET_PROD_HIERARCHY",
+      "ItemType": "RFC_MM_GET_PROD_HIERARCHY.ET_PROD_HIERARCHY",
+      "FieldMap": {
+        "PRODH": {
+          "FriendlyName": "PRODH",
+          "TechnicalName": "PRODH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "STUFE": {
+          "FriendlyName": "STUFE",
+          "TechnicalName": "STUFE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VTEXT": {
+          "FriendlyName": "VTEXT",
+          "TechnicalName": "VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

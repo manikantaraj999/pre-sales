@@ -1,0 +1,16 @@
+{
+    "orgName": "enterprise-with-cpq",
+    "edition": "Developer",
+    "features": [
+        "LightningSalesConsole",
+        "LightningServiceConsole"
+    ],
+    "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
+        }
+    }
+}

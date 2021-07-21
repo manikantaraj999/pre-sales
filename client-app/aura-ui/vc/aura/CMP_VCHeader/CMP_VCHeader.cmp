@@ -1,0 +1,35 @@
+<aura:component description="CMP_VCHeader">
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="subtitle" type="String" />
+    <aura:attribute name="variants" type="ENSX_VCMaterialVariant[]" />
+    <aura:attribute name="displayVariantSelection" type="Boolean" default="false"/>
+    <aura:attribute name="selectedVariant" type="String" />
+    <aura:handler name="change" value="{!v.selectedVariant}" action="{!c.variantSet}" />
+    <aura:registerEvent name="variantSet" type="c:EVT_VCVariantSet" />
+    <aura:method name="clearConfig" action="{!c.clearConfig}" />
+    <div class="slds-grid vcheader" style="margin:7px 0;">
+        <header class="slds-media slds-media--center slds-has-flexi-truncate">
+            <div class="slds-grid slds-large-size_12-of-12 slds-wrap slds-grid-pull-padded">
+                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_7-of-8 slds-large-size_7-of-12">
+                    <div class="slds-grid slds-large-size_12-of-12">
+                        <div style="margin-top:1%;" class="slds-media__body">
+                            <p class="slds-text-title--caps slds-line-height--reset">{!v.subtitle}</p>
+                            <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="{!v.title}">{!v.title}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_1-of-8 slds-large-size_3-of-12 slds-col_bump-left">
+                    <aura:if isTrue="{!v.displayVariantSelection}">
+                        <lightning:select class="scaledSelect labelSpaced" name="variantSelection" label="Choose Material Variant" value="{!v.selectedVariant}">
+                            <option value="">Select one</option>
+                            <aura:iteration items="{!v.variants}" var="var">
+                                <option text="{!var.VariantDescription}" value="{!var.VariantId}" />
+                                <!--<ui:inputSelectOption label="{!var.ValueDescription}" value="{!var.Value}"/>-->
+                            </aura:iteration>
+                        </lightning:select>
+                    </aura:if>
+                </div>
+            </div>
+        </header>
+    </div>
+</aura:component>

@@ -1,0 +1,107 @@
+<aura:component implements="lightning:availableForFlowScreens">
+    <aura:attribute name="displayHeader" type="Boolean" default="true"/>
+    <aura:attribute name="headerTitle" type="String" default="Item Detail"/>
+
+    <aura:attribute name="displayItemNumber" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayMaterial" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayMaterialDescription" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayQuantity" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayPricePer" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayTotal" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayTax" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayPlant" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayCategory" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayBillingBlock" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayDeliveryBlock" type="boolean" default="true" access="global"/>
+    <aura:attribute name="displayRoute" type="boolean" default="true" access="global"/>
+    <aura:attribute name="data" type="String"/>
+    <aura:attribute name="itemDetail" type="Map"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <lightning:card class="slds-card slds-m-around__xsmall  slds-is-relative"
+        title="{! !v.displayHeader? '': v.headerTitle}"
+        iconName="{! !v.displayHeader? '':'custom:custom18'}">
+        <div class="slds-card__body slds-card__body_inner">
+            <lightning:layout multipleRows="true">
+                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="6" padding="around-small">
+                    <aura:if isTrue="{!v.displayItemNumber}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_ItemNumber}</span>
+                            <span>{!v.itemDetail.ItemNumber}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayMaterial}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_Material}</span>
+                            <span>{!v.itemDetail.Material}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayMaterialDescription}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_MaterialDescription}</span>
+                            <span>{!v.itemDetail.ItemDescription}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayQuantity}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_Quantity}</span>
+                            <span>{!v.itemDetail.TargetQuantity}&nbsp;{!v.itemDetail.SalesUnitDescription}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayPricePer}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_PricePer}</span>
+                            <span>
+                                <ensxapp:CMP_sapFormattedCurrency number="{!v.itemDetail.NetItemPrice}" currency="{!v.itemDetail.DocumentCurrency}" />
+                                &nbsp;/&nbsp; {!v.itemDetail.ConditionPricingUnit}&nbsp;{!v.itemDetail.ConditionUnitDescription}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayTotal}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_Total}</span>
+                            <ensxapp:CMP_sapFormattedCurrency number="{!v.itemDetail.NetValue}" currency="{!v.itemDetail.DocumentCurrency}" />
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayTax}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_Tax}</span>
+                            <ensxapp:CMP_sapFormattedCurrency number="{!v.itemDetail.TaxAmount}" currency="{!v.itemDetail.DocumentCurrency}" />
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="6" largeDeviceSize="6" padding="around-small">
+                    <aura:if isTrue="{!v.displayPlant}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_Plant}</span>
+                            <span>{!v.itemDetail.Plant}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayCategory}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_Category}</span>
+                            <span>{!v.itemDetail.ItemCategory} - {!v.itemDetail.ItemCategoryDescription}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayBillingBlock}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_BillingBlock}</span>
+                            <span>{!v.itemDetail.BillingBlockForBillingPlan} - {!v.itemDetail.BillingBlockDescription}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayDeliveryBlock}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_DeliveryBlock}</span>
+                            <span>{!v.itemDetail.DeliveryBlock} - {!v.itemDetail.DeliveryBlockDescription}</span>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.displayRoute}">
+                        <div class="clear">
+                            <span class="slds-m-right_small">{!$Label.c.Enosix_Contract_ItemDetail_Route}</span>
+                            <span>{!v.itemDetail.Route} - {!v.itemDetail.RouteDescription}</span>
+                        </div>
+                    </aura:if>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+    </lightning:card>
+</aura:component>	

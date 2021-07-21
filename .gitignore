@@ -1,0 +1,19 @@
+.sfdx
+.vscode
+.tmp
+*.tmp
+environments.json*
+.settings/com.salesforce.ide.core.prefs
+.project
+.vim-force.com
+Referenced Packages
+salesforce.schema
+.settings
+.package
+.DS_Store
+dist
+node_modules
+enosix.resource
+enosixCustom.resource
+npm-debug.log
+src

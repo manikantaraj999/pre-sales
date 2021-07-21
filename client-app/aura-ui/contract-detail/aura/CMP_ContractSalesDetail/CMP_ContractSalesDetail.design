@@ -1,0 +1,24 @@
+<design:component label="SAP Contract Sales Detail">
+    <design:attribute name="displayHeader" label="Display Header"
+        description="Indicator as to whether or not title and icon at top of component is to be displayed" />
+    <design:attribute name="headerTitle" label="Header Title"
+        description="The Title displayed when Display Header is enabled" />
+
+    <design:attribute name="sapDocumentId" label="SAP Document Id" /> 
+    <design:attribute name="recordId" label="Salesforce Record Id" />
+
+    <design:attribute name="displaySalesDocumentType" label="Display Sales Document Type"/>
+    <design:attribute name="displaySalesOrganization" label="Display Sales Organization"/>
+    <design:attribute name="displayDistributionChannel" label="Display Distribution Channel"/>
+    <design:attribute name="displayDivision" label="Display Division"/>
+    <design:attribute name="displaySalesGroup" label="Display Sales Group"/>
+    <design:attribute name="displaySalesOffice" label="Display Sales Office"/>
+    <design:attribute name="displayCreateDate" label="Display Create Date"/>
+    <design:attribute name="displayOrderReason" label="Display Order Reason"/>
+    <design:attribute name="displayPriceListType" label="Display Price List Type"/>
+    <design:attribute name="displayPriceGroup" label="Display Price Group"/>
+    <design:attribute name="displaySalesDistrict" label="Display Sales District"/>
+    <design:attribute name="displayTermsOfPaymentKey" label="Display Terms Of Payment Key"/>
+    <design:attribute name="displayIncotermsPart1" label="Display Incoterms Part 1"/>
+    <design:attribute name="displayIncotermsPart2" label="Display Incoterms Part 2"/>
+</design:component>

@@ -1,0 +1,191 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_ORDER_TYPES.RESULT": {
+      "IV_AUART": {
+        "FriendlyName": "IV_AUART",
+        "TechnicalName": "IV_AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_BOPROCESS": {
+        "FriendlyName": "IV_BOPROCESS",
+        "TechnicalName": "IV_BOPROCESS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_BOTYPE": {
+        "FriendlyName": "IV_BOTYPE",
+        "TechnicalName": "IV_BOTYPE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_CID": {
+        "FriendlyName": "IV_CID",
+        "TechnicalName": "IV_CID",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_LANGU": {
+        "FriendlyName": "IV_LANGU",
+        "TechnicalName": "IV_LANGU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_MAT": {
+        "FriendlyName": "IV_MAT",
+        "TechnicalName": "IV_MAT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_USERNAME": {
+        "FriendlyName": "IV_USERNAME",
+        "TechnicalName": "IV_USERNAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_VKORG": {
+        "FriendlyName": "IV_VKORG",
+        "TechnicalName": "IV_VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_VTWEG": {
+        "FriendlyName": "IV_VTWEG",
+        "TechnicalName": "IV_VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_ORDER_TYPES.IT_MAT": {
+      "MaterialNumber": {
+        "FriendlyName": "MaterialNumber",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_ORDER_TYPES.ET_ITEM_CAT": {
+      "DocumentType": {
+        "FriendlyName": "DocumentType",
+        "TechnicalName": "AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesItemCategory": {
+        "FriendlyName": "SalesItemCategory",
+        "TechnicalName": "PSTYV",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MTPOS": {
+        "FriendlyName": "MTPOS",
+        "TechnicalName": "MTPOS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_ORDER_TYPES.ET_MAT_ITEM_CAT": {
+      "MaterialNumber": {
+        "FriendlyName": "MaterialNumber",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PSTVY": {
+        "FriendlyName": "PSTVY",
+        "TechnicalName": "PSTVY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_ORDER_TYPES.ET_VALUES": {
+      "VALUE": {
+        "FriendlyName": "VALUE",
+        "TechnicalName": "VALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DESCRIPTION": {
+        "FriendlyName": "DESCRIPTION",
+        "TechnicalName": "DESCRIPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "IT_MAT": {
+      "Name": "IT_MAT",
+      "ItemType": "RFC_SD_GET_ORDER_TYPES.IT_MAT",
+      "FieldMap": {
+        "MaterialNumber": {
+          "FriendlyName": "MaterialNumber",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_ITEM_CAT": {
+      "Name": "ET_ITEM_CAT",
+      "ItemType": "RFC_SD_GET_ORDER_TYPES.ET_ITEM_CAT",
+      "FieldMap": {
+        "DocumentType": {
+          "FriendlyName": "DocumentType",
+          "TechnicalName": "AUART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesItemCategory": {
+          "FriendlyName": "SalesItemCategory",
+          "TechnicalName": "PSTYV",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MTPOS": {
+          "FriendlyName": "MTPOS",
+          "TechnicalName": "MTPOS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_MAT_ITEM_CAT": {
+      "Name": "ET_MAT_ITEM_CAT",
+      "ItemType": "RFC_SD_GET_ORDER_TYPES.ET_MAT_ITEM_CAT",
+      "FieldMap": {
+        "MaterialNumber": {
+          "FriendlyName": "MaterialNumber",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PSTVY": {
+          "FriendlyName": "PSTVY",
+          "TechnicalName": "PSTVY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_VALUES": {
+      "Name": "ET_VALUES",
+      "ItemType": "RFC_SD_GET_ORDER_TYPES.ET_VALUES",
+      "FieldMap": {
+        "VALUE": {
+          "FriendlyName": "VALUE",
+          "TechnicalName": "VALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DESCRIPTION": {
+          "FriendlyName": "DESCRIPTION",
+          "TechnicalName": "DESCRIPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

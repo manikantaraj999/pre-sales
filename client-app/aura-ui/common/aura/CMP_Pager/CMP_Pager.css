@@ -1,0 +1,67 @@
+.THIS .noLabel label {
+    display: none
+}
+.THIS select.slds-select {
+    padding-right: 0;
+}
+
+.THIS .paginator {
+    margin: 0;
+    white-space: nowrap;
+    text-align: center;
+    position: relative
+}
+
+.THIS .paginator img {
+    margin: -1px 0 3px;
+    width: 9px;
+    height: 10px;
+    background-image: url(/img/paginationArrows.gif);
+    background-repeat: no-repeat;
+}
+
+.THIS .paginator .first {
+    background-position: 0 1px;
+}
+
+.THIS .paginator .firstoff {
+    background-position: 0 -10px;
+}
+
+.THIS .paginator .prev {
+    background-position: -10px 1px;
+    margin-right: -2px;
+}
+
+.THIS .paginator .prevoff {
+    background-position: -10px -10px;
+    margin-right: -2px;
+}
+
+.THIS .paginator .next {
+    background-position: -17px 1px;
+    margin-left: -2px;
+}
+
+.THIS .paginator .nextoff {
+    background-position: -17px -10px;
+    margin-left: -2px;
+}
+
+.THIS .paginator .last {
+    background-position: -27px 1px;
+}
+
+.THIS .paginator .lastoff {
+    background-position: -27px -10px;
+}
+
+.THIS .paginator .prevNext {
+    color: #a8a8a8;
+    margin: 0 3px;
+    display: inline-block
+}
+
+.THIS .info {
+    margin: 0 15px;
+}

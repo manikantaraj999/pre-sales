@@ -1,0 +1,14 @@
+.THIS
+{
+    text-align: left;
+}
+
+.THIS .narrow{
+    max-width:8em;
+    white-space: normal!important;
+}
+
+
+.THIS .slds-button_icon-bare{
+    display: none;
+}

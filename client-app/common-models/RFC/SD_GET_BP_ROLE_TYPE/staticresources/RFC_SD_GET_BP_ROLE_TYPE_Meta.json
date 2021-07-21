@@ -1,0 +1,179 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_BP_ROLE_TYPE.RESULT": {
+      "IV_CID": {
+        "FriendlyName": "IV_CID",
+        "TechnicalName": "IV_CID",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_CATEGORY": {
+      "Category": {
+        "FriendlyName": "Category",
+        "TechnicalName": "DOMVALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Description": {
+        "FriendlyName": "Description",
+        "TechnicalName": "DDTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_ROLE": {
+      "Role": {
+        "FriendlyName": "Role",
+        "TechnicalName": "RLTYP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ForPerson": {
+        "FriendlyName": "ForPerson",
+        "TechnicalName": "XPERS",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "ForOrg": {
+        "FriendlyName": "ForOrg",
+        "TechnicalName": "XORG",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "ForGroup": {
+        "FriendlyName": "ForGroup",
+        "TechnicalName": "XGROUP",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "Description": {
+        "FriendlyName": "Description",
+        "TechnicalName": "RLTITL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_ROLE_GROUP": {
+      "RLTGR": {
+        "FriendlyName": "RLTGR",
+        "TechnicalName": "RLTGR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "RLTGRTXT": {
+        "FriendlyName": "RLTGRTXT",
+        "TechnicalName": "RLTGRTXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_TYPE": {
+      "FieldType": {
+        "FriendlyName": "FieldType",
+        "TechnicalName": "BPKIND",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Description": {
+        "FriendlyName": "Description",
+        "TechnicalName": "TEXT40",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_BP_CATEGORY": {
+      "Name": "ET_BP_CATEGORY",
+      "ItemType": "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_CATEGORY",
+      "FieldMap": {
+        "Category": {
+          "FriendlyName": "Category",
+          "TechnicalName": "DOMVALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Description": {
+          "FriendlyName": "Description",
+          "TechnicalName": "DDTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_BP_ROLE": {
+      "Name": "ET_BP_ROLE",
+      "ItemType": "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_ROLE",
+      "FieldMap": {
+        "Role": {
+          "FriendlyName": "Role",
+          "TechnicalName": "RLTYP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ForPerson": {
+          "FriendlyName": "ForPerson",
+          "TechnicalName": "XPERS",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "ForOrg": {
+          "FriendlyName": "ForOrg",
+          "TechnicalName": "XORG",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "ForGroup": {
+          "FriendlyName": "ForGroup",
+          "TechnicalName": "XGROUP",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "Description": {
+          "FriendlyName": "Description",
+          "TechnicalName": "RLTITL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_BP_ROLE_GROUP": {
+      "Name": "ET_BP_ROLE_GROUP",
+      "ItemType": "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_ROLE_GROUP",
+      "FieldMap": {
+        "RLTGR": {
+          "FriendlyName": "RLTGR",
+          "TechnicalName": "RLTGR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "RLTGRTXT": {
+          "FriendlyName": "RLTGRTXT",
+          "TechnicalName": "RLTGRTXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_BP_TYPE": {
+      "Name": "ET_BP_TYPE",
+      "ItemType": "RFC_SD_GET_BP_ROLE_TYPE.ET_BP_TYPE",
+      "FieldMap": {
+        "FieldType": {
+          "FriendlyName": "FieldType",
+          "TechnicalName": "BPKIND",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Description": {
+          "FriendlyName": "Description",
+          "TechnicalName": "TEXT40",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

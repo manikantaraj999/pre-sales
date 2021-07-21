@@ -1,0 +1,12 @@
+<design:component label="SAP Contract Item Conditions">
+    <design:attribute name="displayHeader" label="Display Header"
+        description="Indicator as to whether or not title and icon at top of component is to be displayed" />
+    <design:attribute name="headerTitle" label="Header Title"
+        description="The Title displayed when Display Header is enabled" />
+
+    <design:attribute name="displayItemCondition" label="Display Condition" />
+    <design:attribute name="displayItemConditionDescription" label="Display Condition Description" />
+    <design:attribute name="displayItemConditionValue" label="Display Condition Value" />
+    <design:attribute name="displayItemRate" label="Display Rate" />
+    <design:attribute name="data" label="Model of Selected Item"/>
+</design:component>

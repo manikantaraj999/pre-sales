@@ -1,0 +1,14 @@
+<aura:component >
+        
+    <aura:attribute name="label" type="string" />
+    <aura:attribute name="detail" type="object" />
+    <aura:attribute name="code" type="string" />
+    <aura:attribute name="displayCode" type="boolean" default="false" />
+
+    <td data-label="{!v.label}">
+            <aura:if isTrue="{!v.displayCode}">
+                {!v.code} -
+            </aura:if>
+            {!v.detail}
+    </td>
+</aura:component>

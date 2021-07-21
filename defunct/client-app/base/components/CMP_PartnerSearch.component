@@ -1,0 +1,150 @@
+<apex:component controller="CTRL_CMPPartnerSearch">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+
+    <apex:attribute name="rerenderSearch" description="" type="String"/>
+    <apex:attribute name="rerenderSelect" description="" type="String"/>
+    <apex:attribute name="receiver" description="" type="CB_CMPPartnerSearchReceiver" assignTo="{!searchReceiver}"/>
+    <apex:attribute name="jsCallback" description="" type="String"/>
+    <apex:attribute name="autoSearch" description="" default="false" type="Boolean" assignTo="{!isAutoSearchEnabled}"/>
+    <apex:attribute name="soldToParty" description="Sold To Party" type="String" assignTo="{!soldToPartyNumber}"/>
+    <apex:attribute name="salesOrg" description="Sales Organization" type="String" assignTo="{!salesOrganization}"/>
+    <apex:attribute name="distChan" description="Distribution Channel" type="String" assignTo="{!distributionChannel}"/>
+    <apex:attribute name="div" description="Division" type="String" assignTo="{!division}"/>
+    <apex:attribute name="partFunc" description="Partner Function" type="String" assignTo="{!partnerFunction}"/>
+    <apex:attribute name="title" description="Component Title" type="String" assignTo="{!componentTitle}"/>
+    <apex:attribute name="actionSearchName" description="The Js method name for searching" type="String" assignTo="{!searchNameAction}"/>
+    <apex:attribute name="actionSelectedName" description="The Js method name for selected partner" type="String" assignTo="{!selectedNameAction}"/>
+    <apex:attribute name="prevScreen" description="Previous Screen" type="String" assignTo="{!previousScreen}"/>
+    <apex:attribute name="accountGroup" description="Customer Account Group" type="String" assignTo="{!customerAccountGroup}"/>
+
+    <style>
+        .tabPanel {
+            width:100%;
+            border-bottom:1px solid #d8d8d8;
+        }
+        .tabPanel .tabHeader {
+            padding:10px;
+            cursor:pointer;
+            display:inline-block;
+            font-family:"Salesforce Sans",Arial,sans-serif;
+            font-weight:bold;
+        }
+        .tabPanel .tabHeader.selected{
+            border-bottom:3px solid #319be6;
+        }
+        .tabContentWrapper{
+            padding:10px 0;
+        }
+        .tabContentWrapper .tabContent {
+            display:none;
+        }
+        .tabContentWrapper .tabContent.show{
+            display:block;
+        }
+    </style>
+    <!-- Action Functions -->
+    <apex:outputPanel html-Hidden="true">
+        <apex:actionFunction name="{!searchNameAction}" action="{!actionSearch}" rerender="{!rerenderSearch}" status="status">
+            <apex:param name="isAllShipTo" value=""/>
+        </apex:actionFunction>
+        <apex:actionFunction name="{!selectedNameAction}" action="{!actionSelectedPartnerToReceiver}"
+            rerender="{!rerenderSelect}" status="status" oncomplete="{!jsCallback}">
+            <apex:param name="selectedIndex" value=""/>
+        </apex:actionFunction>
+    </apex:outputPanel>
+
+    <div class="tabPanel">
+        <span class="{!actionSearchName} tabHeader selected" onclick="onClickTabHeader(this, 'partnerSearch', '{!actionSearchName}');">Search Partners ({!partFunc})</span>
+        <apex:outputPanel styleClass="{!actionSearchName} tabHeader" onclick="onClickTabHeader(this, 'shipToSearch', '{!actionSearchName}');" 
+            rendered="{!actionSearchName == 'actionShipToSearch'}">
+            Search ShipTo
+        </apex:outputPanel>
+    </div>
+    <div class="tabContentWrapper">
+        <div class="{!actionSearchName} tabContent partnerSearch show">
+            <apex:commandButton onclick="{!searchNameAction}(false); return false;" value="Search Partners"/>
+        </div>
+        <apex:outputPanel styleClass="{!actionSearchName} tabContent shipToSearch" layout="block" rendered="{!actionSearchName == 'actionShipToSearch'}">
+            <apex:pageBlock>
+                <apex:pageBlockSection columns="2">
+                    <apex:inputText label="Customer Number:" value="{!customerSearchContext.SEARCHPARAMS.CustomerNumberFrom}"/>
+                    <apex:inputText label="Customer Name:" value="{!customerSearchContext.SEARCHPARAMS.CustomerName}"/>
+                    <apex:inputText label="Postal Code:" value="{!customerSearchContext.SEARCHPARAMS.PostalCode}"/>
+                    <apex:inputText label="City:" value="{!customerSearchContext.SEARCHPARAMS.City}"/>
+                    <apex:commandButton onclick="{!searchNameAction}(true); return false;" value="Search ShipTo"/>
+                    <apex:selectList label="Country:" value="{!customerSearchContext.SEARCHPARAMS.CountryKey}" size="1">
+                        <apex:selectOptions value="{!countryOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+            </apex:pageBlock>                        
+        </apex:outputPanel>
+    </div>
+
+    <!-- Table Output -->
+    <apex:outputPanel id="resultsPanel" rendered="{!null != searchResults}">
+        <table class="list" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr class="headerRow">
+                    <th></th>
+                    <th>Partner Number</th>
+                    <th>Sales Org</th>
+                    <th>Dist. Channel</th>
+                    <th>Division</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Country</th>
+                    <th>Phone Number</th>
+                </tr>
+                <apex:repeat value="{!searchResults}" var="result">
+                    <tr>
+                        <td>
+                            <apex:commandButton onclick="{!selectedNameAction}({!result.index}); return false;" value="Select"/>
+                        </td>
+                        <td>{!result.partnerNumber}</td>
+                        <td>{!result.salesOrg}</td>
+                        <td>{!result.distChannel}</td>
+                        <td>{!result.division}</td>
+                        <td>{!result.name}</td>
+                        <td>{!result.address}</td>
+                        <td>{!result.country}</td>
+                        <td>{!result.phoneNumber}</td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="9" class="header">
+                        <apex:outputPanel id="paginationdiv">
+                            <apex:outputPanel id="innerpaginationdiv" rendered="{!hasRecords}">
+                                <c:CMP_Pager pagerId="{!id}"
+                                    options="{!pagingOptionsWrapper}"
+                                    searchController="{!searchController}"
+                                    rerender="resultsPanel" />
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </apex:outputPanel>
+
+    <script type="text/javascript">
+
+        function onClickTabHeader(e, id, actionSearchName) {          
+            if (!$(e).hasClass('selected')) {
+                var searchName = '.' + actionSearchName;
+                $(searchName + '.tabHeader').removeClass('selected');
+                $(e).addClass('selected');
+                $(searchName + '.tabContent').removeClass('show');
+                $('.' + id).addClass('show');
+            }
+        }
+        
+        
+        // function selectedPartnerCallback() {
+        //     console.log('selectedPartnerCallback run');
+        //     if (!!'{!jsCallback}') window['{!jsCallback}']();
+        // }
+    </script>
+
+</apex:component>

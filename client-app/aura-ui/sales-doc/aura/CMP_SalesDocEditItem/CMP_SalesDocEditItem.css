@@ -1,0 +1,56 @@
+.THIS {
+    font-size:.75rem;
+}
+.THIS .slds-form-element__control input {
+    min-height:initial;
+    height: 28px;
+}
+.THIS.itemCard .slds-card__header{
+    margin-top:-10px;
+    padding:0;
+}
+.THIS.itemCard .slds-card__body{
+    margin:0;
+}
+.THIS .simulateMessage{
+    background: #ffe318;
+    padding: 6px;
+    right: 0;
+}
+
+.THIS .slds-input[readonly]:focus, .THIS .slds-textarea[readonly]:focus {
+    box-shadow: none;
+}
+.THIS .slds-textarea[readonly] {
+    border:none;
+}
+
+.THIS .slds-textarea{
+    height:96px;
+}
+
+.THIS .slds-select{
+    height:29px;
+}
+.THIS .small-button-icon{
+    height:27px;
+    width:27px;
+}
+
+.THIS .inline-block{
+    display:inline-block;    
+}
+
+.THIS .itemConditionTable tbody th.activeCondition svg {
+    fill: green;
+}
+
+.THIS .itemConditionTable tbody th.inactiveCondition svg {
+    fill: yellow
+}
+
+/* <CT */
+.THIS .pointer-events-none {
+    pointer-events: none;
+}
+/* CT> */

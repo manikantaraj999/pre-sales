@@ -1,0 +1,1 @@
+UTIL_CPQ_Setup.installCustomScript();

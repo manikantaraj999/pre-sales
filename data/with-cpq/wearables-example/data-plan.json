@@ -1,0 +1,31 @@
+
+[
+    {
+        "sobject": "SBQQ__CustomAction__c",
+        "saveRefs": true,
+        "files": [
+            "SBQQ__CustomAction__c.json"
+        ]
+    },
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "files": [
+            "../../base/wearables-example/Account.json"
+        ]
+    },
+    {
+        "sobject": "Pricebook2",
+        "resolveRefs": true,
+        "files": [
+            "../../base/wearables-example/Pricebook2.json"
+        ]
+    },
+    {
+        "sobject": "Product2",
+        "resolveRefs": true,
+        "files": [
+            "../../base/wearables-example/Product2.json"
+        ]
+    }
+]

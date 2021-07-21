@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>All_Contracts_Transaction_Group</label>
+    <protected>false</protected>
+    <values>
+        <field>ensxapp__Custom_Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ensxapp__Custom__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>ensxapp__Mapped_Field__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ensxapp__Mapped_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ensxapp__Parameter_Type__c</field>
+        <value xsi:type="xsd:string">Static Text</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Field__c</field>
+        <value xsi:type="xsd:string">TransactionGroup</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Sales_Doc_Search_Preset__c</field>
+        <value xsi:type="xsd:string">All_Contracts</value>
+    </values>
+    <values>
+        <field>ensxapp__Value__c</field>
+        <value xsi:type="xsd:string">4</value>
+    </values>
+</CustomMetadata>

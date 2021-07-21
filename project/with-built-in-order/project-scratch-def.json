@@ -1,0 +1,19 @@
+{
+    "orgName": "enterprise-template-with-built-in-order",
+    "edition": "Developer",
+    "features": ["LightningSalesConsole", "LightningServiceConsole"],
+    "settings": {
+        "orderSettings": {
+            "enableOrders": true
+        },
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "languageSettings": {
+            "enableTranslationWorkbench": true
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
+        }
+    }
+}

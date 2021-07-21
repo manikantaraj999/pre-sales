@@ -1,0 +1,30 @@
+<aura:component description="CMP_Input_MultiSelect" implements="c:ENSX_Input">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:attribute name="inputId" type="String" required="true" />
+    <aura:attribute name="characteristicID" type="String" required="true" />
+    <aura:attribute name="val" type="String[]" required="true" default="[]"/>
+    <aura:attribute name="inputLabel" type="String" required="true" />
+    <aura:attribute name="required" type="Boolean" />
+    <aura:attribute name="disabled" type="Boolean" />
+    <aura:attribute name="possibleValues" type="SBO_EnosixVC_Detail.ALLOWEDVALUES[]" required="true"/>
+    <aura:attribute name="vcSettings" type="ENSX_VCSettings" />
+    
+    <aura:attribute type="SBO_EnosixVC_Detail.SELECTEDVALUES[]" name="selected" default="[]"/>
+
+    <aura:attribute name="options" type="List" default="[{'label':'', 'value':''}]"/>
+    <aura:attribute name="confirmOptions" type="Boolean" />
+    <aura:registerEvent name="inputChanged" type="c:EVT_VCInputChanged" />
+
+    <lightning:checkboxGroup name="{!v.inputId}"
+        disabled="{!v.disabled}"
+        aura:id="{!v.inputId}"
+        label=""
+        options="{! v.options }"
+        value="{! v.val }"
+        onchange="{! c.valueChanged }"/>
+
+    <!-- display a confirm new selection button  -->
+    <aura:if isTrue="{!v.confirmOptions}">
+        <lightning:button variant="neutral" label="Confirm Options" onclick="{!c.confirmOptions}" />
+    </aura:if>
+</aura:component>

@@ -1,0 +1,70 @@
+.THIS {
+    min-height: initial;
+    margin-bottom:1%;
+}
+.THIS .head{
+    min-height:5vh;
+    height:10%!important;
+    width:100%;
+    background:#f0f2f7;
+}
+.THIS .foot{
+    height:10%!important;
+    width:100%;
+    background: #f7f9fb;
+}
+.THIS .bodyHeight{
+    max-height:72vh;
+    overflow-y:scroll;
+    background-color:#ffffff;
+}
+.THIS .bodyContent{
+    min-height:50vh;
+    overflow-y:scroll;
+}
+.THIS .leftGreyBorder{
+    border-left: 2px solid #f0f2f7;
+}
+.THIS .rightGreyBorder{
+    border-right: 2px solid #f0f2f7;
+}
+.THIS .topGreyBorder{
+    border-top: 2px solid #f0f2f7;
+}
+.THIS .bottomGreyBorder{
+    border-bottom: 2px solid #f0f2f7;
+}
+.THIS .ensx-spinner{
+    z-index: 999;
+    position: absolute;
+    margin-left: 45%;
+    margin-top: 18%;
+    transform: scale(1.5);
+}
+
+.THIS .labelSpaced > label{
+    margin:5px;
+}
+
+.THIS .scaledSelect{
+    transform: scale(.85);
+}
+
+.THIS .willProcess {
+    background-repeat: no-repeat;
+    background-size: 1.5em;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25zPC90aXRsZT48ZyBkYXRhLW5hbWU9IkNhbGMgZ3JpZCI+PHBhdGggZD0iTTE0NSw0MEg1NWEzLjc2LDMuNzYsMCwwLDAtMy43NSwzLjc1djExMi41QTMuNzYsMy43NiwwLDAsMCw1NSwxNjBoOTBhMy43NiwzLjc2LDAsMCwwLDMuNzUtMy43NVY0My43NUEzLjc2LDMuNzYsMCwwLDAsMTQ1LDQwWk03Ny41LDE0Ni44OGExLjg2LDEuODYsMCwwLDEtMS44OCwxLjg3SDY0LjM4YTEuODYsMS44NiwwLDAsMS0xLjg4LTEuODdWMTM1LjYyYTEuODUsMS44NSwwLDAsMSwxLjg4LTEuODdINzUuNjJhMS44NSwxLjg1LDAsMCwxLDEuODgsMS44N1ptMC0yMi41YTEuODUsMS44NSwwLDAsMS0xLjg4LDEuODdINjQuMzhhMS44NSwxLjg1LDAsMCwxLTEuODgtMS44N1YxMTMuMTJhMS44NSwxLjg1LDAsMCwxLDEuODgtMS44N0g3NS42MmExLjg1LDEuODUsMCwwLDEsMS44OCwxLjg3Wm0wLTIyLjVhMS44NSwxLjg1LDAsMCwxLTEuODgsMS44N0g2NC4zOGExLjg1LDEuODUsMCwwLDEtMS44OC0xLjg3VjkwLjYyYTEuODUsMS44NSwwLDAsMSwxLjg4LTEuODdINzUuNjJhMS44NSwxLjg1LDAsMCwxLDEuODgsMS44N1ptMjAuMTgsNDVhMS4wOCwxLjA4LDAsMCwxLDAsLjM3LDEuODksMS44OSwwLDAsMS0xLjg0LDEuNUg4NC41NWExLjg1LDEuODUsMCwwLDEtMS44Ny0xLjg3VjEzNS42MmExLjg1LDEuODUsMCwwLDEsMS44Ny0xLjg3SDk1LjhhMS44OSwxLjg5LDAsMCwxLDEuODQsMS41LDEuMDUsMS4wNSwwLDAsMSwwLC4zNywxLjExLDEuMTEsMCwwLDEsMCwuMzh2MTAuNUExLjA4LDEuMDgsMCwwLDEsOTcuNjgsMTQ2Ljg4Wm0wLTIyLjVhMS4wOCwxLjA4LDAsMCwxLDAsLjM3LDEuODksMS44OSwwLDAsMS0xLjg0LDEuNUg4NC41NWExLjg1LDEuODUsMCwwLDEtMS44Ny0xLjg3VjExMy4xMmExLjg1LDEuODUsMCwwLDEsMS44Ny0xLjg3SDk1LjhhMS44OSwxLjg5LDAsMCwxLDEuODQsMS41LDEuMDgsMS4wOCwwLDAsMSwwLC4zNywxLjExLDEuMTEsMCwwLDEsMCwuMzhWMTI0QTEuMTEsMS4xMSwwLDAsMSw5Ny42OCwxMjQuMzhabTAtMjIuNWExLjA4LDEuMDgsMCwwLDEsMCwuMzcsMS44OSwxLjg5LDAsMCwxLTEuODQsMS41SDg0LjU1YTEuODUsMS44NSwwLDAsMS0xLjg3LTEuODdWOTAuNjJhMS44NSwxLjg1LDAsMCwxLDEuODctMS44N0g5NS44YTEuODksMS44OSwwLDAsMSwxLjg0LDEuNSwxLjA4LDEuMDgsMCwwLDEsMCwuMzcsMS4xMSwxLjExLDAsMCwxLDAsLjM4djEwLjVBMS4xMSwxLjExLDAsMCwxLDk3LjY4LDEwMS44OFptMjAuMTMsNDVhMS44NSwxLjg1LDAsMCwxLTEuODcsMS44N0gxMDQuNjlhMS44NiwxLjg2LDAsMCwxLTEuODgtMS44N1YxMzUuNjJhMS44NiwxLjg2LDAsMCwxLDEuODgtMS44N2gxMS4yNWExLjg1LDEuODUsMCwwLDEsMS44NywxLjg3Wm0wLTIyLjVhMS44NSwxLjg1LDAsMCwxLTEuODcsMS44N0gxMDQuNjlhMS44NiwxLjg2LDAsMCwxLTEuODgtMS44N1YxMTMuMTJhMS44NiwxLjg2LDAsMCwxLDEuODgtMS44N2gxMS4yNWExLjg1LDEuODUsMCwwLDEsMS44NywxLjg3Wm0wLTIyLjVhMS44NSwxLjg1LDAsMCwxLTEuODcsMS44N0gxMDQuNjlhMS44NiwxLjg2LDAsMCwxLTEuODgtMS44N1Y5MC42MmExLjg2LDEuODYsMCwwLDEsMS44OC0xLjg3aDExLjI1YTEuODUsMS44NSwwLDAsMSwxLjg3LDEuODdabTE5LjY5LDQ1YTEuODYsMS44NiwwLDAsMS0xLjg4LDEuODdIMTI0LjM4YTEuODYsMS44NiwwLDAsMS0xLjg4LTEuODdWMTEzLjEyYTEuODUsMS44NSwwLDAsMSwxLjg4LTEuODdoMTEuMjRhMS44NSwxLjg1LDAsMCwxLDEuODgsMS44N1ptMC00NWExLjg1LDEuODUsMCwwLDEtMS44OCwxLjg3SDEyNC4zOGExLjg1LDEuODUsMCwwLDEtMS44OC0xLjg3VjkwLjYyYTEuODUsMS44NSwwLDAsMSwxLjg4LTEuODdoMTEuMjRhMS44NSwxLjg1LDAsMCwxLDEuODgsMS44N1ptMC0yNi4yNmExLjg1LDEuODUsMCwwLDEtMS44OCwxLjg4SDY0LjM4YTEuODUsMS44NSwwLDAsMS0xLjg4LTEuODhWNTMuMTJhMS44NSwxLjg1LDAsMCwxLDEuODgtMS44N2g3MS4yNGExLjg1LDEuODUsMCwwLDEsMS44OCwxLjg3WiI+PC9wYXRoPjwvZz48L3N2Zz4=");
+    background-position: top right;
+}
+
+.THIS .hiddenText {
+    /* Transparent text, invisible in the UI but visible via copy/paste */
+    color: rgba(0,0,0,0); 
+    font-size: 0;
+}
+
+.THIS .hierarchyContainer{
+    max-height: 50vh;
+    overflow-y: scroll;
+    border: 3px solid #f0f2f7;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLD_Sync_DateTime__c</fullName>
+    <label>FLD Sync Date Time</label>
+    <description>Last Completed Start Date Time updated via sync.</description>
+    <externalId>false</externalId>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,71 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="SD DocFlow" 
+    controller="CTRL_DocFlowSearch" id="pagediv" tabStyle="Account" lightningStylesheets="true">
+    
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <style>
+        .btn-col { height: 24px; }
+        .center { text-align: center; }
+    </style>
+
+    <apex:form id="formdiv">
+        <c:CMP_Status />
+
+        <apex:pageBlock title="SD Docflow" id="pbdiv">
+            <apex:pageMessages id="messagediv" />
+            <apex:pageBlockSection title="Search"  columns="2" collapsible="false" id="pbsdiv">
+                <apex:inputText value="{!salesDocNum}" label="Sales Document:"></apex:inputText>
+                <apex:inputText value="{!customerPoNum}" label="Customer PO:"></apex:inputText>
+                <apex:selectList value="{!docCategory}" label="Document Category:" size="1">
+                    <apex:selectOption itemValue="" itemLabel="All" />
+                    <apex:selectOptions value="{!docCategoryOptions}" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <c:CMP_NavButtons isClassic="{!isClassic}"/>
+                <apex:commandButton action="{!search}" value="Search" rerender="resultdiv,messagediv" status="status" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="Results">
+
+            <apex:actionFunction action="{!gotoDetailPage}" name="gotoDetailPage" reRender="mainform">
+                <apex:param name="selectedDocCategory" value="" />
+                <apex:param name="selectedDocNum" value="" />
+            </apex:actionFunction>
+
+            <apex:pageBlockTable value="{!searchResults}" var="result">
+
+                <apex:column headerValue="" styleClass="btn-col">
+                    <apex:commandButton rendered="{!contains(validLinkCategories, result.DocumentCategory)}"
+                        onclick="gotoDetailPage('{!result.DocumentCategory}', '{!result.SalesDocument}');return false;"
+                        value="View Detail" />
+                    <apex:commandButton rendered="{! result.DocumentCategoryText == 'Purchase Order'}"
+                        onclick="javascript:window.location='apex/VFP_PODetail?PONumber={!result.SalesDocument}&c__SF_AcctId={!accountId}&c__SAP_DocNum={!salesDocNum}';return false;"
+                        value="View Detail" />
+                </apex:column>
+                <apex:column headerValue="Document Category" value="{!result.DocumentCategoryText}" />
+                <apex:column headerValue="Doc. Seq."
+                    styleClass="center"
+                    value="{!IF(result.X_PrecedingDocuments,'-','')}{!IF(result.X_SubsequentDocuments,'+','')}" />
+                <apex:column headerValue="Sales Document" value="{!result.SalesDocument}" />
+                <apex:column headerValue="Item Number" value="{!result.ItemNumber}" />
+                <apex:column headerValue="Customer Number" value="{!result.CustomerNumber}" />
+                <apex:column headerValue="Document Status" value="{!result.DocumentStatus}" />
+                <apex:column headerValue="Create Date">
+                    <apex:outputText value="{0,date,MM/dd/yyyy}">
+                        <apex:param value="{!result.CreateDate}" />
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Created By" value="{!result.CreatedBy}" />
+                <apex:column headerValue="Date Changed">
+                    <apex:outputText value="{0,date,MM/dd/yyyy}">
+                        <apex:param value="{!result.DateChanged}" />
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Changed By" value="{!result.ChangedBy}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer />
+</apex:page>

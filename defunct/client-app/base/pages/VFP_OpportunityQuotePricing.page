@@ -1,0 +1,327 @@
+<apex:page id="VFP_OpportunityQuotePricing" title="Quote Pricing" showHeader="true" sidebar="true" docType="html-5.0"
+           controller="CTRL_OpportunityQuotePricing" tabStyle="Opportunity" lightningStylesheets="true">
+<!--
+LINKS:
+Opportunity | 'SAP Quote Materials' | LNK_Opportunity_Quote_Materials | /apex/VFP_OpportunityQuotePricing?c__SF_OppId={!Opportunity.Id}
+Account     | 'SAP Quote Materials' | LNK_Account_Quote_Materials     | /apex/VFP_OpportunityQuotePricing?c__SF_AcctId={!Account.Id}
+-->
+    <apex:slds rendered="{!!isClassic}"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <apex:form  id="mainform">
+        <c:CMP_Status />
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#opportunity')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <h2 class="slds-card__header-title"><span class="slds-text-heading_small">Opportunity Pricing</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+        <apex:pageBlock title="Opportunity Pricing" id="pbdiv">
+            <apex:pageBlockSection title="Opportunity Information" id="oppPbs">
+                <apex:outputField value="{!opp.Name}" label="Opportunity Name"/>
+                <apex:outputField value="{!opp.CloseDate}" label="Close Date"/>
+                <apex:outputField value="{!opp.NextStep}" label="Next Step"/>
+                <apex:outputField value="{!opp.Probability}" label="Probability"/>
+                <apex:outputField value="{!opp.StageName}" label="Stage"/>
+                <br/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Customer Information" rendered="{! null != soldToCustomer }">
+              <apex:outputText value="{!soldToCustomer.Name}" label="Name"/>
+              <apex:outputText value="{!soldToCustomer.CustomerNumber}" label="Customer Number"/>
+              <apex:outputText value="{!soldToCustomer.BusinessPartnerTypeDescription}" label="Partner Type"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Sales Information" rendered="{! canQuotePrices && isOpportunitySalesInfoEnabled }">
+                <apex:selectList value="{!quoteDetail.SalesDocument}" size="1" label="Order Type:">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform,shipToForm,materialsForm" status="status"/>
+                    <apex:selectOptions value="{!OrderTypes}"/>
+                </apex:selectList>
+                <apex:selectList value="{!salesData.SalesOrganization}" size="1" label="Sales Organization:">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform,shipToForm,materialsForm" status="status"/>
+                    <apex:selectOptions value="{!SalesOrganizations}"/>
+                </apex:selectList>
+                <apex:selectList value="{!salesData.DistributionChannel}" label="Distribution Channel:" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform,shipToForm,materialsForm" status="status"/>
+                    <apex:selectOptions value="{!DistributionChannels}"/>
+                </apex:selectList>
+                <apex:selectList value="{!salesData.Division}" label="Division:" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform,shipToForm,materialsForm" status="status"/>
+                    <apex:selectOptions value="{!Divisions}"/>
+                </apex:selectList>
+                <apex:selectList size="1" label="Currency:" value="{!salesData.SalesDocumentCurrency}" disabled="{!isCurrencyDisabled}">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform,materialmessagediv" status="status"/>
+                    <apex:selectOptions value="{!CurrencyOptions}"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Partner Information" rendered="{! canQuotePrices }">
+                <apex:selectList value="{!SoldToPartner.CustomerNumber}" label="Sold To:" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform,materialmessagediv,shipToForm" status="status"/>
+                    <apex:selectOptions value="{!SoldToPartners}"/>
+                </apex:selectList>
+
+                <apex:pageBlockSectionItem labelTitle="Ship To:">
+                    <apex:outputLabel value="Ship To:"/>
+                    <apex:outputPanel>
+                        <apex:outputText id="shipToDiv" value="{0} - {1} - {2}, {3}, {4} {5} {6}" rendered="{! null != ShipToPartner.CustomerNumber && '' != ShipToPartner.CustomerNumber}">
+                            <apex:param value="{!shipToCustomer.CustomerNumber}"/>
+                            <apex:param value="{!shipToCustomer.Name}"/>
+                            <apex:param value="{!shipToCustomer.Street}"/>
+                            <apex:param value="{!shipToCustomer.City}"/>
+                            <apex:param value="{!shipToCustomer.Region}"/>
+                            <apex:param value="{!shipToCustomer.PostalCode}"/>
+                            <apex:param value="{!shipToCustomer.Country}"/>
+                        </apex:outputText>
+                        <apex:commandButton style="margin-left:15px" onclick="showShipToPopup(); return false;" value="Search Ship To"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageMessages id="messagediv"/>
+
+            <apex:pageBlockSection title="Items:" columns="1" collapsible="false" id="itemsList"
+                                   rendered="{!null != displayedMaterialItems && editItemNumber == null}">
+
+                <apex:actionFunction name="removeItem" action="{!removeItem}" reRender="mainform" status="status">
+                    <apex:param name="removeItemNumber" value=""/>
+                </apex:actionFunction>
+
+                <apex:actionFunction name="editItem" action="{!editItem}" reRender="mainform" status="status">
+                    <apex:param name="editItemNumber" value=""/>
+                    <apex:param name="editActionElementId" value=""/>
+                </apex:actionFunction>
+
+                <apex:pageBlockTable value="{!displayedMaterialItems}" var="material" style="table-layout: initial">
+                    <apex:column headerValue="Action">
+                        <apex:commandButton onclick="removeItem('{!material.item.ItemNumber}');return false;" reRender="mainform" status="status" value="Remove"/>
+                        <apex:commandButton id="editAction" onclick="editItem('{!material.item.ItemNumber}', '{!$Component.editAction}');return false;" value="Edit"/>
+                    </apex:column>
+                    <apex:column value="{!material.item.ItemNumber}" headerValue="Item Number"/>
+                    <apex:column headerValue="Product Name" >
+                            <apex:outputLink value="javascript:showMaterialDetailPopUp('{!material.item.Material}');">
+                            {!material.item.Material}
+                        </apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Description" value="{!material.item.ItemDescription}"/>
+                    <apex:column value="{!material.item.ProductHierarchy}" headerValue="Category"/>
+                    <apex:column value="{!material.item.ScheduleLineDate}" headerValue="Schedule Date"/>
+                    <apex:column headerValue="ATP" rendered="{!isOpportunityATPEnabled}">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!material.maxItemSchedule.ScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Quantity">
+                        <apex:outputText value="{0,number,###,##0}">
+                            <apex:param value="{!material.item.OrderQuantity}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Item Price">
+                        <apex:outputText value="{1,number,###,##0.00} {0}">
+                            <apex:param value="{!material.item.SalesDocumentCurrency}"/>
+                            <apex:param value="{!material.item.NetItemPrice}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Net Quote Value">
+                        <apex:outputText value="{1,number,###,##0.00} {0}">
+                            <apex:param value="{!material.item.SalesDocumentCurrency}"/>
+                            <apex:param value="{!material.item.NetOrderValue}"/>
+                        </apex:outputText>
+                    </apex:column>
+                </apex:pageBlockTable>
+
+                <apex:commandButton rendered="{!canQuotePrices}" onclick="showMaterialsPopup();return false;" value="Add Materials"/>
+
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" title="Edit Item" collapsible="true" id="editItem" rendered="{!editItemNumber!=null}">
+                <apex:outputText label="Item Number:" value="{!editQuoteItem.item.ItemNumber}"/>
+                <apex:pageBlockSectionItem/>
+                <apex:outputText label="Material:" value="{!editQuoteItem.item.Material}"/>
+                <apex:inputText label="Material Desc:" value="{!editQuoteItem.item.ItemDescription}" maxlength="40"/>
+                <apex:outputText label="Customer Material Number:" value="{!editQuoteItem.item.CustomerMaterialNumber}"/>
+                <apex:pageBlockSectionItem/>
+                <apex:input label="Quantity:" type="number" value="{!editQuoteItem.item.OrderQuantity}"/>
+                <apex:outputText label="Unit of Measure:" value="{!editQuoteItem.item.BaseUnitOfMeasure}"/>
+                <apex:input label="Net Price:" type="number" value="{!editQuoteItem.item.NetItemPrice}" html-step=".01"/>
+                <apex:outputText label="Total:" value="{!editQuoteItem.item.NetOrderValue}"/>
+                <apex:selectList label="Plant:" size="1" value="{!editQuoteItem.item.Plant}">
+                    <apex:selectOptions value="{!PlantSelections}" />
+                </apex:selectList>
+                <apex:input label="Requested Ship:" type="date" value="{!editQuoteItem.item.ScheduleLineDate}"/>
+                <apex:outputText label="Item Category:" value="{!editQuoteItem.item.ItemCategory}"/>
+                <apex:pageBlockSectionItem/>
+                <apex:outputText label="Billing Block:" value="{! IF(editQuoteItem.item.BillingBlockStatus == '','Not Blocked',editQuoteItem.item.BillingBlockStatus) }"/>
+                <apex:outputText label="Delivery Block:" value="{!IF(editQuoteItem.item.DeliveryBlockStatus == '','Not Blocked',editQuoteItem.item.DeliveryBlockStatus)}"/>
+
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value=""/>
+                    <apex:outputPanel>
+                        <apex:commandButton value="Save Item" action="{!saveEditItem}" oncomplete="setElementFocus('{!editActionElementId}');" status="status" rerender="mainform,materialmessagediv"/>
+                        <apex:commandButton value="Cancel" action="{!cancelEditItem}" oncomplete="setElementFocus('{!editActionElementId}');" status="status" rerender="mainform,materialmessagediv"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <div id="divlMaterialDetail" title="Material Description" style="display:none;">
+                <iframe id="ifrmMaterialDetail" width="100%" height="410px"></iframe>
+            </div>
+
+            <apex:pageBlockSection id="commandButtonBlock" columns="1" title="Create Opportunity Pricing:">
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value="Net Quote Value"/>
+                    <apex:outputText value="{0, number, ###,##0.00}">
+                        <apex:param value="{!netOpportunityPrice}"/>
+                    </apex:outputText>
+                </apex:pageBlockSectionItem>
+                <apex:commandButton rendered="{! canQuotePrices && canSaveQuote && editItemNumber == null}" value="Save Opportunity Line Items" action="{!UpdateOpportunity}"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <c:CMP_NavButtons isClassic="{!isClassic}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer />
+
+    <div id="shipToSearchPopup" style="display:none">
+        <apex:form id="shipToForm">
+            <c:CMP_ShipToSearch
+                receiver="{!shipToReceiver}"
+                rerender="mainform,materialmessagediv,shipToForm"
+                jsCallback="hideShipToPopup"
+                autoSearch="{!isShipToAutoSearchEnabled}"
+                soldToParty="{!SoldToPartner.CustomerNumber}"
+                salesOrg="{!salesData.SalesOrganization}"
+                DistChan="{!salesData.DistributionChannel}"
+                div="{!salesData.Division}"
+                prevScreen="{!previousScreen}"/>
+        </apex:form>
+    </div>
+
+    <div id="materialsPopup" style="display:none">
+        <apex:form id="materialsForm">
+            <c:CMP_MaterialSearch id="matSearch"
+                receiver="{!msReceiver}"
+                jsCallback="hideMaterialsPopup"
+                jsSearchCallback="fixMaterialsPopupSize"
+                addButtonLabel="Add Items"
+                dateSelect="true"
+                salesOrganization="{!salesData.SalesOrganization}"
+                distributionChannel="{!salesData.DistributionChannel}"
+                materialTypes="{!opportunityMaterialTypes}"
+                defaultMaterialTypes="{!defaultOpportunityMaterialTypes}"
+                autoSearch="{!isOpportunityMaterialAutoSearchEnabled}"
+                rerender="mainform,materialsForm"
+                requestedShip="{!isRequestedShipEnabled}"/>
+        </apex:form>
+    </div>
+
+    <script type="text/javascript">
+        function addLoadEvent(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function() {
+                    oldonload();
+                    func();
+                }
+            }
+        }
+
+        function setLoadFocus() {
+            var elementId = '{!editActionElementId}';
+            if (elementId != null && elementId.length > 0)
+            {
+                document.getElementById(elementId).focus();
+            }
+        }
+
+        function setElementFocus(elementId) {
+            if (elementId != null && elementId.length > 0)
+            {
+                document.getElementById(elementId).focus();
+            }
+        }
+
+        addLoadEvent(setLoadFocus);
+
+        function showMaterialDetailPopUp(materialId) {
+            var baseUrl = 'https://' + location.host + '{!pathMaterialDetail}'
+            var queryString = '?c__SF_MatId=' + materialId + '&isPopUp=true';
+
+           $("#ifrmMaterialDetail").attr('src', baseUrl + queryString);
+           $("#divlMaterialDetail").dialog({
+                modal: true,
+                position: {my: 'top', at: 'top+10%'},
+                height: 'auto',
+                width: '500px',
+                open: function(event, ui) {
+                    $('.ui-widget-overlay').bind('click', function() {
+                        $(this).siblings('.ui-dialog').find(materialId).dialog('close');
+                    });
+                }
+            });
+        }
+
+        function showDialog(id) {
+            $(id).dialog({
+                modal: true,
+                position: {my: 'top', at: 'top+10%'},
+                width: $(window).width() * .9,
+                height: 'auto',
+                open: function(event, ui) {
+                    $('.ui-widget-overlay').bind('click', function() {
+                        $(this).siblings('.ui-dialog').find(id).dialog('close');
+                    });
+                }
+            });
+        }
+
+        function showMaterialsPopup() {
+            showDialog('#materialsPopup');
+        }
+
+        function showShipToPopup(){
+            showDialog('#shipToSearchPopup');
+        }
+
+        function hideDialog(id) {
+            $(id).dialog('close');
+        }
+
+        function hideMaterialsPopup() {
+            hideDialog('#materialsPopup');
+        }
+
+        function hideShipToPopup() {
+            hideDialog('#shipToSearchPopup');
+        }
+
+        function fixDialogSize(id) {
+            $(id).dialog('option', 'height', 'auto');
+        }
+
+        function fixMaterialsPopupSize() {
+            fixDialogSize('#materialsPopup');
+        }
+
+        twistSection(document.getElementById('{!$Component.mainform.pbdiv.oppPbs}').getElementsByTagName('img')[0]);
+    </script>
+</apex:page>

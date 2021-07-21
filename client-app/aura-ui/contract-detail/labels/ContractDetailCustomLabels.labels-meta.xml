@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+<labels>
+        <fullName>Enosix_ContractDetail_Header_Title</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header</shortDescription>
+        <value>Header</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_SalesDocument</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Document</shortDescription>
+        <value>Sales Document:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_SoldToParty</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SoldTo Party</shortDescription>
+        <value>SoldTo Party:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_CustomerPurchaseOrderNumber</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Purchase Order Number</shortDescription>
+        <value>Customer Purchase Order Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_CustomerPurchaseOrderDate</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Purchase Order Date</shortDescription>
+        <value>Customer Purchase Order Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_NetValue</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Value</shortDescription>
+        <value>Net Value:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_TaxAmount</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TaxAmount</shortDescription>
+        <value>Tax Amount:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_DocumentCurrency</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Document Currency</shortDescription>
+        <value>Document Currency:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_ReferenceDocument</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reference Document</shortDescription>
+        <value>Reference Document:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_ReferenceDocumentCategory</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reference Document Category</shortDescription>
+        <value>Reference Document Category:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_ProductProposalSearchTerm</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product Proposal Search Term</shortDescription>
+        <value>Product Proposal Search Term:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_ShippingConditions</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Shipping Conditions</shortDescription>
+        <value>Shipping Conditions:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Header_BusinessArea</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Business Area</shortDescription>
+        <value>Business Area:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_PartnerFunction</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partner Function</shortDescription>
+        <value>Partner Function</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_CustomerNumber</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Number</shortDescription>
+        <value>Customer Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_Vendor</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Vendor</shortDescription>
+        <value>Vendor</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_PersonnelNumber</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Personnel Number</shortDescription>
+        <value>Personnel Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_ContactPersonNumber</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact Person Number</shortDescription>
+        <value>Contact Person</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_PartnerName</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partner Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_Street</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Street</shortDescription>
+        <value>Street</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_City</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>City</shortDescription>
+        <value>City</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_Region</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Region</shortDescription>
+        <value>Region</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_PostalCode</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Postal Code</shortDescription>
+        <value>Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Partner_Country</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Contract_StartDate</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Contract_EndDate</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End Date</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_Detail</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Detail</shortDescription>
+        <value>Item Detail</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_ItemNumber</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Number</shortDescription>
+        <value>Item Number</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_Material</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Material</shortDescription>
+        <value>Material</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_ItemDescription</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Description</shortDescription>
+        <value>Item Description</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_Quantity</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quantity</shortDescription>
+        <value>Quantity</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_DocumentCurrency</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Document Currency</shortDescription>
+        <value>Currency</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_NetItemPrice</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Item Price</shortDescription>
+        <value>Item Price</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_NetValue</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Net Value</shortDescription>
+        <value>Net Value</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_Plant</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Plant</shortDescription>
+        <value>Plant</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Item_ItemCategory</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Category</shortDescription>
+        <value>Item Category</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_SalesDocumentType</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Document Type</shortDescription>
+        <value>Sales Document Type:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_SalesOrganization</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Organization</shortDescription>
+        <value>Sales Organization:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_DistributionChannel</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Distribution Channel</shortDescription>
+        <value>Distribution Channel:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_Division</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Division</shortDescription>
+        <value>Division:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_SalesGroup</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SalesGroup</shortDescription>
+        <value>SalesGroup:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_SalesOffice</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Office</shortDescription>
+        <value>Sales Office:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_CreateDate</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Date</shortDescription>
+        <value>Created Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_OrderReason</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Reason</shortDescription>
+        <value>Order Reason:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_PriceListType</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price List Type</shortDescription>
+        <value>Price List:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_PriceGroup</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price Group</shortDescription>
+        <value>Price Group:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_SalesDistrict</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales District</shortDescription>
+        <value>Sales District:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_TermsOfPaymentKey</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Terms Of Payment Key</shortDescription>
+        <value>Payment Terms:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_IncotermsPart1</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Incoterms Part1</shortDescription>
+        <value>Freight Terms:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_ContractDetail_Sales_IncotermsPart2</fullName>
+        <categories>enosix, contract, detail</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IncotermsPart2</shortDescription>
+        <value>Terms Text:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_BillingBlock</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, billing block</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Billing Block</shortDescription>
+        <value>Billing Block:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Category</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, category</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Detail Category</shortDescription>
+        <value>Category:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_DeliveryBlock</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, delivery block</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Doc Item Detail Delivery Block</shortDescription>
+        <value>Delivery Block:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_ItemNumber</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, item number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Number</shortDescription>
+        <value>Item Number:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Material</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, material</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Material</shortDescription>
+        <value>Material:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_MaterialDescription</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, material description</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Material Description</shortDescription>
+        <value>Description:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Plant</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, plant</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Plant</shortDescription>
+        <value>Plant:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_PricePer</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, price per</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price Per</shortDescription>
+        <value>Price Per:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Quantity</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, quantity</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quantity</shortDescription>
+        <value>Quantity:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_RequestedShipDate</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, requested ship date</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requested Ship Date</shortDescription>
+        <value>Requested Ship Date:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Route</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, route</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Route</shortDescription>
+        <value>Route:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Tax</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, tax</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tax</shortDescription>
+        <value>Tax:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Title</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, title</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Item Detail Title</shortDescription>
+        <value>Item Detail</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_ItemDetail_Total</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, total</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total</shortDescription>
+        <value>Total:</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_Conditions_Condition</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, total</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Condition</shortDescription>
+        <value>Condition</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_Conditions_ConditionDescription</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, total</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_Conditions_Rate</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, total</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rate</shortDescription>
+        <value>Rate</value>
+    </labels>
+    <labels>
+        <fullName>Enosix_Contract_Conditions_ConditionValue</fullName>
+        <categories>enosiX, sap customer, sales doc detail, item detail, total</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ConditionValue</shortDescription>
+        <value>ConditionValue</value>
+    </labels>
+</CustomLabels>

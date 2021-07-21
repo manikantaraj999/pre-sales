@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <fullName>ReferencedFields</fullName>
+        <description>Custom fields that will be queried by the Quote Line Editor</description>
+        <displayedFields>
+            <field>SAP_Configuration__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ReferencedFields</label>
+    </fieldSets>
+</CustomObject>

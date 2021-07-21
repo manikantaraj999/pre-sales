@@ -1,0 +1,21 @@
+<design:component label="SAP Contract Partners Detail">
+    <design:attribute name="displayHeader" label="Display Header"
+        description="Indicator as to whether or not title and icon at top of component is to be displayed" />
+    <design:attribute name="headerTitle" label="Header Title"
+        description="The Title displayed when Display Header is enabled" />
+
+    <design:attribute name="sapDocumentId" label="SAP Document Id" /> 
+    <design:attribute name="recordId" label="Salesforce Record Id" />
+
+    <design:attribute name="displayPartnerFunction" label="Display Partner Function"/>
+    <design:attribute name="displayCustomerNumber" label="Display Customer Number"/>
+    <design:attribute name="displayVendor" label="Display Vendor"/>
+    <design:attribute name="displayPersonnelNumber" label="Display Personnel Number"/>
+    <design:attribute name="displayContactPersonNumber" label="Display Contact Person Number"/>
+    <design:attribute name="displayPartnerName" label="Display Partner Name"/>
+    <design:attribute name="displayStreet" label="Display Street"/>
+    <design:attribute name="displayCity" label="Display City"/>
+    <design:attribute name="displayPostalCode" label="Display Postal Code"/>
+    <design:attribute name="displayRegion" label="Display Region"/>  
+    <design:attribute name="displayCountry" label="Display Country"/>  
+</design:component>

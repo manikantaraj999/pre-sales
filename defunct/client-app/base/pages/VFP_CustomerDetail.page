@@ -1,0 +1,132 @@
+<apex:page showHeader="true" controller="CTRL_CustomerDetail" title="Customer Detail" tabStyle="Account" lightningStylesheets="true" sidebar="true" id="page">
+    <apex:slds rendered="{!!isClassic}"/>
+<!--
+LINKS:
+Account | 'SAP Customer' | LNK_Account_CustomerDetail | /apex/VFP_CustomerDetail?c__SF_AcctId={!Account.Id}
+Case    | 'SAP Customer' | LNK_Case_Customer          | /apex/VFP_CustomerDetail?c__SF_CaseId={!Case.Id}
+-->
+    <apex:form id="mainform">
+        <c:CMP_Status />
+
+        <apex:outputPanel rendered="{! isClassic}">
+            <apex:pageBlock title="Account" rendered="{! null != account}" >
+                <apex:pageBlockSection columns="2" collapsible="false">
+                    <apex:outputText label="Name:" value="{!account.Name}" />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton onclick="window.location.href='/{!account.Id}';return false;" value="Return to Account"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <p class="slds-text-title_caps slds-line-height_reset">Account:</p>
+                                <p class="slds-page-header__title"><apex:outputText label="Name:" value="{!account.Name}" /></p>
+                            </div>
+                            <apex:commandButton onclick="sforce.one.navigateToSObject('{!account.Id}');return false;" value="Return to Account"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <c:CMP_CaseInfo caseId="{!caseid}" rendered="{! null != caseid && hasAccount }" isClassic="{!isClassic}"/>
+        <c:CMP_OpportunityInfo opportunityId="{!opportunityid}" rendered="{! null != opportunityid && hasAccount}" isClassic="{!isClassic}"/>
+
+        <c:CMP_CustomerMissing rendered="{!null == customerid && hasAccount}" />
+        <apex:pageMessages id="messagediv" rendered="{! hasAccount}"/>
+
+        <apex:pageBlock title="SAP Customer Details:" id="updatediv" rendered="{! null != customerid}">
+            <apex:pageBlockSection columns="1" collapsible="false" id="pbsdiv" rendered="{! null != cDetail}">
+                <apex:outputText value="{!cDetail.CustomerNumber}" label="CustomerNumber:" />
+                <apex:outputText value="{!cDetail.BusinessPartnerCategoryDescription}" label="BP Category:"/>
+                <apex:outputText value="{!cDetail.BusinessPartnerTypeDescription}" label="BP Type:"/>
+                <apex:outputText value="{!cDetail.BPRoleDescription}" label="BP Role:"/>
+                <apex:outputText value="{!cDetail.Name}" label="Name:"/>
+                <apex:outputText value="{!cDetail.Name2}" label="Name2:"/>
+                <apex:outputText value="{!FormattedPhone}" label="Phone Number:"/>
+                <apex:outputText value="{!FormattedFax}" label="Fax Number:"/>
+                <apex:outputText value="{!cDetail.EmailAddress}" label="Email Address:"/>
+                <apex:outputText value="{!cDetail.HouseNumber} {!cDetail.Street}" label="Street:"/>
+                <apex:outputText value="{!cDetail.City}" label="City:"/>
+                <apex:outputText value="{!cDetail.RegionDescription}" label="State/Province:"/>
+                <apex:outputText value="{!cDetail.PostalCode}" label="Postal Code:"/>
+                <apex:outputText value="{!cDetail.CountryName}" label="Country:"/>
+                <apex:outputText value="{!cDetail.CustomerAccountGroup}" label="Customer Account Group:"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!updateSAPCustomer}" value="Update SAP Customer" reRender="mainform" status="status" />
+                <apex:commandButton action="{!redirectToOrderPage}" value="Return to Order" reRender="mainform" status="save" rendered="{!isFromOrder}"/>
+    			<apex:commandButton action="{!redirectToQuotePage}" value="Return to Quote" reRender="mainform" status="save" rendered="{!isFromQuote}"/>
+    			<apex:commandButton action="{!redirectToOppPage}" value="Return to Opportunity Pricing" reRender="mainform" status="save" rendered="{!isFromOpp}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="Company Info" rendered="{! showCompanyInfo}">
+            <apex:pageblockTable value="{!CompanyList}" var="company">
+                <apex:column headerValue="Company Code" value="{!company.CompanyCodeDescription}"/>
+                <apex:column headerValue="Reconciliation Account" value="{!company.ReconciliationAccount}"/>
+                <apex:column headerValue="Terms of Payment" value="{!company.TermsOfPaymentDescription}"/>
+            </apex:pageblockTable>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="SalesArea Info" rendered="{!showSalesAreas}">
+            <apex:pageblockTable value="{!SalesAreaList}" var="salesArea">
+                <apex:column headerValue="Sales Organization" value="{!salesArea.SalesOrganizationName}"/>
+                <apex:column headerValue="Distribution Channel" value="{!salesArea.DistributionChannelName}"/>
+                <apex:column headerValue="Division" value="{!salesArea.DivisionName}"/>
+                <apex:column headerValue="Sales District" value="{!salesArea.SalesDistrictName}"/>
+                <apex:column headerValue="Sales Office" value="{!salesArea.SalesOfficeName}"/>
+                <apex:column headerValue="Sales Group" value="{!salesArea.SalesGroupName}"/>
+                <apex:column headerValue="Delivery Plant" value="{!salesArea.DeliveryPlantName}"/>
+                <apex:column headerValue="Price Group" value="{!salesArea.PriceGroupDescription}"/>
+                <apex:column headerValue="Pricing Procedure" value="{!salesArea.CustomerPricProcedureDesc}"/>
+                <apex:column headerValue="Price List" value="{!salesArea.PriceListTypeDescription}"/>
+                <apex:column headerValue="Shipping Condition" value="{!salesArea.ShippingConditionDescription}"/>
+            </apex:pageblockTable>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="creditlist" title="Credit Info" rendered="{! null != customerID}">
+            <apex:pageblockTable value="{!CreditList}" var="credit">
+                <apex:column headerValue="Credit Limit">
+                    <apex:outputText value="{0} {1}">
+                        <apex:param value="{!credit.CreditLimit}"/>
+                        <apex:param value="{!credit.CurrencyKey}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Credit Available">
+                    <apex:outputText value="{0} {1}">
+                        <apex:param value="{!credit.CreditAvailable}"/>
+                        <apex:param value="{!credit.CurrencyKey}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Credit Block">
+                    <apex:outputText value="{0} {1}">
+                        <apex:param value="{!credit.CreditManagmentBlock}"/>
+                        <apex:param value="{!credit.CreditBlockReason}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="CreditAnalyst" value="{!credit.CreditAnalyst}"/>
+                <apex:column headerValue="Customer Credit Group" value="{!credit.CustomerCreditGroup}"/>
+                <apex:column headerValue="CalculatedCreditLimit" value="{!credit.CalculatedCreditLimit}"/>
+                <apex:column headerValue="SpecialAttentionRequired" value="{!credit.SpecialAttentionRequired}"/>
+                <apex:column headerValue="CreditLimitRequested" value="{!credit.CreditLimitRequested}"/>
+                <apex:column headerValue="AutomaticLimitRequest" value="{!credit.AutomaticLimitRequest}"/>
+            </apex:pageblockTable>
+        </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer/>
+</apex:page>

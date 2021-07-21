@@ -1,0 +1,22 @@
+<design:component label="SAP Contract Items Detail">
+    <design:attribute name="displayHeader" label="Display Header"
+        description="Indicator as to whether or not title and icon at top of component is to be displayed" />
+    <design:attribute name="headerTitle" label="Header Title"
+        description="The Title displayed when Display Header is enabled" />
+
+    <design:attribute name="sapDocumentId" label="SAP Document Id" /> 
+    <design:attribute name="recordId" label="Salesforce Record Id" />
+    <design:attribute name="selectedItemDetailData" label="Selected Line Item Data" />
+    <design:attribute name="selectedItemNumber" label="Selected Line Item Number" />
+
+    <design:attribute name="displayItemDetailLink" label="Display Item Detail Link"/>
+    <design:attribute name="displayItemNumber" label="Display Item Number"/>
+    <design:attribute name="displayMaterial" label="Display Material"/>
+    <design:attribute name="displayItemDescription" label="Display Item Description"/>
+    <design:attribute name="displayQuantity" label="Display Quantity"/>    
+    <design:attribute name="displayDocumentCurrency" label="Display Document Currency"/>
+    <design:attribute name="displayNetItemPrice" label="Display Net Item Price"/>
+    <design:attribute name="displayNetValue" label="Display Net Value"/>
+    <design:attribute name="displayPlant" label="Display Plant"/>
+    <design:attribute name="displayItemCategory" label="Display Item Category"/>    
+</design:component>

@@ -1,0 +1,123 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_SHIP_INFO.RESULT": {
+      "FREIGHT_TERMS": {
+        "FriendlyName": "FREIGHT_TERMS",
+        "TechnicalName": "FREIGHT_TERMS",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "PAY_TERMS": {
+        "FriendlyName": "PAY_TERMS",
+        "TechnicalName": "PAY_TERMS",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "SHIP_COND": {
+        "FriendlyName": "SHIP_COND",
+        "TechnicalName": "SHIP_COND",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_SHIP_INFO.ET_FREIGHT_TERMS": {
+      "INCO1": {
+        "FriendlyName": "INCO1",
+        "TechnicalName": "INCO1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI": {
+        "FriendlyName": "BEZEI",
+        "TechnicalName": "BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_SHIP_INFO.ET_PAY_TERMS": {
+      "ZTERM": {
+        "FriendlyName": "ZTERM",
+        "TechnicalName": "ZTERM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VTEXT": {
+        "FriendlyName": "VTEXT",
+        "TechnicalName": "VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_SHIP_INFO.ET_SHIP_COND": {
+      "ShippingConditions": {
+        "FriendlyName": "ShippingConditions",
+        "TechnicalName": "VSBED",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VTEXT": {
+        "FriendlyName": "VTEXT",
+        "TechnicalName": "VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_FREIGHT_TERMS": {
+      "Name": "ET_FREIGHT_TERMS",
+      "ItemType": "RFC_SD_GET_SHIP_INFO.ET_FREIGHT_TERMS",
+      "FieldMap": {
+        "INCO1": {
+          "FriendlyName": "INCO1",
+          "TechnicalName": "INCO1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI": {
+          "FriendlyName": "BEZEI",
+          "TechnicalName": "BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_PAY_TERMS": {
+      "Name": "ET_PAY_TERMS",
+      "ItemType": "RFC_SD_GET_SHIP_INFO.ET_PAY_TERMS",
+      "FieldMap": {
+        "ZTERM": {
+          "FriendlyName": "ZTERM",
+          "TechnicalName": "ZTERM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VTEXT": {
+          "FriendlyName": "VTEXT",
+          "TechnicalName": "VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_SHIP_COND": {
+      "Name": "ET_SHIP_COND",
+      "ItemType": "RFC_SD_GET_SHIP_INFO.ET_SHIP_COND",
+      "FieldMap": {
+        "ShippingConditions": {
+          "FriendlyName": "ShippingConditions",
+          "TechnicalName": "VSBED",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VTEXT": {
+          "FriendlyName": "VTEXT",
+          "TechnicalName": "VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

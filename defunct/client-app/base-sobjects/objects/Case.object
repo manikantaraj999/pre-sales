@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>FLD_SAP_Return_Order_Number__c</fullName>
+        <label>SAP Return Order Number</label>
+        <description>SAP Return Order Number</description>
+        <externalId>false</externalId>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <webLinks xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>LNK_Case_Customer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Customer</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_CustomerDetail&amp;c__SF_CaseId={!Case.Id}</url>
+    </webLinks>
+    <webLinks xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>LNK_CASE_RMA_DETAIL</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>View SAP RMA Order</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_ReturnOrderDetail&amp;c__SAP_RMAId={!Case.FLD_SAP_Return_Order_Number__c}&amp;c__SF_CaseId={!Case.Id}</url>
+    </webLinks>
+    <webLinks xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>LNK_Case_SAP_RMA_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP RMA Search</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_ReturnOrderSearch&amp;c__SF_CaseId={!Case.Id}</url>
+    </webLinks>    
+</CustomObject>

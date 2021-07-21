@@ -1,0 +1,202 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens">
+    <ltng:require scripts="{!$Resource.ensxapp__SR_Enosix + '/js/lightning_utils.js'}" afterScriptsLoaded="{!c.onInit}" />
+    <aura:handler event="aura:locationChange" action="{!c.onLocationChange}" />
+
+    <aura:attribute name="contractDetail" type="Map"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="sapDocumentId" type="String" access="global"/>
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="columns" type="List"/>
+    <c:CMP_ContractDetail aura:id="dataSource"/>
+
+    <aura:attribute name="selectedItemDetailData" type="String" access="global" />
+    <aura:attribute name="selectedItemNumber" type="String" access="global" />
+
+    <aura:attribute name="displayHeader" type="Boolean" default="true"/>
+    <aura:attribute name="headerTitle" type="String" default="Items"/>
+
+    <aura:attribute name="displayItemDetailLink" type="Boolean" default="true"/>
+    <aura:attribute name="displayItemNumber" type="Boolean" default="true"/>
+    <aura:attribute name="displayMaterial" type="Boolean" default="true"/>
+    <aura:attribute name="displayItemDescription" type="Boolean" default="true"/>
+    <aura:attribute name="displayQuantity" type="Boolean" default="true"/>    
+    <aura:attribute name="displayDocumentCurrency" type="Boolean" default="true"/>
+    <aura:attribute name="displayNetItemPrice" type="Boolean" default="true"/>
+    <aura:attribute name="displayNetValue" type="Boolean" default="true"/>
+    <aura:attribute name="displayPlant" type="Boolean" default="true"/>
+    <aura:attribute name="displayItemCategory" type="Boolean" default="true"/>   
+    
+    <aura:html tag="style">
+        @media all and (min-width: 600px) {
+            .slds-modal__container{
+                min-width: 90vw!important;
+            }
+        }
+    </aura:html>
+
+    <aura:if isTrue="{!v.displaySpinner}">
+        <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+        <aura:set attribute="else">
+            <lightning:card class="slds-card slds-m-around__xsmall  slds-is-relative"
+                title="{! !v.displayHeader? '': v.headerTitle}"
+                iconName="{! !v.displayHeader? '':'custom:custom18'}">
+                <div class="slds-card__body slds-card__body_inner">
+                    <c:CMP_Messages messages="{!v.messages}" />
+
+                    <ui:scrollerWrapper >
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <aura:if isTrue="{!v.displayItemDetailLink}">
+                                        <th scope="col"></th>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.displayItemNumber}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_ItemNumber}
+                                            </div>
+                                        </th>
+                                    </aura:if>   
+                                    <aura:if isTrue="{!v.displayMaterial}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_Material}
+                                            </div>
+                                        </th>
+                                    </aura:if>    
+                                    <aura:if isTrue="{!v.displayItemDescription}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_ItemDescription}
+                                            </div>
+                                        </th>
+                                    </aura:if>     
+                                    <aura:if isTrue="{!v.displayQuantity}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_Quantity}
+                                            </div>
+                                        </th>
+                                    </aura:if>   
+                                    <aura:if isTrue="{!v.displayDocumentCurrency}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_DocumentCurrency}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayNetItemPrice}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_NetItemPrice}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayNetValue}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_NetValue}
+                                            </div>
+                                        </th>
+                                    </aura:if>  
+                                    <aura:if isTrue="{!v.displayPlant}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_Plant}
+                                            </div>
+                                        </th>
+                                    </aura:if> 
+                                    <aura:if isTrue="{!v.displayItemCategory}">
+                                        <th scope="col">
+                                            <div class="slds-truncate">
+                                                {!$Label.c.Enosix_ContractDetail_Item_ItemCategory}
+                                            </div>
+                                        </th>
+                                    </aura:if>                                              
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.contractDetail.ITEMS.asList}" var="p">
+                                    <tr>
+                                        <aura:if isTrue="{!v.displayItemDetailLink}">
+                                            <td>
+                                                <div class="slds-truncate">
+                                                    <a href="javascript:;" onclick="{!c.getItemDetail}"
+                                                        data-item-id="{!p.ItemNumber}">{!$Label.c.Enosix_ContractDetail_Item_Detail}</a>    
+                                                </div>
+                                            </td>
+                                        </aura:if> 
+                                        <aura:if isTrue="{!v.displayItemNumber}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_ItemNumber}">
+                                                <div class="slds-truncate">
+                                                    {!p.ItemNumber}
+                                                </div>
+                                            </td>
+                                        </aura:if>   
+                                        <aura:if isTrue="{!v.displayMaterial}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_Material}">
+                                                <div class="slds-truncate">
+                                                    {!p.Material}
+                                                </div>
+                                            </td>
+                                        </aura:if>   
+                                        <aura:if isTrue="{!v.displayItemDescription}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_ItemDescription}">
+                                                <div class="slds-truncate">
+                                                    {!p.ItemDescription}
+                                                </div>
+                                            </td>
+                                        </aura:if>    
+                                        <aura:if isTrue="{!v.displayQuantity}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_Quantity}">
+                                                <div class="slds-truncate">
+                                                    {!p.TargetQuantity}
+                                                </div>
+                                            </td>
+                                        </aura:if>  
+                                        <aura:if isTrue="{!v.displayDocumentCurrency}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_DocumentCurrency}">
+                                                <div class="slds-truncate">
+                                                    {!p.DocumentCurrency}
+                                                </div>
+                                            </td>
+                                        </aura:if>  
+                                        <aura:if isTrue="{!v.displayNetItemPrice}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_NetItemPrice}">
+                                                <div class="slds-truncate">
+                                                    {!p.NetItemPrice}
+                                                </div>
+                                            </td>
+                                        </aura:if> 
+                                        <aura:if isTrue="{!v.displayNetValue}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_NetValue}">
+                                                <div class="slds-truncate">
+                                                    {!p.NetValue}
+                                                </div>
+                                            </td>
+                                        </aura:if>  
+                                        <aura:if isTrue="{!v.displayPlant}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_Plant}">
+                                                <div class="slds-truncate">
+                                                    {!p.Plant}
+                                                </div>
+                                            </td>
+                                        </aura:if>     
+                                        <aura:if isTrue="{!v.displayItemCategory}">
+                                            <td data-label="{!$Label.c.Enosix_ContractDetail_Item_ItemCategory}">
+                                                <div class="slds-truncate">
+                                                    {!p.ItemCategory}
+                                                </div>
+                                            </td>
+                                        </aura:if>                          
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                    </ui:scrollerWrapper>
+                </div>
+            </lightning:card>
+        </aura:set>
+    </aura:if>
+</aura:component>

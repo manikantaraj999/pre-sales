@@ -1,0 +1,5 @@
+<design:component label="Change Quantity">
+    <design:attribute name="itemJSON" label="ItemJSON" />
+    <design:attribute name="itemId" label="Item Id" />
+    <design:attribute name="isFinish" label="Indicates end of flow" />
+</design:component>

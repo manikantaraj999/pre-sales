@@ -1,0 +1,444 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixInvoice_Search.SEARCHPARAMS": {
+      "FromBillingDocumentNumber": {
+        "FriendlyName": "FromBillingDocumentNumber",
+        "TechnicalName": "VBELN_FR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ToBillingDocumentNumber": {
+        "FriendlyName": "ToBillingDocumentNumber",
+        "TechnicalName": "VBELN_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Payer": {
+        "FriendlyName": "Payer",
+        "TechnicalName": "KUNRG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToParty": {
+        "FriendlyName": "SoldToParty",
+        "TechnicalName": "KUNAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingType": {
+        "FriendlyName": "BillingType",
+        "TechnicalName": "FKART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FromBillingDate": {
+        "FriendlyName": "FromBillingDate",
+        "TechnicalName": "FKDAT_FR",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToBillingDate": {
+        "FriendlyName": "ToBillingDate",
+        "TechnicalName": "FKDAT_TO",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "FromCreateDate": {
+        "FriendlyName": "FromCreateDate",
+        "TechnicalName": "ERDAT_FR",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToCreateDate": {
+        "FriendlyName": "ToCreateDate",
+        "TechnicalName": "ERDAT_TO",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "CreatedBy": {
+        "FriendlyName": "CreatedBy",
+        "TechnicalName": "ERNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixInvoice_Search.SEARCHRESULT": {
+      "BillingDocument": {
+        "FriendlyName": "BillingDocument",
+        "TechnicalName": "VBELN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingType": {
+        "FriendlyName": "BillingType",
+        "TechnicalName": "FKART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingTypeDescription": {
+        "FriendlyName": "BillingTypeDescription",
+        "TechnicalName": "FKART_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CompanyCode": {
+        "FriendlyName": "CompanyCode",
+        "TechnicalName": "BUKRS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CompanyCodeName": {
+        "FriendlyName": "CompanyCodeName",
+        "TechnicalName": "BUKRS_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrgDescription": {
+        "FriendlyName": "SalesOrgDescription",
+        "TechnicalName": "VKORG_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingDate": {
+        "FriendlyName": "BillingDate",
+        "TechnicalName": "FKDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ShipDate": {
+        "FriendlyName": "ShipDate",
+        "TechnicalName": "WADAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "SalesOrderNumber": {
+        "FriendlyName": "SalesOrderNumber",
+        "TechnicalName": "AUBEL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Payer": {
+        "FriendlyName": "Payer",
+        "TechnicalName": "KUNRG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PayerName": {
+        "FriendlyName": "PayerName",
+        "TechnicalName": "KUNRG_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToParty": {
+        "FriendlyName": "SoldToParty",
+        "TechnicalName": "KUNAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SoldToName": {
+        "FriendlyName": "SoldToName",
+        "TechnicalName": "KUNAG_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToParty": {
+        "FriendlyName": "ShipToParty",
+        "TechnicalName": "KUNWE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ShipToName": {
+        "FriendlyName": "ShipToName",
+        "TechnicalName": "KUNWE_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TrackingNumber": {
+        "FriendlyName": "TrackingNumber",
+        "TechnicalName": "BOLNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NetOrderValue": {
+        "FriendlyName": "NetOrderValue",
+        "TechnicalName": "NETWR",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "TaxAmount": {
+        "FriendlyName": "TaxAmount",
+        "TechnicalName": "MWSBP",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SalesDocumentCurrency": {
+        "FriendlyName": "SalesDocumentCurrency",
+        "TechnicalName": "WAERK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreatedBy": {
+        "FriendlyName": "CreatedBy",
+        "TechnicalName": "ERNAM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreateDate": {
+        "FriendlyName": "CreateDate",
+        "TechnicalName": "ERDAT",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "BillingStatus": {
+        "FriendlyName": "BillingStatus",
+        "TechnicalName": "FKSTK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BillingStatusDescription": {
+        "FriendlyName": "BillingStatusDescription",
+        "TechnicalName": "FKSTK_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixInvoice_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "FromBillingDocumentNumber": {
+          "FriendlyName": "FromBillingDocumentNumber",
+          "TechnicalName": "VBELN_FR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ToBillingDocumentNumber": {
+          "FriendlyName": "ToBillingDocumentNumber",
+          "TechnicalName": "VBELN_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Payer": {
+          "FriendlyName": "Payer",
+          "TechnicalName": "KUNRG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToParty": {
+          "FriendlyName": "SoldToParty",
+          "TechnicalName": "KUNAG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BillingType": {
+          "FriendlyName": "BillingType",
+          "TechnicalName": "FKART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FromBillingDate": {
+          "FriendlyName": "FromBillingDate",
+          "TechnicalName": "FKDAT_FR",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToBillingDate": {
+          "FriendlyName": "ToBillingDate",
+          "TechnicalName": "FKDAT_TO",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "FromCreateDate": {
+          "FriendlyName": "FromCreateDate",
+          "TechnicalName": "ERDAT_FR",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToCreateDate": {
+          "FriendlyName": "ToCreateDate",
+          "TechnicalName": "ERDAT_TO",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "CreatedBy": {
+          "FriendlyName": "CreatedBy",
+          "TechnicalName": "ERNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixInvoice_Search.SEARCHRESULT",
+      "FieldMap": {
+        "BillingDocument": {
+          "FriendlyName": "BillingDocument",
+          "TechnicalName": "VBELN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BillingType": {
+          "FriendlyName": "BillingType",
+          "TechnicalName": "FKART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BillingTypeDescription": {
+          "FriendlyName": "BillingTypeDescription",
+          "TechnicalName": "FKART_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CompanyCode": {
+          "FriendlyName": "CompanyCode",
+          "TechnicalName": "BUKRS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CompanyCodeName": {
+          "FriendlyName": "CompanyCodeName",
+          "TechnicalName": "BUKRS_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrgDescription": {
+          "FriendlyName": "SalesOrgDescription",
+          "TechnicalName": "VKORG_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BillingDate": {
+          "FriendlyName": "BillingDate",
+          "TechnicalName": "FKDAT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ShipDate": {
+          "FriendlyName": "ShipDate",
+          "TechnicalName": "WADAT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "SalesOrderNumber": {
+          "FriendlyName": "SalesOrderNumber",
+          "TechnicalName": "AUBEL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Payer": {
+          "FriendlyName": "Payer",
+          "TechnicalName": "KUNRG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PayerName": {
+          "FriendlyName": "PayerName",
+          "TechnicalName": "KUNRG_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToParty": {
+          "FriendlyName": "SoldToParty",
+          "TechnicalName": "KUNAG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SoldToName": {
+          "FriendlyName": "SoldToName",
+          "TechnicalName": "KUNAG_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToParty": {
+          "FriendlyName": "ShipToParty",
+          "TechnicalName": "KUNWE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ShipToName": {
+          "FriendlyName": "ShipToName",
+          "TechnicalName": "KUNWE_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "TrackingNumber": {
+          "FriendlyName": "TrackingNumber",
+          "TechnicalName": "BOLNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NetOrderValue": {
+          "FriendlyName": "NetOrderValue",
+          "TechnicalName": "NETWR",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "TaxAmount": {
+          "FriendlyName": "TaxAmount",
+          "TechnicalName": "MWSBP",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "SalesDocumentCurrency": {
+          "FriendlyName": "SalesDocumentCurrency",
+          "TechnicalName": "WAERK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreatedBy": {
+          "FriendlyName": "CreatedBy",
+          "TechnicalName": "ERNAM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreateDate": {
+          "FriendlyName": "CreateDate",
+          "TechnicalName": "ERDAT",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "BillingStatus": {
+          "FriendlyName": "BillingStatus",
+          "TechnicalName": "FKSTK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BillingStatusDescription": {
+          "FriendlyName": "BillingStatusDescription",
+          "TechnicalName": "FKSTK_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

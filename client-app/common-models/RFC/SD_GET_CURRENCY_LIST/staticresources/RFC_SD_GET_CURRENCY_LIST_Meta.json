@@ -1,0 +1,52 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_CURRENCY_LIST.RESULT": {},
+    "RFC_SD_GET_CURRENCY_LIST.ET_CURRENCY": {
+      "FieldCurrency": {
+        "FriendlyName": "FieldCurrency",
+        "TechnicalName": "WAERS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "LTEXT": {
+        "FriendlyName": "LTEXT",
+        "TechnicalName": "LTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "KTEXT": {
+        "FriendlyName": "KTEXT",
+        "TechnicalName": "KTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_CURRENCY": {
+      "Name": "ET_CURRENCY",
+      "ItemType": "RFC_SD_GET_CURRENCY_LIST.ET_CURRENCY",
+      "FieldMap": {
+        "FieldCurrency": {
+          "FriendlyName": "FieldCurrency",
+          "TechnicalName": "WAERS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "LTEXT": {
+          "FriendlyName": "LTEXT",
+          "TechnicalName": "LTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "KTEXT": {
+          "FriendlyName": "KTEXT",
+          "TechnicalName": "KTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

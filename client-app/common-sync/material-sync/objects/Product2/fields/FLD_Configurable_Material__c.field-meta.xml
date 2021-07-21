@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLD_Configurable_Material__c</fullName>
+    <label>FLD Configurable Material</label>
+    <description>SAP Configurable Material</description>
+    <externalId>false</externalId>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+    <unique>false</unique>
+    <defaultValue>false</defaultValue>
+</CustomField>

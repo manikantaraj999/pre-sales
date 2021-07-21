@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>LBL_Auto_Selected_Single_Option</fullName>
+        <categories>enosix, messages, info</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Auto Selected Single Option</shortDescription>
+        <value>Auto Selected Single Option</value>
+    </labels>
+    <labels>
+        <fullName>LBL_Account_Sold_To_Blank</fullName>
+        <categories>enosix, sap customer, messages, info</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Blank Account Sold To</shortDescription>
+        <value>ERROR: The Account's SAP Customer Number field is blank. Please ensure the Quote has an Account and the SAP Customer Number field is populated.</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_BillToParty</fullName>
+        <categories>enosiX, sap customer, bill to</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bill-to Party</shortDescription>
+        <value>Bill-to Party</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_ErrorNoAccount</fullName>
+        <categories>enosiX, cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No account associated with this quote.</shortDescription>
+        <value>No account associated with this quote.</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_ErrorNoPartners</fullName>
+        <categories>enosix, sap customer, Partners</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Partners Found</shortDescription>
+        <value>No Partners Found</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_ErrorNoSalesOrgs</fullName>
+        <categories>enosix, sap customer, sales orgs</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Sales Orgs Found</shortDescription>
+        <value>No Sales Orgs Found</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_ErrorNotLinked</fullName>
+        <categories>enosix, sap customer, not linked</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not Linked</shortDescription>
+        <value>This Quote is not linked to an SAP Customer</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_PayerParty</fullName>
+        <categories>enosiX, sap customer, payer</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Payer Party</shortDescription>
+        <value>Payer Party</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectPartner_Confirm</fullName>
+        <categories>enosiX, sap customer, partner</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirm: Is this the partner you wish to use?</shortDescription>
+        <value>Confirm: Is this the partner you wish to use?</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectPartner_NoBtn</fullName>
+        <categories>enosix, sap cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>No - Select Another Partner</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectPartner_Title</fullName>
+        <categories>enosiX, cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Partner</shortDescription>
+        <value>Select Partners For</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectPartner_YesBtnFinish</fullName>
+        <categories>enosix, sap cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>Yes - Finish</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectPartner_YesBtnNext</fullName>
+        <categories>enosix, sap cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>Yes - Next</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectSalesAreas_Confirm</fullName>
+        <categories>enosix, sap customer, categories</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirm</shortDescription>
+        <value>Confirm</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectSalesAreas_NoBtn</fullName>
+        <categories>enosix, sap cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>No - Select Another Sales Area</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectSalesAreas_Title</fullName>
+        <categories>enosiX, cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Sales Area</shortDescription>
+        <value>Select Sales Area</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SelectSalesAreas_YesBtn</fullName>
+        <categories>enosix, sap customer, sap cpq quote</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_ShipToParty</fullName>
+        <categories>enosiX, sap customer, ship to</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ship-to Party</shortDescription>
+        <value>Ship-to Party</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CPQ_Quote_SoldToParty</fullName>
+        <categories>enosiX, sap customer, sold to</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sold-to Party</shortDescription>
+        <value>Sold-to Party</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CustomerNumber_Not_Found</fullName>
+        <categories>enosix, sap customer, categories</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer number is missing</shortDescription>
+        <value>SAP Customer Number Is Missing</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CustomerSalesAreas_DistributionChannel</fullName>
+        <categories>enosix, sap customer, categories</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ShortDescriptio</shortDescription>
+        <value>Distribution Channel</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CustomerSalesAreas_Division</fullName>
+        <categories>enosix, sap customer, categories</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>division</shortDescription>
+        <value>Division</value>
+    </labels>
+    <labels>
+        <fullName>LBL_CustomerSalesAreas_SalesOrg</fullName>
+        <categories>enosiX, sap customer, sales org</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sales Organization</shortDescription>
+        <value>Sales Organization</value>
+    </labels>
+    <labels>
+        <fullName>LBL_Material_Number_Blank</fullName>
+        <categories>enosix, sap customer, messages, info</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Blank Material Number</shortDescription>
+        <value>ERROR: Product's SAP Material Number field is blank. Please ensure the Material Number field is properly configured via Setup &gt; Custom Metadata Types &gt; SAP Material Setting &gt; Manage &gt; Settings.</value>
+    </labels>
+    <labels>
+        <fullName>LBL_No_Quote_Found</fullName>
+        <categories>enosix, quote, messages</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Quote Found for Id</shortDescription>
+        <value>No Quote Found for Id</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerFunction_Not_Found</fullName>
+        <categories>enosix, sap customer, categories</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partner function is missing</shortDescription>
+        <value>SAP Partner Function Is Missing</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerNumber_Address</fullName>
+        <categories>enosiX, sap customer, partner, contact, number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partner Address</shortDescription>
+        <value>Partner Address:</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerNumber_Contact</fullName>
+        <categories>enosiX, sap customer, partner, contact, number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact Number</shortDescription>
+        <value>Contact#:</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerNumber_ContactName</fullName>
+        <categories>enosiX, sap customer, partner, contact, number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact Name</shortDescription>
+        <value>Contact Name:</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerNumber_Number</fullName>
+        <categories>enosiX, sap customer, partner, number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partner Number</shortDescription>
+        <value>Partner Number:</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerNumber_Partner</fullName>
+        <categories>enosiX, sap customer, partner, number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Partner Number</shortDescription>
+        <value>Partner#:</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerNumber_Personnel</fullName>
+        <categories>enosiX, sap customer, partner, personnel, number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Personnel Number</shortDescription>
+        <value>Personnel#:</value>
+    </labels>
+    <labels>
+        <fullName>LBL_PartnerNumber_Vendor</fullName>
+        <categories>enosiX, sap customer, partner, vendor, number</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Vendor Number</shortDescription>
+        <value>Vendorartner#:</value>
+    </labels>
+</CustomLabels>

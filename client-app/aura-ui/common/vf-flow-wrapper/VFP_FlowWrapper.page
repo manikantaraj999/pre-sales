@@ -1,0 +1,56 @@
+<!--
+Opportunity
+ Custom Button or Link
+ Detail Page Button
+ Display in existing window
+ URL: /apex/VFP_FlowWrapper?c__wfn=enosiX_Sales_Document_Create_Order&recordId={!Opportunity.Id}
+-->
+<apex:page sidebar="true" showHeader="true">
+  <apex:slds/>
+  <apex:includeLightning/>
+  <div id="app">
+    <div id="auraErrorMessage" class="slds-text-color_error slds-var-p-around_large"></div>
+  </div>
+  <script>
+    function displayError(errorMessage)
+    {
+      document.getElementById('auraErrorMessage').style.display = 'block';
+      document.getElementById('auraErrorMessage').innerText = errorMessage;
+    }
+
+    function initLightningFlow(flowName, flowParams) {
+      var appName = 'c:APP_FlowWrapper';
+      var componentName = 'lightning:flow';
+      var componentParams = {};
+      componentParams.onstatuschange = function handleStatusChange(event) {
+        console.log(event);
+        if (event.getParam('status') === "FINISHED") {
+          if (recordId) {
+            window.location = '/' + recordId;
+          } else {
+            window.history.back();
+          }
+        }
+      }
+      $Lightning.use(appName, function () {
+        $Lightning.createComponent(componentName, componentParams,
+          "app",
+          function (cmp, status) {
+            if (status === 'SUCCESS') {
+              var r = cmp.startFlow(flowName, flowParams);
+            }
+          });
+      });
+    }
+
+    var urlParams = new URLSearchParams(location.search);
+    var wrappedFlowName = urlParams.get('c__wfn') // 'ensxapp__SAP_Order_Search_Flow'
+    if (!wrappedFlowName) displayError('Missing Wrapped Flow Name URL parameter (?c__wfn=...).');
+
+    var recordId = urlParams.get('recordId') || '';
+    let flowVariables = [];
+    if (recordId) flowVariables.push({name: 'recordId', type: 'String', value: recordId});
+
+    if (wrappedFlowName) initLightningFlow(wrappedFlowName, flowVariables);
+  </script>
+</apex:page>

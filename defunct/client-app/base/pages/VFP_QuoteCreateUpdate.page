@@ -1,0 +1,827 @@
+<apex:page id="VFP_QuoteCreateUpdate" docType="html-5.0" controller="CTRL_QuoteCreateUpdate" showHeader="true" sidebar="true" tabStyle="Opportunity"
+    title="{!IF(isUpdateMode,'Update SAP Quote:', IF(isCloneMode,'Clone SAP Quote:', 'Create SAP Quote:'))}" lightningStylesheets="true">
+
+    <apex:slds rendered="{!!isClassic}"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <style>
+        .bPageBlock .pbTitle {
+            width: 0% !important;
+        }
+        .required-mark{
+            color: red;
+            vertical-align: top;
+            display:inline;
+        }
+    </style>
+    <apex:form id="mainform">
+
+        <c:CMP_Status />
+
+        <apex:outputPanel rendered="{!isClassic}">
+            <apex:pageBlock title="Account: {!returnToAccountName}">
+                <apex:pageBlockSection columns="2" collapsible="false" rendered="{! null != soldToCustomer }">
+                    <apex:outputText value="{!soldToCustomer.Name}" label="Customer Name:"/>
+                    <apex:outputText value="{0} {1}, {2} {3}" label="Address:">
+                        <apex:param value="{!soldToCustomer.Street}"/>
+                        <apex:param value="{!soldToCustomer.City}"/>
+                        <apex:param value="{!soldToCustomer.Region}"/>
+                        <apex:param value="{!soldToCustomer.PostalCode}"/>
+
+                    </apex:outputText>
+                </apex:pageBlockSection>
+                <apex:pageBlockButtons location="bottom" rendered="{! null != returnToId }">
+                    <apex:commandButton onclick="window.location.href='/{!returnToId}';return false;" value="Back to {!returnToName}"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!!isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <p class="slds-text-title_caps slds-line-height_reset">Account:</p>
+                                <p class="slds-page-header__title"><apex:outputText label="Name:" value="{!returnToAccountName}" /></p>
+                            </div>
+                            <apex:commandButton onclick="sforce.one.navigateToSObject('{!returnToId}');return false;" value="Return to {!returnToName}" rendered="{! null != returnToId }"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <c:CMP_OpportunityInfo opportunityId="{!quoteOpportunity.Id}" isUpdateMode="{!isUpdateMode}" sapType="quote"
+                               rendered="{! quoteOpportunity != null }" isClassic="{!isClassic}"/>
+
+        <apex:pageBlock rendered="{!opportunityClosed}">
+            <apex:outputText >
+                You cannot create a SAP Quote for a closed Opportunity. Please return to the Opportunity and change the Stage name, or create a new Opportunity
+            </apex:outputText>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="{!IF(isUpdateMode,'Update SAP Quote:', IF(isCloneMode,'Clone SAP Quote:', 'Create SAP Quote:'))}" rendered="{! null == soldToCustomer}">
+            <apex:outputPanel html-Hidden="true">
+                <apex:actionFunction name="createCustomer" action="{!redirectToCreateCustomer}" reRender="mainform" status="status">
+                    <apex:param name="SF_AcctId" value=""/>
+                </apex:actionFunction>
+            </apex:outputPanel>
+            <apex:commandButton onclick="createCustomer('{!quoteAccount.Id}');return false;" value="Create Customer"/>
+        </apex:pageBlock>
+
+        <apex:pageMessages id="messagediv1"/>
+
+        <apex:outputPanel html-Hidden="true">
+            <apex:actionFunction name="SimulateQuote" action="{!SimulateQuote}" rerender="selectedHeaderCondition,commandButtonBlock,messagediv1,messagediv2,materialmessagediv,itemsBlock" status="status"/>
+        </apex:outputPanel>
+
+        <apex:pageBlock title="{!IF(isUpdateMode,'Update SAP Quote:', IF(isCloneMode,'Clone SAP Quote:', 'Create SAP Quote:'))}"
+                        rendered="{! null != soldToCustomer && null != quoteAccount && null != customerSalesData && !opportunityClosed }">
+
+            <div style="text-align:right">
+                <span class="required-mark">*</span> = Required Field
+            </div>
+
+            <apex:outputPanel html-Hidden="true">
+                <apex:actionFunction name="checkValidToAndFromDate" action="{!checkValidToAndFromDate}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" status="status"/>
+                <apex:actionFunction name="checkRequestedDate" action="{!checkRequestedDate}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" status="status"/>
+                <apex:actionFunction name="updateSalesAreas" action="{!updateSalesAreas}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,shipToForm,materialsForm" status="status"/>
+            </apex:outputPanel>
+
+            <apex:pageBlockSection columns="2" collapsible="true" id="quoteHeaderDiv" Title="Quote Header">
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value="Quote Type:"/>
+                    <apex:outputPanel>
+                        <apex:selectList value="{!quoteDetail.Sales.SalesDocumentType}" size="1" label="Quote Type:">
+                            <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform,shipToForm,materialsForm"
+                                                status="status"/>
+                            <apex:selectOptions value="{!QuoteTypes}"/>
+                        </apex:selectList>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem/>
+
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Sales Organization:"/>
+                    <apex:outputPanel id="saleOrgDiv">
+                        <apex:selectList value="{!quoteDetail.Sales.SalesOrganization}" label="Sales Organization:" size="1" disabled="{! isUpdateMode || isCloneMode}">
+                            <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,shipToForm,materialsForm"
+                                                status="status"/>
+                            <apex:selectOptions value="{!SalesOrganizations}"/>
+                        </apex:selectList>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Distribution Channel:"/>
+                    <apex:outputPanel id="distChanDiv">
+                        <apex:selectList value="{!quoteDetail.Sales.DistributionChannel}" label="Distribution Channel:" size="1" disabled="{! isUpdateMode || isCloneMode}">
+                            <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,shipToForm,materialsForm"
+                                                status="status"/>
+                            <apex:selectOptions value="{!DistributionChannels}"/>
+                        </apex:selectList>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Division:"/>
+                    <apex:outputPanel id="divisionDiv">
+                        <apex:selectList value="{!quoteDetail.Sales.Division}" label="Division:" size="1" disabled="{! isUpdateMode || isCloneMode}">
+                            <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,shipToForm,materialsForm"
+                                                status="status"/>
+                            <apex:selectOptions value="{!Divisions}"/>
+                        </apex:selectList>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:selectList value="{!quoteDetail.Sales.SalesDocumentCurrency}" label="Currency:" disabled="{!isCurrencyDisabled}" size="1" rendered="{! !checkForClone}">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,shipToForm,materialsForm"
+                                        status="status"/>
+                    <apex:selectOptions value="{!CurrencyOptions}"/>
+                </apex:selectList>
+
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Sold To:"/>
+                    <apex:outputPanel id="soldToDiv">
+                        <apex:selectList value="{!SoldToPartner.CustomerNumber}" label="Sold To:" size="1">
+                            <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="quoteHeaderDiv,itemsBlock,commandButtonBlock,messagediv1,messagediv2,shipToForm,materialsForm"
+                                                status="status"/>
+                            <apex:selectOptions value="{!SoldToPartners}"/>
+                        </apex:selectList>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Sold To:"/>
+                    <apex:outputPanel id="soldToDiv">
+                        <apex:selectList value="{!SoldToPartner.CustomerNumber}" label="Sold To:" size="1" rendered="{! null != quoteAccount }">
+                            <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="orderHeaderDiv,itemsBlock,headerNetValue,commandButtonBlock,messagediv1,messagediv2,shipToSearchForm,materialsForm,campaignSearchForm"
+                                                status="status"/>
+                            <apex:selectOptions value="{!SoldToPartners}"/>
+                        </apex:selectList>
+                        <apex:outputText value="{0} - {1} - {2}, {3}, {4} {5} {6}" rendered="{! null != SoldToPartner.CustomerNumber && '' != SoldToPartner.CustomerNumber && null == quoteAccount}">
+                            <apex:param value="{!SoldToPartner.CustomerNumber}"/>
+                            <apex:param value="{!soldToCustomer.Name}"/>
+                            <apex:param value="{!soldToCustomer.Street}"/>
+                            <apex:param value="{!soldToCustomer.City}"/>
+                            <apex:param value="{!soldToCustomer.Region}"/>
+                            <apex:param value="{!soldToCustomer.PostalCode}"/>
+                            <apex:param value="{!soldToCustomer.Country}"/>
+                        </apex:outputText>
+                        <span class="required-mark">*</span>
+                        <apex:commandButton style="margin-left:15px" onclick="showDialog('#soldToSearchPopup'); return false;" value="Search Sold To" rendered="{! null == quoteAccount }"/>                        
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem labelTitle="Ship To:" rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Ship To:"/>
+                    <apex:outputPanel id="shipToDiv">
+                        <apex:outputText value="{0} - {1} - {2}, {3}, {4} {5} {6}" rendered="{! null != ShipToPartner.CustomerNumber && '' != ShipToPartner.CustomerNumber}">
+                            <apex:param value="{!ShipToPartner.CustomerNumber}"/>
+                            <apex:param value="{!shipToCustomer.Name}"/>
+                            <apex:param value="{!shipToCustomer.Street}"/>
+                            <apex:param value="{!shipToCustomer.City}"/>
+                            <apex:param value="{!shipToCustomer.Region}"/>
+                            <apex:param value="{!shipToCustomer.PostalCode}"/>
+                            <apex:param value="{!shipToCustomer.Country}"/>
+                        </apex:outputText>
+                        <span class="required-mark">*</span>
+                        <apex:commandButton style="margin-left:15px" onclick="showDialog('#shipToSearchPopup'); return false;" value="Search Ship To"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem/>
+                <apex:pageBlockSectionItem/>
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value="Ship To Address"/>
+                    <apex:outputPanel/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem/>
+                <apex:inputText value="{!ShipToPartner.HouseNumber}" label="House Number:"/>
+                <apex:inputText value="{!ShipToPartner.Street}" label="Street:"/>
+                <apex:inputText value="{!ShipToPartner.City}" label="City:"/>
+                <apex:selectList size="1" value="{!ShipToPartner.Region}" label="Region:">
+                    <apex:selectOptions value="{!RegionOptions}"/>
+                </apex:selectList>
+                <apex:inputText value="{!ShipToPartner.PostalCode}" label="Postal Code:"/>
+                <apex:selectList size="1" value="{!ShipToPartner.Country}" label="Country:">
+                    <apex:actionSupport event="onchange" rerender="pbdiv" status="update"/>
+                    <apex:selectOptions value="{!CountryOptions}"/>
+                </apex:selectList>
+                <apex:pageBlockSectionItem/>
+                <apex:pageBlockSectionItem/>
+                <apex:pageBlockSectionItem/>
+
+                <apex:pageBlockSectionItem labelTitle="Bill To:" rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Bill To:"/>
+                    <apex:outputPanel id="billToDiv">
+                        <apex:outputText value="{0} - {1} - {2}, {3}, {4} {5} {6}" rendered="{! null != BillToPartner.CustomerNumber && '' != BillToPartner.CustomerNumber}">
+                            <apex:param value="{!BillToPartner.CustomerNumber}"/>
+                            <apex:param value="{!billToCustomer.Name}"/>
+                            <apex:param value="{!billToCustomer.Street}"/>
+                            <apex:param value="{!billToCustomer.City}"/>
+                            <apex:param value="{!billToCustomer.Region}"/>
+                            <apex:param value="{!billToCustomer.PostalCode}"/>
+                            <apex:param value="{!billToCustomer.Country}"/>
+                        </apex:outputText>
+                        <apex:commandButton style="margin-left:15px" onclick="showDialog('#billToSearchPopup'); return false;" value="Search Bill To"/>                        
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem labelTitle="Payer:" rendered="{! !checkForClone}">
+                    <apex:outputLabel value="Payer:"/>
+                    <apex:outputPanel id="payerDiv">
+                        <apex:outputText value="{0} - {1} - {2}, {3}, {4} {5} {6}" rendered="{! null != PayerPartner.CustomerNumber && '' != PayerPartner.CustomerNumber}">
+                            <apex:param value="{!PayerPartner.CustomerNumber}"/>
+                            <apex:param value="{!payerCustomer.Name}"/>
+                            <apex:param value="{!payerCustomer.Street}"/>
+                            <apex:param value="{!payerCustomer.City}"/>
+                            <apex:param value="{!payerCustomer.Region}"/>
+                            <apex:param value="{!payerCustomer.PostalCode}"/>
+                            <apex:param value="{!payerCustomer.Country}"/>
+                        </apex:outputText>
+                        <apex:commandButton style="margin-left:15px" onclick="showDialog('#payerSearchPopup'); return false;" value="Search Payer"/>                        
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <span>Customer PO:</span>
+                    <apex:outputPanel>
+                        <apex:inputText value="{!quoteDetail.CustomerPurchaseOrderNumber}" label="Customer PO:"/>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <span>PO Date:</span>
+                    <apex:outputPanel>
+                        <apex:input type="date" value="{!quoteDetail.ORDERDATA.CustomerPurchaseOrderDate}" label="PO Date:" rendered="{! !checkForClone}"/>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:input type="date" value="{!quoteDetail.Sales.ValidFrom}" label="Valid From:" rendered="{! !checkForClone}" onfocus="onFocusDate(this);" onblur="onBlurDate('Valid', this);"/>
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <span>Valid To:</span>
+                    <apex:outputPanel>
+                        <apex:input type="date" value="{!quoteDetail.Sales.ValidTo}" label="Valid To:" onfocus="onFocusDate(this);" onblur="onBlurDate('Valid', this);"/>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem rendered="{! !checkForClone}">
+                    <span>Requested Ship:</span>
+                    <apex:outputPanel>
+                        <apex:input type="date" value="{!quoteDetail.Sales.RequestedDeliveryDate}" label="Requested Ship:" onfocus="onFocusDate(this);" onblur="onBlurDate('Request', this);"/>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:input type="date" value="{!quoteDetail.SALES.DateforPricingExchangeRate}" label="Pricing Date:" onfocus="onFocusDate(this);" onblur="onBlurDate('Pricing', this);"/>
+
+                <apex:outputText value="{!quoteDetail.SalesDocument}" label="Quote Number:" rendered="{! !checkForClone}"/>
+                <apex:outputText value="{!customerSalesData.SalesOfficeName}" label="Sales Office:" rendered="{! !checkForClone}"/>
+
+                <apex:outputText value="{!companyData.CompanyCode}" label="Company Code:" rendered="{! !checkForClone}"/>
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="Create Date:" rendered="{! !checkForClone}">
+                    <apex:param value="{!quoteDetail.Sales.CreateDate}"/>
+                </apex:outputText>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="itemsBlock" rendered="{! null != soldToCustomer && null != quoteAccount && null != customerSalesData && !opportunityClosed }">
+            <apex:pageBlockSection columns="1" title="Items" collapsible="true" id="itemsList" rendered="{!editItemNumber == null && canSaveQuote && !checkForClone}" >
+
+                <apex:outputPanel html-Hidden="true">
+                    <apex:actionFunction name="removeItemClick" action="{!removeItemClick}" reRender="itemsBlock,commandButtonBlock,messagediv1,messagediv2" status="status">
+                        <apex:param name="removeItemNumber" value=""/>
+                    </apex:actionFunction>
+
+                    <apex:actionFunction name="editItemClick" action="{!editItemClick}" reRender="itemsBlock,messagediv1,messagediv2,commandButtonBlock" status="status">
+                        <apex:param name="editItemNumber" value=""/>
+                        <apex:param name="editActionElementId" value=""/>
+                    </apex:actionFunction>
+
+                    <apex:actionFunction name="cloneItemClick" action="{!cloneItemClick}" reRender="itemsBlock,commandButtonBlock,messagediv1,messagediv2" status="status">
+                        <apex:param name="cloneItemNumber" value=""/>
+                        <apex:param name="editActionElementId" value=""/>
+                    </apex:actionFunction>
+                </apex:outputPanel>
+
+                <apex:outputPanel>
+                    <apex:commandButton value="Add Materials" onclick="showMaterialsPopup();return false;" rendered="{!isAddMaterial}"/>
+                    <apex:commandButton styleClass="selectAll" value="Select All" onclick="selectAllItems();return false;" rendered="{!isSelectMaterial}"/>
+                    <apex:commandButton value="Edit Materials" action="{!editItems}" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" rendered="{!isEditMaterial}"/>
+                    <apex:commandButton value="Remove Materials" action="{!removeItems}" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" rendered="{!isRemoveMaterial}"/>
+                    <apex:commandButton value="Clone Materials" action="{!cloneItems}" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" rendered="{!isCloneMaterial}"/>
+                    <apex:commandButton styleClass="moveMaterialsUp" value="Move Materials Up" action="{!moveItemsUp}" status="status" rendered="{!!isUpdateMode && isMoveMaterial}" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                    <apex:commandButton value="Move Materials Down" action="{!moveItemsDown}" status="status" rendered="{!!isUpdateMode && isMoveMaterial}" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                </apex:outputPanel>
+
+                <apex:pageblockTable value="{!displayedMaterialItems}" var="material" style="table-layout: initial">
+                    <apex:column headerClass="slds-text-heading--label slds-wrap" rendered="{!isSelectMaterial}">
+                        <apex:inputCheckbox styleClass="ItemCheckBox ItemCheckBox_+{!material.item.ItemNumber}" value="{!material.isSelected}" onchange="setButtonEnable({!material.isFirst}, this);return false;"/>
+                    </apex:column>
+                    <apex:column id="actions" headerClass="slds-text-heading--label slds-wrap" headerValue="Action" rendered="{!isRemoveMaterial || isEditMaterial || isCloneMaterial}">
+                        <apex:commandButton onclick="removeItemClick('{!material.item.ItemNumber}');return false;" value="Remove" rendered="{!isRemoveMaterial && material.item.HigherLevelItemNumber == '000000'}"/>
+                        <apex:commandButton id="editAction" onclick="editItemClick('{!material.item.ItemNumber}', '{!$Component.editAction}');return false;" value="Edit" rendered="{!isEditMaterial}"/>
+                        <apex:commandButton id="cloneAction" onclick="cloneItemClick('{!material.item.ItemNumber}', '{!$Component.cloneAction}');return false;" value="Clone" rendered="{!isCloneMaterial && material.item.HigherLevelItemNumber == '000000'}"/>
+                    </apex:column>
+                    <apex:column id="itemNumber" headerValue="Item Number" value="{!material.item.ItemNumber}"/>
+                    <apex:column id="materialId" headerValue="Material" >
+                            <apex:outputLink value="javascript:showMaterialDetailPopUp('{!material.item.Material}');">
+                            {!material.item.Material}
+                        </apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Material Desc" value="{!material.item.ItemDescription}"/>
+                    <apex:column id="quantity" headerValue="Qty.">
+                        <apex:outputText value="{0,number,###,##0.000}">
+                            <apex:param value="{!material.item.OrderQuantity}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="UOM" value="{!material.item.BaseUnitOfMeasure}"/>
+                    <apex:column headerValue="Item Price">
+                        <apex:outputText value="{1,number,###,##0.00} {0}">
+                            <apex:param value="{!material.item.SalesDocumentCurrency}"/>
+                            <apex:param value="{!material.item.NetItemPrice}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Net Quote Value">
+                        <apex:outputText value="{1,number,###,##0.00} {0}">
+                            <apex:param value="{!material.item.SalesDocumentCurrency}"/>
+                            <apex:param value="{!material.item.NetOrderValue}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column id="plant" headerValue="Plant" value="{!material.item.Plant}"/>
+                    <apex:column headerValue="Requested Ship">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!material.convertedItemDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="ATP">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!material.maxItemSchedule.ScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Item Cat" value="{!material.item.ItemCategory}"/>
+                    <apex:column headerValue="Billing Block">
+                        <apex:outputText value="{! IF(material.item.BillingBlockStatus == '','Not Blocked',material.item.BillingBlockStatus) }"/>
+                    </apex:column>
+                    <apex:column headerValue="Delivery Block">
+                        <apex:outputText value="{!IF(material.item.DeliveryBlockStatus == '','Not Blocked',material.item.DeliveryBlockStatus)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Free Freight" value="{!material.item.CustomerConditionGroup1}"/>
+                    <apex:column headerValue="Discount" value="{!material.item.CustomerConditionGroup2}"/>
+                </apex:pageblockTable>
+
+                <apex:outputPanel>
+                    <apex:commandButton value="Add Materials" onclick="showMaterialsPopup();return false;" rendered="{!isAddMaterial}"/>
+                    <apex:commandButton styleClass="selectAll" value="Select All" onclick="selectAllItems();return false;" rendered="{!isSelectMaterial}"/>
+                    <apex:commandButton value="Edit Materials" action="{!editItems}" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" rendered="{!isEditMaterial}"/>
+                    <apex:commandButton value="Remove Materials" action="{!removeItems}" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" rendered="{!isRemoveMaterial}"/>
+                    <apex:commandButton value="Clone Materials" action="{!cloneItems}" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv" rendered="{!isCloneMaterial}"/>
+                    <apex:commandButton styleClass="moveMaterialsUp" value="Move Materials Up" action="{!moveItemsUp}" status="status" rendered="{!!isUpdateMode && isMoveMaterial}" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                    <apex:commandButton value="Move Materials Down" action="{!moveItemsDown}" status="status" rendered="{!!isUpdateMode && isMoveMaterial}" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                </apex:outputPanel>
+
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" title="Edit Item" collapsible="true" id="editItem" rendered="{!editItemNumber!=null}">
+                <apex:outputText label="Item Number:" value="{!editQuoteItem.item.ItemNumber}"/>
+                <apex:pageBlockSectionItem/>
+                <apex:outputText label="Material:" value="{!editQuoteItem.item.Material}"/>
+                <apex:inputText label="Material Desc:" value="{!editQuoteItem.item.ItemDescription}" maxlength="40"/>
+                <apex:outputText label="Customer Material Number:" value="{!editQuoteItem.item.CustomerMaterialNumber}"/>
+                <apex:pageBlockSectionItem/>
+                <apex:pageBlockSectionItem>
+                    <span>Quantity:</span>
+                    <apex:outputPanel>
+                        <apex:input label="Quantity:" type="number" value="{!editQuoteItem.item.OrderQuantity}" html-step=".001"/>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:outputText label="Unit of Measure:" value="{!editQuoteItem.item.BaseUnitOfMeasure}"/>
+                <apex:input label="Net Price:" type="number" value="{!editQuoteItem.item.NetItemPrice}" html-step=".01"/>
+                <apex:outputText label="Total:" value="{!editQuoteItem.item.NetOrderValue}"/>
+                <apex:selectList label="Plant:" size="1" value="{!editQuoteItem.item.Plant}">
+                    <apex:selectOptions value="{!PlantSelections}" />
+                </apex:selectList>
+                <apex:pageBlockSectionItem>
+                    <span>Requested Ship:</span>
+                    <apex:outputPanel>
+                        <apex:input label="Requested Ship:" type="date" value="{!editQuoteItem.item.ScheduleLineDate}"/>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem>
+                    <span>Item Category:</span>
+                    <apex:outputPanel>
+                        <apex:selectList label="Item Category:" size="1" value="{!editQuoteItem.item.ItemCategory}">
+                            <apex:selectOptions value="{!ItemCategories}" />
+                        </apex:selectList>
+                        <span class="required-mark">*</span>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem/>
+                <apex:outputText label="Billing Block:" value="{! IF(editQuoteItem.item.BillingBlockStatus == '','Not Blocked',editQuoteItem.item.BillingBlockStatus) }"/>
+                <apex:outputText label="Delivery Block:" value="{!IF(editQuoteItem.item.DeliveryBlockStatus == '','Not Blocked',editQuoteItem.item.DeliveryBlockStatus)}"/>
+
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value=""/>
+                    <apex:outputPanel>
+                        <apex:commandButton value="{!IF(isNext,'Next Item', 'Save Item')}" action="{!saveEditItem}" oncomplete="setElementFocus('{!editActionElementId}');" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                        <apex:commandButton value="Back Item" action="{!backEditItem}" oncomplete="setElementFocus('{!editActionElementId}');" status="status" rendered="{!isBack}" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                        <apex:commandButton value="{!IF(isNext || isBack,'Skip Item', 'Cancel Item')}" action="{!cancelEditItem}" oncomplete="setElementFocus('{!editActionElementId}');" status="status" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                        <apex:commandButton value="Exit Edits" action="{!exitEdits}" oncomplete="setElementFocus('{!editActionElementId}');" status="status" rendered="{!isNext || isBack}" rerender="itemsBlock,commandButtonBlock,messagediv1,messagediv2,materialmessagediv"/>
+                </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageMessages id="messagediv2"/>
+
+        </apex:pageBlock>
+
+        <div id="divlMaterialDetail" title="Material Description" style="display:none;">
+            <iframe id="ifrmMaterialDetail" width="100%" height="410px"></iframe>
+        </div>
+
+        <apex:pageBlock id="commandButtonBlock" title="{!IF(isUpdateMode,'Update Quote', IF(isCloneMode,'Clone SAP Quote:', 'Create SAP Quote:'))}" rendered="{! null != soldToCustomer && null != quoteAccount && null != customerSalesData  && !opportunityClosed && !checkForClone}">
+            <apex:pageBlockSection columns="1" >
+                <apex:outputText value="{!quoteDetail.TaxAmount}" label="Tax Amount:"/>
+                <apex:outputText value="{!quoteDetail.NetOrderValue}" label="Net Quote Value:"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection  rendered="{!canSaveQuote && !isUpdateMode && editItemNumber == null}">
+                <apex:commandButton action="{!createNewQuote}" value="{!IF(isCloneMode,'Clone Quote', 'Create Quote')}" status="status" reRender="mainform"/>
+                <apex:pageBlockSectionItem/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection  rendered="{!canSaveQuote && isUpdateMode && editItemNumber == null}">
+                <apex:commandButton action="{!updateQuote}" value="Update Quote" status="status" reRender="mainform"/>
+                <apex:commandButton action="{!displayQuote}" value="Return to Quote Detail" status="status"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <c:CMP_Footer />
+
+    <div id="soldToSearchPopup" class="customerSearchPopup" style="display:none">
+        <apex:form id="soldToSearchForm">
+            <c:CMP_CustomerSearch id="soldToCustomerSearch"
+                receiver="{!customerReceiver}"
+                actionSearchName="actionSoldToSearch"
+                actionSelectedName="actionSoldToSelect"
+                jsCallback="hideDialog('#soldToSearchPopup');"
+                partFunc="{!SOLD_TO_PARTNER_CODE}"
+                title="Sold To Search"
+                rerenderSearch="messagediv1,messagediv2,materialmessagediv,soldToSearchForm"
+                rerenderSelect="messagediv1,messagediv2,materialmessagediv,mainform,materialsForm,shipToSearchForm,billToSearchForm,payerSearchForm,selectedHeaderCondition,campaignSearchForm,soldToSearchForm"/>
+        </apex:form>
+    </div>
+
+    <div id="shipToSearchPopup" class="partnerSearchPopup" style="display:none">
+        <apex:form id="shipToSearchForm">
+            <c:CMP_PartnerSearch id="shipToPartnerSearch"
+                receiver="{!partnerReceiver}"
+                actionSearchName="actionShipToSearch"
+                actionSelectedName="actionShipToSelect"
+                jsCallback="hideDialog('#shipToSearchPopup');"
+                partFunc="{!SHIP_TO_PARTNER_CODE}"
+                title="Ship To Search"
+                rerenderSearch="messagediv1,messagediv2,materialmessagediv,shipToSearchForm"
+                rerenderSelect="shipToDiv,itemsList,headerNetValue,commandButtonBlock,messagediv1,messagediv2,materialmessagediv,shipToSearchForm"
+                autoSearch="{!isShipToAutoSearchEnabled}"
+                soldToParty="{!SoldToPartner.CustomerNumber}"
+                salesOrg="{!quoteDetail.Sales.SalesOrganization}"
+                DistChan="{!quoteDetail.Sales.DistributionChannel}"
+                div="{!quoteDetail.Sales.Division}"
+                prevScreen="{!previousScreen}"
+                accountGroup="Z003"/>
+        </apex:form>
+    </div>
+
+    <div id="billToSearchPopup" class="partnerSearchPopup" style="display:none">
+        <apex:form id="billToSearchForm">
+            <c:CMP_PartnerSearch id="billToPartnerSearch"
+                receiver="{!partnerReceiver}"
+                actionSearchName="actionBillToSearch"
+                actionSelectedName="actionBillToSelect"
+                jsCallback="hideDialog('#billToSearchPopup');"
+                partFunc="{!BILL_TO_PARTNER_CODE}"
+                title="Bill To Search"
+                rerenderSearch="messagediv1,messagediv2,materialmessagediv,billToSearchForm"
+                rerenderSelect="billToDiv,itemsList,headerNetValue,commandButtonBlock,messagediv1,messagediv2,materialmessagediv,billToSearchForm"
+                autoSearch="true"
+                soldToParty="{!SoldToPartner.CustomerNumber}"
+                salesOrg="{!quoteDetail.Sales.SalesOrganization}"
+                DistChan="{!quoteDetail.Sales.DistributionChannel}"
+                div="{!quoteDetail.Sales.Division}"
+                prevScreen="{!previousScreen}"/>
+        </apex:form>
+    </div>
+
+    <div id="payerSearchPopup" class="partnerSearchPopup" style="display:none">
+        <apex:form id="payerSearchForm">
+            <c:CMP_PartnerSearch id="payerPartnerSearch"
+                receiver="{!partnerReceiver}"
+                actionSearchName="actionPayerSearch"
+                actionSelectedName="actionPayerSelect"
+                jsCallback="hideDialog('#payerSearchPopup');"
+                partFunc="{!PAYER_PARTNER_CODE}"
+                title="Payer Search"
+                rerenderSearch="messagediv1,messagediv2,materialmessagediv,payerSearchForm"
+                rerenderSelect="payerDiv,itemsList,headerNetValue,commandButtonBlock,messagediv1,messagediv2,materialmessagediv,payerSearchForm"
+                autoSearch="true"
+                soldToParty="{!SoldToPartner.CustomerNumber}"
+                salesOrg="{!quoteDetail.Sales.SalesOrganization}"
+                DistChan="{!quoteDetail.Sales.DistributionChannel}"
+                div="{!quoteDetail.Sales.Division}"
+                prevScreen="{!previousScreen}"/>
+        </apex:form>
+    </div>
+
+    <div id="materialsPopup" style="display:none">
+        <apex:form id="materialsForm">
+            <c:CMP_MaterialSearch id="matSearch"
+                receiver="{!msReceiver}"
+                jsCallback="hideMaterialsPopup"
+                jsSearchCallback="fixMaterialsPopupSize"
+                addButtonLabel="Add Items"
+                dateSelect="true"
+                salesOrganization="{!quoteDetail.Sales.SalesOrganization}"
+                distributionChannel="{!quoteDetail.Sales.DistributionChannel}"
+                materialTypes="{!quoteMaterialTypes}"
+                defaultMaterialTypes="{!defaultQuoteMaterialTypes}"
+                autoSearch="{!isQuoteMaterialAutoSearchEnabled}"
+                rerender="itemsList,commandButtonBlock,messagediv1,messagediv2,materialsForm"
+                requestedShip="{!isRequestedShipEnabled}"/>
+        </apex:form>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener('keypress', function(event){     
+            if (event.key === 'Enter' && !event.is("textarea")){
+                event.preventDefault();
+            }
+        });
+
+        function addLoadEvent(func) 
+        {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') 
+            {
+                window.onload = func;
+            } 
+            else 
+            {
+                window.onload = function() 
+                {
+                    oldonload();
+                    func();
+                }
+            }
+        }
+
+        function setLoadFocus() 
+        {
+            var elementId = '{!editActionElementId}';
+            if (elementId != null && elementId.length > 0)
+            {
+                document.getElementById(elementId).focus();
+            }
+        }
+
+        function setElementFocus(elementId) 
+        {
+            if (elementId != null && elementId.length > 0)
+            {
+                document.getElementById(elementId).focus();
+            }
+        }
+
+        addLoadEvent(setLoadFocus);
+
+        function showMaterialDetailPopUp(materialId) 
+        {
+            var baseUrl = 'https://' + location.host + '{!pathMaterialDetail}'
+            var queryString = '?c__SF_MatId=' + materialId + '&isPopUp=true';
+
+            $("#ifrmMaterialDetail").attr('src', baseUrl + queryString);
+            $("#divlMaterialDetail").dialog(
+                {
+                    modal: true,
+                    position: {my: 'top', at: 'top+10%'},
+                    height: 'auto',
+                    width: '500px',
+                    open: function(event, ui) 
+                    {
+                        $('.ui-widget-overlay').bind('click', function() 
+                            {
+                                $(this).siblings('.ui-dialog').find(materialId).dialog('close');
+                            }
+                        );
+                    }
+                }
+            );
+        }
+
+        function showDialog(id) 
+        {
+            $(id).dialog(
+                {
+                    modal: true,
+                    position: {my: 'top', at: 'top+10%'},
+                    width: $(window).width() * .9,
+                    height: 'auto',
+                    open: function (event, ui) 
+                    {
+                        $('.ui-widget-overlay').bind('click', function () 
+                            {
+                                $(this).siblings('.ui-dialog').find(id).dialog('close');
+                            }
+                        );
+                }
+                }
+            );
+        }
+
+        function showMaterialsPopup() 
+        {
+            showDialog('#materialsPopup');
+        }
+
+        function showShipToPopup()
+        {
+            showDialog('#shipToSearchPopup');
+        }
+
+        function hideDialog(id) 
+        {
+            $(id).dialog('close');
+        }
+
+        function hideMaterialsPopup() 
+        {
+            hideDialog('#materialsPopup');
+        }
+
+        function hideShipToPopup() 
+        {
+            hideDialog('#shipToSearchPopup');
+        }
+
+        function fixDialogSize(id) 
+        {
+            $(id).dialog('option', 'height', 'auto');
+        }
+
+        function fixMaterialsPopupSize() 
+        {
+            fixDialogSize('#materialsPopup');
+        }
+
+        var dateOldValue;
+
+        function onFocusDate(ele) 
+        {
+            dateOldValue = ele.value;
+        }
+
+        function onBlurDate(mode, ele) 
+        {
+            if (dateOldValue !== ele.value)
+            {
+                if (mode === 'Request')
+                {
+                    checkRequestedDate(); 
+                }
+                else if (mode === 'Valid')
+                {
+                    checkValidToAndFromDate(); 
+                }
+                else if (mode === 'Pricing')
+                {
+                    updateSalesAreas(); 
+                }
+                return false;
+            }
+        }
+
+        function onSimulateQuote() 
+        {
+            SimulateQuote(); 
+            return false;
+        }
+
+        function setButtonEnable(isFirst, ele)
+        {
+            var isSelected = $(ele).prop("selected");
+            if (!isSelected) 
+            {
+                isSelected = true;
+            }
+            else
+            {
+                isSelected = false;
+            }
+            $(ele).prop("checked",isSelected);
+            $(ele).prop("selected",isSelected);
+
+            if (isFirst)
+            {
+                if (isSelected)
+                {
+                    $(".moveMaterialsUp").prop("disabled",true);
+                    $(".moveMaterialsUp").prop("class","btnDisabled moveMaterialsUp");
+                }
+                else
+                {
+                    $(".moveMaterialsUp").prop("disabled",false);
+                    $(".moveMaterialsUp").prop("class","btn moveMaterialsUp");
+                }
+            }
+
+            if (isSelected)
+            {
+                if(isAllItemsSelected())
+                {
+                    $(".selectAll").prop("value",'Unselect All');
+                }
+            }
+            else
+            {
+                $(".selectAll").prop("value",'Select All');
+            }
+        }
+
+        function isAllItemsSelected()
+        {
+            var isAllItemsSelected = true;
+            $(".ItemCheckBox").each( 
+                function (i, ele)
+                {
+                    if (!$(ele).prop("selected"))
+                    {
+                        isAllItemsSelected = false;
+                    }
+                }
+            );
+            return isAllItemsSelected;
+        }
+
+        function selectAllItems()
+        {
+            if (isAllItemsSelected())
+            {
+                $(".ItemCheckBox").each( 
+                    function (i, ele)
+                    {
+                        selectItem(ele, false);
+                    }
+                );
+                $(".moveMaterialsUp").prop("disabled",false);
+                $(".moveMaterialsUp").prop("class","btn moveMaterialsUp");
+                $(".selectAll").prop("value",'Select All');
+            }
+            else
+            {
+                $(".ItemCheckBox").each( 
+                    function (i, ele)
+                    {
+                        selectItem(ele, true);
+                    }
+                );
+                $(".moveMaterialsUp").prop("disabled",true);
+                $(".moveMaterialsUp").prop("class","btnDisabled moveMaterialsUp");
+                $(".selectAll").prop("value",'Unselect All');
+            }
+        }
+
+        function selectItem(ele, isSelected)
+        {
+            $(ele).prop("checked",isSelected);
+            $(ele).prop("selected",isSelected);
+
+            var siblings = ele.parentNode.parentNode.childNodes;
+            var itemNumber = getSibling(siblings, 'itemNumber').innerHTML;
+            var plant = getSibling(siblings, 'plant').innerHTML;
+        }
+
+        function getSibling(siblings, id) 
+        {
+            for (sibCnt = 0; sibCnt < siblings.length; sibCnt++)
+            {
+                var sibling = siblings[sibCnt];
+                var sibId = sibling.id;
+                if (sibId !== undefined && sibId.endsWith(":"+id))
+                    return sibling;
+            }
+        }
+
+        // twistSection(document.getElementById('{!$Component.mainform.zonesBlock.Zones}').getElementsByTagName('img')[0]);
+    </script>
+</apex:page>

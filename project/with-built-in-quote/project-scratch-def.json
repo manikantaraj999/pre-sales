@@ -1,0 +1,19 @@
+{
+    "orgName": "enterprise-template-with-built-in-quote",
+    "edition": "Developer",
+    "features": ["LightningSalesConsole", "LightningServiceConsole"],
+    "settings": {
+        "quoteSettings": {
+            "enableQuote": true
+        },
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "languageSettings": {
+            "enableTranslationWorkbench": true
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
+        }
+    }
+}

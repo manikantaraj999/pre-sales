@@ -1,0 +1,10 @@
+<design:component label="CPQ Flow">
+    <design:attribute name="quoteId" label="CPQ Quote" />
+    <design:attribute name="itemId" label="Item Id" />
+    <design:attribute name="itemJSON" label=" Item JSON Blob" />
+    <design:attribute name="headerJSON" label="Header JSON Blob" />
+    <design:attribute name="cpqMsg" label="CPQ Message" />
+    <design:attribute name="addedItemsJSON" label="List of product Ids for items added during vc" />
+    <design:attribute name="enterPlant" label="Display Plant Entry Screen" />
+    <design:attribute name="enterQuantity" label="Display Quantity Entry Screen" />
+</design:component>

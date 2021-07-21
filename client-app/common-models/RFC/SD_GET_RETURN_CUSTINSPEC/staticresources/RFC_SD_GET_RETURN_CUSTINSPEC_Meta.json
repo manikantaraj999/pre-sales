@@ -1,0 +1,136 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_RETURN_CUSTINSPEC.RESULT": {},
+    "RFC_SD_GET_RETURN_CUSTINSPEC.ET_CUST_INSPECTION": {
+      "CODE": {
+        "FriendlyName": "CODE",
+        "TechnicalName": "CODE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CODE_TEXT": {
+        "FriendlyName": "CODE_TEXT",
+        "TechnicalName": "CODE_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_RETURN_CUSTINSPEC.ET_ORDER_REASON": {
+      "AUGRU": {
+        "FriendlyName": "AUGRU",
+        "TechnicalName": "AUGRU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI": {
+        "FriendlyName": "BEZEI",
+        "TechnicalName": "BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_RETURN_CUSTINSPEC.ET_REFUND_TYPE": {
+      "REFUND_TYPE": {
+        "FriendlyName": "REFUND_TYPE",
+        "TechnicalName": "REFUND_TYPE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "REFUND_TYPE_TEXT": {
+        "FriendlyName": "REFUND_TYPE_TEXT",
+        "TechnicalName": "REFUND_TYPE_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_RETURN_CUSTINSPEC.ET_RETURN_REASON": {
+      "RET_REASON": {
+        "FriendlyName": "RET_REASON",
+        "TechnicalName": "RET_REASON",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI": {
+        "FriendlyName": "BEZEI",
+        "TechnicalName": "BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_CUST_INSPECTION": {
+      "Name": "ET_CUST_INSPECTION",
+      "ItemType": "RFC_SD_GET_RETURN_CUSTINSPEC.ET_CUST_INSPECTION",
+      "FieldMap": {
+        "CODE": {
+          "FriendlyName": "CODE",
+          "TechnicalName": "CODE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CODE_TEXT": {
+          "FriendlyName": "CODE_TEXT",
+          "TechnicalName": "CODE_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_ORDER_REASON": {
+      "Name": "ET_ORDER_REASON",
+      "ItemType": "RFC_SD_GET_RETURN_CUSTINSPEC.ET_ORDER_REASON",
+      "FieldMap": {
+        "AUGRU": {
+          "FriendlyName": "AUGRU",
+          "TechnicalName": "AUGRU",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI": {
+          "FriendlyName": "BEZEI",
+          "TechnicalName": "BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_REFUND_TYPE": {
+      "Name": "ET_REFUND_TYPE",
+      "ItemType": "RFC_SD_GET_RETURN_CUSTINSPEC.ET_REFUND_TYPE",
+      "FieldMap": {
+        "REFUND_TYPE": {
+          "FriendlyName": "REFUND_TYPE",
+          "TechnicalName": "REFUND_TYPE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "REFUND_TYPE_TEXT": {
+          "FriendlyName": "REFUND_TYPE_TEXT",
+          "TechnicalName": "REFUND_TYPE_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_RETURN_REASON": {
+      "Name": "ET_RETURN_REASON",
+      "ItemType": "RFC_SD_GET_RETURN_CUSTINSPEC.ET_RETURN_REASON",
+      "FieldMap": {
+        "RET_REASON": {
+          "FriendlyName": "RET_REASON",
+          "TechnicalName": "RET_REASON",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI": {
+          "FriendlyName": "BEZEI",
+          "TechnicalName": "BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

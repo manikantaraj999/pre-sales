@@ -1,0 +1,46 @@
+.THIS.inputWrapper {
+    position:relative;
+}
+
+.THIS .selectedInput {
+    border:1px solid rgb(221, 219, 218)!important;
+    cursor:default;
+    padding-left:10px!important;
+    padding-right:10px!important;    
+}
+
+.THIS .selectedInputWrapper{
+    position:relative;
+    width:100%;
+    display:inline-block;
+    margin-right:3px;
+}
+
+.THIS .searchWrapper {
+    display:none;
+    position:sticky;
+    background:white;
+    z-index:1000;
+    border-radius:5px;
+    box-shadow:0 2px 3px 0 rgba(0,0,0,.16);
+    margin-top:3px;
+    border-top:1px solid rgb(0,0,0, .05);
+}
+
+.THIS .showSearchWrapper {
+    display:block !important;
+}
+
+.THIS .searchWrapper ul{
+    display:block;
+    max-height:300px;
+    overflow-y:scroll;
+}
+
+.THIS .searchWrapper ul li{
+    padding:5px 10px;
+    cursor:pointer;
+}
+.THIS .searchWrapper ul li:hover{
+    background-color:#f3f2f2;
+}

@@ -1,0 +1,5 @@
+{
+  "Logging": false,
+  "SAPPageSize": 9999,
+  "SFBatchSize": 2000
+}

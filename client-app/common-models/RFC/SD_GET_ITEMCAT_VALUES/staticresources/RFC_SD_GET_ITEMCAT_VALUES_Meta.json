@@ -1,0 +1,77 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_ITEMCAT_VALUES.RESULT": {
+      "IV_AUART": {
+        "FriendlyName": "IV_AUART",
+        "TechnicalName": "IV_AUART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_LANGU": {
+        "FriendlyName": "IV_LANGU",
+        "TechnicalName": "IV_LANGU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_MATNR": {
+        "FriendlyName": "IV_MATNR",
+        "TechnicalName": "IV_MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_UEPST": {
+        "FriendlyName": "IV_UEPST",
+        "TechnicalName": "IV_UEPST",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_VKORG": {
+        "FriendlyName": "IV_VKORG",
+        "TechnicalName": "IV_VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_VTWEG": {
+        "FriendlyName": "IV_VTWEG",
+        "TechnicalName": "IV_VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_ITEMCAT_VALUES.ET_VALUES": {
+      "VALUE": {
+        "FriendlyName": "VALUE",
+        "TechnicalName": "VALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DESCRIPTION": {
+        "FriendlyName": "DESCRIPTION",
+        "TechnicalName": "DESCRIPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_VALUES": {
+      "Name": "ET_VALUES",
+      "ItemType": "RFC_SD_GET_ITEMCAT_VALUES.ET_VALUES",
+      "FieldMap": {
+        "VALUE": {
+          "FriendlyName": "VALUE",
+          "TechnicalName": "VALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DESCRIPTION": {
+          "FriendlyName": "DESCRIPTION",
+          "TechnicalName": "DESCRIPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

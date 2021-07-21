@@ -1,0 +1,40 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_PERIO.RESULT": {},
+    "RFC_SD_GET_PERIO.OUTPUT": {
+      "PERIO": {
+        "FriendlyName": "PERIO",
+        "TechnicalName": "PERIO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEICH": {
+        "FriendlyName": "BEZEICH",
+        "TechnicalName": "BEZEICH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "OUTPUT": {
+      "Name": "OUTPUT",
+      "ItemType": "RFC_SD_GET_PERIO.OUTPUT",
+      "FieldMap": {
+        "PERIO": {
+          "FriendlyName": "PERIO",
+          "TechnicalName": "PERIO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEICH": {
+          "FriendlyName": "BEZEICH",
+          "TechnicalName": "BEZEICH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

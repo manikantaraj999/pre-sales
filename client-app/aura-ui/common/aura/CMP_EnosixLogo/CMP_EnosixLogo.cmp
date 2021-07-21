@@ -1,0 +1,4 @@
+<aura:component>
+    <!-- Enosix Powered By Logo -->
+    <img src="{!$Resource.poweredByEnosixLogo}" alt="enosix powered by logo" class="halfSize"/>
+</aura:component>

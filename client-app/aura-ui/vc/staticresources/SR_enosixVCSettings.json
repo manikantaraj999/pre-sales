@@ -1,0 +1,24 @@
+{
+  "DefaultSalesDocType": "",
+  "DefaultSalesOrg": "",
+  "DefaultDistributionChannel": "",
+  "DefaultDivision": "",
+  "DefaultCustomerNumber": "",
+  "DefaultFetchConfig": "",
+  "DefaultQuoteLineIncrement": 10,
+  "DefaultMaterialgroup1": "",
+  "DefaultMaterialgroup2": "",
+  "UseSapSession": true,
+  "SimulateAddedItems": false,
+  "RequiredOnlyDefaultToggle": false,
+  "DisplayManualRunVCButton": false,
+  "CanChangeSettings": false,
+  "TextAllowedValuesLabelRegex": "",
+  "NumberAllowedValuesLabelRegex": " - ",
+  "DateAllowedValuesLabelRegex": "",
+  "Rules": {
+    "EditorView": { "HideReadOnly": false },
+    "SummaryView": { "HideEditable": false },
+    "For example - VBAP_VRKME": { "WillProcess": false }
+  }
+}

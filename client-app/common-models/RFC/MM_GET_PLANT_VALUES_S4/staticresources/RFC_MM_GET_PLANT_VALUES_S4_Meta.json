@@ -1,0 +1,40 @@
+{
+  "FieldMaps": {
+    "RFC_MM_GET_PLANT_VALUES_S4.RESULT": {},
+    "RFC_MM_GET_PLANT_VALUES_S4.ET_OUTPUT": {
+      "Plant": {
+        "FriendlyName": "Plant",
+        "TechnicalName": "WERKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PlantName": {
+        "FriendlyName": "PlantName",
+        "TechnicalName": "WERKS_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_OUTPUT": {
+      "Name": "ET_OUTPUT",
+      "ItemType": "RFC_MM_GET_PLANT_VALUES_S4.ET_OUTPUT",
+      "FieldMap": {
+        "Plant": {
+          "FriendlyName": "Plant",
+          "TechnicalName": "WERKS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PlantName": {
+          "FriendlyName": "PlantName",
+          "TechnicalName": "WERKS_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,640 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixMaterial_Detail.EnosixMaterial": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialDescription": {
+        "FriendlyName": "MaterialDescription",
+        "TechnicalName": "MAKTX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialDescriptionUpperCase": {
+        "FriendlyName": "MaterialDescriptionUpperCase",
+        "TechnicalName": "MAKTG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixMaterial_Detail.BASIC_DATA_1": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BaseUnitOfMeasure": {
+        "FriendlyName": "BaseUnitOfMeasure",
+        "TechnicalName": "MEINS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "OldMaterialNumber": {
+        "FriendlyName": "OldMaterialNumber",
+        "TechnicalName": "BISMT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Division": {
+        "FriendlyName": "Division",
+        "TechnicalName": "SPART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AllocationDeterminationProcedure": {
+        "FriendlyName": "AllocationDeterminationProcedure",
+        "TechnicalName": "KOSCH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CrossPlantMaterialStatus": {
+        "FriendlyName": "CrossPlantMaterialStatus",
+        "TechnicalName": "MSTAE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "OverrideChangeNumbers": {
+        "FriendlyName": "OverrideChangeNumbers",
+        "TechnicalName": "KZEFF",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "MaterialGroup": {
+        "FriendlyName": "MaterialGroup",
+        "TechnicalName": "MATKL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ExternalMaterialGroup": {
+        "FriendlyName": "ExternalMaterialGroup",
+        "TechnicalName": "EXTWG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Laboratory": {
+        "FriendlyName": "Laboratory",
+        "TechnicalName": "LABOR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CrossPlantStatusValidDate": {
+        "FriendlyName": "CrossPlantStatusValidDate",
+        "TechnicalName": "MSTDE",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "GeneralItemCategoryGroup": {
+        "FriendlyName": "GeneralItemCategoryGroup",
+        "TechnicalName": "MTPOS_MARA",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AuthorizationGroup": {
+        "FriendlyName": "AuthorizationGroup",
+        "TechnicalName": "BEGRU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "GrossWeight": {
+        "FriendlyName": "GrossWeight",
+        "TechnicalName": "BRGEW",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "WeightUnit": {
+        "FriendlyName": "WeightUnit",
+        "TechnicalName": "GEWEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Netweight": {
+        "FriendlyName": "Netweight",
+        "TechnicalName": "NTGEW",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "Volume": {
+        "FriendlyName": "Volume",
+        "TechnicalName": "VOLUM",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "VolumeUnit": {
+        "FriendlyName": "VolumeUnit",
+        "TechnicalName": "VOLEH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SizeDimensions": {
+        "FriendlyName": "SizeDimensions",
+        "TechnicalName": "GROES",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ArticleNumber": {
+        "FriendlyName": "ArticleNumber",
+        "TechnicalName": "EAN11",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "InternationalArticleNumber": {
+        "FriendlyName": "InternationalArticleNumber",
+        "TechnicalName": "NUMTP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialGroupPackagingMaterials": {
+        "FriendlyName": "MaterialGroupPackagingMaterials",
+        "TechnicalName": "MAGRV",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ReferenceMaterialPackedInSameWay": {
+        "FriendlyName": "ReferenceMaterialPackedInSameWay",
+        "TechnicalName": "RMATP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixMaterial_Detail.BASIC_DATA_2": {
+      "ANSIISODescription": {
+        "FriendlyName": "ANSIISODescription",
+        "TechnicalName": "NORMT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CADIndicator": {
+        "FriendlyName": "CADIndicator",
+        "TechnicalName": "CADKZ",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "BasicMaterial": {
+        "FriendlyName": "BasicMaterial",
+        "TechnicalName": "WRKST",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IntrastatDataTransportMedium": {
+        "FriendlyName": "IntrastatDataTransportMedium",
+        "TechnicalName": "MEDIUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DangerousGoodsIndicator": {
+        "FriendlyName": "DangerousGoodsIndicator",
+        "TechnicalName": "PROFL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DangerousGoodsPackagingStatus": {
+        "FriendlyName": "DangerousGoodsPackagingStatus",
+        "TechnicalName": "DG_PACK_STATUS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PackagingCode": {
+        "FriendlyName": "PackagingCode",
+        "TechnicalName": "PACKCODE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "EnvironmentallyRelevant": {
+        "FriendlyName": "EnvironmentallyRelevant",
+        "TechnicalName": "KZUMW",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "InBulkIndicator": {
+        "FriendlyName": "InBulkIndicator",
+        "TechnicalName": "ILOOS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "HighlyViscousIndicator": {
+        "FriendlyName": "HighlyViscousIndicator",
+        "TechnicalName": "IHIVI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NonDMSDocumentNumber": {
+        "FriendlyName": "NonDMSDocumentNumber",
+        "TechnicalName": "ZEINR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NonDMSDocumentType": {
+        "FriendlyName": "NonDMSDocumentType",
+        "TechnicalName": "ZEIAR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NonDMSDocumentVersion": {
+        "FriendlyName": "NonDMSDocumentVersion",
+        "TechnicalName": "ZEIVR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NonDMSDocumentPageNumber": {
+        "FriendlyName": "NonDMSDocumentPageNumber",
+        "TechnicalName": "BLATT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NonDMSDocumentChangeNumber": {
+        "FriendlyName": "NonDMSDocumentChangeNumber",
+        "TechnicalName": "AESZN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NonDMSDocumentPageFormat": {
+        "FriendlyName": "NonDMSDocumentPageFormat",
+        "TechnicalName": "ZEIFO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "NonDMSDocumentNumberOfSheets": {
+        "FriendlyName": "NonDMSDocumentNumberOfSheets",
+        "TechnicalName": "BLANZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CrossPlantConfigurableMaterial": {
+        "FriendlyName": "CrossPlantConfigurableMaterial",
+        "TechnicalName": "SATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ConfigurableMaterial": {
+        "FriendlyName": "ConfigurableMaterial",
+        "TechnicalName": "KZKFG",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "GlobalDataSyncIndicator": {
+        "FriendlyName": "GlobalDataSyncIndicator",
+        "TechnicalName": "GDS_RELEVANT",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixMaterial_Detail.PLANT_DATA": {
+      "Plant": {
+        "FriendlyName": "Plant",
+        "TechnicalName": "WERKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name": {
+        "FriendlyName": "Name",
+        "TechnicalName": "NAME1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrgDescription": {
+        "FriendlyName": "SalesOrgDescription",
+        "TechnicalName": "VKORG_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannelDescription": {
+        "FriendlyName": "DistributionChannelDescription",
+        "TechnicalName": "VTWEG_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "BASIC_DATA_1": {
+      "Name": "BASIC_DATA_1",
+      "ItemType": "SBO_EnosixMaterial_Detail.BASIC_DATA_1",
+      "FieldMap": {
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BaseUnitOfMeasure": {
+          "FriendlyName": "BaseUnitOfMeasure",
+          "TechnicalName": "MEINS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "OldMaterialNumber": {
+          "FriendlyName": "OldMaterialNumber",
+          "TechnicalName": "BISMT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Division": {
+          "FriendlyName": "Division",
+          "TechnicalName": "SPART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "AllocationDeterminationProcedure": {
+          "FriendlyName": "AllocationDeterminationProcedure",
+          "TechnicalName": "KOSCH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CrossPlantMaterialStatus": {
+          "FriendlyName": "CrossPlantMaterialStatus",
+          "TechnicalName": "MSTAE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "OverrideChangeNumbers": {
+          "FriendlyName": "OverrideChangeNumbers",
+          "TechnicalName": "KZEFF",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "MaterialGroup": {
+          "FriendlyName": "MaterialGroup",
+          "TechnicalName": "MATKL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ExternalMaterialGroup": {
+          "FriendlyName": "ExternalMaterialGroup",
+          "TechnicalName": "EXTWG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Laboratory": {
+          "FriendlyName": "Laboratory",
+          "TechnicalName": "LABOR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CrossPlantStatusValidDate": {
+          "FriendlyName": "CrossPlantStatusValidDate",
+          "TechnicalName": "MSTDE",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "GeneralItemCategoryGroup": {
+          "FriendlyName": "GeneralItemCategoryGroup",
+          "TechnicalName": "MTPOS_MARA",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "AuthorizationGroup": {
+          "FriendlyName": "AuthorizationGroup",
+          "TechnicalName": "BEGRU",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "GrossWeight": {
+          "FriendlyName": "GrossWeight",
+          "TechnicalName": "BRGEW",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "WeightUnit": {
+          "FriendlyName": "WeightUnit",
+          "TechnicalName": "GEWEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Netweight": {
+          "FriendlyName": "Netweight",
+          "TechnicalName": "NTGEW",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "Volume": {
+          "FriendlyName": "Volume",
+          "TechnicalName": "VOLUM",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "VolumeUnit": {
+          "FriendlyName": "VolumeUnit",
+          "TechnicalName": "VOLEH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SizeDimensions": {
+          "FriendlyName": "SizeDimensions",
+          "TechnicalName": "GROES",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ArticleNumber": {
+          "FriendlyName": "ArticleNumber",
+          "TechnicalName": "EAN11",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "InternationalArticleNumber": {
+          "FriendlyName": "InternationalArticleNumber",
+          "TechnicalName": "NUMTP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialGroupPackagingMaterials": {
+          "FriendlyName": "MaterialGroupPackagingMaterials",
+          "TechnicalName": "MAGRV",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ReferenceMaterialPackedInSameWay": {
+          "FriendlyName": "ReferenceMaterialPackedInSameWay",
+          "TechnicalName": "RMATP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "BASIC_DATA_2": {
+      "Name": "BASIC_DATA_2",
+      "ItemType": "SBO_EnosixMaterial_Detail.BASIC_DATA_2",
+      "FieldMap": {
+        "ANSIISODescription": {
+          "FriendlyName": "ANSIISODescription",
+          "TechnicalName": "NORMT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CADIndicator": {
+          "FriendlyName": "CADIndicator",
+          "TechnicalName": "CADKZ",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "BasicMaterial": {
+          "FriendlyName": "BasicMaterial",
+          "TechnicalName": "WRKST",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "IntrastatDataTransportMedium": {
+          "FriendlyName": "IntrastatDataTransportMedium",
+          "TechnicalName": "MEDIUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DangerousGoodsIndicator": {
+          "FriendlyName": "DangerousGoodsIndicator",
+          "TechnicalName": "PROFL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DangerousGoodsPackagingStatus": {
+          "FriendlyName": "DangerousGoodsPackagingStatus",
+          "TechnicalName": "DG_PACK_STATUS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PackagingCode": {
+          "FriendlyName": "PackagingCode",
+          "TechnicalName": "PACKCODE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "EnvironmentallyRelevant": {
+          "FriendlyName": "EnvironmentallyRelevant",
+          "TechnicalName": "KZUMW",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "InBulkIndicator": {
+          "FriendlyName": "InBulkIndicator",
+          "TechnicalName": "ILOOS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "HighlyViscousIndicator": {
+          "FriendlyName": "HighlyViscousIndicator",
+          "TechnicalName": "IHIVI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NonDMSDocumentNumber": {
+          "FriendlyName": "NonDMSDocumentNumber",
+          "TechnicalName": "ZEINR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NonDMSDocumentType": {
+          "FriendlyName": "NonDMSDocumentType",
+          "TechnicalName": "ZEIAR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NonDMSDocumentVersion": {
+          "FriendlyName": "NonDMSDocumentVersion",
+          "TechnicalName": "ZEIVR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NonDMSDocumentPageNumber": {
+          "FriendlyName": "NonDMSDocumentPageNumber",
+          "TechnicalName": "BLATT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NonDMSDocumentChangeNumber": {
+          "FriendlyName": "NonDMSDocumentChangeNumber",
+          "TechnicalName": "AESZN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NonDMSDocumentPageFormat": {
+          "FriendlyName": "NonDMSDocumentPageFormat",
+          "TechnicalName": "ZEIFO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "NonDMSDocumentNumberOfSheets": {
+          "FriendlyName": "NonDMSDocumentNumberOfSheets",
+          "TechnicalName": "BLANZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CrossPlantConfigurableMaterial": {
+          "FriendlyName": "CrossPlantConfigurableMaterial",
+          "TechnicalName": "SATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ConfigurableMaterial": {
+          "FriendlyName": "ConfigurableMaterial",
+          "TechnicalName": "KZKFG",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "GlobalDataSyncIndicator": {
+          "FriendlyName": "GlobalDataSyncIndicator",
+          "TechnicalName": "GDS_RELEVANT",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "PLANT_DATA": {
+      "Name": "PLANT_DATA",
+      "ItemType": "SBO_EnosixMaterial_Detail.PLANT_DATA",
+      "FieldMap": {
+        "Plant": {
+          "FriendlyName": "Plant",
+          "TechnicalName": "WERKS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name": {
+          "FriendlyName": "Name",
+          "TechnicalName": "NAME1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrgDescription": {
+          "FriendlyName": "SalesOrgDescription",
+          "TechnicalName": "VKORG_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannelDescription": {
+          "FriendlyName": "DistributionChannelDescription",
+          "TechnicalName": "VTWEG_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

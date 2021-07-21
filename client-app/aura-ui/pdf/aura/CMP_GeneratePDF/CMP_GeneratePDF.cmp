@@ -1,0 +1,94 @@
+<aura:component controller="CTRL_GeneratePDF" implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <aura:handler event="aura:locationChange" action="{!c.onInit}" />
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}" />
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="showToast" type="String" default="false" />
+    <aura:attribute name="docNumber" type="String"/>
+    <aura:attribute name="documentResults" type="Map" />
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="displayHeader" type="boolean" default="true"/>
+    <aura:attribute name="displaySpinner" type="boolean" default="true" />
+    <aura:attribute name="displayLanguage" type="boolean" default="true"/>
+    <aura:attribute name="displayConditionType" type="boolean" default="true"/>
+    <aura:attribute name="displayConditionTypeDescription" type="boolean" default="true"/>
+
+    <lightning:card class="slds-card slds-is-relative"
+        title="{! !v.displayHeader? '':$Label.c.LBL_SalesDoc_List}"
+        iconName="{! !v.displayHeader? '':'custom:custom18'}">    
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+        </aura:if>
+        <c:CMP_Messages messages="{!v.messages}"/>
+        <ui:scrollerWrapper >
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <aura:if isTrue="{!v.displayLanguage}">
+                            <th scope="col">
+                                <div class="slds-truncate">
+                                    {!$Label.c.LBL_PDF_SalesDoc_Language}
+                                </div>
+                            </th>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayConditionType}">
+                            <th scope="col">
+                                <div class="slds-truncate">
+                                    {!$Label.c.LBL_PDF_SalesDoc_ConditionType}
+                                </div>
+                            </th>
+                        </aura:if>
+                        <aura:if isTrue="{!v.displayConditionTypeDescription}">
+                            <th scope="col">
+                                <div class="slds-truncate">
+                                    {!$Label.c.LBL_PDF_SalesDoc_ConditionTypeDesc}
+                                </div>
+                            </th>
+                        </aura:if>                                
+                        <th scope="col">
+                            {!$Label.c.LBL_PDF_SalesDoc_Action}
+                        </th>                                
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.documentResults}" var="d">
+                        <tr>
+                            <aura:if isTrue="{!v.displayLanguage}">
+                                <td data-label="Sales Document Language">
+                                    <div class="slds-truncate">
+                                        {!d.Language}
+                                    </div>
+                                </td>
+                            </aura:if>
+                            <aura:if isTrue="{!v.displayConditionType}">
+                                <td data-label="Sales Document Message Type">
+                                    <div class="slds-truncate">
+                                        {!d.ConditionType}
+                                    </div>
+                                </td>
+                            </aura:if>
+                            <aura:if isTrue="{!v.displayConditionTypeDescription}">
+                                <td data-label="Message Type Description">
+                                    <div class="slds-truncate">
+                                        {!d.ConditionTypeDescription}
+                                    </div>
+                                </td>
+                            </aura:if>                                    
+                            <td>
+                                <div class="slds-truncate">
+                                    <aura:if isTrue="{! !empty(d.ConditionType)}">
+                                        <a class="slds-button slds-button_neutral" onclick="{!c.downloadPDF}" data-message-type="{!d.ConditionType}" >
+                                            Download PDF
+                                        </a>
+                                        <aura:set attribute="else">
+                                            PDF Unavailable for Download
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </td>                                    
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </ui:scrollerWrapper>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,460 @@
+
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "definitions": {
+        "partnerPickers": {
+            "type": "array",
+            "description": "List of Partners to show",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "PartnerFunction": {
+                        "type": "string",
+                        "description": "Partner Function"
+                    },
+                    "PartnerFunctionName": {
+                        "type": "string",
+                        "description": "Name of Partner Function"
+                    },
+                    "ComponentType": {
+                        "type": "string",
+                        "description": "Name of Search Component to use",
+                        "enum": [
+                            "PartnerSearch",
+                            "CustomerSearch"
+                        ]
+                    },
+                    "SearchType": {
+                        "type": "string",
+                        "description": "The type of Search",
+                        "enum": [
+                            "Partner",
+                            "Contact",
+                            "Vendor",
+                            "Personnel"
+                        ]
+                    },
+                    "autoSearch": {
+                        "type": "boolean",
+                        "description": "Auto Search during page load",
+                        "default": true
+                    },
+                    "allowAddressOverride": {
+                        "type": "boolean",
+                        "description": "Allow to override the Partner address",
+                        "default": false
+                    }
+                },
+                "if": {
+                    "properties": {
+                        "ComponentType": {"const": "PartnerSearch"}
+                    }
+                },
+                "then": {
+                    "properties": {
+                        "autoSearch": {"const": true}
+                    }
+                },
+                "required": [
+                    "PartnerFunction",
+                    "PartnerFunctionName",
+                    "ComponentType",
+                    "SearchType",
+                    "autoSearch",
+                    "allowSearch",
+                    "allowAddressOverride"
+                ]
+            }
+        },
+        "texts": {
+            "type": "object",
+            "description": "Key Value pair of TextID and Description",
+            "patternProperties": {
+                "^[A-Za-z_][A-Za-z0-9_]*$": {
+                    "type": "string",
+                    "additionalProperties": {"type": "string"}
+                }
+            }
+        },
+        "headerFields": {
+            "type": "object",
+            "description": "Header Fields",
+            "properties": {
+                "ConditionsTab": {"$ref": "#/definitions/tabDefaultSettings"},
+                "PartnersTab": {"$ref": "#/definitions/tabDefaultSettings"},
+                "BillingPlanTab": {"$ref": "#/definitions/tabDefaultSettings"},
+                "CreateDate": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "SoldTo": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "SalesDocumentType": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "SalesOrganization": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "DistributionChannel": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "Division": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "PurchaseOrderDate": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "DateFrom": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "DateTo": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "StartDate": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "EndDate": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "RequestedDate": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "PurchaseOrderNumber": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "PaymentTerms": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "FreightTerms": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "SalesOffice": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "SalesGroup": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "SalesDistrict": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "TermsText": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "ShippingConditions": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "PricingDate": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "BillingBlock": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "DeliveryBlock": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "Currency": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "OrderValue": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "Texts": {"$ref": "#/definitions/fieldDefaultSettings"}
+            }
+        },
+        "itemTableFields": {
+            "type": "object",
+            "description": "Item Table Fields",
+            "properties": {
+                "ItemActions": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "ItemActionsView": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "ItemActionsEdit": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "ItemActionsRemove": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "ItemActionsClone": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "Material": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "ItemDescription": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "Quantity": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "SalesUnit": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "BaseUnitOfMeasure": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "RequestedDate": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "NetItemPrice": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "NetOrderValue": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "Plant": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "ItemCategory": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "BillingBlockStatus": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+                "DeliveryBlockStatus": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"}
+            }
+        },
+        "itemEditFields": {
+            "type": "object",
+            "description": "Item Edit Fields",
+            "properties": {
+                "ConditionsTab": {"$ref": "#/definitions/tabDefaultSettings"},
+                "PartnersTab": {"$ref": "#/definitions/tabDefaultSettings"},
+                "BillingPlanTab": {"$ref": "#/definitions/tabDefaultSettings"},
+                "ScheduleTab": {"$ref": "#/definitions/tabDefaultSettings"},
+                "AlternativeItem": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "Material": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "ItemDescription": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "Quantity": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "RequestedDate": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "Plant": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "RejectionReason": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "PriceList": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "NetWeight": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "ItemCategory": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "Texts": {"$ref": "#/definitions/fieldDefaultSettings"},
+                "ScheduleTable": {"$ref": "#/definitions/scheduleTableFields"}
+            }
+        },
+        "scheduleTableFields": {
+            "type": "object",
+            "description": "Schedule Table Fields",
+            "properties": {
+                "ScheduleLineNumber": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "ScheduleLineDate": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "OrderQuantity": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "RoundedQuantity": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "ConfirmedQuantity": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "SalesUnit": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "DeliveryBlock": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "DeliveryBlockDescription": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "DeliveredQuantity": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "ScheduleLineCategory": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "ScheduleLineCategoryDescription": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "PurchaseRequisitionNumber": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"},
+                "PurchaseRequisitionItemNumber": {"$ref": "#/definitions/fieldDefaultSettingsDisplayOnly"}
+            }
+        },
+        "addMaterial": {"$ref": "#/definitions/fieldDefaultSettingsNoRequired"},
+        "autoInvoke": {
+            "type": "boolean",
+            "description": "Determine if need to automatically invoke SAP transaction",
+            "default": false
+        },
+        "tabDefaultSettings": {
+            "type": "object",
+            "default": {"display": true, "edit": true},
+            "properties": {
+                "display": {"type": "boolean", "default": true, "description": "Field display"},
+                "edit": {"type": "boolean", "default": true, "description": "Field editable"}
+            },
+            "if": {
+                "properties": {
+                    "display": {"const": false}
+                }
+            },
+            "then": {
+                "properties": {
+                    "edit": {"const": false}
+                }
+            },
+            "required": [
+                "display",
+                "edit"
+            ]
+        },
+        "fieldDefaultSettingsNoRequired": {"$ref": "#/definitions/tabDefaultSettings"},
+        "fieldDefaultSettings": {
+            "type": "object",
+            "default": {"display": true, "edit": true, "required": false},
+            "properties": {
+                "display": {"type": "boolean", "default": true, "description": "Field display"},
+                "edit": {"type": "boolean", "default": true, "description": "Field editable"},
+                "required": {"type": "boolean", "default": false, "description": "Field requirement"},
+                "simulate": {"type": "boolean", "default": false, "description": "Execute simulation on field change"},
+                "type": {"type": "string", "description": "Used to override standard option select control type to text field"}
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "display": {"const": false}
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "edit": {"const": false},
+                            "required": {"const": false},
+                            "type": {"const": ""}
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "edit": {"const": false}
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "required": {"const": false}
+                        }
+                    }
+                }
+            ],
+            "required": [
+                "display",
+                "edit",
+                "required",
+                "simulate"
+            ]
+        },
+        "fieldDefaultSettingsDisplayOnly": {
+            "type": "object",
+            "default": {"display": true},
+            "properties": {
+                "display": {"type": "boolean", "default": true, "description": "Field display"},
+            },
+            "required": [
+                "display"
+            ]
+        },
+        "fieldSettings": {
+            "type": "object",
+            "properties": {
+                "autoInvoke": {"$ref": "#/definitions/autoInvoke"},
+                "AddMaterial": {"$ref": "#/definitions/addMaterial"},
+                "Header": {"$ref": "#/definitions/headerFields"},
+                "ItemTable": {"$ref": "#/definitions/itemTableFields"},
+                "ItemEdit": {"$ref": "#/definitions/itemEditFields"}
+            },
+            "required": [
+                "autoInvoke",
+                "AddMaterial",
+                "Header",
+                "ItemTable",
+                "ItemEdit"
+            ]
+        }
+    },
+    "type": "object",
+    "patternProperties": {
+        "^[A-Za-z_][A-Za-z0-9_]*$": {
+            "type": "object",
+            "description": "Settings Key",
+            "patternProperties": {
+                "^[A-Za-z_][A-Za-z0-9_]*$": {
+                    "type": "object",
+                    "description": "Settings Type Name",
+                    "properties": {
+                        "itemNumberIncrement": {
+                            "type": "integer",
+                            "description": "Numeric increment of Item Number",
+                            "default": 10
+                        },
+                        "autoSimulate": {
+                            "type": "object",
+                            "description": "Auto Simulation",
+                            "properties": {
+                                "afterPartnerSelection": {
+                                    "type": "boolean",
+                                    "description": "Auto simulate after partner selection",
+                                    "default": true
+                                },
+                                "afterItemAdd": {
+                                    "type": "boolean",
+                                    "description": "Auto simulate after item added",
+                                    "default": true
+                                },
+                                "afterItemEditSave": {
+                                    "type": "boolean",
+                                    "description": "Auto simulate after item edit save",
+                                    "default": true
+                                },
+                                "afterItemDelete": {
+                                    "type": "boolean",
+                                    "description": "Auto simulate after item delete",
+                                    "default": true
+                                },
+                                "afterItemClone": {
+                                    "type": "boolean",
+                                    "description": "Auto simulate after item clone",
+                                    "default": true
+                                },
+                                "afterItemConfiguration": {
+                                    "type": "boolean",
+                                    "description": "Auto simulate after item configuration",
+                                    "default": true
+                                },
+                                "afterFieldUpdate": {
+                                    "type": "boolean",
+                                    "description": "Auto simulate after field value change. More setting at the field level",
+                                    "default": true
+                                }
+                            },
+                            "required": [
+                                "afterPartnerSelection",
+                                "afterItemAdd",
+                                "afterItemEditSave",
+                                "afterItemDelete",
+                                "afterItemClone",
+                                "afterItemConfiguration",
+                                "afterFieldUpdate"
+                            ]
+                        },
+                        "showHeaderIncompletionLogs": {
+                            "type":"boolean",
+                            "default": true,
+                            "description": "Show header Incompletion Logs"
+                        },
+                        "showItemIncompletionLogs": {
+                            "type": "boolean",
+                            "description": "Show item Incompletion Logs",
+                            "default": true
+                        },
+                        "enableBoMItemEdit": {
+                            "type":"boolean",
+                            "default": false,
+                            "description": "Enable Edit for BoM Item"
+                        },
+                        "updateLineItems": {
+                            "type":"boolean",
+                            "default": false,
+                            "description": "Update Line Items on Save"
+                        },
+                        "enableConfiguration": {
+                            "type": "boolean",
+                            "description": "Enable Configuration",
+                            "default": true
+                        },
+                        "SAPDocType": {
+                            "type": "string",
+                            "description": "SAP Document Type",
+                            "enum": [
+                                "Order",
+                                "Quote",
+                                "Contract",
+                                "Inquiry",
+                                "Credit Memo",
+                                "Debit Memo",
+                                "Return Order"
+                            ]
+                        },
+                        "SBODetailType": {
+                            "type": "string",
+                            "description": "SBO Detail Type",
+                            "enum": [
+                                "SalesDocument",
+                                "Contract"
+                            ]
+                        },
+                        "DefaultDocType": {
+                            "type": "string",
+                            "description": "Default SAP Document Type"
+                        },
+                        "DocTypes": {
+                            "type": "array",
+                            "description": "List of Document Types to Display",
+                            "items": {
+                                "type": "object",
+                                "description": "Object of SAP Doc Type Id and Label",
+                                "properties": {
+                                    "id": {"type": "string", "description": "Doc Type Id"},
+                                    "label": {"type": "string", "description": "Doc Type Label"}
+                                },
+                                "required": [
+                                    "id",
+                                    "label"
+                                ]
+                            }
+                        },
+                        "Header": {
+                            "type": "object",
+                            "description": "Header Settings",
+                            "properties": {
+                                "PartnerPickers": {"$ref": "#/definitions/partnerPickers"},
+                                "Texts": {"$ref": "#/definitions/texts"}
+                            },
+                            "required": [
+                                "PartnerPickers",
+                                "Texts"
+                            ]
+                        },
+                        "Item": {
+                            "type": "object",
+                            "description": "Item Settings",
+                            "properties": {
+                                "PartnerPickers": {"$ref": "#/definitions/partnerPickers"},
+                                "Texts": {"$ref": "#/definitions/texts"}
+                            },
+                            "required": [
+                                "PartnerPickers",
+                                "Texts"
+                            ]
+                        },
+                        "Simulate": {"$ref": "#/definitions/fieldSettings"},
+                        "Create": {"$ref": "#/definitions/fieldSettings"},
+                        "Update": {"$ref": "#/definitions/fieldSettings"}
+                    },
+                    "required": [
+                        "itemNumberIncrement",
+                        "autoSimulate",
+                        "showHeaderIncompletionLogs",
+                        "showItemIncompletionLogs",
+                        "enableBoMItemEdit",
+                        "enableConfiguration",
+                        "SAPDocType",
+                        "SBODetailType",
+                        "DefaultDocType",
+                        "DocTypes",
+                        "Header",
+                        "Item",
+                        "Simulate",
+                        "Create",
+                        "Update"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,398 @@
+<apex:page controller="CTRL_enosiXExternalConfiguratorPlugin" label="CPQeECP" docType="html-5.0" showHeader="false" sidebar="false">
+  <apex:slds/>
+  <apex:includeLightning/>
+  <style>
+    html,
+    body,
+    .fullHeight {
+      height: 100vh!important;
+      width: 100vw!important;
+      overflow-y: auto;
+      border: none;
+      background: white!important;
+    }
+
+    .slds-card__header.header {
+      display:none;
+    }
+
+    /* Fixes scrolling on iOS */
+    @supports (-webkit-overflow-scrolling:touch) {
+      #app {
+        overflow:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+    }
+  </style>
+  <div class="fullHeight" id="app">
+    <div id="err" class="slds-text-color_error slds-var-p-around_large" style="display: none"></div>
+  </div>
+
+  <script>
+
+    /*************variables***************/
+
+    var info = null
+    var messageFromCPQ = null
+
+    /**************onload events ********/
+    
+    // receive the message from CPQ and load the iframe in parallel to minimize UI lag
+    document.head.appendChild(Object.assign(
+      document.createElement('script'), {
+        src: "{!URLFOR($Resource.SBQQ__easyXDM)}",
+        onload: cpqCallback
+      }))
+
+    window.addEventListener("message", receiveMessage, false);
+
+    /*********** Functions **************/
+
+    function displayError(errorMessage)
+    {
+      document.getElementById('err').style.display = 'block';
+      document.getElementById('err').innerText = errorMessage;
+    }
+
+    function receiveMessageFromCPQ(messageFromCPQString) {
+      // From CPQ
+      messageFromCPQ = JSON.parse(messageFromCPQString)
+      createMessageForSubcomponent(messageFromCPQ)
+    }
+
+    function createMessageForSubcomponent(messageFromCPQ) {
+      if (!(messageFromCPQ.product.optionConfigurations && messageFromCPQ.product.optionConfigurations["SAP BoM"]))
+      {
+        displayError('Error: Product ' + messageFromCPQ.product.configuredProductId + ' missing Product Feature "SAP BoM".');
+        return;
+      }
+      
+      getInfo({
+          quoteId: messageFromCPQ.quote.Id,
+          productId: messageFromCPQ.product && messageFromCPQ.product.configuredProductId
+        },
+        function (result, event) {
+          if (event.status) {
+            info = result
+            var jsonResult = JSON.parse(result);
+            if (!jsonResult.soldToNumber)
+            {
+              displayError('{!JSENCODE($Label.LBL_Account_Sold_To_Blank)}');
+            } else if (!jsonResult.productMaterial)
+            {
+              displayError('{!JSENCODE($Label.LBL_Material_Number_Blank)}');
+            }
+            else
+            {
+              initItemComponent('APP_CPQ_Flow','CMP_CPQ_Flow', messageFromCPQ.quote.Id, result);
+            }
+          } else if (event.type === 'exception') {
+            displayError(event.message + '|' + event.where);
+          } else {
+            displayError(event.message);
+          }
+        }
+      )
+    }
+
+    function getInfo(params, callback) {
+      Visualforce.remoting.Manager.invokeAction(
+        '{!$RemoteAction.CTRL_enosiXExternalConfiguratorPlugin.getInfo}',
+        params,
+        callback, {
+          escape: false
+        }
+      );
+    }
+
+    function updateInfo(params, callback) {
+      Visualforce.remoting.Manager.invokeAction(
+        '{!$RemoteAction.CTRL_enosiXExternalConfiguratorPlugin.updateInfo}',
+        params,
+        callback, {
+          escape: false
+        }
+      );
+    }
+
+    function closeSession(params, callback) {
+      Visualforce.remoting.Manager.invokeAction(
+        '{!$RemoteAction.CTRL_enosiXExternalConfiguratorPlugin.closeSession}',
+        params,
+        callback, {
+          escape: false
+        }
+      );
+    }
+
+    function receiveMessage(event) {
+      function respondToCPQ() {
+        // Force a recalculation the user would have to click "Calculate" to see any pricing changes
+        // caused by updates. If CPQ supported a 'calculate' action, that would be preferable.
+        cpqResponse.actions = [cpqResponse && cpqResponse.redirect && cpqResponse.redirect.save ? 'quicksave' : 'none']
+        rpc.postMessage(JSON.stringify(cpqResponse))
+      }
+      var messageFromConfigurator = event.data
+      if (messageFromConfigurator && messageFromConfigurator.action && messageFromConfigurator.action.cancel) {
+        // User canceled
+        var cpqResponse = {
+          redirect: {
+            auto: true,
+            save: false
+          }
+        }
+        respondToCPQ()
+        return
+      }
+
+      if (messageFromConfigurator && messageFromConfigurator.action && messageFromConfigurator.data) {
+        var waitForUpdate = false
+
+        function updateInfoComplete(result, event) {
+          respondToCPQ()
+        }
+
+        var cpqResponse = messageFromCPQ
+        cpqResponse.redirect = {
+          auto: true,
+          save: true
+        }
+
+        var data = messageFromConfigurator.data
+
+        if (cpqResponse && cpqResponse.product && cpqResponse.product.configurationData) {
+          cpqResponse.product.configurationData.SAP_Configuration__c = JSON.stringify(data)
+          if (data.item) {
+            cpqResponse.product.configurationData.SBQQ__UnitCost__c = data.item.UnitCost
+            cpqResponse.product.configurationData.SBQQ__ListPrice__c = data.item.UnitPrice
+          }
+        }
+
+        if (!waitForUpdate) {
+          respondToCPQ()
+        }
+      }
+    }
+
+    function cpqCallback() {
+      if (easyXDM) {
+        rpc = new easyXDM.Rpc({}, {
+          remote: {
+            postMessage: {}
+          },
+          local: {
+            postMessage: function (messageFromCPQString) {
+              receiveMessageFromCPQ(messageFromCPQString)
+            }
+          }
+        })
+      }
+    }
+
+    function initItemComponent(appString, componentString, quoteId, info) {
+      if (info) {
+        info = JSON.parse(info)
+        var data = {}
+        var item;
+        if (messageFromCPQ && messageFromCPQ.readOnly && messageFromCPQ.readOnly.line && messageFromCPQ.readOnly.line.SAP_Configuration__c) {
+          item = JSON.parse(messageFromCPQ.readOnly.line.SAP_Configuration__c);
+        }
+        else
+        {
+          item = JSON.parse(info.defaultItem);
+        }
+        if (item.OrderQuantity === undefined)
+        {
+          if (messageFromCPQ && messageFromCPQ.readOnly && messageFromCPQ.readOnly.line && messageFromCPQ.readOnly.line.SBQQ__Quantity__c) {
+            item.OrderQuantity = messageFromCPQ.readOnly.line.SBQQ__Quantity__c;
+          }
+          else
+          {
+            item.OrderQuantity = 1;
+          }
+        }
+
+        // Kingspan had VC configuration which depended on currency.  CPQ doesn't have a standard currency field so have added the mapping logic
+        // if it is needed for a customer and a field is available to map from.
+        if (messageFromCPQ && messageFromCPQ.readOnly && messageFromCPQ.readOnly.line && messageFromCPQ.readOnly.line.UnknownCurrencyField__c) {
+          item.SalesDocumentCurrency = messageFromCPQ.readOnly.line.UnknownCurrencyField__c;
+        }
+        
+        data.item = JSON.stringify(item);
+
+        if (info.quoteSAPConfiguration) {
+          data.header = info.quoteSAPConfiguration;
+        } else {
+          data.header = '';
+        }
+        var msg = {
+          "data": data,
+          "readOnly": {
+            "accountSoldTo": info.soldToNumber,
+            "productMaterial": info.productMaterial
+          },
+          "action": {
+            "cancel": false
+          }
+        }
+
+        var appName = 'c:' + appString;
+        var componentName = 'c:' + componentString;
+        var msgString = JSON.stringify(msg);
+
+        $Lightning.use(appName, function () {
+
+          $Lightning.createComponent(componentName, {
+              quoteId: quoteId,
+              cpqMsg: msgString,
+              headerJSON: data.header,
+              itemId: info.productMaterial,
+              itemJSON: data.item,
+              enterPlant: false,
+              enterQuantity: true,
+            },
+            "app",
+            function (cmp) {
+              //anything entered here is run when the component is loaded
+              $A.eventService.addHandler({
+                "event": "c:EVT_CPQ_Flow_Finished",
+                "handler": finishFlowItem
+              });
+            });
+        });
+      }
+    }
+
+    var finishFlowItem = function finishCPQItemFlow(event) {
+      function respondToCPQ(cpqResponse) {
+        cpqResponse.actions = ['none']
+        rpc.postMessage(JSON.stringify(cpqResponse))
+      }
+      var msg = JSON.parse(event.getParam('cpqMsg'));
+      var data = msg.data;
+      var quoteId = event.getParam('quoteId');
+
+      if (data && data.item && data.item.action && data.item.action.cancel) {
+        // User canceled
+        var cpqResponse = {
+          redirect: {
+            auto: true,
+            save: false
+          }
+        }
+        if (sessionData) {
+            closeSession(sessionData, function () {
+            unregisterLastResortCloseSession();
+            respondToCPQ(cpqResponse);
+          })
+        } else {
+          respondToCPQ(cpqResponse);
+        }
+        return;
+      }
+
+      updateInfo({
+        "sessionData": sessionData,
+        "quoteId": quoteId,
+      }, updateInfoAndCloseSessionComplete);
+
+      function updateInfoAndCloseSessionComplete(result, event) {
+        unregisterLastResortCloseSession();
+        var cpqResponse = messageFromCPQ;
+        cpqResponse.product.configurationData.SAP_Configuration__c = JSON.stringify(data.item)
+        if (data.item.OrderQuantity)
+        {
+          cpqResponse.product.configurationData.SBQQ__Quantity__c = data.item.OrderQuantity
+        }
+        if (cpqResponse.product.optionConfigurations && cpqResponse.product.optionConfigurations["SAP BoM"])
+        {
+          if (data && data.addedItems) {
+            // Add/Remove sub items
+            cpqResponse.product.optionConfigurations["SAP BoM"].forEach(option => {
+              let isFound = false;
+              for (let key in data.addedItems){
+                let value = data.addedItems[key];
+                // Also check for the materialNumber that has (n) suffix
+                if (option.ProductCode === value.materialNumber || option.ProductCode === value.materialNumber.replace(/\s\(\d+\)/g, '')) {
+                  isFound = true;
+                  option.Quantity = value.quantity;
+                  delete data.addedItems[key];
+                  break;
+                }
+              }
+
+              if (!isFound) option.selected = false;
+            })
+
+            if (data.addedItems) {
+              Object.entries(data.addedItems).forEach(([key, value]) => {
+                var newItem = {'productId':key, 'Quantity':value.quantity, 'configurationData':{}}
+                cpqResponse.product.optionConfigurations["SAP BoM"].push(newItem);
+              });
+            }
+          }
+        }
+        cpqResponse.redirect = {
+          auto: true,
+          save: true
+        }
+
+        respondToCPQ(cpqResponse);
+      }
+    }
+
+    // handler for custom event "updateSessionData" event raised from within CMP_VCMaterialConfiguration
+    var sessionData = null;
+    var httpCloseReqquest = null;
+    window.addEventListener("updateSessionData", function(event) {
+      sessionData = event && event.detail && event.detail.SessionData;
+      httpCloseReqquest = JSON.parse(event && event.detail && event.detail.HttpCloseReqquest);
+      registerLastResortCloseSession();
+    }, false);
+
+    function lastResortCloseSession() {
+      if (sessionData) {
+        // Close the SAP session
+
+        // TODO: 
+        //
+        // Looked into navigator.sendBeacon with FormData to simulate a standard
+        // VF page non-ajax action (i.e. a form submit button) but navigator.sendBeacon
+        // doesn't allow for setting header cookies so it just pops up a SAP login dialog.
+        //
+        // Browsers don't execute async XHRs during unload.
+        //
+        // Trying to run sync XHR below throws error - 
+        //    has been blocked by CORS policy: Response to preflight request doesn't pass
+        //    access control check:  No 'Access-Control-Allow-Origin' header is present on the
+        //    requested resource
+        //
+        // function setCookie(item, index)
+        // {
+        //   document.cookie = item;
+        // }
+        // var cookieArray = httpCloseReqquest.Cookie.split(";");
+        // cookieArray.forEach(setCookie);
+        // var request = new XMLHttpRequest();
+        // request.withCredentials = true;
+        // request.open(httpCloseReqquest.Method, httpCloseReqquest.Endpoint, false);
+        // request.setRequestHeader("Client", httpCloseReqquest.Client);
+        // request.setRequestHeader("Content-Type", httpCloseReqquest.ContentType);
+        // request.send(httpCloseReqquest.BodyDocument);
+      }
+    }
+
+    function unregisterLastResortCloseSession() {
+      sessionData = null;
+      registerLastResortCloseSession();
+    }
+
+    function registerLastResortCloseSession() {
+      if (sessionData) {
+        window.onunload = lastResortCloseSession;
+      } else {
+        window.onunload = '';
+      }
+    }
+  </script>
+</apex:page>

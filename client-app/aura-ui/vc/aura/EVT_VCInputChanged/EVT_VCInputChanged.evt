@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="EVT_VCInputChanged">
+    <aura:attribute name="inputId" type="String" required="true"/>
+    <aura:attribute name="characteristicID" type="String" required="true"/>
+    <aura:attribute name="newVal" type="object" required="true"/>
+    <aura:attribute name="newValDesc" type="String" required="true"/>
+</aura:event>

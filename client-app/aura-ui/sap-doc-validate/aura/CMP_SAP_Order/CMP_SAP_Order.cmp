@@ -1,0 +1,71 @@
+<aura:component controller="CTRL_SAP_Doc_Validate" access="global" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+    <aura:attribute name="displaySpinner" type="boolean" default="false" />
+    <aura:attribute name="messages" type="List" />
+    <aura:attribute name="displaySAPButton" type="boolean" default="true" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:navigation aura:id="navService"/>
+
+    <!--The aura:html below is needed in order to force the modal popup to open at a sufficient width -->
+    <aura:html tag="style">
+        .slds-modal__container {   
+            height:auto;        
+            width: 65%!important;
+            max-width: 120rem!important;
+            max-height : 100vh;
+        }
+        .slds-modal__header {
+            padding:1px
+        }
+        .slds-modal__header .slds-card__header {
+            padding-top:5px;
+            margin-bottom:5px;
+        }
+        .slds-modal__content {
+            padding-top:0;
+        }
+        .slds-card__body_inner {
+            margin-top:0 !important;
+        }
+    </aura:html>
+
+    <article class="slds-card">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand" />
+        </aura:if>
+        
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span>SAP Order</span>
+                    </h2>
+                </div>
+            </header>
+        </div>
+
+        <div class="slds-card__body slds-card__body_inner">
+            <article class="article-div slds-card slds-card_boundary scrollContainer">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <span>SAP Order Status</span>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+
+                <c:CMP_Messages messages="{!v.messages}" cssClass="slds-item slds-m-around_medium" />
+            </article>
+
+            <div class="slds-grid slds-gutters slds-wrap">
+                <div class="button-div slds-col slds-size_1-of-1">
+                    <lightning:button label="SAP Order" onclick="{!c.sapOrder}" disabled="{!!v.displaySAPButton}" />
+                    <lightning:button label="Exit" onclick="{!c.closeWindow}" />
+                </div>
+            </div>
+        </div>
+    </article>
+</aura:component>

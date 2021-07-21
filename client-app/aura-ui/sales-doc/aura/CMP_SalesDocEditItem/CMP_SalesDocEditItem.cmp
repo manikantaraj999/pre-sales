@@ -1,0 +1,202 @@
+<aura:component access="global" controller="CTRL_SalesDocCreateUpdate">
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
+    
+    <aura:registerEvent name="editItemEvent" type="c:EVT_EditItem"/>
+    <aura:attribute name="salesDocDetail" type="DS_Document_Detail"/>
+    <aura:attribute name="item" type="Map"/>
+    <aura:attribute name="isEditItemInitialized" type="Boolean" default="false"/>
+    
+    <aura:attribute name="plants" type="List"/>
+    <aura:attribute name="itemCategories" type="List"/>
+    <aura:attribute name="rejectionReasons" type="List"/>
+    <aura:attribute name="priceLists" type="List"/>
+    <aura:attribute name="billingPlans" type="List"/>
+    <aura:attribute name="allItemConditions" type="List"/>
+    <aura:attribute name="itemConditionsList" type="List"/>    
+    <aura:attribute name="conditionColumns" type="List"/>
+    <aura:attribute name="selectedItemCondition" type="String"/>
+    <aura:attribute name="isReadOnly" type="Boolean" default="false"/>
+    <aura:attribute name="enableItemSimulate" type="Boolean" default="false"/>
+    <aura:attribute name="appSettings" type="Map"/>
+    <aura:attribute name="fieldSettings" type="Map"/>
+
+    <aura:handler name="change" value="{!v.item}" action="{!c.onChangeItem}"/>
+    <aura:handler name="conditionValueChange" event="c:EVT_ConditionValueChange" action="{!c.onConditionValueChange}"/>
+    <aura:handler name="receivePartnerEvent" event="c:EVT_ReceivePartner" action="{!c.onReceivePartner}"/>
+    <aura:attribute name="onFocusInputValue" type="Object"/>
+
+    <aura:attribute name="displaySpinner" type="Boolean" default="false"/>
+    <aura:attribute name="messages" type="List" />
+
+    <lightning:overlayLibrary aura:id="overlayLibEdit"/>
+
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative itemCard">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand"/>
+        </aura:if>
+        <div>
+            <c:CMP_Messages messages="{!v.messages}" cssClass="slds-item slds-m-around_small slds-text-body_small"/>
+        </div>
+        <aura:if isTrue="{!v.item.showSimulateItemWarning}">
+            <div class="simulateMessage">
+                <lightning:icon iconName="utility:warning" alternativeText="Warning!" size="small"/>{!$Label.c.Enosix_SalesDoc_Message_SimulateItemMessage}
+            </div>
+        </aura:if>  
+        <lightning:tabset selectedTabId="item">
+            <lightning:tab label="{!$Label.c.Enosix_SalesDoc_Tab_Item}" id="item" accesskey="i">
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                        <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_ItemNumber}" value="{!v.item.ItemNumber}" readonly="true"/>
+                    </div>
+                    <aura:if isTrue="{!v.fieldSettings.AlternativeItem.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_AlternativeItem}" value="{!v.item.AlternativeItem}" name="AlternativeItem"
+                                readonly="{! v.isReadOnly || !v.fieldSettings.AlternativeItem.edit}" required="{!v.fieldSettings.AlternativeItem.required}"
+                                onfocus="{!c.onInputFocus}" onblur="{!c.onInputBlur}"/>
+                        </div>
+                    </aura:if>                    
+                    <aura:if isTrue="{!v.fieldSettings.Material.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_Material}" value="{!v.item.Material}" readonly="true"/>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.ItemDescription.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_ItemDescription}" value="{!v.item.ItemDescription}" name="ItemDescription"
+                                readonly="{! v.isReadOnly || !v.fieldSettings.ItemDescription.edit}" maxlength="40" required="{!v.fieldSettings.ItemDescription.required}"
+                                onfocus="{!c.onInputFocus}" onblur="{!c.onInputBlur}"/>
+                        </div>
+                    </aura:if> 
+                    <aura:if isTrue="{!v.fieldSettings.Quantity.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:input type="number" label="{!$Label.c.Enosix_SalesDoc_Field_Quantity}" value="{!v.item.OrderQuantity}" name="Quantity"
+                                readonly="{! v.isReadOnly || !v.fieldSettings.Quantity.edit}" min="0" required="{!v.fieldSettings.Quantity.required}"
+                                onfocus="{!c.onInputFocus}" onblur="{!c.onInputBlur}"/>
+                        </div>
+                    </aura:if> 
+                    <aura:if isTrue="{!v.fieldSettings.RequestedDate.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:input type="date" label="{!$Label.c.Enosix_SalesDoc_Field_RequestedDate}" value="{!v.item.ScheduleLineDate}" name="RequestedDate"
+                                readonly="{! v.isReadOnly || !v.fieldSettings.RequestedDate.edit}" required="{!v.fieldSettings.RequestedDate.required}" onchange="{!c.onInputDateChange}"/>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.Plant.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_Plant}" value="{!v.item.Plant}" name="Plant"
+                                disabled="{! v.isReadOnly || !v.fieldSettings.Plant.edit}" required="{!v.fieldSettings.Plant.required}" onchange="{!c.onFieldSelectChange}">
+                                <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                                <aura:iteration items="{!v.plants}" var="plant">
+                                    <option value="{!plant.Plant}">{!plant.Plant + ' - ' + plant.PlantName}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.RejectionReason.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_RejectionReason}" value="{!v.item.RejectionReason}" name="RejectionReason"
+                                disabled="{! v.isReadOnly || !v.fieldSettings.RejectionReason.edit}" required="{!v.fieldSettings.RejectionReason.required}" onchange="{!c.onFieldSelectChange}">
+                                <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                                <aura:iteration items="{!v.rejectionReasons}" var="reason">
+                                    <option value="{!reason.VALUE}">{!reason.VALUE + ' - ' + reason.DESCRIPTION}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.PriceList.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_PriceList}" value="{!v.item.PriceListType}" name="PriceList"
+                                disabled="{! v.isReadOnly || !v.fieldSettings.PriceList.edit}" required="{!v.fieldSettings.PriceList.required}" onchange="{!c.onFieldSelectChange}">
+                                <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                                <aura:iteration items="{!v.priceLists}" var="pl">
+                                    <option value="{!pl.PLTYP}">{!pl.PLTYP + ' - ' + pl.PTEXT}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>  
+                    <aura:if isTrue="{!v.fieldSettings.NetWeight.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:input type="text" label="{!$Label.c.Enosix_SalesDoc_Field_NetWeight}" 
+                                value="{!v.item.NetWeight + ' ' + v.item.WeightUnit}" readonly="true"/>
+                        </div>
+                    </aura:if>                    
+                    <aura:if isTrue="{!v.fieldSettings.ItemCategory.display}">
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_2-of-8">
+                            <lightning:select label="{!$Label.c.Enosix_SalesDoc_Field_ItemCategory}" value="{!v.item.ItemCategory}" name="ItemCategory"
+                                disabled="{! v.isReadOnly || !v.fieldSettings.ItemCategory.edit}" required="{!v.fieldSettings.ItemCategory.required}" onchange="{!c.onFieldSelectChange}">
+                                <option value="">{!$Label.c.Enosix_SalesDoc_Option_SelectOne}</option>
+                                <aura:iteration items="{!v.itemCategories}" var="category">
+                                    <option value="{!category.VALUE}">{!category.VALUE + ' - ' + category.DESCRIPTION}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </aura:if>                    
+                </div>  
+                <aura:if isTrue="{!v.fieldSettings.Texts.display}">
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <aura:iteration items="{!v.item.ItemTexts}" var="text">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-4 slds-large-size_4-of-12">
+                                <lightning:textarea class="header-text" label="{!text.TextIDDescription}" value="{!text.Text}" name="Texts"
+                                    readonly="{! v.isReadOnly || !v.fieldSettings.Texts.edit}" required="{!v.fieldSettings.Texts.required}"
+                                    onchange="{!c.onChangeItem}" onfocus="{!c.onInputFocus}" onblur="{!c.onInputBlur}"/>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </aura:if> 
+            </lightning:tab>
+
+            <aura:if isTrue="{!v.fieldSettings.PartnersTab.display}">
+                <lightning:tab label="{!$Label.c.Enosix_SalesDoc_Tab_Partners}" id="partners" accesskey="p">  
+                    <c:CMP_SalesDocPartners
+                        soldToParty="{!v.salesDocDetail.SoldToParty}"
+                        appSettings="{!v.appSettings}"
+                        partners="{!v.item.PARTNERS}"
+                        allPartners="{!v.salesDocDetail.PARTNERS}"
+                        salesArea="{!v.salesDocDetail.SALES}"/>
+                </lightning:tab>
+            </aura:if>
+
+            <aura:if isTrue="{!v.fieldSettings.ConditionsTab.display}">
+                <lightning:tab label="{!$Label.c.Enosix_SalesDoc_Tab_Conditions}" id="conditions" accesskey="c">                
+                    <div class="slds-m-bottom_xx-small slds-text-align_right">
+                        <span style="font-size:14px;">
+                            {!$Label.c.Enosix_SalesDoc_Field_NetOrderValue} &nbsp; 
+                            <lightning:formattedNumber value="{!v.item.NetOrderValue}" maximumFractionDigits="2" minimumFractionDigits="2"/> {! ' ' + v.item.SalesDocumentCurrency}
+                        </span>
+                    </div>
+                    <c:CMP_SalesDocConditions 
+                        allConditions="{!v.allItemConditions}" 
+                        SBOConditions="{!v.item.SBOItemConditions}" 
+                        addedConditions="{!v.item.ItemConditions}"
+                        isReadOnly="{!v.isReadOnly || !v.fieldSettings.ConditionsTab.edit}"/>
+                </lightning:tab>
+            </aura:if>
+
+            <aura:if isTrue="{!v.fieldSettings.BillingPlanTab.display}">
+                <lightning:tab label="{!$Label.c.Enosix_SalesDoc_Tab_BillingPlan}" id="billingPlan" accesskey="b">   
+                    <c:CMP_SalesDocBillingPlan
+                        billingPlans="{!v.billingPlans}"
+                        billingPlan="{!v.item.BillingPlan}"
+                        billingPlanDates="{!v.item.BillingPlanDates}"
+                        isReadOnly="{!v.isReadOnly || !v.fieldSettings.BillingPlanTab.edit}"/>
+                </lightning:tab>
+            </aura:if>
+
+            <aura:if isTrue="{!v.fieldSettings.ScheduleTab.display}">
+                <lightning:tab label="{!$Label.c.Enosix_SalesDoc_Tab_Schedule}" id="schedule" accesskey="s">   
+                    <c:CMP_SalesDocSchedulesTable
+                        itemSchedules="{!v.item.ItemSchedules}"
+                        fieldSettings="{!v.fieldSettings.ScheduleTable}"/>
+                </lightning:tab>
+            </aura:if>
+            
+        </lightning:tabset>
+        
+        <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Cancel}" variant="brand" onclick="{!c.onCancelClick}"/>
+        <aura:if isTrue="{! and(!v.isReadOnly, v.item.HigherLevelItemNumber == '000000')}">
+            <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_SimulateItem}" variant="brand" onclick="{!c.onSimulateClick}" disabled="{!!v.enableItemSimulate}"/>
+        </aura:if>
+        <aura:if isTrue="{!!v.isReadOnly}">
+            <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Save}" variant="brand" onclick="{!c.onSaveClick}"/>
+        </aura:if>        
+    </lightning:card>
+</aura:component>

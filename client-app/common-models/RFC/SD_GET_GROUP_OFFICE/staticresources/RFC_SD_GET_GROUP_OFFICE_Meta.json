@@ -1,0 +1,171 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_GROUP_OFFICE.RESULT": {
+      "SALES_DISTRICT": {
+        "FriendlyName": "SALES_DISTRICT",
+        "TechnicalName": "SALES_DISTRICT",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "SALES_GROUP": {
+        "FriendlyName": "SALES_GROUP",
+        "TechnicalName": "SALES_GROUP",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "SALES_OFFICE": {
+        "FriendlyName": "SALES_OFFICE",
+        "TechnicalName": "SALES_OFFICE",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_GROUP_OFFICE.ET_SALES_DISTRICT": {
+      "BZIRK": {
+        "FriendlyName": "BZIRK",
+        "TechnicalName": "BZIRK",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BZTXT": {
+        "FriendlyName": "BZTXT",
+        "TechnicalName": "BZTXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_GROUP_OFFICE.ET_SALES_GROUP": {
+      "VKBUR": {
+        "FriendlyName": "VKBUR",
+        "TechnicalName": "VKBUR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesGroup": {
+        "FriendlyName": "SalesGroup",
+        "TechnicalName": "VKGRP",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI": {
+        "FriendlyName": "BEZEI",
+        "TechnicalName": "BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_GROUP_OFFICE.ET_SALES_OFFICE": {
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Division": {
+        "FriendlyName": "Division",
+        "TechnicalName": "SPART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VKBUR": {
+        "FriendlyName": "VKBUR",
+        "TechnicalName": "VKBUR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BEZEI": {
+        "FriendlyName": "BEZEI",
+        "TechnicalName": "BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_SALES_DISTRICT": {
+      "Name": "ET_SALES_DISTRICT",
+      "ItemType": "RFC_SD_GET_GROUP_OFFICE.ET_SALES_DISTRICT",
+      "FieldMap": {
+        "BZIRK": {
+          "FriendlyName": "BZIRK",
+          "TechnicalName": "BZIRK",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BZTXT": {
+          "FriendlyName": "BZTXT",
+          "TechnicalName": "BZTXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_SALES_GROUP": {
+      "Name": "ET_SALES_GROUP",
+      "ItemType": "RFC_SD_GET_GROUP_OFFICE.ET_SALES_GROUP",
+      "FieldMap": {
+        "VKBUR": {
+          "FriendlyName": "VKBUR",
+          "TechnicalName": "VKBUR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesGroup": {
+          "FriendlyName": "SalesGroup",
+          "TechnicalName": "VKGRP",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI": {
+          "FriendlyName": "BEZEI",
+          "TechnicalName": "BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "ET_SALES_OFFICE": {
+      "Name": "ET_SALES_OFFICE",
+      "ItemType": "RFC_SD_GET_GROUP_OFFICE.ET_SALES_OFFICE",
+      "FieldMap": {
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Division": {
+          "FriendlyName": "Division",
+          "TechnicalName": "SPART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VKBUR": {
+          "FriendlyName": "VKBUR",
+          "TechnicalName": "VKBUR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BEZEI": {
+          "FriendlyName": "BEZEI",
+          "TechnicalName": "BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

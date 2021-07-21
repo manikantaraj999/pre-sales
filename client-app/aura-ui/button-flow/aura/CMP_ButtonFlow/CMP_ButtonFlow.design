@@ -1,0 +1,5 @@
+<design:component label="SAP Button Flow">
+    <design:attribute name="recordId" label="Record Id" />
+    <design:attribute name="buttonLabel" label="Button label"/>
+    <design:attribute name="buttonFlow" label="Button flow to run"/>
+</design:component>

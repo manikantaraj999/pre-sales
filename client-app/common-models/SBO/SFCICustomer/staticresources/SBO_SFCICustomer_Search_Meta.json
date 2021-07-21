@@ -1,0 +1,592 @@
+{
+  "FieldMaps": {
+    "SBO_SFCICustomer_Search.SEARCHPARAMS": {
+      "CustomerNumberFrom": {
+        "FriendlyName": "CustomerNumberFrom",
+        "TechnicalName": "KUNNR_FR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerNumberTo": {
+        "FriendlyName": "CustomerNumberTo",
+        "TechnicalName": "KUNNR_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerName": {
+        "FriendlyName": "CustomerName",
+        "TechnicalName": "MCOD1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PostalCode": {
+        "FriendlyName": "PostalCode",
+        "TechnicalName": "PSTLZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "City": {
+        "FriendlyName": "City",
+        "TechnicalName": "CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Region": {
+        "FriendlyName": "Region",
+        "TechnicalName": "REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Country": {
+        "FriendlyName": "Country",
+        "TechnicalName": "COUNTRY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TelephoneNumber": {
+        "FriendlyName": "TelephoneNumber",
+        "TechnicalName": "TEL_NUMBER",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "EmailAddress": {
+        "FriendlyName": "EmailAddress",
+        "TechnicalName": "EMAIL_ADDRESS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerAccountGroup": {
+        "FriendlyName": "CustomerAccountGroup",
+        "TechnicalName": "KTOKD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_SFCICustomer_Search.CONTACT_PERSON": {
+      "PARNR_FROM": {
+        "FriendlyName": "PARNR_FROM",
+        "TechnicalName": "PARNR_FROM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PARNR_TO": {
+        "FriendlyName": "PARNR_TO",
+        "TechnicalName": "PARNR_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MC_NAME1": {
+        "FriendlyName": "MC_NAME1",
+        "TechnicalName": "MC_NAME1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MC_NAME2": {
+        "FriendlyName": "MC_NAME2",
+        "TechnicalName": "MC_NAME2",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_SFCICustomer_Search.CUSTOM": {
+      "FIELD": {
+        "FriendlyName": "FIELD",
+        "TechnicalName": "FIELD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VALUE": {
+        "FriendlyName": "VALUE",
+        "TechnicalName": "VALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_SFCICustomer_Search.SEARCHRESULT": {
+      "CustomerNumber": {
+        "FriendlyName": "CustomerNumber",
+        "TechnicalName": "KUNNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name": {
+        "FriendlyName": "Name",
+        "TechnicalName": "NAME1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name2": {
+        "FriendlyName": "Name2",
+        "TechnicalName": "NAME2",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "HouseNumber": {
+        "FriendlyName": "HouseNumber",
+        "TechnicalName": "HOUSE_NUM1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Street": {
+        "FriendlyName": "Street",
+        "TechnicalName": "STREET",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "City": {
+        "FriendlyName": "City",
+        "TechnicalName": "CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PostalCode": {
+        "FriendlyName": "PostalCode",
+        "TechnicalName": "POST_CODE1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Region": {
+        "FriendlyName": "Region",
+        "TechnicalName": "REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "RegionDescription": {
+        "FriendlyName": "RegionDescription",
+        "TechnicalName": "REGIO_BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Country": {
+        "FriendlyName": "Country",
+        "TechnicalName": "COUNTRY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CountryName": {
+        "FriendlyName": "CountryName",
+        "TechnicalName": "COUNTRY_LANDX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "POBox": {
+        "FriendlyName": "POBox",
+        "TechnicalName": "PO_BOX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TelephoneNumber": {
+        "FriendlyName": "TelephoneNumber",
+        "TechnicalName": "TEL_NUMBER",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Language": {
+        "FriendlyName": "Language",
+        "TechnicalName": "LANGU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreditLimit": {
+        "FriendlyName": "CreditLimit",
+        "TechnicalName": "KLIMK",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "CreditAvailable": {
+        "FriendlyName": "CreditAvailable",
+        "TechnicalName": "CREDIT_AVAIL",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "CurrencyKey": {
+        "FriendlyName": "CurrencyKey",
+        "TechnicalName": "WAERS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "EmailAddress": {
+        "FriendlyName": "EmailAddress",
+        "TechnicalName": "EMAIL_ADDRESS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerAccountGroup": {
+        "FriendlyName": "CustomerAccountGroup",
+        "TechnicalName": "KTOKD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "AccountGroupName": {
+        "FriendlyName": "AccountGroupName",
+        "TechnicalName": "KTOKD_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM01": {
+        "FriendlyName": "CUSTOM01",
+        "TechnicalName": "CUSTOM01",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM02": {
+        "FriendlyName": "CUSTOM02",
+        "TechnicalName": "CUSTOM02",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM03": {
+        "FriendlyName": "CUSTOM03",
+        "TechnicalName": "CUSTOM03",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM04": {
+        "FriendlyName": "CUSTOM04",
+        "TechnicalName": "CUSTOM04",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM05": {
+        "FriendlyName": "CUSTOM05",
+        "TechnicalName": "CUSTOM05",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM06": {
+        "FriendlyName": "CUSTOM06",
+        "TechnicalName": "CUSTOM06",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM07": {
+        "FriendlyName": "CUSTOM07",
+        "TechnicalName": "CUSTOM07",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM08": {
+        "FriendlyName": "CUSTOM08",
+        "TechnicalName": "CUSTOM08",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM09": {
+        "FriendlyName": "CUSTOM09",
+        "TechnicalName": "CUSTOM09",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM10": {
+        "FriendlyName": "CUSTOM10",
+        "TechnicalName": "CUSTOM10",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_SFCICustomer_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "CustomerNumberFrom": {
+          "FriendlyName": "CustomerNumberFrom",
+          "TechnicalName": "KUNNR_FR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerNumberTo": {
+          "FriendlyName": "CustomerNumberTo",
+          "TechnicalName": "KUNNR_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerName": {
+          "FriendlyName": "CustomerName",
+          "TechnicalName": "MCOD1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PostalCode": {
+          "FriendlyName": "PostalCode",
+          "TechnicalName": "PSTLZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "City": {
+          "FriendlyName": "City",
+          "TechnicalName": "CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Region": {
+          "FriendlyName": "Region",
+          "TechnicalName": "REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Country": {
+          "FriendlyName": "Country",
+          "TechnicalName": "COUNTRY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "TelephoneNumber": {
+          "FriendlyName": "TelephoneNumber",
+          "TechnicalName": "TEL_NUMBER",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "EmailAddress": {
+          "FriendlyName": "EmailAddress",
+          "TechnicalName": "EMAIL_ADDRESS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerAccountGroup": {
+          "FriendlyName": "CustomerAccountGroup",
+          "TechnicalName": "KTOKD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "CONTACT_PERSON": {
+      "Name": "CONTACT_PERSON",
+      "ItemType": "SBO_SFCICustomer_Search.CONTACT_PERSON",
+      "FieldMap": {
+        "PARNR_FROM": {
+          "FriendlyName": "PARNR_FROM",
+          "TechnicalName": "PARNR_FROM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PARNR_TO": {
+          "FriendlyName": "PARNR_TO",
+          "TechnicalName": "PARNR_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MC_NAME1": {
+          "FriendlyName": "MC_NAME1",
+          "TechnicalName": "MC_NAME1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MC_NAME2": {
+          "FriendlyName": "MC_NAME2",
+          "TechnicalName": "MC_NAME2",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "CUSTOM": {
+      "Name": "CUSTOM",
+      "ItemType": "SBO_SFCICustomer_Search.CUSTOM",
+      "FieldMap": {
+        "FIELD": {
+          "FriendlyName": "FIELD",
+          "TechnicalName": "FIELD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VALUE": {
+          "FriendlyName": "VALUE",
+          "TechnicalName": "VALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_SFCICustomer_Search.SEARCHRESULT",
+      "FieldMap": {
+        "CustomerNumber": {
+          "FriendlyName": "CustomerNumber",
+          "TechnicalName": "KUNNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name": {
+          "FriendlyName": "Name",
+          "TechnicalName": "NAME1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name2": {
+          "FriendlyName": "Name2",
+          "TechnicalName": "NAME2",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "HouseNumber": {
+          "FriendlyName": "HouseNumber",
+          "TechnicalName": "HOUSE_NUM1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Street": {
+          "FriendlyName": "Street",
+          "TechnicalName": "STREET",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "City": {
+          "FriendlyName": "City",
+          "TechnicalName": "CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PostalCode": {
+          "FriendlyName": "PostalCode",
+          "TechnicalName": "POST_CODE1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Region": {
+          "FriendlyName": "Region",
+          "TechnicalName": "REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "RegionDescription": {
+          "FriendlyName": "RegionDescription",
+          "TechnicalName": "REGIO_BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Country": {
+          "FriendlyName": "Country",
+          "TechnicalName": "COUNTRY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CountryName": {
+          "FriendlyName": "CountryName",
+          "TechnicalName": "COUNTRY_LANDX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "POBox": {
+          "FriendlyName": "POBox",
+          "TechnicalName": "PO_BOX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "TelephoneNumber": {
+          "FriendlyName": "TelephoneNumber",
+          "TechnicalName": "TEL_NUMBER",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Language": {
+          "FriendlyName": "Language",
+          "TechnicalName": "LANGU",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreditLimit": {
+          "FriendlyName": "CreditLimit",
+          "TechnicalName": "KLIMK",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "CreditAvailable": {
+          "FriendlyName": "CreditAvailable",
+          "TechnicalName": "CREDIT_AVAIL",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "CurrencyKey": {
+          "FriendlyName": "CurrencyKey",
+          "TechnicalName": "WAERS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "EmailAddress": {
+          "FriendlyName": "EmailAddress",
+          "TechnicalName": "EMAIL_ADDRESS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerAccountGroup": {
+          "FriendlyName": "CustomerAccountGroup",
+          "TechnicalName": "KTOKD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "AccountGroupName": {
+          "FriendlyName": "AccountGroupName",
+          "TechnicalName": "KTOKD_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM01": {
+          "FriendlyName": "CUSTOM01",
+          "TechnicalName": "CUSTOM01",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM02": {
+          "FriendlyName": "CUSTOM02",
+          "TechnicalName": "CUSTOM02",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM03": {
+          "FriendlyName": "CUSTOM03",
+          "TechnicalName": "CUSTOM03",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM04": {
+          "FriendlyName": "CUSTOM04",
+          "TechnicalName": "CUSTOM04",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM05": {
+          "FriendlyName": "CUSTOM05",
+          "TechnicalName": "CUSTOM05",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM06": {
+          "FriendlyName": "CUSTOM06",
+          "TechnicalName": "CUSTOM06",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM07": {
+          "FriendlyName": "CUSTOM07",
+          "TechnicalName": "CUSTOM07",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM08": {
+          "FriendlyName": "CUSTOM08",
+          "TechnicalName": "CUSTOM08",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM09": {
+          "FriendlyName": "CUSTOM09",
+          "TechnicalName": "CUSTOM09",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM10": {
+          "FriendlyName": "CUSTOM10",
+          "TechnicalName": "CUSTOM10",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

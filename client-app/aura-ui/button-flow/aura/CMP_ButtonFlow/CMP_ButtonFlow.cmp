@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens,force:hasRecordId" access="global">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="buttonLabel" type="String" />
+    <aura:attribute name="buttonFlow" type="String"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib" />
+
+    <lightning:card class="slds-card slds-align_absolute-center">    
+        <lightning:button label="{!v.buttonLabel}" onclick="{!c.onSelectButtonFlow}"/>
+    </lightning:card>
+</aura:component>

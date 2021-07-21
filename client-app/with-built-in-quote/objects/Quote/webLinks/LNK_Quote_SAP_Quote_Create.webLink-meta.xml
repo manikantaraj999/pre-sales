@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LNK_Quote_SAP_Quote_Create</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Create SAP Quote</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/VFP_Router?c__ENSX_Page=VFP_QuoteCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeCreate&amp;c__SF_QuoteId={!Quote.Id}</url>
+</WebLink>

@@ -1,0 +1,944 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixWarehouseStock_Search.SEARCHPARAMS": {
+      "X_SpecialStock": {
+        "FriendlyName": "X_SpecialStock",
+        "TechnicalName": "X_SPECIALSTOCK",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "X_DisplayBatchStock": {
+        "FriendlyName": "X_DisplayBatchStock",
+        "TechnicalName": "X_BATCH",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "X_DisplayNoZeroStockLines": {
+        "FriendlyName": "X_DisplayNoZeroStockLines",
+        "TechnicalName": "X_NOZEROSTOCK",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      },
+      "MAXROWS": {
+        "FriendlyName": "MAXROWS",
+        "TechnicalName": "MAXROWS",
+        "FieldType": "Int",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.MATERIALSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.MATDESCSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.PLANTSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.STORAGELOCSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.BATCHSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.MATERIALTYSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.MATERIALGRPSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.SPECIALSTKTYSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.POSTINGDTSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.MOVEMENTTYSEARCH": {
+      "Sign": {
+        "FriendlyName": "Sign",
+        "TechnicalName": "ENSX_SIGN",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Option": {
+        "FriendlyName": "Option",
+        "TechnicalName": "ENSX_OPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Low": {
+        "FriendlyName": "Low",
+        "TechnicalName": "ENSX_LOW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "High": {
+        "FriendlyName": "High",
+        "TechnicalName": "ENSX_HIGH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixWarehouseStock_Search.SEARCHRESULT": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialDescription": {
+        "FriendlyName": "MaterialDescription",
+        "TechnicalName": "MAKTX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Plant": {
+        "FriendlyName": "Plant",
+        "TechnicalName": "WERKS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "StorageLocation": {
+        "FriendlyName": "StorageLocation",
+        "TechnicalName": "LGORT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "StorageLocationDescription": {
+        "FriendlyName": "StorageLocationDescription",
+        "TechnicalName": "LGOBE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialType": {
+        "FriendlyName": "MaterialType",
+        "TechnicalName": "MTART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialGroup": {
+        "FriendlyName": "MaterialGroup",
+        "TechnicalName": "MATKL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SpecialStockInd": {
+        "FriendlyName": "SpecialStockInd",
+        "TechnicalName": "SOBKZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ValuationofSpecialStock": {
+        "FriendlyName": "ValuationofSpecialStock",
+        "TechnicalName": "KZBWS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SpecialStockNumber": {
+        "FriendlyName": "SpecialStockNumber",
+        "TechnicalName": "SSNUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DeletionFLag": {
+        "FriendlyName": "DeletionFLag",
+        "TechnicalName": "LVORM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BatchNumber": {
+        "FriendlyName": "BatchNumber",
+        "TechnicalName": "CHARG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BaseUnitOfMeasure": {
+        "FriendlyName": "BaseUnitOfMeasure",
+        "TechnicalName": "MEINS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FieldCurrency": {
+        "FriendlyName": "FieldCurrency",
+        "TechnicalName": "CURRENCY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "UnrestrictedStock": {
+        "FriendlyName": "UnrestrictedStock",
+        "TechnicalName": "UNRES_QUAN",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "UnrestrictedValue": {
+        "FriendlyName": "UnrestrictedValue",
+        "TechnicalName": "UNRES_VALUE",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "TransitTransferStock": {
+        "FriendlyName": "TransitTransferStock",
+        "TechnicalName": "TRANSIT_QUAN",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "TransitTransferValue": {
+        "FriendlyName": "TransitTransferValue",
+        "TechnicalName": "TRANSIT_VALUE",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "QualityInspectionStock": {
+        "FriendlyName": "QualityInspectionStock",
+        "TechnicalName": "QUALITY_QUAN",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "QualityInspectionValue": {
+        "FriendlyName": "QualityInspectionValue",
+        "TechnicalName": "QUALITY_VALUE",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "RestrictedStock": {
+        "FriendlyName": "RestrictedStock",
+        "TechnicalName": "RESTR_QUAN",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "RestrictedValue": {
+        "FriendlyName": "RestrictedValue",
+        "TechnicalName": "RESTR_VALUE",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "BlockedStock": {
+        "FriendlyName": "BlockedStock",
+        "TechnicalName": "BLOCKED_QUAN",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "BlockedValue": {
+        "FriendlyName": "BlockedValue",
+        "TechnicalName": "BLOCKED_VALUE",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "ReturnsStock": {
+        "FriendlyName": "ReturnsStock",
+        "TechnicalName": "RETURN_QUAN",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "ReturnsValue": {
+        "FriendlyName": "ReturnsValue",
+        "TechnicalName": "RETURN_VALUE",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "SystemID": {
+        "FriendlyName": "SystemID",
+        "TechnicalName": "SYSTEM_ID",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "X_SpecialStock": {
+          "FriendlyName": "X_SpecialStock",
+          "TechnicalName": "X_SPECIALSTOCK",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "X_DisplayBatchStock": {
+          "FriendlyName": "X_DisplayBatchStock",
+          "TechnicalName": "X_BATCH",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "X_DisplayNoZeroStockLines": {
+          "FriendlyName": "X_DisplayNoZeroStockLines",
+          "TechnicalName": "X_NOZEROSTOCK",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        },
+        "MAXROWS": {
+          "FriendlyName": "MAXROWS",
+          "TechnicalName": "MAXROWS",
+          "FieldType": "Int",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "MATERIALSEARCH": {
+      "Name": "MATERIALSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.MATERIALSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "MATDESCSEARCH": {
+      "Name": "MATDESCSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.MATDESCSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "PLANTSEARCH": {
+      "Name": "PLANTSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.PLANTSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "STORAGELOCSEARCH": {
+      "Name": "STORAGELOCSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.STORAGELOCSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "BATCHSEARCH": {
+      "Name": "BATCHSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.BATCHSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "MATERIALTYSEARCH": {
+      "Name": "MATERIALTYSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.MATERIALTYSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "MATERIALGRPSEARCH": {
+      "Name": "MATERIALGRPSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.MATERIALGRPSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "SPECIALSTKTYSEARCH": {
+      "Name": "SPECIALSTKTYSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.SPECIALSTKTYSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "POSTINGDTSEARCH": {
+      "Name": "POSTINGDTSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.POSTINGDTSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "MOVEMENTTYSEARCH": {
+      "Name": "MOVEMENTTYSEARCH",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.MOVEMENTTYSEARCH",
+      "FieldMap": {
+        "Sign": {
+          "FriendlyName": "Sign",
+          "TechnicalName": "ENSX_SIGN",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Option": {
+          "FriendlyName": "Option",
+          "TechnicalName": "ENSX_OPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Low": {
+          "FriendlyName": "Low",
+          "TechnicalName": "ENSX_LOW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "High": {
+          "FriendlyName": "High",
+          "TechnicalName": "ENSX_HIGH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixWarehouseStock_Search.SEARCHRESULT",
+      "FieldMap": {
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialDescription": {
+          "FriendlyName": "MaterialDescription",
+          "TechnicalName": "MAKTX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Plant": {
+          "FriendlyName": "Plant",
+          "TechnicalName": "WERKS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "StorageLocation": {
+          "FriendlyName": "StorageLocation",
+          "TechnicalName": "LGORT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "StorageLocationDescription": {
+          "FriendlyName": "StorageLocationDescription",
+          "TechnicalName": "LGOBE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialType": {
+          "FriendlyName": "MaterialType",
+          "TechnicalName": "MTART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialGroup": {
+          "FriendlyName": "MaterialGroup",
+          "TechnicalName": "MATKL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SpecialStockInd": {
+          "FriendlyName": "SpecialStockInd",
+          "TechnicalName": "SOBKZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ValuationofSpecialStock": {
+          "FriendlyName": "ValuationofSpecialStock",
+          "TechnicalName": "KZBWS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SpecialStockNumber": {
+          "FriendlyName": "SpecialStockNumber",
+          "TechnicalName": "SSNUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DeletionFLag": {
+          "FriendlyName": "DeletionFLag",
+          "TechnicalName": "LVORM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BatchNumber": {
+          "FriendlyName": "BatchNumber",
+          "TechnicalName": "CHARG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BaseUnitOfMeasure": {
+          "FriendlyName": "BaseUnitOfMeasure",
+          "TechnicalName": "MEINS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FieldCurrency": {
+          "FriendlyName": "FieldCurrency",
+          "TechnicalName": "CURRENCY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "UnrestrictedStock": {
+          "FriendlyName": "UnrestrictedStock",
+          "TechnicalName": "UNRES_QUAN",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "UnrestrictedValue": {
+          "FriendlyName": "UnrestrictedValue",
+          "TechnicalName": "UNRES_VALUE",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "TransitTransferStock": {
+          "FriendlyName": "TransitTransferStock",
+          "TechnicalName": "TRANSIT_QUAN",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "TransitTransferValue": {
+          "FriendlyName": "TransitTransferValue",
+          "TechnicalName": "TRANSIT_VALUE",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "QualityInspectionStock": {
+          "FriendlyName": "QualityInspectionStock",
+          "TechnicalName": "QUALITY_QUAN",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "QualityInspectionValue": {
+          "FriendlyName": "QualityInspectionValue",
+          "TechnicalName": "QUALITY_VALUE",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "RestrictedStock": {
+          "FriendlyName": "RestrictedStock",
+          "TechnicalName": "RESTR_QUAN",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "RestrictedValue": {
+          "FriendlyName": "RestrictedValue",
+          "TechnicalName": "RESTR_VALUE",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "BlockedStock": {
+          "FriendlyName": "BlockedStock",
+          "TechnicalName": "BLOCKED_QUAN",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "BlockedValue": {
+          "FriendlyName": "BlockedValue",
+          "TechnicalName": "BLOCKED_VALUE",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "ReturnsStock": {
+          "FriendlyName": "ReturnsStock",
+          "TechnicalName": "RETURN_QUAN",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "ReturnsValue": {
+          "FriendlyName": "ReturnsValue",
+          "TechnicalName": "RETURN_VALUE",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "SystemID": {
+          "FriendlyName": "SystemID",
+          "TechnicalName": "SYSTEM_ID",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

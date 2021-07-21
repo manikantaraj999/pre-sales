@@ -1,0 +1,7 @@
+.THIS .conditionTable tbody th.activeCondition svg {
+    fill: green;
+}
+
+.THIS .conditionTable tbody th.inactiveCondition svg {
+    fill: yellow
+}

@@ -1,0 +1,49 @@
+{
+    "ScratchOrgDefinitionFile": "./project-scratch-def.json",
+    "PackageIds": [
+        "04t61000000GjSJAA0",
+        "04tf4000004C3nkAAC",
+        "04t1N000000GrPFQA0"
+    ],
+    "__comment__PackageNames": [
+        "Salesforce CPQ - 04t61000000GjSJAA0 - Winter '19 216.10.3 2018-12-12",
+        "enosix Surface - 04tf4000004C3nkAAC - v1.10",
+        "enosiX SAP Customer 360º SDK (Enterprise) - 04t1N000000GrPFQA0 - v1.3.0"
+    ],
+    "MdapiDeployBeforeSfdxSource": [
+        "../../scratch/base/common-app-starter/mdapi/before",
+        "../../client-app/aura-ui-sobjects"
+    ],
+    "MdapiDeployAfterSfdxSource": [
+        "../../scratch/with-cpq/mdapi/after",
+        "../../scratch/base/common-app-starter/mdapi/after"
+    ],
+    "DataRecordCreate": {
+        "ensxapp__LogSetting__c": "ensxapp__HTTP_Trace__c=true ensxapp__LoggingLevel__c=1 ensxapp__Log_Sink__c=UTIL_EnsxAppLogSink",
+        "ensxapp__EnosixFramework__c": "ensxapp__SAP_Client__c='800' ensxapp__SAP_Host__c='callout:enosix_sap_dev_ecc6_800_SDKAppStarter'"
+    },
+    "PermSets": [
+        "enosiX_CPQ_User",
+        "enosiX_SalesDoc_User",
+        "SBQQ__SteelBrickCPQAdmin",
+        "enosiX_Model_Generator_Bridge",
+        "enosiX_App_Admin",
+        "Developer_SDKAppStarter",
+        "enosiX_App_Standard_User"
+    ],
+    "DataPlans": [
+        "../../data/with-cpq/wearables-example/data-plan.json"
+    ],
+    "AnonApexFiles": [
+        "../../config/base/enable-aura-debug-mode.apex",
+        "../../data/with-cpq/wearables-example/updateProducts.apex",
+        "../../data/with-cpq/wearables-example/updateCustomActions.apex",
+        "../../config/with-cpq/installCustomScript.apex",
+        "../../data/base/wearables-example/generatePriceBookEntries.apex"
+    ],
+    "__comment__OpenUrlPaths": "Authorizes the CPQ Calcualtion Service and opens Setup > Installed Packages",
+    "OpenUrlPaths": [
+        "services/oauth2/authorize?response_type=code%26client_id=3MVG9yZ.WNe6byQBf3KaROSnAINMpMlCRNXj2YJ3NfuFlQ3W5MNuK89Wldb3FsiUK3kdxgMStp.7aOMpdeThJ%26redirect_uri=https%3A%2F%2Frest-na.steelbrick.com%2Foauth%2Fcallback%26scope=api%20refresh_token%26state=https%3A%2F%2Ftest.salesforce.com_SBQQ",
+        "lightning/setup/ImportedPackage/home"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "orgName": "enterprise-template",
+    "edition": "Developer",
+    "features": ["LightningSalesConsole", "LightningServiceConsole"],
+    "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "languageSettings": {
+            "enableTranslationWorkbench": true
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
+        }
+    }
+}

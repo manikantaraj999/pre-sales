@@ -1,0 +1,173 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Inventory" controller="CTRL_InventorySearch"
+    tabStyle="Opportunity" lightningStylesheets="true">
+    <apex:slds rendered="{!!isClassic}"/>
+    <!--
+    LINKS:
+    Opportunity | 'SAP Inventory' | LNK_Opportunity_InventoryList | /apex/VFP_InventorySearch?opportunityid={!Opportunity.Id}
+    -->
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.tablesorter, 'jquery.tablesorter.min.js')}"/>
+    <link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+    <style type="text/css">
+        body .pbBody table.list tr th {
+            padding: 5px 2px 4px 5px;
+            border-width: 0 0 1px 1px;
+            border-color: #e0e3e5;
+        }
+
+        .paginator select {
+            background-color: transparent;
+            border: 0px;
+        }
+        table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+            background-color:inherit;
+            font-size:inherit;
+        }
+    </style>
+
+    <apex:form id="formdiv">
+
+        <c:CMP_Status />
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#product_item')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+								<h2 class="slds-card__header-title"><span class="slds-text-heading_small">Inventory</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <apex:pageBlock title="Inventory" id="pbdiv">
+            <apex:pageMessages id="messagediv"/>
+
+            <apex:pageBlockSection title="Search" columns="1" collapsible="false" id="pbsdiv">
+
+                <c:CMP_MaterialSearch id="A"
+                    receiver="{!msReceiver}"
+                    addButtonLabel="Add Items"
+                    multiSelect="false"
+                    materialTypes="{!inventoryMaterialTypes}"
+                    defaultMaterialTypes="{!defaultInventoryMaterialTypes}"
+                    autoSearch="{!isInventoryMaterialAutoSearchEnabled}"
+                    rerender="formdiv"/>
+
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:outputText value="{!materialSearchQuery}" rendered="{!materialSearchQuery!=null && materialSearchQuery!=''}"  label="Searching For:"/>
+
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <c:CMP_NavButtons isClassic="{!isClassic}"/>
+                <apex:commandButton action="{!searchEWS}" id="btnsearch" value="Search" rerender="resultdiv,messagediv,paginationdiv" status="status"/>
+                <apex:commandButton action="{!backMaterial}" id="btnMatBack"
+                                    rendered="{!MaterialSearchParam != null &&MaterialSearchParam !='' && OpportunityProductId != null && OpportunityProductId!=''}"
+                                    value="Back To Material" status="status" immediate="true"
+                                    html-formnovalidate="true"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="Inventory Search Result">
+            <apex:actionFunction id="viewStockList" action="{!goToStockListPage}" name="viewStockList"
+                                 rerender="formdiv" status="status">
+                <apex:param name="material" value=""/>
+                <apex:param name="plant" value=""/>
+            </apex:actionFunction>
+            <table class="list tablesorter slds-table slds-table_bordered" id="resulttable" cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="header"></th>
+                    <th class="header">Plant</th>
+                    <th class="header">Storage Location</th>
+                    <th class="header">Storage Description</th>
+                    <th class="header">Available Stock</th>
+                    <th class="header">In-transit</th>
+                    <th class="header">In Quality Inspection</th>
+                    <th class="header">Returns</th>
+                    <th class="header">Blocked Quantity</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <apex:variable var="inventoryCnt" value="{!0}"/>
+                <apex:repeat value="{!ewsList}" var="ews">
+                    <tr class="dataRow {!IF(inventoryCnt==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} "
+                        onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}"
+                        onfocus="if (window.hiOn){hiOn(this);}">
+                        <td class="dataCell">
+                            <apex:commandButton onclick="viewStockList('{!ews.Material}','{!ews.Plant}');return false;"
+                                    value="Stock Information"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!ews.Plant}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!ews.StorageLocation}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!ews.StorageLocationDescription}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!ews.UnrestrictedStock}"/>
+                        </td>
+                        <td class="dataCell" style="text-align:right">
+                            <apex:outputText value="{!ews.TransitTransferStock}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!ews.QualityInspectionStock}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!ews.ReturnsStock}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!ews.BlockedStock}"/>
+                        </td>
+                    </tr>
+                    <apex:variable var="inventoryCnt" value="{!inventoryCnt+1}"/>
+                </apex:repeat>
+                </tbody>
+
+                <tfoot>
+                <tr>
+                    <th colspan="9" class="header">
+                        <apex:outputPanel id="paginationdiv">
+                            <apex:outputPanel id="innerpaginationdiv" rendered="{!hasRecords}">
+                                <c:CMP_Pager options="{!pagingOptionsWrapper}" searchController="{!searchController}" rerender="resultdiv,paginationdiv"/>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+                $j = jQuery.noConflict();
+                $j(document).ready(function () {
+                    $j("#resulttable").tablesorter();
+                    $j("input").bind("keypress", function (event) {
+                        // alert("failure");
+                        if (event.keyCode === 13) {
+                            // alert("Success");
+                            //$j("#pagediv:formdiv:pbdiv:j_id50:btnsearch").click();
+                            $j('[id*=btnsearch]').click();
+                            return false;
+                        }
+                    });
+                });
+            </script>
+        </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer />
+</apex:page>

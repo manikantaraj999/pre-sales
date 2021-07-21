@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LNK_CPQQuote_SAP_Order_Create</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Create SAP Order</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/VFP_Router?c__ENSX_Page=VFP_OrderCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeCreate&amp;c__SF_CPQQuoteId={!SBQQ__Quote__c.Id}</url>
+</WebLink>

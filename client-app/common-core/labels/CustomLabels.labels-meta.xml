@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+  <labels>
+    <fullName>LBL_CustomerInformationMetaDataException</fullName>
+    <categories>enosix, sap customer, messages, error</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>SAP Customer Information Setting Custom Meta Data query error.</shortDescription>
+    <value>The "{0}" SObject is not currently mapped in the SAP Customer Information Setting Custom Metadata Type.</value>
+  </labels>
+  <labels>
+    <fullName>LBL_CustomerNumberAccessException_Error</fullName>
+    <categories>enosix, sap customer, messages, error</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>Access exception to the Customer Number field.</shortDescription>
+    <value>Your account does not have access to Account field "{0}" to retrieve the SAP customer.</value>
+  </labels>
+  <labels>
+    <fullName>LBL_Error_MissingFieldPermission</fullName>
+    <categories>enosix, sap customer, categories</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>Missing Field Permission</shortDescription>
+    <value>Missing Field Permission</value>
+  </labels>
+  <labels>
+    <fullName>LBL_Error_NoResponse</fullName>
+    <categories>enosiX, sap customer, error, no response</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>Client Controller No Response Error</shortDescription>
+    <value>No response from server.</value>
+  </labels>
+  <labels>
+    <fullName>LBL_Messages_Error</fullName>
+    <categories>enosix, sap customer, categories</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>Error Message(s)</shortDescription>
+    <value>Error Message(s)</value>
+  </labels>
+  <labels>
+    <fullName>LBL_Messages_Info</fullName>
+    <categories>enosix, sap customer, messages, info</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>Info</shortDescription>
+    <value>Info</value>
+  </labels>
+  <labels>
+    <fullName>LBL_Messages_Warning</fullName>
+    <categories>enosix, sap customer, messages, warning</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>Warning</shortDescription>
+    <value>Warning</value>
+  </labels>
+  <labels>
+    <fullName>LBL_SalesDoc_List</fullName>
+    <categories>enosix, sap customer, sales doc list</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>sales doc list</shortDescription>
+    <value>SAP Document List</value>
+  </labels>
+  <labels>
+    <fullName>LBL_SAP_Get_Customer_Error</fullName>
+    <categories>enosix, sap customer, not found</categories>
+    <language>en_US</language>
+    <protected>true</protected>
+    <shortDescription>SAP Customer not found</shortDescription>
+    <value>SAP Customer not found</value>
+  </labels>
+</CustomLabels>

@@ -1,0 +1,38 @@
+<aura:component description="CMP_Input_Text" implements="c:ENSX_Input">
+    <aura:attribute name="inputId" type="string" required="true" />
+    <aura:attribute name="val" type="String" required="true" />
+    <aura:attribute name="valueDescription" type="String" />
+    <aura:attribute name="inputLabel" type="String" required="true" />
+    <aura:attribute name="required" type="Boolean" />
+    <aura:attribute name="disabled" type="Boolean" />
+    <aura:attribute name="possibleValues" type="List" required="true"/>
+    <aura:attribute name="children" type="Aura.Component[]" />
+    <aura:attribute name="maxLength" type="String" />
+    <aura:registerEvent name="inputChanged" type="c:EVT_VCInputChanged" />
+
+    <aura:iteration items="{!v.possibleValues}" var="var">
+        <div class="selectedLabel">
+            <span>{!var.CharacteristicValueDescription}</span>
+        </div>
+    </aura:iteration>
+    <aura:if isTrue="{!v.maxLength > 0}">
+        <lightning:input
+            maxlength="{!v.maxLength}"
+            messageWhenTooLong="Exceeds max character length" 
+            class="lightningInputText"
+            disabled="{!v.disabled}"
+            required="{!v.required}"
+            onblur="{!c.valueMightHaveChanged}" 
+            label="{!v.inputLabel}"
+            value="{! v.disabled &amp;&amp; v.valueDescription != v.val ? v.val + ' - ' + v.valueDescription : v.val }" />
+        <aura:set attribute="else">
+            <lightning:input
+                class="lightningInputText"
+                disabled="{!v.disabled}" 
+                required="{!v.required}"
+                onblur="{!c.valueMightHaveChanged}"
+                label="{!v.inputLabel}"
+                value="{! v.disabled &amp;&amp; v.valueDescription != v.val ? v.val + ' - ' + v.valueDescription : v.val }" />
+        </aura:set>
+    </aura:if>
+</aura:component>

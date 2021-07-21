@@ -1,0 +1,159 @@
+<aura:component>
+    <aura:attribute name="lineItem" type="Object"/>
+    <aura:attribute name="isAccepted" type="Boolean"/>
+    <aura:attribute name="needToSimulate" type="Boolean"/>
+    <aura:attribute name="showIncompletionLogs" type="Boolean"/>
+    <aura:attribute name="enableConfiguration" type="Boolean"/>
+    <aura:attribute name="enableBoMItemEdit" type="Boolean"/>
+    <aura:attribute name="fieldSettings" type="Map"/>
+
+    <aura:registerEvent name="rowActionEvent" type="c:EVT_LineItemRowActionEvent"/>
+    <aura:registerEvent name="lineItemChangeEvent" type="c:EVT_LineItemChangeEvent"/>
+
+    <tr>
+        <aura:if isTrue="{!v.fieldSettings.ItemActions.display}"><td>
+            <div class="display-flex">
+                <aura:if isTrue="{!v.lineItem.HigherLevelItemNumber == '000000'}">
+                    <lightning:buttonMenu iconSize="small" menuAlignment="auto" onselect="{!c.onSelectRowAction}" alternativeText="Show menu">                    
+                        <aura:if isTrue="{!v.isAccepted}">
+                            <aura:if isTrue="{!v.fieldSettings.ItemActionsView.display}">
+                                <lightning:menuItem value="view_item" label="{!$Label.c.Enosix_SalesDoc_Table_View}" iconName="utility:page"/>
+                            </aura:if>
+                            <aura:set attribute="else">
+                                <aura:if isTrue="{!v.fieldSettings.ItemActionsView.display}">
+                                    <lightning:menuItem value="view_item" label="{!$Label.c.Enosix_SalesDoc_Table_View}" iconName="utility:page"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.fieldSettings.ItemActionsEdit.display}">
+                                    <lightning:menuItem value="edit_item" label="{!$Label.c.Enosix_SalesDoc_Table_Edit}" iconName="utility:edit"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.fieldSettings.ItemActionsRemove.display}">
+                                    <lightning:menuItem value="delete_item" label="{!$Label.c.Enosix_SalesDoc_Table_Remove}" iconName="utility:delete"/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.fieldSettings.ItemActionsClone.display}">
+                                    <lightning:menuItem value="clone_line" label="{!$Label.c.Enosix_SalesDoc_Table_Clone}" iconName="utility:copy"/>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                        <aura:if isTrue="{!and(v.lineItem.ConfigurableMaterial, v.enableConfiguration, !v.isAccepted)}">
+                            <lightning:menuItem value="configure_item" label="{!$Label.c.Enosix_SalesDoc_Table_Configure}" iconName="utility:custom_apps"/>
+                        </aura:if>
+                    </lightning:buttonMenu>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.enableBoMItemEdit}">
+                            <lightning:buttonMenu iconSize="small" menuAlignment="auto" onselect="{!c.onSelectRowAction}" alternativeText="Show menu">                    
+                                <aura:if isTrue="{!v.isAccepted}">
+                                    <lightning:menuItem value="view_item" label="{!$Label.c.Enosix_SalesDoc_Table_View}" iconName="utility:page"/>
+                                    <aura:set attribute="else">
+                                        <lightning:menuItem value="edit_item" label="{!$Label.c.Enosix_SalesDoc_Table_Edit}" iconName="utility:edit"/>
+                                    </aura:set>
+                                </aura:if>
+                            </lightning:buttonMenu>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+                <aura:if isTrue="{! and(v.showIncompletionLogs, not(empty(v.lineItem.ItemIncompletionLogs)))}">
+                    <div class="slds-p-left_small slds-p-top_xx-small">
+                        <lightning:icon iconName="utility:info" class="incompletionIcon" size="x-small"/>
+                        <div class="incompletionLogBody">
+                            <ul>
+                                <aura:iteration items="{!v.lineItem.ItemIncompletionLogs}" var="log">
+                                    <li>{!log.Text}</li>
+                                </aura:iteration>
+                            </ul>
+                        </div>
+                    </div>
+                </aura:if>                
+            </div>
+        </td></aura:if>
+        <td>
+            <div class="slds-wrap">
+                <lightning:formattedText value="{!v.lineItem.ItemNumber}"/>
+            </div>
+        </td>
+        <aura:if isTrue="{!v.fieldSettings.Material.display}"><td>
+            <div class="slds-wrap">
+                <lightning:formattedText value="{!v.lineItem.Material}"/>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.ItemDescription.display}"><td>
+            <div class="slds-wrap">
+                <aura:if isTrue="{! and(or(and(v.lineItem.HigherLevelItemNumber != '000000', v.enableBoMItemEdit), v.lineItem.HigherLevelItemNumber == '000000'), v.fieldSettings.ItemDescription.edit)}">
+                    <lightning:input type="text" label="" value="{!v.lineItem.ItemDescription}" onchange="{!c.onLineItemChange}"/>
+                    <aura:set attribute="else">
+                        <lightning:formattedText value="{!v.lineItem.ItemDescription}"/>
+                    </aura:set>
+                </aura:if>                
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.Quantity.display}"><td>
+            <div class="slds-wrap">
+                <aura:if isTrue="{! and(or(and(v.lineItem.HigherLevelItemNumber != '000000', v.enableBoMItemEdit), v.lineItem.HigherLevelItemNumber == '000000'), v.fieldSettings.Quantity.edit)}">
+                    <lightning:input type="number" label="" value="{!v.lineItem.OrderQuantity}" step="1" onchange="{!c.onLineItemChange}"/>
+                    <aura:set attribute="else">
+                        <lightning:formattedNumber value="{!v.lineItem.OrderQuantity}"/>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.SalesUnit.display}"><td>
+            <div class="slds-wrap">
+                <lightning:formattedText value="{!v.lineItem.SalesUnit}"/>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.BaseUnitOfMeasure.display}"><td>
+            <div class="slds-wrap">
+                <lightning:formattedText value="{!v.lineItem.BaseUnitOfMeasure}"/>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.RequestedDate.display}"><td>
+            <div class="slds-wrap">
+                <aura:if isTrue="{! and(or(and(v.lineItem.HigherLevelItemNumber != '000000', v.enableBoMItemEdit), v.lineItem.HigherLevelItemNumber == '000000'), v.fieldSettings.RequestedDate.edit)}">
+                    <lightning:input type="date" label="" value="{!v.lineItem.ScheduleLineDate}" onchange="{!c.onLineItemChange}"/>
+                    <aura:set attribute="else">
+                        <lightning:formattedDateTime value="{!v.lineItem.ScheduleLineDate}"/>
+                    </aura:set>
+                </aura:if>                
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.NetItemPrice.display}"><td>
+            <div class="slds-wrap">
+                <lightning:formattedNumber value="{!v.lineItem.NetItemPrice}" style="currency" currencyCode="{!v.lineItem.SalesDocumentCurrency}"/>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.NetOrderValue.display}"><td>
+            <div class="slds-wrap">
+                <lightning:formattedNumber value="{!v.lineItem.NetOrderValue}" style="currency" currencyCode="{!v.lineItem.SalesDocumentCurrency}"/>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.Plant.display}"><td>
+            <div class="slds-wrap">
+                <lightning:formattedText value="{!v.lineItem.Plant}"/>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.ItemCategory.display}"><td>
+            <div class="slds-wrap">
+                <lightning:formattedText value="{!v.lineItem.ItemCategory}"/>
+            </div>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.BillingBlockStatus.display}"><td>
+            <aura:if isTrue="{!!v.lineItem.BillingBlockStatus}">
+                <div class="slds-wrap">
+                    <lightning:formattedText value="Not Blocked"/>
+                </div>
+                <aura:set attribute="else">
+                    <lightning:formattedText value="{!v.lineItem.BillingBlockStatus}"/>
+                </aura:set>
+            </aura:if>
+        </td></aura:if>
+        <aura:if isTrue="{!v.fieldSettings.DeliveryBlockStatus.display}"><td>
+            <aura:if isTrue="{!!v.lineItem.DeliveryBlockStatus}">
+                <div class="slds-wrap">
+                    <lightning:formattedText value="Not Blocked"/>
+                </div>
+                <aura:set attribute="else">
+                    <lightning:formattedText value="{!v.lineItem.DeliveryBlockStatus}"/>
+                </aura:set>
+            </aura:if>
+        </td></aura:if>
+    </tr>
+</aura:component>

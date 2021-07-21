@@ -1,0 +1,116 @@
+<apex:component controller="CTRL_ShipToSearch">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <apex:stylesheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+
+    <apex:attribute name="rerender" description="" type="String"/>
+    <apex:attribute name="receiver" description="" type="CB_ShipToSearchReceiver" assignTo="{!searchReceiver}"/>
+    <apex:attribute name="jsCallback" description="" type="String"/>
+    <apex:attribute name="autoSearch" description="" default="false" type="Boolean" assignTo="{!isAutoSearchEnabled}"/>
+    <apex:attribute name="soldToParty" description="Sold To Party" type="String" assignTo="{!soldToPartyNumber}"/>
+    <apex:attribute name="salesOrg" description="Sales Organization" type="String" assignTo="{!salesOrganization}"/>
+    <apex:attribute name="DistChan" description="Distribution Channel" type="String" assignTo="{!distributionChannel}"/>
+    <apex:attribute name="div" description="Division" type="String" assignTo="{!division}"/>
+    <apex:attribute name="prevScreen" description="Previous Screen" type="String" assignTo="{!previousScreen}"/>
+    <apex:pageBlock title="ShipTo Search for {!soldToPartyNumber}">
+        <apex:pageBlockSection>
+            <apex:commandButton onclick="actionSearchResult();return false;" value="Search"/>
+        </apex:pageBlockSection>
+        <br/>
+
+        <!-- Action Functions -->
+        <apex:actionFunction name="actionSearchResult" action="{!actionSearch}"
+             rerender="{!rerender}" status="status"/>
+        <apex:actionFunction name="actionSelectedAddress" action="{!actionSelectedAddressToReceiver}"
+             rerender="{!rerender}" status="status" oncomplete="selectedAddressCallback();">
+             <apex:param name="selectedIndex" value=""/>
+        </apex:actionFunction>
+        <apex:actionFunction name="actionCloneNewShipTo" action="{!goToCloneNewShipTo}" status="status"
+            rerender="{!rerender}">
+            <apex:param name="selectedIndex" value=""/>
+        </apex:actionFunction>
+
+        <!-- Table Output -->
+        <apex:outputPanel id="resultsPanel" rendered="{!null != searchResults}">
+            <table class="list" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr class="headerRow">
+                        <th></th>
+                        <th>Ship To Party</th>
+                        <th>Sales Org</th>
+                        <th>Dist. Channel</th>
+                        <th>Division</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Country</th>
+                        <th>Phone Number</th>
+                    </tr>
+                    <apex:repeat value="{!searchResults}" var="result">
+                        <tr>
+                            <td>
+                                <apex:commandButton onclick="actionSelectedAddress({!result.index}); return false;" value="Select"/>
+                                <apex:commandButton onclick="confirmCloneNewShipTo({!result.index}); return false;" value="Clone ShipTo"/>
+                            </td>
+                            <td>{!result.shipToNumber}</td>
+                            <td>{!result.salesOrg}</td>
+                            <td>{!result.distChannel}</td>
+                            <td>{!result.division}</td>
+                            <td>{!result.name}</td>
+                            <td>{!result.address}</td>
+                            <td>{!result.country}</td>
+                            <td>{!result.phoneNumber}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="9" class="header">
+                            <apex:outputPanel id="paginationdiv">
+                                <apex:outputPanel id="innerpaginationdiv" rendered="{!hasRecords}">
+                                    <c:CMP_Pager pagerId="{!id}"
+                                        options="{!pagingOptionsWrapper}"
+                                        searchController="{!searchController}"
+                                        rerender="resultsPanel" />
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </apex:outputPanel>
+    </apex:pageBlock>
+
+    <div id="dialog-confirm" title="Clone ShipTo" style="display:none">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Leaving this page. Any unsaved changes will be lost. Would you like to continue?</p>
+    </div>
+
+    <script type="text/javascript">
+        console.log('load scripts');
+        function selectedAddressCallback() {
+            console.log('selectedAddressCallback run');
+            if (!!'{!jsCallback}') window['{!jsCallback}']();
+        }
+
+        function confirmCloneNewShipTo(index)
+        {
+            console.log('confirmCloneNewShipTo run');
+            $('#dialog-confirm').dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Continue": function(){
+                        actionCloneNewShipTo(index);
+                        return false;
+                    },
+                    Cancel: function(){
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        }
+    </script>
+
+</apex:component>

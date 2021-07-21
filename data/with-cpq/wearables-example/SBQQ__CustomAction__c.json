@@ -1,0 +1,40 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "SBQQ__CustomAction__c",
+                "referenceId": "SBQQ__CustomAction__cRef1"
+            },
+            "SBQQ__Active__c": true,
+            "SBQQ__BrandButton__c": false,
+            "SBQQ__ConditionsMet__c": "All",
+            "SBQQ__Default__c": false,
+            "SBQQ__DisplayOrder__c": 2,
+            "SBQQ__IconClass__c": "sbToolSeparator",
+            "SBQQ__Location__c": "Quote",
+            "SBQQ__Page__c": "Quote Line Editor",
+            "SBQQ__Type__c": "Separator",
+            "Name": "Separator"
+        },
+        {
+            "attributes": {
+                "type": "SBQQ__CustomAction__c",
+                "referenceId": "SBQQ__CustomAction__cRef3"
+            },
+            "SBQQ__Active__c": false,
+            "SBQQ__BrandButton__c": false,
+            "SBQQ__ConditionsMet__c": "All",
+            "SBQQ__Default__c": false,
+            "SBQQ__DisplayOrder__c": 1,
+            "SBQQ__IconClass__c": "sf-icon-3dots",
+            "SBQQ__Icon__c": "3dots",
+            "SBQQ__Label__c": "View",
+            "SBQQ__Location__c": "Line",
+            "SBQQ__Page__c": "Quote Line Editor",
+            "SBQQ__Type__c": "Button",
+            "SBQQ__URLTarget__c": "Popup",
+            "SBQQ__URL__c": "/apex/VFP_enosiXExternalConfiguratorPlugin",
+            "Name": "Testing Custom Line Item Action"
+        }
+    ]
+}

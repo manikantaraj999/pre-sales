@@ -1,0 +1,168 @@
+.THIS {
+    font-size:.75rem;
+}
+.THIS.cardHeader .slds-card__header{
+    margin-top:-10px;
+    padding:0;
+}
+.THIS.cardHeader .slds-card__body{
+    margin:0;
+}
+.THIS .slds-tabs_default__content {
+    padding: 0 0 .5rem 0;
+}
+.THIS .header {
+    background-color:#eaeaea; 
+    padding-left:15px;
+    padding-right:15px;
+}
+.THIS .header button.slds-button {
+    width:100%;
+    text-align: left;
+    line-height:1.5rem;
+    font-size:12px;
+}
+.THIS .simulateMessage{
+    background: #ffe318;
+    padding: 6px;
+    right: 0;
+}
+
+.THIS .slds-form-element__label {
+    font-size:.75rem;
+}
+
+.THIS .slds-form-element__control input {
+    min-height:initial;
+    height: 28px;
+}
+
+.THIS .slds-input[readonly]:focus, .THIS .slds-textarea[readonly]:focus {
+    box-shadow: none;
+}
+.THIS .slds-textarea[readonly] {
+    border:none;
+}
+
+.THIS .slds-select{
+    height:29px;
+}
+
+.THIS .header-text .slds-textarea{
+    height:96px !important;
+}
+
+.THIS .small-button-icon{
+    height:27px;
+    width:27px;
+}
+
+.THIS .inline-block{
+    display:inline-block;    
+}
+
+/* .THIS .lineItemsTable thead th, .THIS .lineItemsTable tbody td{
+    min-width:120px;
+} */
+.THIS .lineItemsTable table {
+    border-top:1px solid rgb(221,219,218);
+}
+.THIS .lineItemsTable thead th .slds-text-title_caps {
+    font-size:.65rem;
+} 
+
+/* This is to remove the first column of numbers */
+.THIS .lineItemsTable tbody td:nth-child(1) .slds-row-number {
+    display:none;
+}
+.THIS .lineItemsTable thead th:nth-child(1) {
+    width:35px !important;
+}
+
+/* Configuration Icon */
+.THIS .lineItemsTable tbody td.configureIcon svg {
+    fill: red;
+}
+/* Show the alternative text as a tooltip */
+.THIS .lineItemsTable tbody td.configureIcon .slds-truncate .slds-assistive-text {
+    visibility: hidden;
+    width: auto !important;
+    height: auto !important;
+    clip: unset !important;
+    margin-left: 5px !important;
+    margin-top: -5px !important;
+    border: 1px solid rgb(221,219,218) !important;
+    padding: 5px !important;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 4px 5px 0px rgba(135,135,135,0.6);
+    z-index:1000;    
+}
+.THIS .lineItemsTable tbody td.configureIcon .slds-truncate:hover .slds-assistive-text {
+    visibility: visible;
+}
+.THIS .lineItemsTable .slds-table_header-fixed_container:before, .THIS .lineItemsTable .slds-table--header-fixed_container:before {
+    border-bottom:none;
+}
+.THIS .orderEntryInfoButton {
+    margin-top:12px;
+}
+.THIS .partnerValue {
+    font-size: .875rem;
+}
+
+.THIS .exit-without-saving-alert-div{
+    padding-top: 5px;
+}
+
+.THIS .exit-without-saving-alert{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.THIS .exit-without-saving-alert-window-content{
+    width: 60%;
+    border-radius: 5px;
+}
+
+.THIS .exit-without-saving-alert-window-modal{
+    padding-left: 25%;
+    top: 35%;
+}
+
+.THIS .pointer-events-none {
+    pointer-events: none;
+}
+
+.THIS .incompletionIcon {
+    padding: 2px;
+    cursor: pointer;
+}
+.THIS .incompletionIcon:hover + .incompletionLogBody {
+    display:block;
+}
+.THIS .incompletionIcon svg {
+    fill: rgb(0, 112, 210);
+}
+
+.THIS .incompletionLogBody {
+    position: absolute;
+    background: rgb(0, 112, 210);
+    color: white;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+    z-index:999;
+    left:50px;
+    margin-top:-30px;
+    display:none;
+}
+.THIS .incompletionLogBody ul {
+    margin-left: 1.5rem;
+    list-style:initial;
+}
+
+@media only screen and (max-width: 768px) {
+    .THIS .logoWrapper{
+        margin-top: 10px;
+    }
+}

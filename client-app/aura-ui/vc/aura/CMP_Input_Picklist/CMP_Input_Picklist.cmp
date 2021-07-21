@@ -1,0 +1,54 @@
+<aura:component description="CMP_Input_Picklist" implements="c:ENSX_Input">
+    <aura:attribute name="inputId" type="string" required="true"/>
+    <aura:attribute name="val" type="String" required="true" />
+    <aura:attribute name="inputLabel" type="String" required="true" />
+    <aura:attribute name="required" type="Boolean" />
+    <aura:attribute name="disabled" type="Boolean" />
+    <aura:attribute name="possibleValues" type="SBO_EnosixVC_Detail.ALLOWEDVALUES[]" required="true"/>
+    <aura:attribute name="additionalValues" type="Boolean" />
+    <aura:attribute name="maxLength" type="String" />
+    <aura:registerEvent name="inputChanged" type="c:EVT_VCInputChanged"  />
+    <aura:attribute name="textInput" type="String"/>
+    <aura:attribute name="onBlurTriggered" type="Boolean"/>
+   
+    <aura:if isTrue="{! !v.additionalValues}">
+        <lightning:select required="{!v.required}" disabled="{!v.disabled}"
+            class="lightningInputSelect" onchange="{!c.valueChanged}" label="{!v.inputLabel}" value="{!v.val}">
+            <aura:if isTrue="{!v.required}">
+                <option value="">Select one</option>
+            <aura:set attribute="else">
+                <option value="">--------</option>
+            </aura:set>
+            </aura:if>
+            <aura:iteration items="{!v.possibleValues}" var="var">
+                <option text="{!var.CharacteristicValueDescription}" value="{!var.CharacteristicValue}"/>
+            </aura:iteration>
+        </lightning:select>
+        <aura:set attribute="else">
+            <div class="inputWrapper slds-form-element">
+                <div class="slds-form-element__control slds-grow">
+                    <div class="selectedInputWrapper slds-select_container">
+                        <input aura:id="pickMainInputBox" type="text" readonly="true" class="slds-input selectedInput" value="{!v.val}" onfocus="{!c.onFocus}" />
+                    </div>            
+                </div>        
+                <div class="searchWrapper" aura:id="searchBlock">
+                    <aura:if isTrue="{!v.maxLength > 0}">
+                        <div style="padding:5px;">
+                            <input aura:id="pickInputBox" type="text" value="{!v.textInput}" onblur="{!c.onBlur}" class="slds-input" maxlength="{!v.maxLength}"/>
+                        </div>                
+                        <aura:set attribute="else">
+                            <div style="padding:5px;">
+                                <input aura:id="pickInputBox" type="text" value="{!v.textInput}" onblur="{!c.onBlur}" class="slds-input"/>
+                            </div>                
+                        </aura:set>
+                    </aura:if>
+                    <ul class="resultList">
+                        <aura:iteration items="{!v.possibleValues}" var="var">
+                            <li onclick="{!c.onValueClick}" value="{!var.CharacteristicValue}">{!var.CharacteristicValue}</li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

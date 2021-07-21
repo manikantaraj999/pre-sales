@@ -1,0 +1,404 @@
+{
+  "FieldMaps": {
+    "SBO_EnosixCustomer_Search.SEARCHPARAMS": {
+      "CustomerNumberFrom": {
+        "FriendlyName": "CustomerNumberFrom",
+        "TechnicalName": "KUNNR_FR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerNumberTo": {
+        "FriendlyName": "CustomerNumberTo",
+        "TechnicalName": "KUNNR_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerName": {
+        "FriendlyName": "CustomerName",
+        "TechnicalName": "MCOD1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PostalCode": {
+        "FriendlyName": "PostalCode",
+        "TechnicalName": "PSTLZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "City": {
+        "FriendlyName": "City",
+        "TechnicalName": "CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Region": {
+        "FriendlyName": "Region",
+        "TechnicalName": "REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CountryKey": {
+        "FriendlyName": "CountryKey",
+        "TechnicalName": "COUNTRY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TelephoneNO": {
+        "FriendlyName": "TelephoneNO",
+        "TechnicalName": "TEL_NUMBER",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "EMailAddress": {
+        "FriendlyName": "EMailAddress",
+        "TechnicalName": "EMAIL_ADDRESS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixCustomer_Search.CONTACT_PERSON": {
+      "BusinessPartnerFrom": {
+        "FriendlyName": "BusinessPartnerFrom",
+        "TechnicalName": "PARNR_FROM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BusinessPartnerTo": {
+        "FriendlyName": "BusinessPartnerTo",
+        "TechnicalName": "PARNR_TO",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "LastName": {
+        "FriendlyName": "LastName",
+        "TechnicalName": "MC_NAME1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FirstName": {
+        "FriendlyName": "FirstName",
+        "TechnicalName": "MC_NAME2",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ContactPersonFlag": {
+        "FriendlyName": "ContactPersonFlag",
+        "TechnicalName": "FLAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesEmployeeFlag": {
+        "FriendlyName": "SalesEmployeeFlag",
+        "TechnicalName": "PERNR_FLAG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CustomerNumber": {
+        "FriendlyName": "CustomerNumber",
+        "TechnicalName": "KUNNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_EnosixCustomer_Search.SEARCHRESULT": {
+      "CustomerNumber": {
+        "FriendlyName": "CustomerNumber",
+        "TechnicalName": "KUNNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name": {
+        "FriendlyName": "Name",
+        "TechnicalName": "NAME1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Name2": {
+        "FriendlyName": "Name2",
+        "TechnicalName": "NAME2",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Street": {
+        "FriendlyName": "Street",
+        "TechnicalName": "STREET",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "City": {
+        "FriendlyName": "City",
+        "TechnicalName": "CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PostalCode": {
+        "FriendlyName": "PostalCode",
+        "TechnicalName": "POST_CODE1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Region": {
+        "FriendlyName": "Region",
+        "TechnicalName": "REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CountryKey": {
+        "FriendlyName": "CountryKey",
+        "TechnicalName": "COUNTRY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "POBox": {
+        "FriendlyName": "POBox",
+        "TechnicalName": "PO_BOX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "TelephoneNO": {
+        "FriendlyName": "TelephoneNO",
+        "TechnicalName": "TEL_NUMBER",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Language": {
+        "FriendlyName": "Language",
+        "TechnicalName": "LANGU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreditLimit": {
+        "FriendlyName": "CreditLimit",
+        "TechnicalName": "KLIMK",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "CreditAvailable": {
+        "FriendlyName": "CreditAvailable",
+        "TechnicalName": "CREDIT_AVAIL",
+        "FieldType": "Decimal",
+        "FieldWidth": 1
+      },
+      "CurrencyKey": {
+        "FriendlyName": "CurrencyKey",
+        "TechnicalName": "WAERS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "EMailAddress": {
+        "FriendlyName": "EMailAddress",
+        "TechnicalName": "EMAIL_ADDRESS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_EnosixCustomer_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "CustomerNumberFrom": {
+          "FriendlyName": "CustomerNumberFrom",
+          "TechnicalName": "KUNNR_FR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerNumberTo": {
+          "FriendlyName": "CustomerNumberTo",
+          "TechnicalName": "KUNNR_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerName": {
+          "FriendlyName": "CustomerName",
+          "TechnicalName": "MCOD1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PostalCode": {
+          "FriendlyName": "PostalCode",
+          "TechnicalName": "PSTLZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "City": {
+          "FriendlyName": "City",
+          "TechnicalName": "CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Region": {
+          "FriendlyName": "Region",
+          "TechnicalName": "REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CountryKey": {
+          "FriendlyName": "CountryKey",
+          "TechnicalName": "COUNTRY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "TelephoneNO": {
+          "FriendlyName": "TelephoneNO",
+          "TechnicalName": "TEL_NUMBER",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "EMailAddress": {
+          "FriendlyName": "EMailAddress",
+          "TechnicalName": "EMAIL_ADDRESS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "CONTACT_PERSON": {
+      "Name": "CONTACT_PERSON",
+      "ItemType": "SBO_EnosixCustomer_Search.CONTACT_PERSON",
+      "FieldMap": {
+        "BusinessPartnerFrom": {
+          "FriendlyName": "BusinessPartnerFrom",
+          "TechnicalName": "PARNR_FROM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BusinessPartnerTo": {
+          "FriendlyName": "BusinessPartnerTo",
+          "TechnicalName": "PARNR_TO",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "LastName": {
+          "FriendlyName": "LastName",
+          "TechnicalName": "MC_NAME1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FirstName": {
+          "FriendlyName": "FirstName",
+          "TechnicalName": "MC_NAME2",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ContactPersonFlag": {
+          "FriendlyName": "ContactPersonFlag",
+          "TechnicalName": "FLAG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesEmployeeFlag": {
+          "FriendlyName": "SalesEmployeeFlag",
+          "TechnicalName": "PERNR_FLAG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CustomerNumber": {
+          "FriendlyName": "CustomerNumber",
+          "TechnicalName": "KUNNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_EnosixCustomer_Search.SEARCHRESULT",
+      "FieldMap": {
+        "CustomerNumber": {
+          "FriendlyName": "CustomerNumber",
+          "TechnicalName": "KUNNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name": {
+          "FriendlyName": "Name",
+          "TechnicalName": "NAME1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Name2": {
+          "FriendlyName": "Name2",
+          "TechnicalName": "NAME2",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Street": {
+          "FriendlyName": "Street",
+          "TechnicalName": "STREET",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "City": {
+          "FriendlyName": "City",
+          "TechnicalName": "CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PostalCode": {
+          "FriendlyName": "PostalCode",
+          "TechnicalName": "POST_CODE1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Region": {
+          "FriendlyName": "Region",
+          "TechnicalName": "REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CountryKey": {
+          "FriendlyName": "CountryKey",
+          "TechnicalName": "COUNTRY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "POBox": {
+          "FriendlyName": "POBox",
+          "TechnicalName": "PO_BOX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "TelephoneNO": {
+          "FriendlyName": "TelephoneNO",
+          "TechnicalName": "TEL_NUMBER",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Language": {
+          "FriendlyName": "Language",
+          "TechnicalName": "LANGU",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreditLimit": {
+          "FriendlyName": "CreditLimit",
+          "TechnicalName": "KLIMK",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "CreditAvailable": {
+          "FriendlyName": "CreditAvailable",
+          "TechnicalName": "CREDIT_AVAIL",
+          "FieldType": "Decimal",
+          "FieldWidth": 1
+        },
+        "CurrencyKey": {
+          "FriendlyName": "CurrencyKey",
+          "TechnicalName": "WAERS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "EMailAddress": {
+          "FriendlyName": "EMailAddress",
+          "TechnicalName": "EMAIL_ADDRESS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+<aura:component access="global">
+
+    <aura:attribute name="itemSchedules" type="List"/>
+    <aura:attribute name="fieldSettings" type="Map"/>
+    
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer table-fixed-layout">
+            <thead>
+                <tr class="table-head slds-grid--vertical-stretch">
+                    <aura:if isTrue="{!v.fieldSettings.ScheduleLineNumber.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ScheduleLineNumber}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.ScheduleLineDate.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ScheduleLineDate}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.OrderQuantity.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_OrderQuantity}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.RoundedQuantity.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_RoundedQuantity}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.ConfirmedQuantity.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ConfirmedQuantity}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.SalesUnit.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_SalesUnit}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.DeliveryBlock.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_DeliveryBlock}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.DeliveryBlockDescription.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_DeliveryBlockDescription}</div></th>
+                    </aura:if>
+                    <aura:if isTrue="{!v.fieldSettings.DeliveredQuantity.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_DeliveredQuantity}</div></th>
+                    </aura:if>  
+                    <aura:if isTrue="{!v.fieldSettings.ScheduleLineCategory.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ScheduleLineCategory}</div></th>
+                    </aura:if>                    
+                    <aura:if isTrue="{!v.fieldSettings.ScheduleLineCategoryDescription.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_ScheduleLineCategoryDescription}</div></th>
+                    </aura:if>                    
+                    <aura:if isTrue="{!v.fieldSettings.PurchaseRequisitionNumber.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_PurchaseRequisitionNumber}</div></th>
+                    </aura:if>                    
+                    <aura:if isTrue="{!v.fieldSettings.PurchaseRequisitionItemNumber.display}">
+                        <th scope="col"><div class="slds-wrap">{!$Label.c.Enosix_SalesDoc_Table_PurchaseRequisitionItemNumber}</div></th>
+                    </aura:if>                    
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.itemSchedules}" var="schedule" indexVar="scheduleIndex">
+                    <tr>
+                        <aura:if isTrue="{!v.fieldSettings.ScheduleLineNumber.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.ScheduleLineNumber}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.ScheduleLineDate.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedDateTime value="{!schedule.ScheduleLineDate}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.OrderQuantity.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedNumber value="{!schedule.OrderQuantity}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.RoundedQuantity.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedNumber value="{!schedule.RoundedQuantity}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.ConfirmedQuantity.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedNumber value="{!schedule.ConfirmedQuantity}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.SalesUnit.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.SalesUnit}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.DeliveryBlock.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.DeliveryBlock}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.DeliveryBlockDescription.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.DeliveryBlockDescription}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.DeliveredQuantity.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedNumber value="{!schedule.DeliveredQuantity}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.ScheduleLineCategory.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.ScheduleLineCategory}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.ScheduleLineCategoryDescription.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.ScheduleLineCategoryDescription}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.PurchaseRequisitionNumber.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.PurchaseRequisitionNumber}"/>
+                            </div>
+                        </td></aura:if>
+                        <aura:if isTrue="{!v.fieldSettings.PurchaseRequisitionItemNumber.display}"><td>
+                            <div class="slds-wrap">
+                                <lightning:formattedText value="{!schedule.PurchaseRequisitionItemNumber}"/>
+                            </div>
+                        </td></aura:if>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </lightning:card>
+
+</aura:component>

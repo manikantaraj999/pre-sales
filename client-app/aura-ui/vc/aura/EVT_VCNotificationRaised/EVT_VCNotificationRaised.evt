@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="EVT_VCNotificationRaised">
+    <aura:attribute type="String" name="message" />
+    <aura:attribute type="String" name="severity" />
+</aura:event>

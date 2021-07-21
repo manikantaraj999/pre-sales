@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="EVT_CPQ_Flow_Finished">
+    <aura:attribute type="String" name="cpqMsg" required="true"/>
+    <aura:attribute type="String" name="quoteId" required="true"/>
+
+</aura:event>

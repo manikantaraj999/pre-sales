@@ -1,0 +1,155 @@
+<apex:page showHeader="true" controller="CTRL_PartnerSearch" title="Partner Search" 
+    tabStyle="Account" sidebar="true" id="page" lightningStylesheets="true">
+    <apex:slds rendered="{!!isClassic}"/>
+<!--
+LINKS:
+Account | 'SAP Customer' | LNK_Account_CustomerDetail | /apex/VFP_CustomerDetail?c__SF_AcctId={!Account.Id}
+Case    | 'SAP Customer' | LNK_Case_Customer          | /apex/VFP_CustomerDetail?c__SF_CaseId={!Case.Id}
+-->
+    <apex:pageBlock rendered="{! !hasAccount }">
+        <apex:outputText value="Error: Missing an Account."/>
+        <apex:pageBlockButtons location="bottom">
+            <apex:form >
+                <c:CMP_NavButtons isClassic="{!isClassic}"/>
+            </apex:form>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    <apex:form id="mainform">
+        <c:CMP_Status />
+        <apex:outputPanel rendered="{! !isClassic}">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <svg class="slds-icon slds-icon-standard-user .slds-icon_small" aria-hidden="true">
+                                        <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#groups')}"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+								<h2 class="slds-card__header-title"><span class="slds-text-heading_small">Partners</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <apex:pageMessages id="messagediv" rendered="{! hasAccount}"/>
+
+        <apex:pageBlock id="partners" title="Partners" rendered="{! null != customerID && hasAccount}">
+            <apex:pageBlockSection title="Search" columns="2" collapsible="false" id="pbsdiv">
+                <apex:outputText value="{!searchContext.SEARCHPARAMS.CustomerNumber}" label="Customer Number:"/>
+                <apex:pageBlockSectionItem/>
+                <apex:selectList value="{!searchContext.SEARCHPARAMS.SalesOrganization}" size="1" label="Sales Organization:">
+                    <apex:actionSupport event="onchange" rerender="mainform"/>
+                    <apex:selectOptions value="{!SalesOrganizations}"/>
+                </apex:selectList>
+                <apex:selectList value="{!searchContext.SEARCHPARAMS.DistributionChannel}" label="Distribution Channel:" size="1">
+                    <apex:actionSupport event="onchange" rerender="mainform"/>
+                    <apex:selectOptions value="{!DistributionChannels}"/>
+                </apex:selectList>
+                <apex:selectList value="{!searchContext.SEARCHPARAMS.Division}" label="Division:" size="1">
+                    <apex:selectOptions value="{!Divisions}"/>
+                </apex:selectList>
+                <apex:inputText value="{!searchContext.SEARCHPARAMS.PartnerFunction}" label="PartnerFunction:"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons>
+                <apex:commandButton value="Back to Account"
+                                    onclick="window.location.href='/{!accountId}';return false;"
+                                    rendered="{!accountId != null && isClassic}"/>
+                <apex:commandButton value="Back to Account"
+                                    onclick="sforce.one.navigateToSObject('{!accountId}');return false;"
+                                    rendered="{!accountId != null && !isClassic}"/>
+                <apex:commandButton action="{!searchSO}" id="btnsearch" value="Search"
+                                    rerender="resultdiv,messagediv,paginationdiv" status="status"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="{!IF(showsearch,'','Partners for Customer')}"  rendered="{! null != customerID && hasAccount  && showSearch}">
+            <apex:actionFunction action="{!gotoCustomerPage}" name="gotoCustomerPage" reRender="page">
+                <apex:param name="selectedCustomerId" value=""/>
+            </apex:actionFunction>
+	        <table class="list tablesorter" id="resulttable" cellpadding="0" cellspacing="0">
+	            <thead>
+	                <tr>
+                        <th class="header"/>
+	                    <th class="header">Partner Function</th>
+	                    <th class="header">Customer#</th>
+	                    <th class="header">Name</th>
+	                    <th class="header">Address</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	            <apex:variable var="partnerCnt" value="{!0}"/>
+	            <apex:repeat value="{!partners}" var="partner" >
+	                <tr class="dataRow {!IF(partnerCnt==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} " onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}">
+		                <td class="dataCell">
+                            <apex:commandButton onclick="gotoCustomerPage('{!partner.PartnerNumber}');return false;" value="View Detail"
+                                                rendered="{!partner.PartnerNumber != null && partner.PartnerNumber != ''}"/>
+                        </td>
+		                <td class="dataCell">
+                            <apex:outputText value="{0} - {1}">
+                                <apex:param value="{!partner.PartnerFunction}"/>
+                                <apex:param value="{!partner.PartnerFunctionName}"/>
+                            </apex:outputText>
+                        </td>
+		                <td class="dataCell"><apex:outputText value="{!partner.PartnerNumber}"/></td>
+		                <td class="dataCell"><apex:outputText value="{!partner.PartnerName}"/></td>
+		                <td class="dataCell">
+                            <apex:outputText value="{0} {1} {2}, {3} {4}">
+                                <apex:param value="{!partner.HouseNumber}"/>
+                                <apex:param value="{!partner.Street}"/>
+                                <apex:param value="{!partner.City}"/>
+                                <apex:param value="{!partner.Region}"/>
+                                <apex:param value="{!partner.PostalCode}"/>
+                            </apex:outputText>
+		                </td>
+	                </tr>
+	                <apex:variable var="partnerCnt" value="{!partnerCnt+1}"/>
+	            </apex:repeat>
+	            </tbody>
+
+	            <tfoot>
+	                <tr>
+	                    <th colspan="5" class="header">
+		                    <apex:outputPanel id="paginationdiv">
+		                    	<apex:outputPanel id="innerpaginationdiv" rendered="{!hasrecords}">
+		                    		<c:CMP_Pager options="{!pagingOptionsWrapper}"
+												searchController="{!searchController}"
+												rerender="resultdiv,paginationdiv"/>
+		                    	</apex:outputPanel>
+		                    </apex:outputPanel>
+	                    </th>
+	                </tr>
+	            </tfoot>
+	        </table>
+
+    	    <script type="text/javascript">
+        	    $j = jQuery.noConflict();
+        	    $j(document).ready(function () {
+        	        $j("#resulttable").tablesorter();
+        	        $j("input").bind("keypress",function (event) {
+        	            // alert("failure");
+        	            if (event.keyCode === 13){
+        	                // alert("Success");
+        	                //$j("#pagediv:formdiv:pbdiv:j_id50:btnsearch").click();
+        	                $j('[id*=btnsearch]').click();
+        	                return false;
+        	            }
+        	        });
+        	    });
+    	    </script>
+
+            <apex:pageBlockButtons location="top" rendered="{!showShipToCreate}">
+                <apex:commandButton action="{!actionAddShipTo}" value="Add Ship To"/>
+            </apex:pageBlockButtons>
+
+	    </apex:pageBlock>
+
+    </apex:form>
+    <c:CMP_Footer/>
+</apex:page>

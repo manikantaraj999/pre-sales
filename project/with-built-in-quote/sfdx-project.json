@@ -1,0 +1,44 @@
+{
+  "packageDirectories": [
+    {
+      "path": "../../client-app/common-core"
+    },
+    {
+      "path": "../../client-app/common-sync/common"
+    },
+    {
+      "path": "../../client-app/common-sync/customer-sync"
+    },
+    {
+      "path": "../../client-app/common-sync/material-sync"
+    },
+    {
+      "path": "../../client-app/common-models"
+    },
+    {
+      "path": "../../client-app/common-utility"
+    },
+    {
+      "path": "../../client-app/aura-ui"
+    },
+    {
+      "path": "../../client-app/sales-doc"
+    },
+    {
+      "path": "../../client-app/with-built-in-quote"
+    },
+    {
+      "path": "../../scratch/triage",
+      "default": true
+    },
+    {
+      "path": "../../scratch/client-dev-config"
+    },
+    {
+      "path": "../../scratch/base/common-app-starter/dx"
+    }
+  ],
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "47.0"
+}

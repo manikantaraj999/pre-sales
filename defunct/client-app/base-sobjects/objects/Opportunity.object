@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">   
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Inventory_Search</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Inventory</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_InventorySearch&amp;c__SF_OppId={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Order</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Order</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OrderCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeOrder&amp;c__SF_OppId={!Opportunity.Id}&amp;c__SAP_OrderNum={!Opportunity.FLD_SAP_Order_Number__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Order_Create</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Create SAP Order</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OrderCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeCreate&amp;c__SF_OppId={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Order_Detail</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>View SAP Order</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OrderDetail&amp;c__SAP_OrderNum={!Opportunity.FLD_SAP_Order_Number__c}&amp;c__SF_OppId={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Order_Update</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Update SAP Order</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OrderCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeUpdate&amp;c__SF_OppId={!Opportunity.Id}&amp;c__SAP_OrderNum={!Opportunity.FLD_SAP_Order_Number__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Quote</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>SAP Quote</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_QuoteCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeQuote&amp;c__SF_OppId={!Opportunity.Id}&amp;c__SAP_QuoteId={!Opportunity.FLD_SAP_Quote_Number__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Quote_Create</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Create SAP Quote</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_QuoteCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeCreate&amp;c__SF_OppId={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Quote_Detail</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>View SAP Quote</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_QuoteDetail&amp;c__SF_OppId={!Opportunity.Id}&amp;c__SAP_QuoteId={!Opportunity.FLD_SAP_Quote_Number__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Quote_Materials</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>(1) Add SAP Products</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_OpportunityQuotePricing&amp;c__SF_OppId={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>LNK_Opportunity_SAP_Quote_Update</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Update SAP Quote</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/VFP_Router?c__ENSX_Page=VFP_QuoteCreateUpdate&amp;c__SAP_Mode=c__SAP_ModeUpdate&amp;c__SF_OppId={!Opportunity.Id}&amp;c__SAP_QuoteId={!Opportunity.FLD_SAP_Quote_Number__c}</url>
+    </webLinks>
+</CustomObject>

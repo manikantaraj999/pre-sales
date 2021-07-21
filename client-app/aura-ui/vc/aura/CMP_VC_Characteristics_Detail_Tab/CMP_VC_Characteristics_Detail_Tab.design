@@ -1,0 +1,12 @@
+<design:component label="SAP VC Characteristic (Tab)" >
+    <design:attribute name="designMode" label="Design Mode" default="true" 
+        description="Enable in Lightning App Builder to see tab content" />
+    <design:attribute name="displayCharacteristicName" label="Display Characteristic Name" />
+    <design:attribute name="displayCharacteristicDescription" label="Display Characteristic Description" />
+    <design:attribute name="displayCharacteristicValue" label="Display Characteristic Value" />
+    <design:attribute name="displayCharacteristicValueDescription" label="Display Characteristic Value Description" />
+
+        <sfdc:objects >
+            <sfdc:object>ensxapp__Log__c</sfdc:object>
+        </sfdc:objects>
+</design:component>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Remember SAP Dist Ch (SDK App Starter)</label>
+    <protected>false</protected>
+    <values>
+        <field>ensxapp__SAP_Input__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Output__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Pricing_Field_Definition__c</field>
+        <value xsi:type="xsd:string">ensxapp__Distribution_Channel</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Pricing__c</field>
+        <value xsi:type="xsd:string">ensxapp__Default</value>
+    </values>
+    <values>
+        <field>ensxapp__Salesforce_Field__c</field>
+        <value xsi:type="xsd:string">SAP_Distribution_Channel_SDKAppStarter__c</value>
+    </values>
+    <values>
+        <field>ensxapp__Salesforce_Object__c</field>
+        <value xsi:type="xsd:string">Opportunity</value>
+    </values>
+    <values>
+        <field>ensxapp__Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

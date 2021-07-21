@@ -1,0 +1,7 @@
+.THIS {}
+
+.THIS input[type='radio'] {
+    float: left;
+    margin-right: 10px;
+    margin-top: 3px;
+}

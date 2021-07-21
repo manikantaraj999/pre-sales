@@ -1,0 +1,46 @@
+<aura:component controller="CTRL_PartnerSearchLtng" access="global" implements="force:appHostable,force:lightningQuickAction,lightning:availableForFlowScreens">    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:attribute name="customerNumber" type="String"/>
+    <aura:attribute name="partnerFunction" type="String"/>
+    <aura:attribute name="partnerFunctionName" type="String"/>
+    <aura:attribute name="searchType" type="String"/>
+    <aura:attribute name="autoSearch" type="Boolean"/>
+    <aura:attribute name="salesArea" type="Map"/>
+
+    <aura:attribute name="keyField" type="String" default="Id"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="displayResults" type="Map"/>
+    <aura:attribute name="messages" type="List"/>    
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:attribute name="pagingOptions" type="Map"/>
+    <aura:attribute name="selectedRows" type="List" default="[]"/>
+
+    <aura:handler name="pagerChangedEvent" event="c:EVT_PagerChanged" action="{!c.onPagerChanged}"/>
+    <aura:registerEvent name="selectedPartnerEvent" type="c:EVT_SelectPartner"/>
+
+    <lightning:overlayLibrary aura:id="overlayLibPartner"/>
+
+    <lightning:card class="slds-card slds-m-around_xsmall slds-is-relative wideBox">
+        <div class="slds-form">  
+            <aura:if isTrue="{!v.displaySpinner}">
+                <lightning:spinner aura:id="displaySpinner" class="slds-spinner_brand"/>
+            </aura:if>
+            <c:CMP_Messages messages="{!v.messages}"/>
+            <div style="max-height:350px; overflow-y: auto;">            
+                <lightning:datatable
+                    data="{! v.displayResults}" 
+                    columns="{! v.columns}" 
+                    keyField="{!v.keyField}"
+                    onrowselection="{! c.onRowSelection}"
+                    selectedRows="{!v.selectedRows}"/>
+            </div>
+            <aura:if isTrue="{!v.displayResults.length}">
+                <c:CMP_Pager options="{!v.pagingOptions}" />
+            </aura:if>
+            <div class="slds-m-around_x-small">
+                <lightning:button label="{!$Label.c.Enosix_SalesDoc_Button_Cancel}" variant="brand" onclick="{!c.onClickCancel}"/>
+            </div>   
+        </div>
+    </lightning:card>
+</aura:component>

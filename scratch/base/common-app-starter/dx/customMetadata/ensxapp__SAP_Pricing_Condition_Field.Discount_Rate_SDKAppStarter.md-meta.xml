@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Discount Rate (SDK App Starter)</label>
+    <protected>false</protected>
+    <values>
+        <field>ensxapp__Input__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>ensxapp__Output__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Field__c</field>
+        <value xsi:type="xsd:string">Rate</value>
+    </values>
+    <values>
+        <field>ensxapp__SAP_Pricing_Condition__c</field>
+        <value xsi:type="xsd:string">Opp_Product_Discount_SDKAppStarter</value>
+    </values>
+    <values>
+        <field>ensxapp__Salesforce_Field__c</field>
+        <value xsi:type="xsd:string">Discount</value>
+    </values>
+    <values>
+        <field>ensxapp__Salesforce_Object__c</field>
+        <value xsi:type="xsd:string">OpportunityLineItem</value>
+    </values>
+    <values>
+        <field>ensxapp__Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

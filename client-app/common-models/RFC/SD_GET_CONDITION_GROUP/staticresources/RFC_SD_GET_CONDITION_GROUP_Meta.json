@@ -1,0 +1,40 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_CONDITION_GROUP.RESULT": {},
+    "RFC_SD_GET_CONDITION_GROUP.ET_COND_GROUP": {
+      "KDKGR": {
+        "FriendlyName": "KDKGR",
+        "TechnicalName": "KDKGR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VTEXT": {
+        "FriendlyName": "VTEXT",
+        "TechnicalName": "VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_COND_GROUP": {
+      "Name": "ET_COND_GROUP",
+      "ItemType": "RFC_SD_GET_CONDITION_GROUP.ET_COND_GROUP",
+      "FieldMap": {
+        "KDKGR": {
+          "FriendlyName": "KDKGR",
+          "TechnicalName": "KDKGR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VTEXT": {
+          "FriendlyName": "VTEXT",
+          "TechnicalName": "VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

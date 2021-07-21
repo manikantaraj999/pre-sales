@@ -1,0 +1,396 @@
+{
+  "FieldMaps": {
+    "SBO_SFCIPartner_Search.SEARCHPARAMS": {
+      "CustomerNumber": {
+        "FriendlyName": "CustomerNumber",
+        "TechnicalName": "KUNNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Division": {
+        "FriendlyName": "Division",
+        "TechnicalName": "SPART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PartnerFunction": {
+        "FriendlyName": "PartnerFunction",
+        "TechnicalName": "PARVW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_SFCIPartner_Search.SEARCHRESULT": {
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganizationName": {
+        "FriendlyName": "SalesOrganizationName",
+        "TechnicalName": "VKORG_VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannelName": {
+        "FriendlyName": "DistributionChannelName",
+        "TechnicalName": "VTWEG_VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Division": {
+        "FriendlyName": "Division",
+        "TechnicalName": "SPART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DivisionName": {
+        "FriendlyName": "DivisionName",
+        "TechnicalName": "SPART_VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PartnerFunction": {
+        "FriendlyName": "PartnerFunction",
+        "TechnicalName": "PARVW",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PartnerFunctionName": {
+        "FriendlyName": "PartnerFunctionName",
+        "TechnicalName": "PARVW_VTEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PartnerNumber": {
+        "FriendlyName": "PartnerNumber",
+        "TechnicalName": "PARTNER_NUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PartnerName": {
+        "FriendlyName": "PartnerName",
+        "TechnicalName": "PARTNER_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VendorNumber": {
+        "FriendlyName": "VendorNumber",
+        "TechnicalName": "VENDOR_NUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VendorName": {
+        "FriendlyName": "VendorName",
+        "TechnicalName": "VENDOR_NAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ContactNumber": {
+        "FriendlyName": "ContactNumber",
+        "TechnicalName": "CONTACT_NUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ContactFirstName": {
+        "FriendlyName": "ContactFirstName",
+        "TechnicalName": "CONTACT_FNAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ContactLastName": {
+        "FriendlyName": "ContactLastName",
+        "TechnicalName": "CONTACT_LNAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PersonnelNumber": {
+        "FriendlyName": "PersonnelNumber",
+        "TechnicalName": "PERSONNEL_NUM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PersonnelFirstName": {
+        "FriendlyName": "PersonnelFirstName",
+        "TechnicalName": "PERSONNEL_FNAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PersonnelLastName": {
+        "FriendlyName": "PersonnelLastName",
+        "TechnicalName": "PERSONNEL_LNAME",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "HouseNumber": {
+        "FriendlyName": "HouseNumber",
+        "TechnicalName": "HOUSE_NUM1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Street": {
+        "FriendlyName": "Street",
+        "TechnicalName": "STREET",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "City": {
+        "FriendlyName": "City",
+        "TechnicalName": "CITY1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "PostalCode": {
+        "FriendlyName": "PostalCode",
+        "TechnicalName": "POST_CODE1",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Region": {
+        "FriendlyName": "Region",
+        "TechnicalName": "REGION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "RegionDescription": {
+        "FriendlyName": "RegionDescription",
+        "TechnicalName": "REGIO_BEZEI",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "Country": {
+        "FriendlyName": "Country",
+        "TechnicalName": "COUNTRY",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CountryName": {
+        "FriendlyName": "CountryName",
+        "TechnicalName": "COUNTRY_LANDX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_SFCIPartner_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "CustomerNumber": {
+          "FriendlyName": "CustomerNumber",
+          "TechnicalName": "KUNNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Division": {
+          "FriendlyName": "Division",
+          "TechnicalName": "SPART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PartnerFunction": {
+          "FriendlyName": "PartnerFunction",
+          "TechnicalName": "PARVW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_SFCIPartner_Search.SEARCHRESULT",
+      "FieldMap": {
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganizationName": {
+          "FriendlyName": "SalesOrganizationName",
+          "TechnicalName": "VKORG_VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannelName": {
+          "FriendlyName": "DistributionChannelName",
+          "TechnicalName": "VTWEG_VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Division": {
+          "FriendlyName": "Division",
+          "TechnicalName": "SPART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DivisionName": {
+          "FriendlyName": "DivisionName",
+          "TechnicalName": "SPART_VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PartnerFunction": {
+          "FriendlyName": "PartnerFunction",
+          "TechnicalName": "PARVW",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PartnerFunctionName": {
+          "FriendlyName": "PartnerFunctionName",
+          "TechnicalName": "PARVW_VTEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PartnerNumber": {
+          "FriendlyName": "PartnerNumber",
+          "TechnicalName": "PARTNER_NUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PartnerName": {
+          "FriendlyName": "PartnerName",
+          "TechnicalName": "PARTNER_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VendorNumber": {
+          "FriendlyName": "VendorNumber",
+          "TechnicalName": "VENDOR_NUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VendorName": {
+          "FriendlyName": "VendorName",
+          "TechnicalName": "VENDOR_NAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ContactNumber": {
+          "FriendlyName": "ContactNumber",
+          "TechnicalName": "CONTACT_NUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ContactFirstName": {
+          "FriendlyName": "ContactFirstName",
+          "TechnicalName": "CONTACT_FNAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ContactLastName": {
+          "FriendlyName": "ContactLastName",
+          "TechnicalName": "CONTACT_LNAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PersonnelNumber": {
+          "FriendlyName": "PersonnelNumber",
+          "TechnicalName": "PERSONNEL_NUM",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PersonnelFirstName": {
+          "FriendlyName": "PersonnelFirstName",
+          "TechnicalName": "PERSONNEL_FNAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PersonnelLastName": {
+          "FriendlyName": "PersonnelLastName",
+          "TechnicalName": "PERSONNEL_LNAME",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "HouseNumber": {
+          "FriendlyName": "HouseNumber",
+          "TechnicalName": "HOUSE_NUM1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Street": {
+          "FriendlyName": "Street",
+          "TechnicalName": "STREET",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "City": {
+          "FriendlyName": "City",
+          "TechnicalName": "CITY1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "PostalCode": {
+          "FriendlyName": "PostalCode",
+          "TechnicalName": "POST_CODE1",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Region": {
+          "FriendlyName": "Region",
+          "TechnicalName": "REGION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "RegionDescription": {
+          "FriendlyName": "RegionDescription",
+          "TechnicalName": "REGIO_BEZEI",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "Country": {
+          "FriendlyName": "Country",
+          "TechnicalName": "COUNTRY",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CountryName": {
+          "FriendlyName": "CountryName",
+          "TechnicalName": "COUNTRY_LANDX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "Account.CustomerFieldName": "AccountNumber",
+  "Contact.ContactFieldName": "FLD_ContactPersonNumber__c",
+  "Contact.ContactCustomerFieldName": "FLD_CustomerNumber__c",
+  "Product.MaterialFieldName": "ProductCode",
+  "UTIL_SFSObjectDoc.SBQQ__Quote__c": "UTIL_SFCPQQuote"
+}

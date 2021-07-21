@@ -1,0 +1,532 @@
+{
+  "FieldMaps": {
+    "SBO_SFCIMaterial_Search.SEARCHPARAMS": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialDescription": {
+        "FriendlyName": "MaterialDescription",
+        "TechnicalName": "MAKTX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialGroup": {
+        "FriendlyName": "MaterialGroup",
+        "TechnicalName": "MATKL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ProductHierarchy": {
+        "FriendlyName": "ProductHierarchy",
+        "TechnicalName": "PRODH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CrossPlantMaterialStatus": {
+        "FriendlyName": "CrossPlantMaterialStatus",
+        "TechnicalName": "MSTAE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "FromCreatedDate": {
+        "FriendlyName": "FromCreatedDate",
+        "TechnicalName": "ERSDA_FR",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToCreatedDate": {
+        "FriendlyName": "ToCreatedDate",
+        "TechnicalName": "ERSDA_TO",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "FromLastChangeDate": {
+        "FriendlyName": "FromLastChangeDate",
+        "TechnicalName": "LAEDA_FR",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "ToLastChangeDate": {
+        "FriendlyName": "ToLastChangeDate",
+        "TechnicalName": "LAEDA_TO",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "NoSalesDataFlag": {
+        "FriendlyName": "NoSalesDataFlag",
+        "TechnicalName": "SALES_FLAG",
+        "FieldType": "Boolean",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_SFCIMaterial_Search.MATERIAL_TYPE": {
+      "MaterialType": {
+        "FriendlyName": "MaterialType",
+        "TechnicalName": "MTART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_SFCIMaterial_Search.CUSTOM": {
+      "FIELD": {
+        "FriendlyName": "FIELD",
+        "TechnicalName": "FIELD",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "VALUE": {
+        "FriendlyName": "VALUE",
+        "TechnicalName": "VALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "SBO_SFCIMaterial_Search.SEARCHRESULT": {
+      "Material": {
+        "FriendlyName": "Material",
+        "TechnicalName": "MATNR",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialDescription": {
+        "FriendlyName": "MaterialDescription",
+        "TechnicalName": "MAKTX",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialType": {
+        "FriendlyName": "MaterialType",
+        "TechnicalName": "MTART",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialTypeDescription": {
+        "FriendlyName": "MaterialTypeDescription",
+        "TechnicalName": "MTART_MTBEZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialGroup": {
+        "FriendlyName": "MaterialGroup",
+        "TechnicalName": "MATKL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialGroupDescription": {
+        "FriendlyName": "MaterialGroupDescription",
+        "TechnicalName": "WGBEZ",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "SalesOrganization": {
+        "FriendlyName": "SalesOrganization",
+        "TechnicalName": "VKORG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DistributionChannel": {
+        "FriendlyName": "DistributionChannel",
+        "TechnicalName": "VTWEG",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ProductHierarchy": {
+        "FriendlyName": "ProductHierarchy",
+        "TechnicalName": "PRODH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "ProductHierarchyDescription": {
+        "FriendlyName": "ProductHierarchyDescription",
+        "TechnicalName": "PRODH_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CrossPlantMaterialStatus": {
+        "FriendlyName": "CrossPlantMaterialStatus",
+        "TechnicalName": "MSTAE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "MaterialStatusDescription": {
+        "FriendlyName": "MaterialStatusDescription",
+        "TechnicalName": "MTSTB",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CreatedDate": {
+        "FriendlyName": "CreatedDate",
+        "TechnicalName": "ERSDA",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "LastChangeDate": {
+        "FriendlyName": "LastChangeDate",
+        "TechnicalName": "LAEDA",
+        "FieldType": "Date",
+        "FieldWidth": 1
+      },
+      "BaseUnitOfMeasure": {
+        "FriendlyName": "BaseUnitOfMeasure",
+        "TechnicalName": "MEINS",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "BaseUoMDescription": {
+        "FriendlyName": "BaseUoMDescription",
+        "TechnicalName": "MEINS_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM01": {
+        "FriendlyName": "CUSTOM01",
+        "TechnicalName": "CUSTOM01",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM02": {
+        "FriendlyName": "CUSTOM02",
+        "TechnicalName": "CUSTOM02",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM03": {
+        "FriendlyName": "CUSTOM03",
+        "TechnicalName": "CUSTOM03",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM04": {
+        "FriendlyName": "CUSTOM04",
+        "TechnicalName": "CUSTOM04",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM05": {
+        "FriendlyName": "CUSTOM05",
+        "TechnicalName": "CUSTOM05",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM06": {
+        "FriendlyName": "CUSTOM06",
+        "TechnicalName": "CUSTOM06",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM07": {
+        "FriendlyName": "CUSTOM07",
+        "TechnicalName": "CUSTOM07",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM08": {
+        "FriendlyName": "CUSTOM08",
+        "TechnicalName": "CUSTOM08",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM09": {
+        "FriendlyName": "CUSTOM09",
+        "TechnicalName": "CUSTOM09",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "CUSTOM10": {
+        "FriendlyName": "CUSTOM10",
+        "TechnicalName": "CUSTOM10",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {
+    "SEARCHPARAMS": {
+      "Name": "SEARCHPARAMS",
+      "ItemType": "SBO_SFCIMaterial_Search.SEARCHPARAMS",
+      "FieldMap": {
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialDescription": {
+          "FriendlyName": "MaterialDescription",
+          "TechnicalName": "MAKTX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialGroup": {
+          "FriendlyName": "MaterialGroup",
+          "TechnicalName": "MATKL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ProductHierarchy": {
+          "FriendlyName": "ProductHierarchy",
+          "TechnicalName": "PRODH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CrossPlantMaterialStatus": {
+          "FriendlyName": "CrossPlantMaterialStatus",
+          "TechnicalName": "MSTAE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "FromCreatedDate": {
+          "FriendlyName": "FromCreatedDate",
+          "TechnicalName": "ERSDA_FR",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToCreatedDate": {
+          "FriendlyName": "ToCreatedDate",
+          "TechnicalName": "ERSDA_TO",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "FromLastChangeDate": {
+          "FriendlyName": "FromLastChangeDate",
+          "TechnicalName": "LAEDA_FR",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "ToLastChangeDate": {
+          "FriendlyName": "ToLastChangeDate",
+          "TechnicalName": "LAEDA_TO",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "NoSalesDataFlag": {
+          "FriendlyName": "NoSalesDataFlag",
+          "TechnicalName": "SALES_FLAG",
+          "FieldType": "Boolean",
+          "FieldWidth": 1
+        }
+      }
+    }
+  },
+  "CollectionMap": {
+    "MATERIAL_TYPE": {
+      "Name": "MATERIAL_TYPE",
+      "ItemType": "SBO_SFCIMaterial_Search.MATERIAL_TYPE",
+      "FieldMap": {
+        "MaterialType": {
+          "FriendlyName": "MaterialType",
+          "TechnicalName": "MTART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "CUSTOM": {
+      "Name": "CUSTOM",
+      "ItemType": "SBO_SFCIMaterial_Search.CUSTOM",
+      "FieldMap": {
+        "FIELD": {
+          "FriendlyName": "FIELD",
+          "TechnicalName": "FIELD",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "VALUE": {
+          "FriendlyName": "VALUE",
+          "TechnicalName": "VALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    },
+    "SEARCHRESULT": {
+      "Name": "SEARCHRESULT",
+      "ItemType": "SBO_SFCIMaterial_Search.SEARCHRESULT",
+      "FieldMap": {
+        "Material": {
+          "FriendlyName": "Material",
+          "TechnicalName": "MATNR",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialDescription": {
+          "FriendlyName": "MaterialDescription",
+          "TechnicalName": "MAKTX",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialType": {
+          "FriendlyName": "MaterialType",
+          "TechnicalName": "MTART",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialTypeDescription": {
+          "FriendlyName": "MaterialTypeDescription",
+          "TechnicalName": "MTART_MTBEZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialGroup": {
+          "FriendlyName": "MaterialGroup",
+          "TechnicalName": "MATKL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialGroupDescription": {
+          "FriendlyName": "MaterialGroupDescription",
+          "TechnicalName": "WGBEZ",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "SalesOrganization": {
+          "FriendlyName": "SalesOrganization",
+          "TechnicalName": "VKORG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DistributionChannel": {
+          "FriendlyName": "DistributionChannel",
+          "TechnicalName": "VTWEG",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ProductHierarchy": {
+          "FriendlyName": "ProductHierarchy",
+          "TechnicalName": "PRODH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "ProductHierarchyDescription": {
+          "FriendlyName": "ProductHierarchyDescription",
+          "TechnicalName": "PRODH_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CrossPlantMaterialStatus": {
+          "FriendlyName": "CrossPlantMaterialStatus",
+          "TechnicalName": "MSTAE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "MaterialStatusDescription": {
+          "FriendlyName": "MaterialStatusDescription",
+          "TechnicalName": "MTSTB",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CreatedDate": {
+          "FriendlyName": "CreatedDate",
+          "TechnicalName": "ERSDA",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "LastChangeDate": {
+          "FriendlyName": "LastChangeDate",
+          "TechnicalName": "LAEDA",
+          "FieldType": "Date",
+          "FieldWidth": 1
+        },
+        "BaseUnitOfMeasure": {
+          "FriendlyName": "BaseUnitOfMeasure",
+          "TechnicalName": "MEINS",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "BaseUoMDescription": {
+          "FriendlyName": "BaseUoMDescription",
+          "TechnicalName": "MEINS_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM01": {
+          "FriendlyName": "CUSTOM01",
+          "TechnicalName": "CUSTOM01",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM02": {
+          "FriendlyName": "CUSTOM02",
+          "TechnicalName": "CUSTOM02",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM03": {
+          "FriendlyName": "CUSTOM03",
+          "TechnicalName": "CUSTOM03",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM04": {
+          "FriendlyName": "CUSTOM04",
+          "TechnicalName": "CUSTOM04",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM05": {
+          "FriendlyName": "CUSTOM05",
+          "TechnicalName": "CUSTOM05",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM06": {
+          "FriendlyName": "CUSTOM06",
+          "TechnicalName": "CUSTOM06",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM07": {
+          "FriendlyName": "CUSTOM07",
+          "TechnicalName": "CUSTOM07",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM08": {
+          "FriendlyName": "CUSTOM08",
+          "TechnicalName": "CUSTOM08",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM09": {
+          "FriendlyName": "CUSTOM09",
+          "TechnicalName": "CUSTOM09",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "CUSTOM10": {
+          "FriendlyName": "CUSTOM10",
+          "TechnicalName": "CUSTOM10",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_REJECTION_REASONS.RESULT": {
+      "IV_LANGU": {
+        "FriendlyName": "IV_LANGU",
+        "TechnicalName": "IV_LANGU",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_REJECTION_REASONS.ET_VALUES": {
+      "VALUE": {
+        "FriendlyName": "VALUE",
+        "TechnicalName": "VALUE",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "DESCRIPTION": {
+        "FriendlyName": "DESCRIPTION",
+        "TechnicalName": "DESCRIPTION",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_VALUES": {
+      "Name": "ET_VALUES",
+      "ItemType": "RFC_SD_GET_REJECTION_REASONS.ET_VALUES",
+      "FieldMap": {
+        "VALUE": {
+          "FriendlyName": "VALUE",
+          "TechnicalName": "VALUE",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "DESCRIPTION": {
+          "FriendlyName": "DESCRIPTION",
+          "TechnicalName": "DESCRIPTION",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}

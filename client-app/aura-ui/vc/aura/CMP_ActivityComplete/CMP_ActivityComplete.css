@@ -1,0 +1,9 @@
+.THIS {
+
+}
+
+.THIS .ensxIcon {
+    margin-left: 0px;
+    float: left;
+    transform: scale(.75) translateY(-10px);
+}

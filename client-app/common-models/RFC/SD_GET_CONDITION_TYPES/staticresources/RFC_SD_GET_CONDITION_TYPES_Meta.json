@@ -1,0 +1,83 @@
+{
+  "FieldMaps": {
+    "RFC_SD_GET_CONDITION_TYPES.RESULT": {
+      "IV_HEADER": {
+        "FriendlyName": "IV_HEADER",
+        "TechnicalName": "IV_HEADER",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_KALSM": {
+        "FriendlyName": "IV_KALSM",
+        "TechnicalName": "IV_KALSM",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "IV_KAPPL": {
+        "FriendlyName": "IV_KAPPL",
+        "TechnicalName": "IV_KAPPL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    },
+    "RFC_SD_GET_CONDITION_TYPES.ET_CONDITIONS": {
+      "ConditionType": {
+        "FriendlyName": "ConditionType",
+        "TechnicalName": "KSCHL",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "KSCHL_TEXT": {
+        "FriendlyName": "KSCHL_TEXT",
+        "TechnicalName": "KSCHL_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "KRECH": {
+        "FriendlyName": "KRECH",
+        "TechnicalName": "KRECH",
+        "FieldType": "String",
+        "FieldWidth": 1
+      },
+      "KRECH_TEXT": {
+        "FriendlyName": "KRECH_TEXT",
+        "TechnicalName": "KRECH_TEXT",
+        "FieldType": "String",
+        "FieldWidth": 1
+      }
+    }
+  },
+  "StructMap": {},
+  "CollectionMap": {
+    "ET_CONDITIONS": {
+      "Name": "ET_CONDITIONS",
+      "ItemType": "RFC_SD_GET_CONDITION_TYPES.ET_CONDITIONS",
+      "FieldMap": {
+        "ConditionType": {
+          "FriendlyName": "ConditionType",
+          "TechnicalName": "KSCHL",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "KSCHL_TEXT": {
+          "FriendlyName": "KSCHL_TEXT",
+          "TechnicalName": "KSCHL_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "KRECH": {
+          "FriendlyName": "KRECH",
+          "TechnicalName": "KRECH",
+          "FieldType": "String",
+          "FieldWidth": 1
+        },
+        "KRECH_TEXT": {
+          "FriendlyName": "KRECH_TEXT",
+          "TechnicalName": "KRECH_TEXT",
+          "FieldType": "String",
+          "FieldWidth": 1
+        }
+      }
+    }
+  }
+}
